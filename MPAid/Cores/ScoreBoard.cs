@@ -13,22 +13,6 @@ namespace MPAid.Cores
     class ScoreBoardItem
     {
         /// <summary>
-        /// Default constructor. Does nothing.
-        /// </summary>
-        public ScoreBoardItem(){}
-        /// <summary>
-        /// Constructor that takes 2 arguments. Only calls the one that does nothing.
-        /// </summary>
-        public ScoreBoardItem(string recognisedText, string expectingText)
-            : this()
-        {}
-        /// <summary>
-        /// Constructor that takes 1 argument. Only calls the one that only calls the one that does nothing.
-        /// </summary>
-        public ScoreBoardItem(string recognisedText)
-            : this(recognisedText, recognisedText)
-        {}
-        /// <summary>
         /// Calls the similarity algorithm to calculate the difference between the two arguments.
         /// </summary>
         /// <param name="simi">The delegate method to use to calculate the difference between the two arguments.</param>
