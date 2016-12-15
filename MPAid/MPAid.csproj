@@ -131,7 +131,7 @@
     <Compile Include="Cores\NAudioPlayer.cs" />
     <Compile Include="Cores\ProcessExtension.cs" />
     <Compile Include="Cores\PronunciationAdvisor.cs" />
-    <Compile Include="Cores\ReportLaucher.cs" />
+    <Compile Include="Cores\ReportLauncher.cs" />
     <Compile Include="Cores\ScoreBoard.cs" />
     <Compile Include="Forms\AdminConsole.cs">
       <SubType>Form</SubType>

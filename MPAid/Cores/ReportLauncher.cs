@@ -11,7 +11,7 @@ namespace MPAid.Cores
     /// <summary>
     /// Class that generates an HTML report based on data from a ScoreBoard object.
     /// </summary>
-    class ReportLaucher
+    class ReportLauncher
     {
         /// <summary>
         /// The address within the local repository of the generated report.

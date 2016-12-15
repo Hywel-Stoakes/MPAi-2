@@ -34,6 +34,8 @@ namespace MPAid
 
         public MPAidModel DBModel;
 
+        bool doCloseLogin = true;
+
         /// <summary>
         /// Wrapper property for the operationPanel object, allowing reading from outside the class.
         /// </summary>
@@ -170,8 +172,6 @@ namespace MPAid
             // This method will decide if the application is exiting.
             CloseOtherForms();
         }
-
-        bool doCloseLogin = true;
 
         /// <summary>
         /// Checks if the application should be exited when the main form is closed, and closes the application if so.
