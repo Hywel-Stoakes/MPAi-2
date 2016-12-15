@@ -14,7 +14,7 @@ namespace MPAid
     public static class UserManagement
     {
         private static MPAiUser currentUser = null;
-        private static string userDirRoot = null;
+        private static string userDirRoot = IoController.GetAppDataDir() + Path.DirectorySeparatorChar;
         private static string fileName = "AppSettings.dat";    // At present, this does not exist. 
         //Deprecated: Optimisation feature, commit logs suggest that it may cause errors, all references to it have been commented out.
         //private bool unchanged = true;
@@ -187,19 +187,25 @@ namespace MPAid
         {
             try
             {
-                if (File.Exists(GetSettingFilePath()))  // This should have an else clause indicating an error - there is currently no AppSetttings file in the system, however, so it simply skips this step.
+                using (FileStream fs = new FileStream(GetSettingFilePath(),FileMode.OpenOrCreate, FileAccess.Read))
                 {
-                    using (BinaryReader reader = new BinaryReader(
-                        File.Open(GetSettingFilePath(), FileMode.Open)))
+                    using (BinaryReader reader = new BinaryReader(fs))
                     {
-                        int n = reader.ReadInt32();
-                        for (int i = 0; i < n; i++)
-                            allUsers.Add(new MPAiUser(reader.ReadString(), reader.ReadString()));
-
-                        // restore the last used user
-                        string name = reader.ReadString();
-                        string code = reader.ReadString();
-                        currentUser = new MPAiUser(name, code);
+                        if (new FileInfo(GetSettingFilePath()).Length != 0) // If the file wasn't just created
+                        {
+                            int n = reader.ReadInt32();
+                            for (int i = 0; i < n; i++)
+                            {
+                                allUsers.Add(new MPAiUser(reader.ReadString(), reader.ReadString()));
+                            }
+                            // restore the last used user, if there was one.
+                            string name = reader.ReadString();
+                            string code = reader.ReadString();
+                            if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(code))
+                            {
+                                currentUser = new MPAiUser(name, code);
+                            }
+                        }                         
                     }
                 }
             }
@@ -216,25 +222,34 @@ namespace MPAid
             //if (unchanged)
             //    return;
 
-            int n = allUsers.Count;
-            if (n == 0)
-                return;
+            Int32 n = allUsers.Count;
 
             try
             {
-                using (BinaryWriter writer = new BinaryWriter(
-                    File.Open(GetSettingFilePath(), FileMode.Create)))
+                using (FileStream fs = new FileStream(GetSettingFilePath(), FileMode.Create))
                 {
-                    writer.Write(n);
-                    foreach (MPAiUser user in allUsers)
+                    using (BinaryWriter writer = new BinaryWriter(fs))
                     {
-                        writer.Write(user.getName());
-                        writer.Write(user.getCode());               
+                        writer.Write(n);
+                        if (!(n == 0))
+                        {
+                            foreach (MPAiUser user in allUsers)
+                            {
+                                writer.Write(user.getName());
+                                writer.Write(user.getCode());
+                            }         
+                            if (currentUser == null)    // If there is a current user, store it.
+                            {
+                                writer.Write(String.Empty);
+                                writer.Write(String.Empty);
+                            }
+                            else
+                            { 
+                                writer.Write(currentUser.getName());
+                                writer.Write(currentUser.getCode());
+                            }                                                                   
+                        }
                     }
-
-                    // store the last used user
-                    writer.Write(currentUser.getName());
-                    writer.Write(currentUser.getCode());
                 }
             }
             catch (Exception exp)

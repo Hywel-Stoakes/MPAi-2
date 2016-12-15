@@ -88,6 +88,7 @@
             this.Name = "AdminConsole";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator Console";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminConsole_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.userDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

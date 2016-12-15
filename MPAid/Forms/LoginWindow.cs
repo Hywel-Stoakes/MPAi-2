@@ -21,9 +21,6 @@ namespace MPAid
         public LoginWindow()
         {
             InitializeComponent();
-
-            UserManagement.SetRoot(IoController.GetAppDataDir());
-
             InitializeUI();
         }
 

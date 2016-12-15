@@ -62,6 +62,7 @@ namespace MPAid
             else
             {
                 UserManagement.ChangeUserCode(currentUser.getName(), codeBox.Text);
+                UserManagement.WriteSettings();
                 MessageBox.Show("Password changed! ",
                       "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();

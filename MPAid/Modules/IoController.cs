@@ -21,6 +21,10 @@ namespace MPAid
         /// <returns>The current MPAid directory, as a string.</returns>
         public static string GetAppDataDir()
         {
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MPAid"))
+            {
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MPAid");
+            }
             return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MPAid";
         }
 
