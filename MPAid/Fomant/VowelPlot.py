@@ -239,7 +239,7 @@ class VowelPlot:
         self.loadedAudio = Sound()
 
 
-    #Used for Testing
+    #TESTING MOCK FUNCTION: Start
     def plotFormants2(self, sound):
         #probabilityOfVoicing = SoundProcessing.getProbabilityOfVoicing(sound,False)
 
@@ -274,13 +274,15 @@ class VowelPlot:
                                 self.formantPlotCanvas.create_oval(xx-radius,yy-radius,xx+radius,yy+radius, fill=color, tags="userformants")
             self.stop()
 
+    #TESTING MOCK FUNCTION: END
+
     """
     Plot Fomrants takes a sound file and plots the last formant in the file.
     """
     def plotFormants(self, sound):
         self.formantPlotCanvas.delete('arrow')
         #Gets the probablity of sound being a voice for the last formant in the sound file. (false means last formant, true means all formants)
-        #probabilityOfVoicing = SoundProcessing.getProbabilityOfVoicing(sound,False)
+        probabilityOfVoicing = SoundProcessing.getProbabilityOfVoicing(sound,False)
 
         if True:#probabilityOfVoicing == 1.0:
             formant = SoundProcessing.getFormants(sound,self.id,False)
@@ -296,12 +298,14 @@ class VowelPlot:
                 x = self.x + (x + self.xShift-self.x)*self.xIdeal/self.f2sd
                 y = self.y + (y + self.yShift-self.y)*self.yIdeal/self.f1sd
 
-
-                if ((self.prevX-x)**2 + (self.prevY-y)**2)**0.5 < 30:
+                #Remove some background noise.
+                if ((self.prevX-x)**2 + (self.prevY-y)**2)**0.5 < 28:
 
                     self.formantPlotCanvas.create_oval(x-radius,y-radius,x+radius,y+radius, fill=color, tags="userformants")
                     distance = (((x-self.x)**2+(y-self.y)**2)**0.5)
-                    self.plotCount += 1
+                    if distance < 700:
+                        self.plotCount += 1
+
                     if self.plotCount > 250:
                         print "PlotCount at 250, STOPPING RECORD."
                         self.stop()

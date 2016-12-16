@@ -153,7 +153,6 @@ class VowelApp:
         Grid.rowconfigure(self.root, 0, weight=0)
         Grid.columnconfigure(self.root, 0, weight=1)
         self.frame = Frame(self.root, bg='purple')
-        #self.frame.pack(fill='both', side='left', expand = '1')
         self.frame.grid(row=0, column=0, sticky=N+S+E+W)
 
     """
@@ -187,7 +186,6 @@ class VowelApp:
         self.pronButtonFrame = Frame(self.root)
         self.pronButtonFrame.config(width= 150, bg = 'purple')
         self.btnHeight = self.pronButtonFrame.winfo_height()
-        #self.pronButtonFrame.pack(side='right')
         self.pronButtonFrame.grid(row = 0, column=2, rowspan=1, columnspan = 1, sticky=N+S+E+W)
         fileEnd = "Vowel.gif"
         count = 0
