@@ -97,7 +97,7 @@ namespace MPAid
                 CloseFormantPlot();
 
                 FormantPlotExe = new Process();
-                FormantPlotExe.StartInfo.FileName = "Runner.exe";
+                FormantPlotExe.StartInfo.FileName = "PlotRunner.exe";
                 FormantPlotExe.StartInfo.UseShellExecute = true;
                 FormantPlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FomantFolder, @"dist");
                 FormantPlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;

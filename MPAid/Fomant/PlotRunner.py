@@ -12,6 +12,6 @@ from FormantApp import *
 import sys
 
 
-FormantApp = FormantApp(sys.argv[1],sys.argv[2])
+FormantApp = FormantApp()
 FormantApp.mainloop()
 raw_input()
