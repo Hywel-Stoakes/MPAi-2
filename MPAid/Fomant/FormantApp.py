@@ -53,7 +53,7 @@ class FormantApp:
         self.root = Tk()
         self.root.title("Formant Plot") #Dont change the title without changing the c# code to end the process.
         self.root.protocol("WM_DELETE_WINDOW", self.quitPlot) #Defines the default close operation.
-        self.root.resizable(True, True) #Allows the window to be resized both verically and horizonally.
+        self.root.resizable(False, False) #Allows the window to be resized both verically and horizonally.
         self.positionWindowInCentre(self.root, FRAMEWIDTH, FRAMEHEIGHT) #Determines where to place the Frame on the screen.
 
     """

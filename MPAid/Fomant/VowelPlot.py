@@ -57,7 +57,6 @@ class VowelPlot:
         #Plot
         self.formantPlotFrame = self.parent
         self.formantPlotCanvas = Canvas(self.formantPlotFrame, height=self.width, width=self.height, bg='white')
-        #self.formantPlotCanvas.grid(row=0 ,column=0, sticky=N+S+E+W)
         self.formantPlotCanvas.pack(fill='both', expand=1)
         #Creates the loudnessMeter on the formant plot canvas.
         self.loudnessMeter = LoudnessMeter(self.formantPlotCanvas,YSHIFT)
