@@ -292,10 +292,10 @@ class VowelApp:
         self.animate(0)
 
     def animate(self, counter):
-        thread.start_new_thread(self.multiThreadAntimate, ("Animator-1", True))
+        thread.start_new_thread(self.multiThreadAntimate, ("Animator-1", counter))
 
 
-    def multiThreadAntimate(self, a):
+    def multiThreadAntimate(self, threadName, counter):
         if not self.animating:
             # destroy the current sequence
             self.sequence = []

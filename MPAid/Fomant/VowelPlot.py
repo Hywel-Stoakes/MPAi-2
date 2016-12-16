@@ -302,7 +302,7 @@ class VowelPlot:
 
                     self.formantPlotCanvas.create_oval(x-radius,y-radius,x+radius,y+radius, fill=color, tags="userformants")
                     distance = (((x-self.x)**2+(y-self.y)**2)**0.5)
-                    if distance < 700:
+                    if distance < self.xIdeal*2:
                         self.plotCount += 1
 
                     if self.plotCount > 250:
@@ -328,7 +328,7 @@ class VowelPlot:
                         self.formantPlotCanvas.create_line(x1,y3, x2,y1, fill='black', tag='arrow')
 
                     if(abs(y-self.y) > self.height ):
-                        print "OFF Y"
+                        pass
 
                 self.prevX = x
                 self.prevY = y

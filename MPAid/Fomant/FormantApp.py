@@ -348,7 +348,6 @@ class FormantApp:
     """
     def quitPlot(self):
         self.root.destroy()
-        quit()
 
 
 

@@ -87,12 +87,13 @@ Deletes the entire sound except for the last second of the sound
 Returns - the last second of the sound
 '''
 def crop(sound):
-    cropLength = 0.75 #The length of the crop to be used in real time formant creation. The smaller the less computation must be done before each formant can be loaded onto the plot. But the smaller the worse for signal processing.
+    cropLength = 0.3 #The length of the crop to be used in real time formant creation. The smaller the less computation must be done before each formant can be loaded onto the plot. But the smaller the worse for signal processing.
 
     soundLength = sound.length(unit="SECONDS")
 
     soundInfo = sound.info()
     soundSampleRate = soundInfo[1]
     if soundLength > cropLength:
+	print soundLength, cropLength
         sound.crop(start=(int)((soundLength - cropLength)*soundSampleRate),end=sound.length())
     return sound
