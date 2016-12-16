@@ -41,7 +41,7 @@ namespace MPAid
             set { passWord = value; }
         }
         /// <summary>
-        /// Wrapper property for the administrator status of the user, allowing ti to be checked from outside the class.
+        /// Wrapper property for the administrator status of the user, allowing it to be checked from outside the class.
         /// </summary>
         [DisplayName("IsAdministrator")]
         public bool IsAdmin

@@ -297,6 +297,5 @@ namespace MPAid
 
             File.WriteAllText(htmlPath, writer.InnerWriter.ToString(), Encoding.GetEncoding(MaoriEncodingCode));
         }
-
     }
 }

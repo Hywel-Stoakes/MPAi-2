@@ -349,16 +349,17 @@ namespace MPAid.UserControls
         private void showReportButton_Click(object sender, EventArgs e)
         {
             ReportLauncher rl = new ReportLauncher();
+            rl.GenerateScoreboardCSS();
             rl.GenerateHTML(scoreBoard);
 
             // Deprecated: this system no longer has an hConfig object.
             //String reportPath = hConfig.GetHtmlFullPath();
 
             // Show the HTML file in system browser
-            if (File.Exists(rl.ReportAddr))
+            if (File.Exists(rl.ScoreboardReportHTMLAddress))
             {
                 Process browser = new Process();
-                browser.StartInfo.FileName = rl.ReportAddr;
+                browser.StartInfo.FileName = rl.ScoreboardReportHTMLAddress;
                 browser.Start();
             }
             else

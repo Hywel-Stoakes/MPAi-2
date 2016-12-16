@@ -172,8 +172,8 @@ namespace MPAid.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to table {
-        ///            width: 100%;
-        ///        }
+        ///          width: 100%;
+        ///}
         ///
         ///        table, th, td {
         ///            border: 1px solid black;
@@ -185,16 +185,17 @@ namespace MPAid.Properties {
         ///            text-align: center;
         ///        }
         ///
-        ///        /*table#t01 tr:nth-child(even) {
-        ///            background-color: #fff;
+        ///        table#t01 tr:nth-child(even) {
+        ///            background-color: red;
         ///        }
         ///
         ///        table#t01 tr:nth-child(odd) {
-        ///            background-color: #eee;
-        ///        }*/
+        ///            background-color: blue;
+        ///        }
         ///
         ///        table#t01 tr.correct {
-        ///            background-color: rgb(210, 234 [rest of string was truncated]&quot;;.
+        ///            background-color: rgb(210, 234, 200);
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CssContent {
             get {
