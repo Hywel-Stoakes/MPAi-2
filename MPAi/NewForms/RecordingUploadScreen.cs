@@ -102,14 +102,14 @@ namespace MPAi.NewForms
                     {
                         return;
                     }
-                    foreach (FileInfo item in mediaLocalListBox.SelectedItems)      // For each selected item...
+                    foreach (FileInfo item in mediaLocalListBox.SelectedItems)  // For each selected item...
                     {
                         FileInfo workingFile = item;
 
                         // Need to rename file.
                         // If the user wanted to rename them themselves, take the same action as in SpeechRecognitionTest - automatically bring up rename.
 
-                        if (NameParser.IsFileNameCorrect(workingFile.Name))
+                        if (!NameParser.IsFileNameCorrect(workingFile.Name))
                         {
                             // Back up the file to a temporary folder.
                             File.Copy(workingFile.FullName, Path.Combine(AppDataPath.Temp, "Rename_Backup"));
@@ -159,7 +159,7 @@ namespace MPAi.NewForms
             }
             catch (Exception exp)
             {
-                Console.WriteLine(exp);
+                Console.WriteLine(exp.StackTrace);
                 MessageBox.Show(exp.StackTrace);
             }
             finally
