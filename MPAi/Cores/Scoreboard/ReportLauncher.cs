@@ -285,6 +285,10 @@ namespace MPAi.Cores.Scoreboard
 
                         foreach(MPAiSpeakScoreBoardSession session in scoreboard.Sessions)
                         {
+                            if (session.IsEmpty())
+                            {
+                                continue;
+                            }
                             //Table Title
                             htw.AddAttribute(HtmlTextWriterAttribute.Class, "table-title");
                             htw.RenderBeginTag(HtmlTextWriterTag.Div);
@@ -391,6 +395,10 @@ namespace MPAi.Cores.Scoreboard
 
                         foreach (MPAiSoundScoreBoardSession session in scoreboard.Sessions)
                         {
+                            if(session.IsEmpty())
+                            {
+                                continue;
+                            }
                             //Table Title
                             htw.AddAttribute(HtmlTextWriterAttribute.Class, "table-title");
                             htw.RenderBeginTag(HtmlTextWriterTag.Div);
