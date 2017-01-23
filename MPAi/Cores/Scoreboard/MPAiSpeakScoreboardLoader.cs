@@ -27,6 +27,11 @@ namespace MPAi.Cores.Scoreboard
 
         public static void SaveScoreboard(MPAiSpeakScoreBoard scoreboard)
         {
+            if (scoreboard.IsEmpty())
+            {
+                return;
+            }
+
             if (File.Exists(SpeakScoreboardFileAddress(scoreboard.User)))
             {
                 File.Delete(SpeakScoreboardFileAddress(scoreboard.User));
@@ -38,6 +43,10 @@ namespace MPAi.Cores.Scoreboard
                     sw.WriteLine("<Scoreboard>");
                     foreach (MPAiSpeakScoreBoardSession session in scoreboard.Sessions)
                     {
+                        if (session.IsEmpty())
+                        {
+                            continue;
+                        }
                         sw.WriteLine("<Session>");
                         sw.WriteLine("<Date>");
                         sw.WriteLine(session.DateAndTime);

@@ -185,6 +185,18 @@ namespace MPAi.Cores.Scoreboard
         {
             MPAiSpeakScoreboardLoader.SaveScoreboard(this);
         }
+
+        public bool IsEmpty()
+        {
+            foreach(MPAiSpeakScoreBoardSession session in Sessions)
+            {
+                if(!session.IsEmpty())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
     /// <summary>
     /// Wrapper class for the similarity algorithm employed for the correctness value.

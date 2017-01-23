@@ -125,5 +125,17 @@ namespace MPAi.Cores.Scoreboard
         {               
             MPAiSoundScoreboardLoader.SaveScoreboard(this);
         }
+
+        public bool IsEmpty()
+        {
+            foreach (MPAiSoundScoreBoardSession session in Sessions)
+            {
+                if (!session.IsEmpty())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

@@ -253,6 +253,11 @@ namespace MPAi.Cores.Scoreboard
         /// <param name="scoreboard">The scoreboard to generate an HTML report of.</param>
         public static void GenerateMPAiSpeakScoreHTML(MPAiSpeakScoreBoard scoreboard)
         {
+            if(scoreboard.IsEmpty())
+            {
+                return;
+            }
+
             scoreboard.SaveScoreBoardToFile();
 
             if(!File.Exists(ScoreboardReportCSSAddress))
@@ -363,6 +368,11 @@ namespace MPAi.Cores.Scoreboard
 
         public static void GenerateMPAiSoundScoreHTML(MPAiSoundScoreBoard scoreboard)
         {
+            if (scoreboard.IsEmpty())
+            {
+                return;
+            }
+
             scoreboard.SaveScoreBoardToFile();
 
             if (!File.Exists(ScoreboardReportCSSAddress))
