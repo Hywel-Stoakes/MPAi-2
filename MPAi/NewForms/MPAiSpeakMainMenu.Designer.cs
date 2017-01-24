@@ -57,6 +57,7 @@
             this.splitContainer1.Location = new System.Drawing.Point(0, 24);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer1.BackColor = System.Drawing.Color.White;
             // 
             // splitContainer1.Panel1
             // 
@@ -138,6 +139,9 @@
             this.learnButton.Text = "Learn";
             this.learnButton.UseVisualStyleBackColor = true;
             this.learnButton.Click += new System.EventHandler(this.learnButton_Click);
+            this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.learnButton.ForeColor = System.Drawing.Color.White;
+            this.learnButton.BackColor = System.Drawing.Color.Red;
             // 
             // testButton
             // 
@@ -149,6 +153,9 @@
             this.testButton.Text = "Test";
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testButton.ForeColor = System.Drawing.Color.White;
+            this.testButton.BackColor = System.Drawing.Color.Red;
             // 
             // reportButton
             // 
@@ -160,6 +167,9 @@
             this.reportButton.Text = "Score Report";
             this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportButton.ForeColor = System.Drawing.Color.White;
+            this.reportButton.BackColor = System.Drawing.Color.Red;
             // 
             // mpAiSoundMenuStrip1
             // 

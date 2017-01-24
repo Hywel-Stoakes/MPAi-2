@@ -33,7 +33,7 @@ namespace MPAi.NewForms
             }
             else
             {
-                greetingLabel.Text = "Kia Ora, " + name + "!";
+                greetingLabel.Text = ("Kia Ora, " + name + "!");
             }
         }
 
