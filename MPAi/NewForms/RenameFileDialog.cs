@@ -14,7 +14,7 @@ using System.Data.Entity;
 
 namespace MPAi.NewForms
 {
-    public partial class RenameFileDialog : Form
+    public partial class RenameFileDialog : MPAiForm
     {
         // Strings kept in fields to make text easier to change.
         private string noSuchFileText = "No such file!";

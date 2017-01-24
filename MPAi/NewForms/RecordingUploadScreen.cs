@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace MPAi.NewForms
 {
-    public partial class RecordingUploadScreen : Form
+    public partial class RecordingUploadScreen : MPAiForm
     {
         // Strings kept in one place to be easier to change.
         private string selectAllDatabaseText = "Select All Database Files";

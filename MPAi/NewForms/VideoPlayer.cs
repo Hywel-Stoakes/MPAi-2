@@ -19,7 +19,7 @@ using Vlc.DotNet.Forms;
 
 namespace MPAi.NewForms
 {
-    public partial class VideoPlayer : Form, MainFormInterface
+    public partial class VideoPlayer : MPAiForm, MainFormInterface
     {
         // Strings kept in fields to make text easier to change.
         private string optionsLess = "Less...";

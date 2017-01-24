@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MPAi.NewForms
 {
-    public partial class MPAiSoundMainMenu : Form, MainFormInterface
+    public partial class MPAiSoundMainMenu : MPAiForm, MainFormInterface
     {
         private bool appClosing = true;
 

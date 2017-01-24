@@ -34,10 +34,9 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.learnButton = new MPAiButton();
-            this.testButton = new MPAiButton();
-            this.reportButton = new MPAiButton();
-            this.mpAiSoundMenuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
+            this.learnButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.testButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,16 +48,12 @@
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            //
-            // this
-            //
-            this.BackColor = System.Drawing.Color.White;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -69,8 +64,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(544, 337);
-            this.splitContainer1.SplitterDistance = 75;
+            this.splitContainer1.Size = new System.Drawing.Size(544, 361);
+            this.splitContainer1.SplitterDistance = 80;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
             // 
@@ -81,7 +76,7 @@
             this.headerBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerBox.Location = new System.Drawing.Point(0, 0);
             this.headerBox.Name = "headerBox";
-            this.headerBox.Size = new System.Drawing.Size(544, 75);
+            this.headerBox.Size = new System.Drawing.Size(544, 80);
             this.headerBox.TabIndex = 1;
             this.headerBox.TabStop = false;
             // 
@@ -100,17 +95,18 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer2.Size = new System.Drawing.Size(544, 258);
-            this.splitContainer2.SplitterDistance = 90;
+            this.splitContainer2.Size = new System.Drawing.Size(544, 277);
+            this.splitContainer2.SplitterDistance = 96;
             this.splitContainer2.TabIndex = 0;
             // 
             // greetingLabel
             // 
+            this.greetingLabel.BackColor = System.Drawing.Color.White;
             this.greetingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.greetingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.greetingLabel.Location = new System.Drawing.Point(0, 0);
             this.greetingLabel.Name = "greetingLabel";
-            this.greetingLabel.Size = new System.Drawing.Size(544, 90);
+            this.greetingLabel.Size = new System.Drawing.Size(544, 96);
             this.greetingLabel.TabIndex = 0;
             this.greetingLabel.Text = "Kia Ora, User!";
             this.greetingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,13 +125,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 164);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 177);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // learnButton
             // 
             this.learnButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.learnButton.Location = new System.Drawing.Point(197, 15);
+            this.learnButton.BackColor = System.Drawing.Color.Red;
+            this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.learnButton.ForeColor = System.Drawing.Color.White;
+            this.learnButton.Location = new System.Drawing.Point(197, 18);
             this.learnButton.Name = "learnButton";
             this.learnButton.Size = new System.Drawing.Size(150, 23);
             this.learnButton.TabIndex = 0;
@@ -146,7 +145,10 @@
             // testButton
             // 
             this.testButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.testButton.Location = new System.Drawing.Point(197, 69);
+            this.testButton.BackColor = System.Drawing.Color.Red;
+            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testButton.ForeColor = System.Drawing.Color.White;
+            this.testButton.Location = new System.Drawing.Point(197, 77);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(150, 23);
             this.testButton.TabIndex = 1;
@@ -157,7 +159,10 @@
             // reportButton
             // 
             this.reportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.reportButton.Location = new System.Drawing.Point(197, 124);
+            this.reportButton.BackColor = System.Drawing.Color.Red;
+            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportButton.ForeColor = System.Drawing.Color.White;
+            this.reportButton.Location = new System.Drawing.Point(197, 136);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(150, 23);
             this.reportButton.TabIndex = 2;
@@ -165,21 +170,13 @@
             this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
-            // mpAiSoundMenuStrip1
-            // 
-            this.mpAiSoundMenuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.mpAiSoundMenuStrip1.Name = "mpAiSoundMenuStrip1";
-            this.mpAiSoundMenuStrip1.Size = new System.Drawing.Size(544, 24);
-            this.mpAiSoundMenuStrip1.TabIndex = 2;
-            this.mpAiSoundMenuStrip1.Text = "mpAiSoundMenuStrip1";
-            // 
             // MPAiSpeakMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(544, 361);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.mpAiSoundMenuStrip1);
             this.Name = "MPAiSpeakMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MPAiSpeakMainMenu";
@@ -195,7 +192,6 @@
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -20,7 +20,7 @@ using System.Threading;
 
 namespace MPAi.NewForms
 {
-    public partial class AudioPlayer : Form, MainFormInterface
+    public partial class AudioPlayer : MPAiForm, MainFormInterface
     {
         // Strings kept in fields to make text easier to change.
         private string optionsLess = "Less...";

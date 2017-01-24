@@ -11,7 +11,7 @@ using MPAi.Models;
 
 namespace MPAi.NewForms
 {
-    public partial class UserCreationScreen : Form
+    public partial class UserCreationScreen : MPAiForm
     {
         private string username = null;
         private string usercode = null;
@@ -118,6 +118,11 @@ namespace MPAi.NewForms
         private void okayButton_Click(object sender, EventArgs e)
         {
             createUser();
+        }
+
+        private void logoBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,7 +21,7 @@ using MPAi.Forms.Config;
 namespace MPAi.NewForms
 {
 
-    public partial class SpeechRecognitionTest : Form, MainFormInterface
+    public partial class SpeechRecognitionTest : MPAiForm, MainFormInterface
     {
         // Strings kept in fields to make text easier to change.
         private string optionsLess = "Less...";

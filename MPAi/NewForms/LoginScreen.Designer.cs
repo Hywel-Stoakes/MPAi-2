@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.speakLaunchButton = new MPAiButton();
-            this.signupButton = new MPAiButton();
+            this.speakLaunchButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.signupButton = new MPAi.NewForms.MPAiButton(this.components);
             this.rememberCheckBox = new System.Windows.Forms.CheckBox();
-            this.soundLaunchButton = new MPAiButton();
+            this.soundLaunchButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
-            // this
-            this.BackColor = System.Drawing.Color.White;
             // 
             // logoBox
             // 
@@ -82,6 +81,9 @@
             // speakLaunchButton
             // 
             this.speakLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.speakLaunchButton.BackColor = System.Drawing.Color.Red;
+            this.speakLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.speakLaunchButton.ForeColor = System.Drawing.Color.White;
             this.speakLaunchButton.Location = new System.Drawing.Point(12, 227);
             this.speakLaunchButton.Name = "speakLaunchButton";
             this.speakLaunchButton.Size = new System.Drawing.Size(80, 23);
@@ -93,6 +95,9 @@
             // signupButton
             // 
             this.signupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signupButton.BackColor = System.Drawing.Color.Red;
+            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signupButton.ForeColor = System.Drawing.Color.White;
             this.signupButton.Location = new System.Drawing.Point(197, 227);
             this.signupButton.Name = "signupButton";
             this.signupButton.Size = new System.Drawing.Size(80, 23);
@@ -115,6 +120,9 @@
             // soundLaunchButton
             // 
             this.soundLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.soundLaunchButton.BackColor = System.Drawing.Color.Red;
+            this.soundLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.soundLaunchButton.ForeColor = System.Drawing.Color.White;
             this.soundLaunchButton.Location = new System.Drawing.Point(98, 227);
             this.soundLaunchButton.Name = "soundLaunchButton";
             this.soundLaunchButton.Size = new System.Drawing.Size(80, 23);
@@ -127,6 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.soundLaunchButton);
             this.Controls.Add(this.rememberCheckBox);

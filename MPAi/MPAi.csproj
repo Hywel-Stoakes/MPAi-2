@@ -2972,6 +2972,9 @@
     <Compile Include="NewForms\MenuStrip.Designer.cs">
       <DependentUpon>MenuStrip.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewForms\MPAiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="NewForms\RecordingUploadScreen.cs">
       <SubType>Form</SubType>
     </Compile>

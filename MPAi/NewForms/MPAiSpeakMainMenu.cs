@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MPAi.NewForms
 {
-    public partial class MPAiSpeakMainMenu : Form, MainFormInterface
+    public partial class MPAiSpeakMainMenu : MPAiForm, MainFormInterface
     {
         private bool appClosing = true;
 
