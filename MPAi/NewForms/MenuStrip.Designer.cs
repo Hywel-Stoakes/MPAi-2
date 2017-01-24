@@ -46,6 +46,8 @@
             this.instructionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SuspendLayout();
+            // this
+            this.BackColor = System.Drawing.Color.White;
             // 
             // userToolStripMenuItem
             // 
