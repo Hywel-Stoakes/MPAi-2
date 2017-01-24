@@ -175,7 +175,6 @@ class VowelPlot:
         self.scoreCounter = 0
 
     def redrawScore(self):
-        print self.score
         font = ('Arial','18')
         self.vowelPlotCanvas.delete('score')
         if self.score == 0:
@@ -492,11 +491,10 @@ class VowelPlot:
             self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
             self.root.after(500 ,self.requestFinalScore)
 
-    
+
 
 
     def requestFinalScore(self):
-        print "Requesting Final Score"
         self.displayFinalScore(self.vowelScorer.getLastScore())
 
     def clear(self):
