@@ -49,6 +49,10 @@
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            //
+            // this
+            //
+            this.BackColor = System.Drawing.Color.White;
             // 
             // splitContainer1
             // 
@@ -57,7 +61,6 @@
             this.splitContainer1.Location = new System.Drawing.Point(0, 24);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer1.BackColor = System.Drawing.Color.White;
             // 
             // splitContainer1.Panel1
             // 
