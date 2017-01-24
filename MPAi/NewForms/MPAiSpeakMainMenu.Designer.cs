@@ -34,9 +34,9 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.learnButton = new System.Windows.Forms.Button();
-            this.testButton = new System.Windows.Forms.Button();
-            this.reportButton = new System.Windows.Forms.Button();
+            this.learnButton = new MPAiButton();
+            this.testButton = new MPAiButton();
+            this.reportButton = new MPAiButton();
             this.mpAiSoundMenuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -142,9 +142,6 @@
             this.learnButton.Text = "Learn";
             this.learnButton.UseVisualStyleBackColor = true;
             this.learnButton.Click += new System.EventHandler(this.learnButton_Click);
-            this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.learnButton.ForeColor = System.Drawing.Color.White;
-            this.learnButton.BackColor = System.Drawing.Color.Red;
             // 
             // testButton
             // 
@@ -156,9 +153,6 @@
             this.testButton.Text = "Test";
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testButton.ForeColor = System.Drawing.Color.White;
-            this.testButton.BackColor = System.Drawing.Color.Red;
             // 
             // reportButton
             // 
@@ -170,9 +164,6 @@
             this.reportButton.Text = "Score Report";
             this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
-            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportButton.ForeColor = System.Drawing.Color.White;
-            this.reportButton.BackColor = System.Drawing.Color.Red;
             // 
             // mpAiSoundMenuStrip1
             // 
@@ -216,8 +207,8 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label greetingLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button learnButton;
-        private System.Windows.Forms.Button testButton;
-        private System.Windows.Forms.Button reportButton;
+        private MPAiButton learnButton;
+        private MPAiButton testButton;
+        private MPAiButton reportButton;
     }
 }

@@ -25,12 +25,10 @@ namespace MPAi.NewForms
             {
                 this.ForeColor = System.Drawing.Color.White;
                 this.BackColor = System.Drawing.Color.Red;
-                this.EnabledChanged += MPAiButton_EnabledChanged;
             } else
             {
                 this.ForeColor = System.Drawing.Color.White;
-                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xFF, 0x44, 0x44);
-                this.EnabledChanged += MPAiButton_EnabledChanged;
+                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xFF, 0x88, 0x88);
             }
         }
 

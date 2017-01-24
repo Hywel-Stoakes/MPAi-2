@@ -35,9 +35,9 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.learnButton = new System.Windows.Forms.Button();
-            this.testButton = new System.Windows.Forms.Button();
-            this.reportButton = new System.Windows.Forms.Button();
+            this.learnButton = new MPAiButton();
+            this.testButton = new MPAiButton();
+            this.reportButton = new MPAiButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -144,7 +144,6 @@
             this.learnButton.Size = new System.Drawing.Size(150, 23);
             this.learnButton.TabIndex = 0;
             this.learnButton.Text = "Learn";
-            this.learnButton.UseVisualStyleBackColor = true;
             this.learnButton.Click += new System.EventHandler(this.learnButton_Click);
             // 
             // testButton
@@ -155,7 +154,6 @@
             this.testButton.Size = new System.Drawing.Size(150, 23);
             this.testButton.TabIndex = 1;
             this.testButton.Text = "Test";
-            this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // reportButton
@@ -166,7 +164,6 @@
             this.reportButton.Size = new System.Drawing.Size(150, 23);
             this.reportButton.TabIndex = 2;
             this.reportButton.Text = "Score Report";
-            this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
             // MPAiSoundMainMenu
@@ -203,8 +200,8 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label greetingLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button learnButton;
-        private System.Windows.Forms.Button testButton;
-        private System.Windows.Forms.Button reportButton;
+        private MPAiButton learnButton;
+        private MPAiButton testButton;
+        private MPAiButton reportButton;
     }
 }

@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toLocalButton = new System.Windows.Forms.Button();
-            this.toDBButton = new System.Windows.Forms.Button();
+            this.toLocalButton = new MPAiButton();
+            this.toDBButton = new MPAiButton();
             this.onDBListBox = new System.Windows.Forms.ListBox();
-            this.allLocalItemsButton = new System.Windows.Forms.Button();
+            this.allLocalItemsButton = new MPAiButton();
             this.mediaLocalListBox = new System.Windows.Forms.ListBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.currentFolderTextBox = new System.Windows.Forms.TextBox();
-            this.selectFolderButton = new System.Windows.Forms.Button();
-            this.allDatabaseItemsButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
+            this.selectFolderButton = new MPAiButton();
+            this.allDatabaseItemsButton = new MPAiButton();
+            this.backButton = new MPAiButton();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
@@ -171,16 +171,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button toLocalButton;
-        private System.Windows.Forms.Button toDBButton;
+        private MPAiButton toLocalButton;
+        private MPAiButton toDBButton;
         private System.Windows.Forms.ListBox onDBListBox;
-        private System.Windows.Forms.Button allLocalItemsButton;
+        private MPAiButton allLocalItemsButton;
         private System.Windows.Forms.ListBox mediaLocalListBox;
         private System.Windows.Forms.Label databaseLabel;
         private System.Windows.Forms.TextBox currentFolderTextBox;
-        private System.Windows.Forms.Button selectFolderButton;
-        private System.Windows.Forms.Button allDatabaseItemsButton;
-        private System.Windows.Forms.Button backButton;
+        private MPAiButton selectFolderButton;
+        private MPAiButton allDatabaseItemsButton;
+        private MPAiButton backButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
