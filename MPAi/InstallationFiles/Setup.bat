@@ -1,5 +1,5 @@
 @ECHO OFF
-
+cd MPAi_Files
 SET installdir= %cd%
 
 CALL deleteData.bat
@@ -28,8 +28,7 @@ if exist MPAiDB_log.ldf ( del MPAiDB_log.ldf)
 
 cd %installdir%
 
-ECHO Creating new Database in %appdata%/MPAi
-
+cd "Application" "Data"/MPAi/bin
 MPAi.exe initDB
 
 cd ../../..
