@@ -2953,6 +2953,12 @@
     <Compile Include="NewForms\AudioPlayer.Designer.cs">
       <DependentUpon>AudioPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewForms\MPAiButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewForms\MPAiButton.Designer.cs">
+      <DependentUpon>MPAiButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewForms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3091,6 +3097,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewForms\AudioPlayer.resx">
       <DependentUpon>AudioPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewForms\MPAiButton.resx">
+      <DependentUpon>MPAiButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewForms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>

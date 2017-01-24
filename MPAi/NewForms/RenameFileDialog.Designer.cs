@@ -35,9 +35,9 @@
             this.speakerLabel = new System.Windows.Forms.Label();
             this.filenameTextBox = new System.Windows.Forms.TextBox();
             this.filenameLabel = new System.Windows.Forms.Label();
-            this.filePickerButton = new System.Windows.Forms.Button();
-            this.renameButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.filePickerButton = new MPAiButton();
+            this.renameButton = new MPAiButton();
+            this.cancelButton = new MPAiButton();
             this.WordComboBox = new System.Windows.Forms.ComboBox();
             this.ExplanationLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -239,9 +239,9 @@
         private System.Windows.Forms.Label speakerLabel;
         private System.Windows.Forms.TextBox filenameTextBox;
         private System.Windows.Forms.Label filenameLabel;
-        private System.Windows.Forms.Button filePickerButton;
-        private System.Windows.Forms.Button renameButton;
-        private System.Windows.Forms.Button cancelButton;
+        private MPAiButton filePickerButton;
+        private MPAiButton renameButton;
+        private MPAiButton cancelButton;
         private System.Windows.Forms.ComboBox WordComboBox;
         private System.Windows.Forms.Label ExplanationLabel;
         private System.Windows.Forms.OpenFileDialog openFileDialog;

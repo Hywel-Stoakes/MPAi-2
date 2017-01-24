@@ -38,8 +38,8 @@ namespace MPAi.NewForms
             this.panel1 = new System.Windows.Forms.Panel();
             this.descriptionBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.scoreReportButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
+            this.scoreReportButton = new MPAiButton();
+            this.backButton = new MPAiButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -180,7 +180,6 @@ namespace MPAi.NewForms
             this.scoreReportButton.Size = new System.Drawing.Size(100, 23);
             this.scoreReportButton.TabIndex = 0;
             this.scoreReportButton.Text = "Score Report";
-            this.scoreReportButton.UseVisualStyleBackColor = true;
             this.scoreReportButton.Click += new System.EventHandler(this.scoreReportButton_Click);
             // 
             // backButton
@@ -191,7 +190,6 @@ namespace MPAi.NewForms
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
             this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // AnalysisScreen
@@ -232,7 +230,7 @@ namespace MPAi.NewForms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox descriptionBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button scoreReportButton;
-        private System.Windows.Forms.Button backButton;
+        private MPAiButton scoreReportButton;
+        private MPAiButton backButton;
     }
 }

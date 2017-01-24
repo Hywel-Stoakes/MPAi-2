@@ -55,9 +55,9 @@
             this.modernRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.okayButton = new System.Windows.Forms.Button();
+            this.okayButton = new MPAiButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.cancelButton = new MPAiButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -519,9 +519,9 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TableLayoutPanel ButtonPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button okayButton;
+        private MPAiButton okayButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button cancelButton;
+        private MPAiButton cancelButton;
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

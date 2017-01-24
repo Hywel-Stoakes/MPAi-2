@@ -31,35 +31,35 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
             this.VideoPlayerPanel = new System.Windows.Forms.SplitContainer();
-            this.backButton = new System.Windows.Forms.Button();
-            this.optionsButton = new System.Windows.Forms.Button();
+            this.backButton = new MPAiButton();
+            this.optionsButton = new MPAiButton();
             this.VowelComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.vlcControl = new Vlc.DotNet.Forms.VlcControl();
-            this.backwardButton = new System.Windows.Forms.Button();
+            this.backwardButton = new MPAiButton();
             this.backImageList = new System.Windows.Forms.ImageList(this.components);
-            this.playButton = new System.Windows.Forms.Button();
+            this.playButton = new MPAiButton();
             this.playImageList = new System.Windows.Forms.ImageList(this.components);
-            this.forwardButton = new System.Windows.Forms.Button();
+            this.forwardButton = new MPAiButton();
             this.forwardImageList = new System.Windows.Forms.ImageList(this.components);
-            this.resetButton = new System.Windows.Forms.Button();
+            this.resetButton = new MPAiButton();
             this.label1 = new System.Windows.Forms.Label();
             this.playNextCheckBox = new System.Windows.Forms.CheckBox();
-            this.removeButton = new System.Windows.Forms.Button();
+            this.removeButton = new MPAiButton();
             this.divider4 = new System.Windows.Forms.Label();
             this.divider3 = new System.Windows.Forms.Label();
             this.divider2 = new System.Windows.Forms.Label();
             this.divider1 = new System.Windows.Forms.Label();
-            this.soundListAddAllButton = new System.Windows.Forms.Button();
-            this.soundListRemoveButton = new System.Windows.Forms.Button();
-            this.soundListAddButton = new System.Windows.Forms.Button();
+            this.soundListAddAllButton = new MPAiButton();
+            this.soundListRemoveButton = new MPAiButton();
+            this.soundListAddButton = new MPAiButton();
             this.soundListAllListBox = new System.Windows.Forms.ListBox();
             this.soundListCurrentListBox = new System.Windows.Forms.ListBox();
             this.soundListAllLabel = new System.Windows.Forms.Label();
             this.soundListCurrentLabel = new System.Windows.Forms.Label();
-            this.addFromFileButton = new System.Windows.Forms.Button();
-            this.recordButton = new System.Windows.Forms.Button();
-            this.AudioInputDeviceButton = new System.Windows.Forms.Button();
+            this.addFromFileButton = new MPAiButton();
+            this.recordButton = new MPAiButton();
+            this.AudioInputDeviceButton = new MPAiButton();
             this.AudioInputDeviceComboBox = new System.Windows.Forms.ComboBox();
             this.AudioInputDeviceLabel = new System.Windows.Forms.Label();
             this.repeatSpinner = new System.Windows.Forms.DomainUpDown();
@@ -129,7 +129,6 @@
             // backButton
             // 
             this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backButton.Location = new System.Drawing.Point(472, 303);
             this.backButton.Margin = new System.Windows.Forms.Padding(10);
             this.backButton.Name = "backButton";
@@ -142,7 +141,6 @@
             // optionsButton
             // 
             this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.optionsButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.optionsButton.Location = new System.Drawing.Point(368, 303);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(10);
             this.optionsButton.Name = "optionsButton";
@@ -302,14 +300,12 @@
             // resetButton
             // 
             this.resetButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.resetButton.Location = new System.Drawing.Point(185, 246);
             this.resetButton.Margin = new System.Windows.Forms.Padding(10);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(250, 25);
             this.resetButton.TabIndex = 47;
             this.resetButton.Text = "Restore Defaults";
-            this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // label1
@@ -337,14 +333,12 @@
             // 
             this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.removeButton.Enabled = false;
-            this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.removeButton.Location = new System.Drawing.Point(472, 45);
             this.removeButton.Margin = new System.Windows.Forms.Padding(0);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(100, 25);
             this.removeButton.TabIndex = 43;
             this.removeButton.Text = "Remove";
-            this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // divider4
@@ -390,40 +384,34 @@
             // soundListAddAllButton
             // 
             this.soundListAddAllButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundListAddAllButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.soundListAddAllButton.Location = new System.Drawing.Point(264, 205);
             this.soundListAddAllButton.Margin = new System.Windows.Forms.Padding(10);
             this.soundListAddAllButton.Name = "soundListAddAllButton";
             this.soundListAddAllButton.Size = new System.Drawing.Size(91, 25);
             this.soundListAddAllButton.TabIndex = 21;
             this.soundListAddAllButton.Text = "Add All";
-            this.soundListAddAllButton.UseVisualStyleBackColor = true;
             this.soundListAddAllButton.Click += new System.EventHandler(this.soundListAddAllButton_Click);
             // 
             // soundListRemoveButton
             // 
             this.soundListRemoveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundListRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.soundListRemoveButton.Location = new System.Drawing.Point(264, 177);
             this.soundListRemoveButton.Margin = new System.Windows.Forms.Padding(10);
             this.soundListRemoveButton.Name = "soundListRemoveButton";
             this.soundListRemoveButton.Size = new System.Drawing.Size(91, 25);
             this.soundListRemoveButton.TabIndex = 20;
             this.soundListRemoveButton.Text = "Remove Selected";
-            this.soundListRemoveButton.UseVisualStyleBackColor = true;
             this.soundListRemoveButton.Click += new System.EventHandler(this.soundListRemoveButton_Click);
             // 
             // soundListAddButton
             // 
             this.soundListAddButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundListAddButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.soundListAddButton.Location = new System.Drawing.Point(264, 148);
             this.soundListAddButton.Margin = new System.Windows.Forms.Padding(10);
             this.soundListAddButton.Name = "soundListAddButton";
             this.soundListAddButton.Size = new System.Drawing.Size(91, 25);
             this.soundListAddButton.TabIndex = 19;
             this.soundListAddButton.Text = "Add Selected";
-            this.soundListAddButton.UseVisualStyleBackColor = true;
             this.soundListAddButton.Click += new System.EventHandler(this.soundListAddButton_Click);
             // 
             // soundListAllListBox
@@ -469,40 +457,34 @@
             // addFromFileButton
             // 
             this.addFromFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addFromFileButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.addFromFileButton.Location = new System.Drawing.Point(472, 75);
             this.addFromFileButton.Margin = new System.Windows.Forms.Padding(0);
             this.addFromFileButton.Name = "addFromFileButton";
             this.addFromFileButton.Size = new System.Drawing.Size(100, 25);
             this.addFromFileButton.TabIndex = 12;
             this.addFromFileButton.Text = "Select from file";
-            this.addFromFileButton.UseVisualStyleBackColor = true;
             this.addFromFileButton.Click += new System.EventHandler(this.addFromFileButton_Click);
             // 
             // recordButton
             // 
             this.recordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.recordButton.Location = new System.Drawing.Point(366, 75);
             this.recordButton.Margin = new System.Windows.Forms.Padding(0);
             this.recordButton.Name = "recordButton";
             this.recordButton.Size = new System.Drawing.Size(100, 25);
             this.recordButton.TabIndex = 11;
             this.recordButton.Text = "Record";
-            this.recordButton.UseVisualStyleBackColor = true;
             this.recordButton.Click += new System.EventHandler(this.recordButton_Click);
             // 
             // AudioInputDeviceButton
             // 
             this.AudioInputDeviceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AudioInputDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.AudioInputDeviceButton.Location = new System.Drawing.Point(306, 75);
             this.AudioInputDeviceButton.Margin = new System.Windows.Forms.Padding(10);
             this.AudioInputDeviceButton.Name = "AudioInputDeviceButton";
             this.AudioInputDeviceButton.Size = new System.Drawing.Size(50, 25);
             this.AudioInputDeviceButton.TabIndex = 10;
             this.AudioInputDeviceButton.Text = "Refresh";
-            this.AudioInputDeviceButton.UseVisualStyleBackColor = true;
             this.AudioInputDeviceButton.Click += new System.EventHandler(this.AudioInputDeviceButton_Click);
             // 
             // AudioInputDeviceComboBox
@@ -623,41 +605,41 @@
 
         private System.Windows.Forms.SplitContainer VideoPlayerPanel;
         private System.Windows.Forms.ComboBox VowelComboBox;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Button optionsButton;
+        private MPAiButton backButton;
+        private MPAiButton optionsButton;
         private System.Windows.Forms.DomainUpDown repeatSpinner;
         private System.Windows.Forms.Label repeatLabel;
         private System.Windows.Forms.TrackBar repeatTrackBar;
-        private System.Windows.Forms.Button AudioInputDeviceButton;
+        private MPAiButton AudioInputDeviceButton;
         private System.Windows.Forms.ComboBox AudioInputDeviceComboBox;
         private System.Windows.Forms.Label AudioInputDeviceLabel;
-        private System.Windows.Forms.Button soundListAddAllButton;
-        private System.Windows.Forms.Button soundListRemoveButton;
-        private System.Windows.Forms.Button soundListAddButton;
+        private MPAiButton soundListAddAllButton;
+        private MPAiButton soundListRemoveButton;
+        private MPAiButton soundListAddButton;
         private System.Windows.Forms.ListBox soundListAllListBox;
         private System.Windows.Forms.ListBox soundListCurrentListBox;
         private System.Windows.Forms.Label soundListAllLabel;
         private System.Windows.Forms.Label soundListCurrentLabel;
-        private System.Windows.Forms.Button addFromFileButton;
-        private System.Windows.Forms.Button recordButton;
+        private MPAiButton addFromFileButton;
+        private MPAiButton recordButton;
         private System.Windows.Forms.Label recordingProgressBarLabel;
         private System.Windows.Forms.Label divider1;
         private System.Windows.Forms.Label divider4;
         private System.Windows.Forms.Label divider3;
         private System.Windows.Forms.Label divider2;
-        private System.Windows.Forms.Button removeButton;
+        private MPAiButton removeButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ProgressBar recordingProgressBar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Vlc.DotNet.Forms.VlcControl vlcControl;
-        private System.Windows.Forms.Button backwardButton;
-        private System.Windows.Forms.Button playButton;
-        private System.Windows.Forms.Button forwardButton;
+        private MPAiButton backwardButton;
+        private MPAiButton playButton;
+        private MPAiButton forwardButton;
         private System.Windows.Forms.ImageList backImageList;
         private System.Windows.Forms.ImageList playImageList;
         private System.Windows.Forms.ImageList forwardImageList;
         private System.Windows.Forms.CheckBox playNextCheckBox;
-        private System.Windows.Forms.Button resetButton;
+        private MPAiButton resetButton;
         private System.Windows.Forms.Label label1;
         private MenuStrip menuStrip1;
     }
