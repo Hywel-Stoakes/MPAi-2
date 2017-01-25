@@ -176,7 +176,7 @@ namespace MPAi
 
 
                 PlotExe = new Process();
-                //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FomantFolder, @"dist",@"VowelRunner.exe");
+                //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FormantFolder, @"dist",@"VowelRunner.exe");
 
 
                 if (plotType == PlotType.vowelPlot)
@@ -214,9 +214,9 @@ namespace MPAi
                 }
                 
                 PlotExe.StartInfo.UseShellExecute = true;
-                PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FomantFolder, "Dist");
+                PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FormantFolder, "Dist");
 
-                //PlotExe.StartInfo.WorkingDirectory = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Fomant", "Dist");
+                //PlotExe.StartInfo.WorkingDirectory = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Formant", "Dist");
 
                 PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 
@@ -286,7 +286,7 @@ namespace MPAi
             }
             else if (plotType == PlotType.formantPlot)
             {
-                return (@"Fomant Plot");
+                return (@"Formant Plot");
             }
             return null;
 

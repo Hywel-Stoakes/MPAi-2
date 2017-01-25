@@ -49,8 +49,8 @@ namespace MPAi.NewForms
             Properties.Settings.Default.ReportFolder = MPAi.Cores.DirectoryManagement.ScoreboardReportFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK"));
             Properties.Settings.Default.HTKFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK");
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fomant"));
-            Properties.Settings.Default.FomantFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fomant");
+            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Formant"));
+            Properties.Settings.Default.FormantFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Formant");
 
             // Kill any erroneous processes that may be running.
             int currentPID = Process.GetCurrentProcess().Id;

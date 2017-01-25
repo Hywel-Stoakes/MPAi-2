@@ -32,7 +32,7 @@ namespace MPAi.Cores
             recordingFolderAddr = new FolderAddress("Recording");
             reportFolderAddr = new FolderAddress("Report");
             htkFolderAddr = new FolderAddress("HTK");
-            fomantFolderAddr = new FolderAddress("Fomant");
+            formantFolderAddr = new FolderAddress("Formant");
         }
         /// <summary>
         /// Override of the default constructor, accepting a file path argument.
@@ -55,7 +55,7 @@ namespace MPAi.Cores
             this.recordingFolderAddr = info.GetValue("Personal Recording Folder Address", typeof(FolderAddress)) as FolderAddress;
             this.reportFolderAddr = info.GetValue("Personal Report Folder Address", typeof(FolderAddress)) as FolderAddress;
             this.htkFolderAddr = info.GetValue("HTK Folder Address", typeof(FolderAddress)) as FolderAddress;
-            this.fomantFolderAddr = info.GetValue("Fomant Slot Folder Address", typeof(FolderAddress)) as FolderAddress;
+            this.formantFolderAddr = info.GetValue("Formant Slot Folder Address", typeof(FolderAddress)) as FolderAddress;
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -66,7 +66,7 @@ namespace MPAi.Cores
             info.AddValue("Personal Recording Folder Address", this.recordingFolderAddr);
             info.AddValue("Personal Report Folder Address", this.reportFolderAddr);
             info.AddValue("HTK Folder Address", this.htkFolderAddr);
-            info.AddValue("Fomant Slot Folder Address", this.fomantFolderAddr);
+            info.AddValue("Formant Slot Folder Address", this.formantFolderAddr);
         }
         #endregion
         /// <summary>
@@ -126,13 +126,13 @@ namespace MPAi.Cores
             set { htkFolderAddr = value; }
         }
         /// <summary>
-        /// Property for the FolderAddress object representing the Fomant folder, allowing access from outside the class.
+        /// Property for the FolderAddress object representing the Formant folder, allowing access from outside the class.
         /// </summary>
-        private FolderAddress fomantFolderAddr;
-        public FolderAddress FomantFolderAddr
+        private FolderAddress formantFolderAddr;
+        public FolderAddress FormantFolderAddr
         {
-            get { return fomantFolderAddr; }
-            set { fomantFolderAddr = value; }
+            get { return formantFolderAddr; }
+            set { formantFolderAddr = value; }
         }
     }
     /// <summary>
