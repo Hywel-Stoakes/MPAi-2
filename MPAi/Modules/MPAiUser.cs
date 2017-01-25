@@ -141,9 +141,9 @@ namespace MPAi
         /// <param name="name">The new user's username</param>
         /// <param name="code">The new user's password</param>
         public MPAiUser(string name, string code) :
-            this(name, code, VoiceType.MASCULINE_HERITAGE)
+            this(name, code, VoiceType.MASCULINE_NATIVE)
         {
-            // As Peter Keegan's recordings are the only one we have for testing, users default to MASCULINE_HERITAGE.
+            // As Peter Keegan's recordings are the only one we have for testing, users default to MASCULINE_NATIVE.
         }
 
 
@@ -166,11 +166,11 @@ namespace MPAi
                 InitializeDBModel(DBModel);
                 switch (voiceType)
                 {
-                    case VoiceType.MASCULINE_HERITAGE:
+                    case VoiceType.MASCULINE_NATIVE:
                         speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 2).SingleOrDefault();
                         break;
 
-                    case VoiceType.FEMININE_HERITAGE:
+                    case VoiceType.FEMININE_NATIVE:
                         speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 1).SingleOrDefault();
                         break;
 
@@ -219,8 +219,8 @@ namespace MPAi
         {
             switch(voiceType)
             {
-                case VoiceType.MASCULINE_HERITAGE:
-                    Voice = VoiceType.FEMININE_HERITAGE;
+                case VoiceType.MASCULINE_NATIVE:
+                    Voice = VoiceType.FEMININE_NATIVE;
                     break;
                 case VoiceType.MASCULINE_MODERN:
                     Voice = VoiceType.FEMININE_MODERN;
@@ -235,8 +235,8 @@ namespace MPAi
         {
             switch (voiceType)
             {
-                case VoiceType.FEMININE_HERITAGE:
-                    Voice = VoiceType.MASCULINE_HERITAGE;
+                case VoiceType.FEMININE_NATIVE:
+                    Voice = VoiceType.MASCULINE_NATIVE;
                     break;
                 case VoiceType.FEMININE_MODERN:
                     Voice = VoiceType.MASCULINE_MODERN;
@@ -252,10 +252,10 @@ namespace MPAi
             switch (voiceType)
             {
                 case VoiceType.FEMININE_MODERN:
-                    Voice = VoiceType.FEMININE_HERITAGE;
+                    Voice = VoiceType.FEMININE_NATIVE;
                     break;
                 case VoiceType.MASCULINE_MODERN:
-                    Voice = VoiceType.MASCULINE_HERITAGE;
+                    Voice = VoiceType.MASCULINE_NATIVE;
                     break;
             }
         }
@@ -266,10 +266,10 @@ namespace MPAi
         {
             switch (voiceType)
             {
-                case VoiceType.FEMININE_HERITAGE:
+                case VoiceType.FEMININE_NATIVE:
                     Voice = VoiceType.FEMININE_MODERN;
                     break;
-                case VoiceType.MASCULINE_HERITAGE:
+                case VoiceType.MASCULINE_NATIVE:
                     Voice = VoiceType.MASCULINE_MODERN;
                     break;
             }

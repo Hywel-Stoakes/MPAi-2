@@ -57,7 +57,7 @@ namespace MPAi.NewForms
         {
             switch (UserManagement.CurrentUser.Voice)
             {
-                case Models.VoiceType.FEMININE_HERITAGE:
+                case Models.VoiceType.FEMININE_NATIVE:
                     nativeMāoriToolStripMenuItem.Checked = true;
                     feminineToolStripMenuItem.Checked = true;
                     break;
@@ -65,7 +65,7 @@ namespace MPAi.NewForms
                     modernMāoriToolStripMenuItem.Checked = true;
                     feminineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.MASCULINE_HERITAGE:
+                case Models.VoiceType.MASCULINE_NATIVE:
                     nativeMāoriToolStripMenuItem.Checked = true;
                     masculineToolStripMenuItem.Checked = true;
                     break;

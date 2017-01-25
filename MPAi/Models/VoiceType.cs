@@ -11,7 +11,7 @@ namespace MPAi.Models
     /// </summary>
     public enum VoiceType
     {
-        MASCULINE_HERITAGE, MASCULINE_MODERN, FEMININE_HERITAGE, FEMININE_MODERN
+        MASCULINE_NATIVE, MASCULINE_MODERN, FEMININE_NATIVE, FEMININE_MODERN
     }
 
     /// <summary>
@@ -23,17 +23,17 @@ namespace MPAi.Models
 
         private static Dictionary<string, VoiceType?> voiceTypeDictionary = new Dictionary<string, VoiceType?>()
         {
-            { "MASCULINE_HERITAGE", VoiceType.MASCULINE_HERITAGE },
+            { "MASCULINE_NATIVE", VoiceType.MASCULINE_NATIVE },
             { "MASCULINE_MODERN", VoiceType.MASCULINE_MODERN },
-            { "FEMININE_HERITAGE", VoiceType.FEMININE_HERITAGE },
+            { "FEMININE_NATIVE", VoiceType.FEMININE_NATIVE },
             { "FEMININE_MODERN", VoiceType.FEMININE_MODERN },
         };
 
         private static Dictionary<VoiceType?, string> voiceStringDictionary = new Dictionary<VoiceType?, string>()
         {
-            { VoiceType.MASCULINE_HERITAGE, "MASCULINE_HERITAGE" },
+            { VoiceType.MASCULINE_NATIVE, "MASCULINE_NATIVE" },
             { VoiceType.MASCULINE_MODERN, "MASCULINE_MODERN" },
-            { VoiceType.FEMININE_HERITAGE, "FEMININE_HERITAGE" },
+            { VoiceType.FEMININE_NATIVE, "FEMININE_NATIVE" },
             { VoiceType.FEMININE_MODERN, "FEMININE_MODERN" },
         };
 
