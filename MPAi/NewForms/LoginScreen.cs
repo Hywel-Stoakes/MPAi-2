@@ -53,13 +53,16 @@ namespace MPAi.NewForms
             Properties.Settings.Default.FomantFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fomant");
 
             // Kill any erroneous processes that may be running.
-            Process me = Process.GetCurrentProcess();
+            int currentPID = Process.GetCurrentProcess().Id;
             foreach (Process p in Process.GetProcessesByName("MPAi"))
             {
-                if (!p.Equals(me))
+                if (!(p.Id == currentPID))
                 {
+                    
                     p.Kill();
                     p.WaitForExit();
+                    p.Dispose();
+                  
                 }
             }
 

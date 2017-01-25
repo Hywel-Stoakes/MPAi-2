@@ -121,7 +121,10 @@ namespace MPAi
 
                 foreach (var process in Process.GetProcessesByName("VowelRunner"))
                 {
+                   
                     process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
                 }
 
 
