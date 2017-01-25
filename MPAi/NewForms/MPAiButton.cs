@@ -10,7 +10,7 @@ namespace MPAi.NewForms
 {
     public partial class MPAiButton : System.Windows.Forms.Button
     {
-        public MPAiButton()
+        public MPAiButton() : base()
         {
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForeColor = System.Drawing.Color.White;
