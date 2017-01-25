@@ -43,10 +43,10 @@ class VowelApp:
                 exceptString = 'Invalid VoiceType: '+sys.argv[1]+', Must be masculine or feminine'
                 raise Exception(exceptString)
                 self.quitPlot()
-            if sys.argv[2].lower() == 'heritage' or sys.argv[2].lower() == 'modern':
+            if sys.argv[2].lower() == 'native' or sys.argv[2].lower() == 'modern':
                 langType = sys.argv[2].lower()
             else:
-                exceptString = 'Invalid LanguageType: '+sys.argv[2]+', Must be heritage or modern.'
+                exceptString = 'Invalid LanguageType: '+sys.argv[2]+', Must be native or modern.'
                 raise Exception(exceptString)
                 self.quitPlot()
         else:
@@ -59,7 +59,7 @@ class VowelApp:
                 #TODO remove the testing code below...
                 print 'for Testing, setting you to masculine and modern'
                 voiceType = 'masculine'
-                langType = 'heritage'
+                langType = 'native'
 
         self.vowelScorer = VowelScorer()
         self.id = self.getID(voiceType, langType)

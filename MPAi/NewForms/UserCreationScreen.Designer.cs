@@ -51,7 +51,7 @@
             this.feminineRadioButton = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.heritageRadioButton = new System.Windows.Forms.RadioButton();
+            this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.modernRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -363,7 +363,7 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.heritageRadioButton, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.nativeRadioButton, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.modernRadioButton, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
@@ -374,20 +374,20 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(243, 29);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
-            // heritageRadioButton
+            // nativeRadioButton
             // 
-            this.heritageRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.nativeRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.heritageRadioButton.AutoSize = true;
-            this.heritageRadioButton.Checked = true;
-            this.heritageRadioButton.Location = new System.Drawing.Point(20, 3);
-            this.heritageRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.heritageRadioButton.Name = "heritageRadioButton";
-            this.heritageRadioButton.Size = new System.Drawing.Size(94, 23);
-            this.heritageRadioButton.TabIndex = 0;
-            this.heritageRadioButton.TabStop = true;
-            this.heritageRadioButton.Text = "Native Māori";
-            this.heritageRadioButton.UseVisualStyleBackColor = true;
+            this.nativeRadioButton.AutoSize = true;
+            this.nativeRadioButton.Checked = true;
+            this.nativeRadioButton.Location = new System.Drawing.Point(20, 3);
+            this.nativeRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.nativeRadioButton.Name = "nativeRadioButton";
+            this.nativeRadioButton.Size = new System.Drawing.Size(94, 23);
+            this.nativeRadioButton.TabIndex = 0;
+            this.nativeRadioButton.TabStop = true;
+            this.nativeRadioButton.Text = "Native Māori";
+            this.nativeRadioButton.UseVisualStyleBackColor = true;
             // 
             // modernRadioButton
             // 
@@ -529,7 +529,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.RadioButton feminineRadioButton;
-        private System.Windows.Forms.RadioButton heritageRadioButton;
+        private System.Windows.Forms.RadioButton nativeRadioButton;
         private System.Windows.Forms.RadioButton modernRadioButton;
     }
 }

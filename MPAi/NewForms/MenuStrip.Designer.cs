@@ -30,7 +30,7 @@
         {
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.heritageMāoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nativeMāoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modernMāoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feminineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,18 +62,18 @@
             // languageToolStripMenuItem
             // 
             this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.heritageMāoriToolStripMenuItem,
+            this.nativeMāoriToolStripMenuItem,
             this.modernMāoriToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
             this.languageToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.languageToolStripMenuItem.Text = "Language";
             // 
-            // heritageMāoriToolStripMenuItem
+            // nativeMāoriToolStripMenuItem
             // 
-            this.heritageMāoriToolStripMenuItem.Name = "heritageMāoriToolStripMenuItem";
-            this.heritageMāoriToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.heritageMāoriToolStripMenuItem.Text = "Native Māori";
-            this.heritageMāoriToolStripMenuItem.Click += new System.EventHandler(this.heritageMāoriToolStripMenuItem_Click);
+            this.nativeMāoriToolStripMenuItem.Name = "nativeMāoriToolStripMenuItem";
+            this.nativeMāoriToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.nativeMāoriToolStripMenuItem.Text = "Native Māori";
+            this.nativeMāoriToolStripMenuItem.Click += new System.EventHandler(this.nativeMāoriToolStripMenuItem_Click);
             // 
             // modernMāoriToolStripMenuItem
             // 
@@ -195,7 +195,7 @@
 
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heritageMāoriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nativeMāoriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modernMāoriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feminineToolStripMenuItem;

@@ -33,7 +33,7 @@ namespace MPAi.NewForms
         {
             username = userNameBox.Text;
             usercode = passwordBox.Text;
-            if(masculineRadioButton.Checked && heritageRadioButton.Checked)
+            if(masculineRadioButton.Checked && nativeRadioButton.Checked)
             {
                 voiceType = VoiceType.MASCULINE_HERITAGE;
             }
@@ -41,7 +41,7 @@ namespace MPAi.NewForms
             {
                 voiceType = VoiceType.MASCULINE_MODERN;
             }
-            else if (feminineRadioButton.Checked && heritageRadioButton.Checked)
+            else if (feminineRadioButton.Checked && nativeRadioButton.Checked)
             {
                 voiceType = VoiceType.FEMININE_HERITAGE;
             }
