@@ -2966,6 +2966,12 @@
     <Compile Include="NewForms\MenuStrip.Designer.cs">
       <DependentUpon>MenuStrip.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewForms\MPAiButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewForms\MPAiButton.Designer.cs">
+      <DependentUpon>MPAiButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewForms\RecordingUploadScreen.cs">
       <SubType>Form</SubType>
     </Compile>

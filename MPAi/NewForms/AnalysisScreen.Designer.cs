@@ -30,6 +30,7 @@ namespace MPAi.NewForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.correctnessLabel = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -38,8 +39,8 @@ namespace MPAi.NewForms
             this.panel1 = new System.Windows.Forms.Panel();
             this.descriptionBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.scoreReportButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
+            this.scoreReportButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -146,6 +147,7 @@ namespace MPAi.NewForms
             // 
             // descriptionBox
             // 
+            this.descriptionBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.descriptionBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionBox.Location = new System.Drawing.Point(20, 0);
             this.descriptionBox.Multiline = true;
@@ -175,6 +177,9 @@ namespace MPAi.NewForms
             // scoreReportButton
             // 
             this.scoreReportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scoreReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.scoreReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.scoreReportButton.ForeColor = System.Drawing.Color.White;
             this.scoreReportButton.Location = new System.Drawing.Point(12, 9);
             this.scoreReportButton.Name = "scoreReportButton";
             this.scoreReportButton.Size = new System.Drawing.Size(100, 23);
@@ -186,6 +191,9 @@ namespace MPAi.NewForms
             // backButton
             // 
             this.backButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(410, 9);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
@@ -198,6 +206,7 @@ namespace MPAi.NewForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(498, 315);
             this.Controls.Add(this.splitContainer1);
             this.Name = "AnalysisScreen";
@@ -232,7 +241,7 @@ namespace MPAi.NewForms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox descriptionBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button scoreReportButton;
-        private System.Windows.Forms.Button backButton;
+        private MPAiButton scoreReportButton;
+        private MPAiButton backButton;
     }
 }

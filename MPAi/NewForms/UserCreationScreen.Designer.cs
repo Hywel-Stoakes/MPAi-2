@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserCreationScreen));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.logoBox = new System.Windows.Forms.PictureBox();
@@ -55,9 +56,9 @@
             this.modernRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.okayButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.okayButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -414,7 +415,7 @@
             this.ButtonPanel.Name = "ButtonPanel";
             this.ButtonPanel.RowCount = 1;
             this.ButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.ButtonPanel.Size = new System.Drawing.Size(361, 39);
             this.ButtonPanel.TabIndex = 0;
             // 
@@ -427,17 +428,6 @@
             this.panel1.Size = new System.Drawing.Size(147, 32);
             this.panel1.TabIndex = 0;
             // 
-            // okayButton
-            // 
-            this.okayButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.okayButton.Location = new System.Drawing.Point(36, 3);
-            this.okayButton.Name = "okayButton";
-            this.okayButton.Size = new System.Drawing.Size(75, 23);
-            this.okayButton.TabIndex = 0;
-            this.okayButton.Text = "OK";
-            this.okayButton.UseVisualStyleBackColor = true;
-            this.okayButton.Click += new System.EventHandler(this.okayButton_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.cancelButton);
@@ -447,9 +437,26 @@
             this.panel2.Size = new System.Drawing.Size(148, 32);
             this.panel2.TabIndex = 1;
             // 
+            // okayButton
+            // 
+            this.okayButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.okayButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.okayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.okayButton.ForeColor = System.Drawing.Color.White;
+            this.okayButton.Location = new System.Drawing.Point(36, 3);
+            this.okayButton.Name = "okayButton";
+            this.okayButton.Size = new System.Drawing.Size(75, 23);
+            this.okayButton.TabIndex = 0;
+            this.okayButton.Text = "OK";
+            this.okayButton.UseVisualStyleBackColor = true;
+            this.okayButton.Click += new System.EventHandler(this.okayButton_Click);
+            // 
             // cancelButton
             // 
             this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(37, 5);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
@@ -462,6 +469,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(361, 365);
             this.Controls.Add(this.splitContainer1);
             this.Name = "UserCreationScreen";
@@ -519,9 +527,9 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TableLayoutPanel ButtonPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button okayButton;
+        private MPAiButton okayButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button cancelButton;
+        private MPAiButton cancelButton;
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

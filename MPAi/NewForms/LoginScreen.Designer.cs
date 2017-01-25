@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.speakLaunchButton = new System.Windows.Forms.Button();
-            this.signupButton = new System.Windows.Forms.Button();
+            this.speakLaunchButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.signupButton = new MPAi.NewForms.MPAiButton(this.components);
             this.rememberCheckBox = new System.Windows.Forms.CheckBox();
-            this.soundLaunchButton = new System.Windows.Forms.Button();
+            this.soundLaunchButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             // 
             // usernameTextBox
             // 
+            this.usernameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.usernameTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.usernameTextBox.Location = new System.Drawing.Point(12, 127);
             this.usernameTextBox.Name = "usernameTextBox";
@@ -66,6 +68,7 @@
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.passwordTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.passwordTextBox.Location = new System.Drawing.Point(12, 162);
             this.passwordTextBox.Name = "passwordTextBox";
@@ -80,9 +83,12 @@
             // speakLaunchButton
             // 
             this.speakLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.speakLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.speakLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.speakLaunchButton.ForeColor = System.Drawing.Color.White;
             this.speakLaunchButton.Location = new System.Drawing.Point(12, 227);
             this.speakLaunchButton.Name = "speakLaunchButton";
-            this.speakLaunchButton.Size = new System.Drawing.Size(75, 23);
+            this.speakLaunchButton.Size = new System.Drawing.Size(80, 23);
             this.speakLaunchButton.TabIndex = 18;
             this.speakLaunchButton.Text = "MPAi Speak";
             this.speakLaunchButton.UseVisualStyleBackColor = true;
@@ -91,6 +97,9 @@
             // signupButton
             // 
             this.signupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signupButton.ForeColor = System.Drawing.Color.White;
             this.signupButton.Location = new System.Drawing.Point(197, 227);
             this.signupButton.Name = "signupButton";
             this.signupButton.Size = new System.Drawing.Size(75, 23);
@@ -113,9 +122,12 @@
             // soundLaunchButton
             // 
             this.soundLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.soundLaunchButton.Location = new System.Drawing.Point(93, 227);
+            this.soundLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.soundLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.soundLaunchButton.ForeColor = System.Drawing.Color.White;
+            this.soundLaunchButton.Location = new System.Drawing.Point(98, 227);
             this.soundLaunchButton.Name = "soundLaunchButton";
-            this.soundLaunchButton.Size = new System.Drawing.Size(75, 23);
+            this.soundLaunchButton.Size = new System.Drawing.Size(80, 23);
             this.soundLaunchButton.TabIndex = 21;
             this.soundLaunchButton.Text = "MPAi Sound";
             this.soundLaunchButton.UseVisualStyleBackColor = true;
@@ -125,6 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.soundLaunchButton);
             this.Controls.Add(this.rememberCheckBox);
@@ -148,9 +161,9 @@
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Button speakLaunchButton;
-        private System.Windows.Forms.Button signupButton;
+        private MPAiButton speakLaunchButton;
+        private MPAiButton signupButton;
         private System.Windows.Forms.CheckBox rememberCheckBox;
-        private System.Windows.Forms.Button soundLaunchButton;
+        private MPAiButton soundLaunchButton;
     }
 }
