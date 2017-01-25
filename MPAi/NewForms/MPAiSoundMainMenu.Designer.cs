@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.headerBox = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,12 +61,14 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.headerBox);
+            this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(544, 361);
-            this.splitContainer1.SplitterDistance = 80;
+            this.splitContainer1.SplitterDistance = 95;
             this.splitContainer1.TabIndex = 2;
             this.splitContainer1.TabStop = false;
             // 
@@ -74,14 +77,24 @@
             this.headerBox.BackgroundImage = global::MPAi.Properties.Resources.header;
             this.headerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.headerBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headerBox.Location = new System.Drawing.Point(0, 0);
+            this.headerBox.Location = new System.Drawing.Point(0, 24);
             this.headerBox.Name = "headerBox";
-            this.headerBox.Size = new System.Drawing.Size(544, 80);
+            this.headerBox.Size = new System.Drawing.Size(544, 71);
             this.headerBox.TabIndex = 1;
             this.headerBox.TabStop = false;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // splitContainer2
             // 
+            this.splitContainer2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
@@ -90,22 +103,26 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.splitContainer2.Panel1.Controls.Add(this.greetingLabel);
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer2.Size = new System.Drawing.Size(544, 277);
-            this.splitContainer2.SplitterDistance = 96;
+            this.splitContainer2.Size = new System.Drawing.Size(544, 262);
+            this.splitContainer2.SplitterDistance = 90;
             this.splitContainer2.TabIndex = 0;
+            this.splitContainer2.TabStop = false;
             // 
             // greetingLabel
             // 
+            this.greetingLabel.BackColor = System.Drawing.Color.Transparent;
             this.greetingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.greetingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.greetingLabel.Font = new System.Drawing.Font("Calibri", 28F, System.Drawing.FontStyle.Bold);
             this.greetingLabel.Location = new System.Drawing.Point(0, 0);
             this.greetingLabel.Name = "greetingLabel";
-            this.greetingLabel.Size = new System.Drawing.Size(544, 96);
+            this.greetingLabel.Size = new System.Drawing.Size(544, 90);
             this.greetingLabel.TabIndex = 0;
             this.greetingLabel.Text = "Kia Ora, User!";
             this.greetingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,7 +141,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 177);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 168);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // learnButton
@@ -133,7 +150,7 @@
             this.learnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.learnButton.ForeColor = System.Drawing.Color.White;
-            this.learnButton.Location = new System.Drawing.Point(197, 18);
+            this.learnButton.Location = new System.Drawing.Point(197, 16);
             this.learnButton.Name = "learnButton";
             this.learnButton.Size = new System.Drawing.Size(150, 23);
             this.learnButton.TabIndex = 0;
@@ -147,7 +164,7 @@
             this.testButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.testButton.ForeColor = System.Drawing.Color.White;
-            this.testButton.Location = new System.Drawing.Point(197, 77);
+            this.testButton.Location = new System.Drawing.Point(197, 72);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(150, 23);
             this.testButton.TabIndex = 1;
@@ -161,7 +178,7 @@
             this.reportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportButton.ForeColor = System.Drawing.Color.White;
-            this.reportButton.Location = new System.Drawing.Point(197, 136);
+            this.reportButton.Location = new System.Drawing.Point(197, 128);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(150, 23);
             this.reportButton.TabIndex = 2;
@@ -176,11 +193,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(544, 361);
             this.Controls.Add(this.splitContainer1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MPAiSoundMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MPAiSoundMainMenu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MPAiSoundMainMenu_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -204,5 +223,6 @@
         private MPAiButton learnButton;
         private MPAiButton testButton;
         private MPAiButton reportButton;
+        private MenuStrip menuStrip1;
     }
 }

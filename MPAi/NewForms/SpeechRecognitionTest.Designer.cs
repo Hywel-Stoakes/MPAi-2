@@ -50,6 +50,7 @@
             this.SelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.RecordingListBox = new System.Windows.Forms.ListBox();
             this.RecordingListLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.SpeechRecognitionTestPanel)).BeginInit();
             this.SpeechRecognitionTestPanel.Panel1.SuspendLayout();
             this.SpeechRecognitionTestPanel.Panel2.SuspendLayout();
@@ -100,7 +101,7 @@
             this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.RecordingListLabel);
             this.SpeechRecognitionTestPanel.Panel2MinSize = 250;
             this.SpeechRecognitionTestPanel.Size = new System.Drawing.Size(584, 535);
-            this.SpeechRecognitionTestPanel.SplitterDistance = 246;
+            this.SpeechRecognitionTestPanel.SplitterDistance = 249;
             this.SpeechRecognitionTestPanel.SplitterWidth = 1;
             this.SpeechRecognitionTestPanel.TabIndex = 44;
             // 
@@ -110,7 +111,7 @@
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(474, 212);
+            this.backButton.Location = new System.Drawing.Point(474, 215);
             this.backButton.Margin = new System.Windows.Forms.Padding(10);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(100, 25);
@@ -125,7 +126,7 @@
             this.optionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.optionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optionsButton.ForeColor = System.Drawing.Color.White;
-            this.optionsButton.Location = new System.Drawing.Point(368, 212);
+            this.optionsButton.Location = new System.Drawing.Point(368, 215);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(10);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(100, 25);
@@ -143,7 +144,7 @@
             this.WordComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.WordComboBox.FormattingEnabled = true;
             this.WordComboBox.ItemHeight = 13;
-            this.WordComboBox.Location = new System.Drawing.Point(115, 21);
+            this.WordComboBox.Location = new System.Drawing.Point(117, 33);
             this.WordComboBox.Name = "WordComboBox";
             this.WordComboBox.Size = new System.Drawing.Size(350, 21);
             this.WordComboBox.TabIndex = 0;
@@ -156,7 +157,7 @@
             this.analyzeButton.Enabled = false;
             this.analyzeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.analyzeButton.ForeColor = System.Drawing.Color.White;
-            this.analyzeButton.Location = new System.Drawing.Point(150, 148);
+            this.analyzeButton.Location = new System.Drawing.Point(150, 149);
             this.analyzeButton.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.analyzeButton.Name = "analyzeButton";
             this.analyzeButton.Size = new System.Drawing.Size(300, 25);
@@ -170,7 +171,7 @@
             this.recordingProgressBarLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.recordingProgressBarLabel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.recordingProgressBarLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.recordingProgressBarLabel.Location = new System.Drawing.Point(117, 83);
+            this.recordingProgressBarLabel.Location = new System.Drawing.Point(117, 84);
             this.recordingProgressBarLabel.Name = "recordingProgressBarLabel";
             this.recordingProgressBarLabel.Size = new System.Drawing.Size(350, 50);
             this.recordingProgressBarLabel.TabIndex = 36;
@@ -184,7 +185,7 @@
             this.recordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.recordButton.ForeColor = System.Drawing.Color.White;
-            this.recordButton.Location = new System.Drawing.Point(10, 95);
+            this.recordButton.Location = new System.Drawing.Point(10, 96);
             this.recordButton.Margin = new System.Windows.Forms.Padding(0);
             this.recordButton.Name = "recordButton";
             this.recordButton.Size = new System.Drawing.Size(100, 25);
@@ -200,7 +201,7 @@
             this.playButton.Enabled = false;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.ForeColor = System.Drawing.Color.White;
-            this.playButton.Location = new System.Drawing.Point(474, 95);
+            this.playButton.Location = new System.Drawing.Point(474, 96);
             this.playButton.Margin = new System.Windows.Forms.Padding(0);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(100, 25);
@@ -213,7 +214,7 @@
             // 
             this.recordingProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.recordingProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.recordingProgressBar.Location = new System.Drawing.Point(117, 83);
+            this.recordingProgressBar.Location = new System.Drawing.Point(117, 84);
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(350, 50);
             this.recordingProgressBar.TabIndex = 40;
@@ -341,7 +342,7 @@
             this.RecordingListBox.FormattingEnabled = true;
             this.RecordingListBox.Location = new System.Drawing.Point(10, 75);
             this.RecordingListBox.Name = "RecordingListBox";
-            this.RecordingListBox.Size = new System.Drawing.Size(458, 134);
+            this.RecordingListBox.Size = new System.Drawing.Size(458, 121);
             this.RecordingListBox.TabIndex = 8;
             this.RecordingListBox.SelectedIndexChanged += new System.EventHandler(this.RecordingListBox_SelectedIndexChanged);
             this.RecordingListBox.DoubleClick += new System.EventHandler(this.SelectButton_Click);
@@ -355,6 +356,14 @@
             this.RecordingListLabel.TabIndex = 1;
             this.RecordingListLabel.Text = "Recording List";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
+            this.menuStrip1.TabIndex = 45;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // SpeechRecognitionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,7 +371,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 562);
             this.Controls.Add(this.SpeechRecognitionTestPanel);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(375, 600);
             this.Name = "SpeechRecognitionTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -374,6 +385,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SpeechRecognitionTestPanel)).EndInit();
             this.SpeechRecognitionTestPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -399,5 +411,6 @@
         private MPAiButton SelectButton;
         private System.Windows.Forms.ListBox RecordingListBox;
         private System.Windows.Forms.Label RecordingListLabel;
+        private MenuStrip menuStrip1;
     }
 }
