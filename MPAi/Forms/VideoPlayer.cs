@@ -414,6 +414,10 @@ namespace MPAi.NewForms
             }
             else
             {
+                if (recordButton.Text.Equals(recordText))
+                {
+                    return;
+                }
                 writer.Write(e.Buffer, 0, e.BytesRecorded); // Record audio into a buffer
                 int secondsRecorded = (int)(writer.Length / writer.WaveFormat.AverageBytesPerSecond);
                 recordingProgressBar.Value = secondsRecorded * 10;  // Increase the progress bar
