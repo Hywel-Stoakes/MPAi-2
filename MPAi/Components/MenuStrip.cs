@@ -22,8 +22,8 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
-            checkAppropriateComponents();
-            authoriseAdmin();
+            /*checkAppropriateComponents();
+            authoriseAdmin();*/
         }
 
         /// <summary>

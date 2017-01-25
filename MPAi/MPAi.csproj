@@ -141,6 +141,12 @@
     <Compile Include="Cores\Scoreboard\MPAiSpeakScoreboardLoader.cs" />
     <Compile Include="Cores\Scoreboard\ReportLauncher.cs" />
     <Compile Include="Cores\Scoreboard\MPAiSpeakScoreBoard.cs" />
+    <Compile Include="Components\MPAiButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MPAiButton.Designer.cs">
+      <DependentUpon>MPAiButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Popups\AdminConsole.cs">
       <SubType>Form</SubType>
     </Compile>
