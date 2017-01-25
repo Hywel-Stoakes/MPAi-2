@@ -61,7 +61,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.headerBox);
-            this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
             // 
             // splitContainer1.Panel2
             // 
@@ -77,14 +77,15 @@
             this.headerBox.BackgroundImage = global::MPAi.Properties.Resources.header;
             this.headerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.headerBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headerBox.Location = new System.Drawing.Point(0, 24);
+            this.headerBox.Location = new System.Drawing.Point(0, 25);
             this.headerBox.Name = "headerBox";
-            this.headerBox.Size = new System.Drawing.Size(544, 71);
+            this.headerBox.Size = new System.Drawing.Size(544, 70);
             this.headerBox.TabIndex = 1;
             this.headerBox.TabStop = false;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(544, 24);
@@ -190,6 +191,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(544, 361);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MPAiSpeakMainMenu";
@@ -197,7 +199,6 @@
             this.Text = "MPAiSpeakMainMenu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MPAiSpeakMainMenu_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -208,6 +209,7 @@
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
