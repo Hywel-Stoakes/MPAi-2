@@ -245,9 +245,9 @@ namespace MPAi
         }
 
         /// <summary>
-        /// Changes the voice type to Heritage.
+        /// Changes the voice type to Native.
         /// </summary>
-        public void changeVoiceToHeritage()
+        public void changeVoiceToNative()
         {
             switch (voiceType)
             {

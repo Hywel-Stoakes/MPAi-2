@@ -88,8 +88,8 @@ namespace MPAi.NewForms
         {
             heritageMāoriToolStripMenuItem.Checked = true;
             modernMāoriToolStripMenuItem.Checked = false;
-            UserManagement.CurrentUser.changeVoiceToHeritage();                                     // Change the current user variable...
-            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToHeritage();   // and the current user in the list of users.
+            UserManagement.CurrentUser.changeVoiceToNative();                                     // Change the current user variable...
+            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
         }
 
         /// <summary>

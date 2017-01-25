@@ -72,7 +72,7 @@
             // 
             this.heritageMāoriToolStripMenuItem.Name = "heritageMāoriToolStripMenuItem";
             this.heritageMāoriToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.heritageMāoriToolStripMenuItem.Text = "Heritage Māori";
+            this.heritageMāoriToolStripMenuItem.Text = "Native Māori";
             this.heritageMāoriToolStripMenuItem.Click += new System.EventHandler(this.heritageMāoriToolStripMenuItem_Click);
             // 
             // modernMāoriToolStripMenuItem

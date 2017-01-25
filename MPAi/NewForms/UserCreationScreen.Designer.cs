@@ -386,7 +386,7 @@
             this.heritageRadioButton.Size = new System.Drawing.Size(94, 23);
             this.heritageRadioButton.TabIndex = 0;
             this.heritageRadioButton.TabStop = true;
-            this.heritageRadioButton.Text = "Heritage Māori";
+            this.heritageRadioButton.Text = "Native Māori";
             this.heritageRadioButton.UseVisualStyleBackColor = true;
             // 
             // modernRadioButton
