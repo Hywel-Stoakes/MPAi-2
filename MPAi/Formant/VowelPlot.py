@@ -265,11 +265,11 @@ class VowelPlot:
     def goldStandardDiphthongs(self, id):
         path = self.path
         if id == 0:
-            data = self.appendData(path,'data\maori\longVowelHeritageMale.txt')
+            data = self.appendData(path,'data\maori\longVowelNativeMale.txt')
         elif id == 1:
             data = self.appendData(path,'data\maori\longVowelModernMale.txt')
         elif id == 2:
-            data = self.appendData(path,'data\maori\longVowelHeritageFemale.txt')
+            data = self.appendData(path,'data\maori\longVowelNativeFemale.txt')
         elif id == 3:
             data = self.appendData(path,'data\maori\longVowelModernFemale.txt')
         return data

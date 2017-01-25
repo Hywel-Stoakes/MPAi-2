@@ -38,7 +38,7 @@ namespace MPAi.NewForms
             InitializeComponent();
             // Use user settings or menu data to automatically fill the fields.
             // Speaker = user's screen name
-            speakerComboBox.Items.AddRange( new object[4]{ VoiceType.FEMININE_HERITAGE, VoiceType.MASCULINE_HERITAGE, VoiceType.FEMININE_MODERN, VoiceType.MASCULINE_MODERN });
+            speakerComboBox.Items.AddRange( new object[4]{ VoiceType.FEMININE_NATIVE, VoiceType.MASCULINE_NATIVE, VoiceType.FEMININE_MODERN, VoiceType.MASCULINE_MODERN });
             speakerComboBox.SelectedItem = UserManagement.CurrentUser.Voice;
             // Category has a drop down list for scalability, although in this version it's just Word and Vowel.
             populateCategoryComboBox(); 
@@ -103,9 +103,9 @@ namespace MPAi.NewForms
         {
             switch (voice)
             {
-                case (VoiceType.FEMININE_HERITAGE):
+                case (VoiceType.FEMININE_NATIVE):
                     return "oldfemale";
-                case (VoiceType.MASCULINE_HERITAGE):
+                case (VoiceType.MASCULINE_NATIVE):
                     return "oldmale";
                 case (VoiceType.FEMININE_MODERN):
                     return "youngfemale";

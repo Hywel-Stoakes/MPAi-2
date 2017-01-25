@@ -195,21 +195,21 @@ namespace MPAi
                 // based on the requested voiceType.
                 switch (voiceType)
                 {
-                    case VoiceType.MASCULINE_HERITAGE:
-                        PlotExe.StartInfo.Arguments = @"masculine heritage";
+                    case VoiceType.MASCULINE_NATIVE:
+                        PlotExe.StartInfo.Arguments = @"masculine native";
                         break;
                     case VoiceType.MASCULINE_MODERN:
 
                         PlotExe.StartInfo.Arguments = @"masculine modern";
                         break;
-                    case VoiceType.FEMININE_HERITAGE:
-                        PlotExe.StartInfo.Arguments = @"feminine heritage";
+                    case VoiceType.FEMININE_NATIVE:
+                        PlotExe.StartInfo.Arguments = @"feminine native";
                         break;
                     case VoiceType.FEMININE_MODERN:
                         PlotExe.StartInfo.Arguments = @"feminine modern";
                         break;
                     default:
-                        PlotExe.StartInfo.Arguments = @"masculine heritage";
+                        PlotExe.StartInfo.Arguments = @"masculine native";
                         break;
                 }
                 

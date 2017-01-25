@@ -363,9 +363,9 @@ class FormantPlot:
         path = self.path
         if plotID == 0:
             if vowelType == 'short':
-                data = self.appendData(path,'data\maori\monDataHeritageMale.txt')
+                data = self.appendData(path,'data\maori\monDataNativeMale.txt')
             else:
-                data = self.appendData(path,'data\maori\longVowelHeritageMale.txt')
+                data = self.appendData(path,'data\maori\longVowelNativeMale.txt')
         elif plotID == 1:
             if vowelType == 'short':
                 data = self.appendData(path,'data\maori\monDataModernMale.txt')
@@ -373,9 +373,9 @@ class FormantPlot:
                 data = self.appendData(path,'data\maori\longVowelModernMale.txt')
         elif plotID == 2:
             if vowelType == 'short':
-                data = self.appendData(path,'data\maori\monDataHeritageFemale.txt')
+                data = self.appendData(path,'data\maori\monDataNativeFemale.txt')
             else:
-                data = self.appendData(path,'data\maori\longVowelHeritageFemale.txt')
+                data = self.appendData(path,'data\maori\longVowelNativeFemale.txt')
         elif plotID == 3:
             if vowelType == 'short':
                 data = self.appendData(path,'data\maori\monDataModernFemale.txt')
