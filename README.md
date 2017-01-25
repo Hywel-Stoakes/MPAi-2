@@ -1,4 +1,4 @@
-# MPAid
+# MPAi
 Maori Pronunciation Aid from University of Auckland.
 
 # Installation Notes
