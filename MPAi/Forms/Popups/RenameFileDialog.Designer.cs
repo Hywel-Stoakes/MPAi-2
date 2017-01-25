@@ -35,9 +35,9 @@
             this.speakerLabel = new System.Windows.Forms.Label();
             this.filenameTextBox = new System.Windows.Forms.TextBox();
             this.filenameLabel = new System.Windows.Forms.Label();
-            this.filePickerButton = new System.Windows.Forms.Button();
-            this.renameButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.filePickerButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.renameButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
             this.WordComboBox = new System.Windows.Forms.ComboBox();
             this.ExplanationLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -50,6 +50,7 @@
             // 
             // labelTextBox
             // 
+            this.labelTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.labelTextBox.Location = new System.Drawing.Point(81, 147);
             this.labelTextBox.Margin = new System.Windows.Forms.Padding(10);
             this.labelTextBox.Name = "labelTextBox";
@@ -88,6 +89,7 @@
             // 
             // filenameTextBox
             // 
+            this.filenameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.filenameTextBox.Location = new System.Drawing.Point(81, 45);
             this.filenameTextBox.Margin = new System.Windows.Forms.Padding(10);
             this.filenameTextBox.Name = "filenameTextBox";
@@ -108,6 +110,9 @@
             // 
             // filePickerButton
             // 
+            this.filePickerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.filePickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filePickerButton.ForeColor = System.Drawing.Color.White;
             this.filePickerButton.Location = new System.Drawing.Point(377, 44);
             this.filePickerButton.Margin = new System.Windows.Forms.Padding(10);
             this.filePickerButton.Name = "filePickerButton";
@@ -119,6 +124,9 @@
             // 
             // renameButton
             // 
+            this.renameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.renameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.renameButton.ForeColor = System.Drawing.Color.White;
             this.renameButton.Location = new System.Drawing.Point(247, 178);
             this.renameButton.Name = "renameButton";
             this.renameButton.Size = new System.Drawing.Size(75, 23);
@@ -129,7 +137,10 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(328, 178);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
@@ -141,6 +152,7 @@
             // 
             this.WordComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.WordComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.WordComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.WordComboBox.FormattingEnabled = true;
             this.WordComboBox.Location = new System.Drawing.Point(81, 120);
             this.WordComboBox.Name = "WordComboBox";
@@ -171,6 +183,7 @@
             // 
             this.categoryComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.categoryComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.categoryComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(81, 94);
             this.categoryComboBox.Name = "categoryComboBox";
@@ -194,6 +207,7 @@
             // 
             this.speakerComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.speakerComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.speakerComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.speakerComboBox.FormattingEnabled = true;
             this.speakerComboBox.Location = new System.Drawing.Point(81, 69);
             this.speakerComboBox.Name = "speakerComboBox";
@@ -208,6 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 212);
             this.Controls.Add(this.speakerComboBox);
             this.Controls.Add(this.categoryComboBox);
@@ -239,9 +254,9 @@
         private System.Windows.Forms.Label speakerLabel;
         private System.Windows.Forms.TextBox filenameTextBox;
         private System.Windows.Forms.Label filenameLabel;
-        private System.Windows.Forms.Button filePickerButton;
-        private System.Windows.Forms.Button renameButton;
-        private System.Windows.Forms.Button cancelButton;
+        private MPAiButton filePickerButton;
+        private MPAiButton renameButton;
+        private MPAiButton cancelButton;
         private System.Windows.Forms.ComboBox WordComboBox;
         private System.Windows.Forms.Label ExplanationLabel;
         private System.Windows.Forms.OpenFileDialog openFileDialog;

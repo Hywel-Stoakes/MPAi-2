@@ -35,8 +35,8 @@ namespace MPAi.NewForms
             container.Add(this);
 
             InitializeComponent();
-            checkAppropriateComponents();
-            authoriseAdmin();
+            /*checkAppropriateComponents();
+            authoriseAdmin();*/
         }
 
         /// <summary>

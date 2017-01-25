@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toLocalButton = new System.Windows.Forms.Button();
-            this.toDBButton = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.toLocalButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.toDBButton = new MPAi.NewForms.MPAiButton(this.components);
             this.onDBListBox = new System.Windows.Forms.ListBox();
-            this.allLocalItemsButton = new System.Windows.Forms.Button();
+            this.allLocalItemsButton = new MPAi.NewForms.MPAiButton(this.components);
             this.mediaLocalListBox = new System.Windows.Forms.ListBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.currentFolderTextBox = new System.Windows.Forms.TextBox();
-            this.selectFolderButton = new System.Windows.Forms.Button();
-            this.allDatabaseItemsButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
+            this.selectFolderButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.allDatabaseItemsButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // toLocalButton
             // 
+            this.toLocalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.toLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.toLocalButton.ForeColor = System.Drawing.Color.White;
             this.toLocalButton.Location = new System.Drawing.Point(218, 65);
             this.toLocalButton.Name = "toLocalButton";
             this.toLocalButton.Size = new System.Drawing.Size(148, 25);
@@ -53,6 +57,9 @@
             // 
             // toDBButton
             // 
+            this.toDBButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.toDBButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.toDBButton.ForeColor = System.Drawing.Color.White;
             this.toDBButton.Location = new System.Drawing.Point(218, 34);
             this.toDBButton.Name = "toDBButton";
             this.toDBButton.Size = new System.Drawing.Size(148, 25);
@@ -63,6 +70,7 @@
             // 
             // onDBListBox
             // 
+            this.onDBListBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.onDBListBox.FormattingEnabled = true;
             this.onDBListBox.HorizontalScrollbar = true;
             this.onDBListBox.Location = new System.Drawing.Point(372, 35);
@@ -73,6 +81,9 @@
             // 
             // allLocalItemsButton
             // 
+            this.allLocalItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.allLocalItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allLocalItemsButton.ForeColor = System.Drawing.Color.White;
             this.allLocalItemsButton.Location = new System.Drawing.Point(218, 96);
             this.allLocalItemsButton.Name = "allLocalItemsButton";
             this.allLocalItemsButton.Size = new System.Drawing.Size(148, 23);
@@ -86,6 +97,7 @@
             // 
             this.mediaLocalListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.mediaLocalListBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mediaLocalListBox.FormattingEnabled = true;
             this.mediaLocalListBox.HorizontalScrollbar = true;
             this.mediaLocalListBox.Location = new System.Drawing.Point(12, 35);
@@ -105,6 +117,7 @@
             // 
             // currentFolderTextBox
             // 
+            this.currentFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.currentFolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.currentFolderTextBox.Location = new System.Drawing.Point(12, 9);
             this.currentFolderTextBox.MaximumSize = new System.Drawing.Size(175, 15);
@@ -117,6 +130,9 @@
             // 
             // selectFolderButton
             // 
+            this.selectFolderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.selectFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectFolderButton.ForeColor = System.Drawing.Color.White;
             this.selectFolderButton.Location = new System.Drawing.Point(192, 8);
             this.selectFolderButton.Name = "selectFolderButton";
             this.selectFolderButton.Size = new System.Drawing.Size(27, 23);
@@ -127,6 +143,9 @@
             // 
             // allDatabaseItemsButton
             // 
+            this.allDatabaseItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.allDatabaseItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allDatabaseItemsButton.ForeColor = System.Drawing.Color.White;
             this.allDatabaseItemsButton.Location = new System.Drawing.Point(218, 125);
             this.allDatabaseItemsButton.Name = "allDatabaseItemsButton";
             this.allDatabaseItemsButton.Size = new System.Drawing.Size(148, 23);
@@ -138,6 +157,9 @@
             // 
             // backButton
             // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(218, 154);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(148, 23);
@@ -151,6 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 193);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.allDatabaseItemsButton);
@@ -171,16 +194,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button toLocalButton;
-        private System.Windows.Forms.Button toDBButton;
+        private MPAiButton toLocalButton;
+        private MPAiButton toDBButton;
         private System.Windows.Forms.ListBox onDBListBox;
-        private System.Windows.Forms.Button allLocalItemsButton;
+        private MPAiButton allLocalItemsButton;
         private System.Windows.Forms.ListBox mediaLocalListBox;
         private System.Windows.Forms.Label databaseLabel;
         private System.Windows.Forms.TextBox currentFolderTextBox;
-        private System.Windows.Forms.Button selectFolderButton;
-        private System.Windows.Forms.Button allDatabaseItemsButton;
-        private System.Windows.Forms.Button backButton;
+        private MPAiButton selectFolderButton;
+        private MPAiButton allDatabaseItemsButton;
+        private MPAiButton backButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
