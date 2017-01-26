@@ -25,7 +25,7 @@ namespace MPAi
 
     {
 
-        public enum PlotType { formantPlot, vowelPlot }
+        public enum PlotType { FORMANT_PLOT, VOWEL_PLOT }
 
         private static PlotType? plotType;
         private static VoiceType? voiceType;
@@ -179,11 +179,11 @@ namespace MPAi
                 //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FormantFolder, @"dist",@"VowelRunner.exe");
 
 
-                if (plotType == PlotType.vowelPlot)
+                if (plotType == PlotType.VOWEL_PLOT)
                 {
                     PlotExe.StartInfo.FileName = @"VowelRunner.exe";
                 }
-                else if (plotType == PlotType.formantPlot)
+                else if (plotType == PlotType.FORMANT_PLOT)
                 {
                     PlotExe.StartInfo.FileName = @"PlotRunner.exe";
                 }
@@ -280,11 +280,11 @@ namespace MPAi
         /// <returns>The title of the  plot, as a string.</returns>
         public static string GetPlotTitle()
         {
-            if (plotType == PlotType.vowelPlot)
+            if (plotType == PlotType.VOWEL_PLOT)
             {
                 return (@"Vowel Plot");
             }
-            else if (plotType == PlotType.formantPlot)
+            else if (plotType == PlotType.FORMANT_PLOT)
             {
                 return (@"Formant Plot");
             }

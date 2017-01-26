@@ -31,13 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.headerBox = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.learnButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.testButton = new MPAi.NewForms.MPAiButton(this.components);
             this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.targetButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.formantButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,6 +50,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -82,15 +85,6 @@
             this.headerBox.Size = new System.Drawing.Size(544, 70);
             this.headerBox.TabIndex = 1;
             this.headerBox.TabStop = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // splitContainer2
             // 
@@ -132,8 +126,8 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.learnButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.testButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.reportButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -158,20 +152,6 @@
             this.learnButton.UseVisualStyleBackColor = true;
             this.learnButton.Click += new System.EventHandler(this.learnButton_Click);
             // 
-            // testButton
-            // 
-            this.testButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.testButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testButton.ForeColor = System.Drawing.Color.White;
-            this.testButton.Location = new System.Drawing.Point(197, 72);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(150, 23);
-            this.testButton.TabIndex = 1;
-            this.testButton.Text = "Test";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            // 
             // reportButton
             // 
             this.reportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -185,6 +165,52 @@
             this.reportButton.Text = "Score Report";
             this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.formantButton);
+            this.panel1.Controls.Add(this.targetButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 59);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(538, 50);
+            this.panel1.TabIndex = 3;
+            // 
+            // targetButton
+            // 
+            this.targetButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.targetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.targetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.targetButton.ForeColor = System.Drawing.Color.White;
+            this.targetButton.Location = new System.Drawing.Point(194, 14);
+            this.targetButton.Name = "targetButton";
+            this.targetButton.Size = new System.Drawing.Size(70, 23);
+            this.targetButton.TabIndex = 2;
+            this.targetButton.Text = "Target";
+            this.targetButton.UseVisualStyleBackColor = true;
+            this.targetButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
+            // formantButton
+            // 
+            this.formantButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.formantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.formantButton.ForeColor = System.Drawing.Color.White;
+            this.formantButton.Location = new System.Drawing.Point(270, 14);
+            this.formantButton.Name = "formantButton";
+            this.formantButton.Size = new System.Drawing.Size(70, 23);
+            this.formantButton.TabIndex = 3;
+            this.formantButton.Text = "Formant";
+            this.formantButton.UseVisualStyleBackColor = false;
+            this.formantButton.Click += new System.EventHandler(this.formantButton_Click);
             // 
             // MPAiSoundMainMenu
             // 
@@ -209,6 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,8 +249,10 @@
         private System.Windows.Forms.Label greetingLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MPAiButton learnButton;
-        private MPAiButton testButton;
         private MPAiButton reportButton;
         private MenuStrip menuStrip1;
+        private System.Windows.Forms.Panel panel1;
+        private MPAiButton formantButton;
+        private MPAiButton targetButton;
     }
 }

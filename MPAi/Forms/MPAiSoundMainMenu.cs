@@ -74,7 +74,7 @@ namespace MPAi.NewForms
 
 
             MPAiUser user = UserManagement.CurrentUser;
-            PlotController.PlotType? plotType = PlotController.PlotType.vowelPlot;
+            PlotController.PlotType? plotType = PlotController.PlotType.VOWEL_PLOT;
             Models.VoiceType? voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
 
@@ -99,6 +99,17 @@ namespace MPAi.NewForms
         private void reportButton_Click(object sender, EventArgs e)
         {
             IoController.ShowInBrowser(ReportLauncher.MPAiSoundScoreReportHTMLAddress);
+        }
+
+        private void formantButton_Click(object sender, EventArgs e)
+        {
+            MPAiUser user = UserManagement.CurrentUser;
+            PlotController.PlotType? plotType = PlotController.PlotType.FORMANT_PLOT;
+            Models.VoiceType? voiceType = user.Voice;
+            PlotController.RunPlot(plotType, voiceType);
+
+
+            closeThis();
         }
     }
 }

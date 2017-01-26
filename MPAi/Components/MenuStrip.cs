@@ -22,8 +22,8 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
-            checkAppropriateComponents();
-            authoriseAdmin();
+            //checkAppropriateComponents();
+            //authoriseAdmin();
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace MPAi.NewForms
             container.Add(this);
 
             InitializeComponent();
-            checkAppropriateComponents();
-            authoriseAdmin();
+            //checkAppropriateComponents();
+            //authoriseAdmin();
         }
 
         /// <summary>
