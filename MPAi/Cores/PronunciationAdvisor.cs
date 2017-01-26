@@ -27,7 +27,7 @@ namespace MPAi.Cores
                 if (LexiconReader.dictionary.Keys.Contains(recognized))
                 {
                     string recognizedPronouciation = LexiconReader.dictionary[recognized];
-                    advice = string.Format(@"Your recording '{0}' is analysed as the word '{1}', with the pronounciation '{2}'.{3}{4}", recording, recognized, recognizedPronouciation, Environment.NewLine, Environment.NewLine);
+                    advice = string.Format(@"Your recording '{0}' is analysed as the word '{1}', with the pronunciation '{2}'.{3}{4}", recording, recognized, recognizedPronouciation, Environment.NewLine, Environment.NewLine);
 	
                     if (!recognized.Equals(target) && !string.IsNullOrEmpty(target))
                     {
