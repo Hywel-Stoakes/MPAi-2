@@ -101,7 +101,7 @@
             this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.RecordingListLabel);
             this.SpeechRecognitionTestPanel.Panel2MinSize = 250;
             this.SpeechRecognitionTestPanel.Size = new System.Drawing.Size(584, 535);
-            this.SpeechRecognitionTestPanel.SplitterDistance = 252;
+            this.SpeechRecognitionTestPanel.SplitterDistance = 255;
             this.SpeechRecognitionTestPanel.SplitterWidth = 1;
             this.SpeechRecognitionTestPanel.TabIndex = 44;
             // 
@@ -111,7 +111,7 @@
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(474, 218);
+            this.backButton.Location = new System.Drawing.Point(474, 221);
             this.backButton.Margin = new System.Windows.Forms.Padding(10);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(100, 25);
@@ -126,7 +126,7 @@
             this.optionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.optionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optionsButton.ForeColor = System.Drawing.Color.White;
-            this.optionsButton.Location = new System.Drawing.Point(368, 218);
+            this.optionsButton.Location = new System.Drawing.Point(368, 221);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(10);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(100, 25);
@@ -157,7 +157,7 @@
             this.analyzeButton.Enabled = false;
             this.analyzeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.analyzeButton.ForeColor = System.Drawing.Color.White;
-            this.analyzeButton.Location = new System.Drawing.Point(150, 151);
+            this.analyzeButton.Location = new System.Drawing.Point(150, 152);
             this.analyzeButton.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.analyzeButton.Name = "analyzeButton";
             this.analyzeButton.Size = new System.Drawing.Size(300, 25);
@@ -171,7 +171,7 @@
             this.recordingProgressBarLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.recordingProgressBarLabel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.recordingProgressBarLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.recordingProgressBarLabel.Location = new System.Drawing.Point(117, 86);
+            this.recordingProgressBarLabel.Location = new System.Drawing.Point(117, 87);
             this.recordingProgressBarLabel.Name = "recordingProgressBarLabel";
             this.recordingProgressBarLabel.Size = new System.Drawing.Size(350, 50);
             this.recordingProgressBarLabel.TabIndex = 36;
@@ -185,7 +185,7 @@
             this.recordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.recordButton.ForeColor = System.Drawing.Color.White;
-            this.recordButton.Location = new System.Drawing.Point(10, 98);
+            this.recordButton.Location = new System.Drawing.Point(10, 99);
             this.recordButton.Margin = new System.Windows.Forms.Padding(0);
             this.recordButton.Name = "recordButton";
             this.recordButton.Size = new System.Drawing.Size(100, 25);
@@ -201,7 +201,7 @@
             this.playButton.Enabled = false;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.ForeColor = System.Drawing.Color.White;
-            this.playButton.Location = new System.Drawing.Point(474, 98);
+            this.playButton.Location = new System.Drawing.Point(474, 99);
             this.playButton.Margin = new System.Windows.Forms.Padding(0);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(100, 25);
@@ -214,7 +214,7 @@
             // 
             this.recordingProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.recordingProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.recordingProgressBar.Location = new System.Drawing.Point(117, 86);
+            this.recordingProgressBar.Location = new System.Drawing.Point(117, 87);
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(350, 50);
             this.recordingProgressBar.TabIndex = 40;

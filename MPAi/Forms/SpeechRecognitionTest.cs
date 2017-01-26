@@ -79,6 +79,8 @@ namespace MPAi.NewForms
             toggleOptions();    // For development, the bottom panel is visible, but the user won't need the bottom panel most of the time.
             toggleListButtons(RecordingListBox.SelectedItems.Count > 0);
             session = UserManagement.CurrentUser.SpeakScoreboard.NewScoreBoardSession();
+
+            ensureScoreReportButtonCorrectlyEnabled();
         }
 
         /// <summary>
@@ -372,6 +374,7 @@ namespace MPAi.NewForms
         private void analyzeButton_Click(object sender, EventArgs e)
         {
             analyse();
+            ensureScoreReportButtonCorrectlyEnabled();
         }
 
         /// <summary>
@@ -404,6 +407,19 @@ namespace MPAi.NewForms
             }
         }
 
+        private void ensureScoreReportButtonCorrectlyEnabled()
+        {
+            if(UserManagement.CurrentUser.SpeakScoreboard.IsEmpty())
+            {
+                ScoreReportButton.Enabled = false;
+            }
+            else
+            {
+                ScoreReportButton.Enabled = true;
+            }
+            
+        } 
+
         /// <summary>
         /// Functionality for the Show Report button.
         /// </summary>
@@ -419,7 +435,7 @@ namespace MPAi.NewForms
         /// </summary>
         void generateReport()
         {
-        ReportLauncher.GenerateMPAiSpeakScoreHTML(UserManagement.CurrentUser.SpeakScoreboard);
+            ReportLauncher.GenerateMPAiSpeakScoreHTML(UserManagement.CurrentUser.SpeakScoreboard);
             if (File.Exists(ReportLauncher.MPAiSpeakScoreReportHTMLAddress))
             {
                 ReportLauncher.ShowMPAiSpeakScoreReport();
