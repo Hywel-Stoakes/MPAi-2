@@ -110,8 +110,14 @@ namespace MPAi
             var devices = deviceEnum.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active).ToList();
             if (devices.Count == 0)
             {
-                MessageBox.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
-
+                if (plotType == PlotType.VOWEL_PLOT)
+                {
+                    MessageBox.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
+                }
+                else if (plotType == PlotType.FORMANT_PLOT) {
+                    MessageBox.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
+                } 
+                
                 NewForms.MPAiSoundMainMenu menu = new MPAi.NewForms.MPAiSoundMainMenu();
                 menu.Show();
 
@@ -122,6 +128,13 @@ namespace MPAi
                 foreach (var process in Process.GetProcessesByName("VowelRunner"))
                 {
                    
+                    process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
+                }
+                foreach (var process in Process.GetProcessesByName("PlotRunner"))
+                {
+
                     process.Kill();
                     process.WaitForExit();
                     process.Dispose();
@@ -164,15 +177,17 @@ namespace MPAi
                 // Before starting a new process, tidy up any old ones in the background.
                 //  ClosePlot();
 
+                if (plotType == PlotType.VOWEL_PLOT)
+                {
 
-                pythonPipe = new PythonPipe();
+                    pythonPipe = new PythonPipe();
 
-                pipeThread = new Thread(new ThreadStart(pythonPipe.ConnectAndRecieve));
-                pipeThread.IsBackground = true;
-                pipeThread.Start();
+                    pipeThread = new Thread(new ThreadStart(pythonPipe.ConnectAndRecieve));
+                    pipeThread.IsBackground = true;
+                    pipeThread.Start();
 
-                Console.WriteLine("after Thread");
-
+                    Console.WriteLine("after Thread");
+                }
 
 
                 PlotExe = new Process();
@@ -224,33 +239,29 @@ namespace MPAi
                 //PlotExe.StartInfo.FileName = Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName);
                 currentPlotProcess = PlotExe;
                 PlotExe.Start();
-                int count = 0;
                 // Hang up the main application to wait until it finished starting
                 while ((PlotStarted(GetPlotTitle()) == 1) && (!exitRequest))
                 {
-                    count++;
-                    Console.Write(count);
-
                     // Wait 5 ms before checking if secondary application has started, preventing CPU blocking.
                     await System.Threading.Tasks.Task.Delay(5);
                 }
-                Console.WriteLine(PlotStarted(GetPlotTitle()));
-                Console.WriteLine(!PlotExe.HasExited);
-                Console.WriteLine("End of first loop.");
-                while ( !exitRequest)
+                
+                if (plotType == PlotType.VOWEL_PLOT)
                 {
-
-                    await System.Threading.Tasks.Task.Delay(10);
-
+                    while (!exitRequest)
+                    {
+                        await System.Threading.Tasks.Task.Delay(10);
+                    }
+                    StopThread();
                 }
-
-
-
-                Console.WriteLine("Request end of program.");
-
-                StopThread();
+                else
+                {
+                    while ((PlotStarted(GetPlotTitle()) != 1) && (!PlotExe.HasExited )) {
+                       await System.Threading.Tasks.Task.Delay(10);
+                    }
+                }
                 ClosePlot();
-
+                
 
             }
             catch (Exception exp)
