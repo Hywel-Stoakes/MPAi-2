@@ -47,7 +47,7 @@
             this.toLocalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.toLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toLocalButton.ForeColor = System.Drawing.Color.White;
-            this.toLocalButton.Location = new System.Drawing.Point(218, 65);
+            this.toLocalButton.Location = new System.Drawing.Point(218, 69);
             this.toLocalButton.Name = "toLocalButton";
             this.toLocalButton.Size = new System.Drawing.Size(148, 25);
             this.toLocalButton.TabIndex = 12;
@@ -60,7 +60,7 @@
             this.toDBButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.toDBButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toDBButton.ForeColor = System.Drawing.Color.White;
-            this.toDBButton.Location = new System.Drawing.Point(218, 34);
+            this.toDBButton.Location = new System.Drawing.Point(218, 38);
             this.toDBButton.Name = "toDBButton";
             this.toDBButton.Size = new System.Drawing.Size(148, 25);
             this.toDBButton.TabIndex = 11;
@@ -84,7 +84,7 @@
             this.allLocalItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.allLocalItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allLocalItemsButton.ForeColor = System.Drawing.Color.White;
-            this.allLocalItemsButton.Location = new System.Drawing.Point(218, 96);
+            this.allLocalItemsButton.Location = new System.Drawing.Point(218, 100);
             this.allLocalItemsButton.Name = "allLocalItemsButton";
             this.allLocalItemsButton.Size = new System.Drawing.Size(148, 23);
             this.allLocalItemsButton.TabIndex = 15;
@@ -118,13 +118,12 @@
             // currentFolderTextBox
             // 
             this.currentFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.currentFolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.currentFolderTextBox.Location = new System.Drawing.Point(12, 9);
-            this.currentFolderTextBox.MaximumSize = new System.Drawing.Size(175, 15);
-            this.currentFolderTextBox.MinimumSize = new System.Drawing.Size(175, 15);
+            this.currentFolderTextBox.Location = new System.Drawing.Point(12, 5);
+            this.currentFolderTextBox.MaximumSize = new System.Drawing.Size(175, 23);
+            this.currentFolderTextBox.MinimumSize = new System.Drawing.Size(175, 23);
             this.currentFolderTextBox.Name = "currentFolderTextBox";
             this.currentFolderTextBox.ReadOnly = true;
-            this.currentFolderTextBox.Size = new System.Drawing.Size(175, 20);
+            this.currentFolderTextBox.Size = new System.Drawing.Size(175, 23);
             this.currentFolderTextBox.TabIndex = 17;
             this.currentFolderTextBox.Text = "No Folder Selected";
             // 
@@ -133,7 +132,7 @@
             this.selectFolderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.selectFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectFolderButton.ForeColor = System.Drawing.Color.White;
-            this.selectFolderButton.Location = new System.Drawing.Point(192, 8);
+            this.selectFolderButton.Location = new System.Drawing.Point(193, 5);
             this.selectFolderButton.Name = "selectFolderButton";
             this.selectFolderButton.Size = new System.Drawing.Size(27, 23);
             this.selectFolderButton.TabIndex = 18;
@@ -146,7 +145,7 @@
             this.allDatabaseItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.allDatabaseItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allDatabaseItemsButton.ForeColor = System.Drawing.Color.White;
-            this.allDatabaseItemsButton.Location = new System.Drawing.Point(218, 125);
+            this.allDatabaseItemsButton.Location = new System.Drawing.Point(218, 129);
             this.allDatabaseItemsButton.Name = "allDatabaseItemsButton";
             this.allDatabaseItemsButton.Size = new System.Drawing.Size(148, 23);
             this.allDatabaseItemsButton.TabIndex = 19;
@@ -160,7 +159,7 @@
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(218, 154);
+            this.backButton.Location = new System.Drawing.Point(218, 158);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(148, 23);
             this.backButton.TabIndex = 20;

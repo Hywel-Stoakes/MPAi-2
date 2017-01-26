@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.audioFolderTextBox = new System.Windows.Forms.TextBox();
             this.audioFolderLabel = new System.Windows.Forms.Label();
-            this.audioFolderSelectButton = new System.Windows.Forms.Button();
+            this.audioFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.videoFolderSelectButton = new System.Windows.Forms.Button();
+            this.saveButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.videoFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.videoFolderlabel = new System.Windows.Forms.Label();
             this.videoFolderTextBox = new System.Windows.Forms.TextBox();
-            this.reportFolderSelectButton = new System.Windows.Forms.Button();
+            this.reportFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.reportFolderTextBox = new System.Windows.Forms.TextBox();
-            this.recordingFolderSelectButton = new System.Windows.Forms.Button();
+            this.recordingFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.recordingFolderTextBox = new System.Windows.Forms.TextBox();
-            this.HTKFolderSelectButton = new System.Windows.Forms.Button();
+            this.HTKFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.HTKFolderTextBox = new System.Windows.Forms.TextBox();
-            this.formantFolderSelectButton = new System.Windows.Forms.Button();
+            this.formantFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.formantFolderTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             // 
             // audioFolderTextBox
             // 
+            this.audioFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.audioFolderTextBox.Enabled = false;
             this.audioFolderTextBox.Location = new System.Drawing.Point(126, 72);
             this.audioFolderTextBox.Name = "audioFolderTextBox";
@@ -71,6 +73,9 @@
             // 
             // audioFolderSelectButton
             // 
+            this.audioFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.audioFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.audioFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.audioFolderSelectButton.Location = new System.Drawing.Point(464, 72);
             this.audioFolderSelectButton.Name = "audioFolderSelectButton";
             this.audioFolderSelectButton.Size = new System.Drawing.Size(33, 25);
@@ -81,6 +86,9 @@
             // 
             // saveButton
             // 
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(388, 273);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(51, 25);
@@ -91,7 +99,10 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(445, 273);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(53, 25);
@@ -102,6 +113,9 @@
             // 
             // videoFolderSelectButton
             // 
+            this.videoFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.videoFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.videoFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.videoFolderSelectButton.Location = new System.Drawing.Point(464, 106);
             this.videoFolderSelectButton.Name = "videoFolderSelectButton";
             this.videoFolderSelectButton.Size = new System.Drawing.Size(33, 25);
@@ -121,6 +135,7 @@
             // 
             // videoFolderTextBox
             // 
+            this.videoFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.videoFolderTextBox.Enabled = false;
             this.videoFolderTextBox.Location = new System.Drawing.Point(126, 106);
             this.videoFolderTextBox.Name = "videoFolderTextBox";
@@ -129,6 +144,9 @@
             // 
             // reportFolderSelectButton
             // 
+            this.reportFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.reportFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.reportFolderSelectButton.Location = new System.Drawing.Point(464, 171);
             this.reportFolderSelectButton.Name = "reportFolderSelectButton";
             this.reportFolderSelectButton.Size = new System.Drawing.Size(33, 25);
@@ -148,6 +166,7 @@
             // 
             // reportFolderTextBox
             // 
+            this.reportFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.reportFolderTextBox.Enabled = false;
             this.reportFolderTextBox.Location = new System.Drawing.Point(126, 171);
             this.reportFolderTextBox.Name = "reportFolderTextBox";
@@ -156,6 +175,9 @@
             // 
             // recordingFolderSelectButton
             // 
+            this.recordingFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.recordingFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recordingFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.recordingFolderSelectButton.Location = new System.Drawing.Point(464, 138);
             this.recordingFolderSelectButton.Name = "recordingFolderSelectButton";
             this.recordingFolderSelectButton.Size = new System.Drawing.Size(33, 25);
@@ -175,6 +197,7 @@
             // 
             // recordingFolderTextBox
             // 
+            this.recordingFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.recordingFolderTextBox.Enabled = false;
             this.recordingFolderTextBox.Location = new System.Drawing.Point(126, 138);
             this.recordingFolderTextBox.Name = "recordingFolderTextBox";
@@ -183,6 +206,9 @@
             // 
             // HTKFolderSelectButton
             // 
+            this.HTKFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.HTKFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HTKFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.HTKFolderSelectButton.Location = new System.Drawing.Point(464, 201);
             this.HTKFolderSelectButton.Name = "HTKFolderSelectButton";
             this.HTKFolderSelectButton.Size = new System.Drawing.Size(33, 25);
@@ -202,6 +228,7 @@
             // 
             // HTKFolderTextBox
             // 
+            this.HTKFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.HTKFolderTextBox.Enabled = false;
             this.HTKFolderTextBox.Location = new System.Drawing.Point(126, 201);
             this.HTKFolderTextBox.Name = "HTKFolderTextBox";
@@ -210,6 +237,9 @@
             // 
             // formantFolderSelectButton
             // 
+            this.formantFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.formantFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.formantFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.formantFolderSelectButton.Location = new System.Drawing.Point(464, 229);
             this.formantFolderSelectButton.Name = "formantFolderSelectButton";
             this.formantFolderSelectButton.Size = new System.Drawing.Size(33, 25);
@@ -223,12 +253,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(19, 232);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 18;
             this.label4.Text = "Formant Folder";
             // 
             // formantFolderTextBox
             // 
+            this.formantFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.formantFolderTextBox.Enabled = false;
             this.formantFolderTextBox.Location = new System.Drawing.Point(126, 229);
             this.formantFolderTextBox.Name = "formantFolderTextBox";
@@ -250,6 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(510, 304);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.formantFolderSelectButton);
@@ -287,23 +319,23 @@
 
         private System.Windows.Forms.TextBox audioFolderTextBox;
         private System.Windows.Forms.Label audioFolderLabel;
-        private System.Windows.Forms.Button audioFolderSelectButton;
+        private MPAi.NewForms.MPAiButton audioFolderSelectButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button videoFolderSelectButton;
+        private MPAi.NewForms.MPAiButton saveButton;
+        private MPAi.NewForms.MPAiButton cancelButton;
+        private MPAi.NewForms.MPAiButton videoFolderSelectButton;
         private System.Windows.Forms.Label videoFolderlabel;
         private System.Windows.Forms.TextBox videoFolderTextBox;
-        private System.Windows.Forms.Button reportFolderSelectButton;
+        private MPAi.NewForms.MPAiButton reportFolderSelectButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox reportFolderTextBox;
-        private System.Windows.Forms.Button recordingFolderSelectButton;
+        private MPAi.NewForms.MPAiButton recordingFolderSelectButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox recordingFolderTextBox;
-        private System.Windows.Forms.Button HTKFolderSelectButton;
+        private MPAi.NewForms.MPAiButton HTKFolderSelectButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox HTKFolderTextBox;
-        private System.Windows.Forms.Button formantFolderSelectButton;
+        private MPAi.NewForms.MPAiButton formantFolderSelectButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox formantFolderTextBox;
         private System.Windows.Forms.Label label5;

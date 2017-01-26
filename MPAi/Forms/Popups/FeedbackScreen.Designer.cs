@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mailContentTextBox = new System.Windows.Forms.TextBox();
             this.customerEmailTextBox = new System.Windows.Forms.TextBox();
             this.mailSubjectTextBox = new System.Windows.Forms.TextBox();
-            this.mailSendButton = new System.Windows.Forms.Button();
-            this.mailCancelButton = new System.Windows.Forms.Button();
+            this.mailSendButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.mailCancelButton = new MPAi.NewForms.MPAiButton(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -67,21 +68,24 @@
             // 
             // mailContentTextBox
             // 
+            this.mailContentTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mailContentTextBox.Location = new System.Drawing.Point(12, 110);
             this.mailContentTextBox.Multiline = true;
             this.mailContentTextBox.Name = "mailContentTextBox";
             this.mailContentTextBox.Size = new System.Drawing.Size(606, 237);
             this.mailContentTextBox.TabIndex = 3;
             // 
-            // customerEmialTextBox
+            // customerEmailTextBox
             // 
+            this.customerEmailTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.customerEmailTextBox.Location = new System.Drawing.Point(72, 17);
-            this.customerEmailTextBox.Name = "customerEmialTextBox";
+            this.customerEmailTextBox.Name = "customerEmailTextBox";
             this.customerEmailTextBox.Size = new System.Drawing.Size(546, 20);
             this.customerEmailTextBox.TabIndex = 4;
             // 
             // mailSubjectTextBox
             // 
+            this.mailSubjectTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mailSubjectTextBox.Location = new System.Drawing.Point(72, 54);
             this.mailSubjectTextBox.Name = "mailSubjectTextBox";
             this.mailSubjectTextBox.Size = new System.Drawing.Size(546, 20);
@@ -89,6 +93,9 @@
             // 
             // mailSendButton
             // 
+            this.mailSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.mailSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mailSendButton.ForeColor = System.Drawing.Color.White;
             this.mailSendButton.Location = new System.Drawing.Point(543, 358);
             this.mailSendButton.Name = "mailSendButton";
             this.mailSendButton.Size = new System.Drawing.Size(75, 23);
@@ -99,7 +106,10 @@
             // 
             // mailCancelButton
             // 
+            this.mailCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.mailCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.mailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mailCancelButton.ForeColor = System.Drawing.Color.White;
             this.mailCancelButton.Location = new System.Drawing.Point(462, 358);
             this.mailCancelButton.Name = "mailCancelButton";
             this.mailCancelButton.Size = new System.Drawing.Size(75, 23);
@@ -108,11 +118,12 @@
             this.mailCancelButton.UseVisualStyleBackColor = true;
             this.mailCancelButton.Click += new System.EventHandler(this.mailCancelButton_Click);
             // 
-            // FeedbackMSGBox
+            // FeedbackScreen
             // 
             this.AcceptButton = this.mailSendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.mailCancelButton;
             this.ClientSize = new System.Drawing.Size(630, 393);
             this.Controls.Add(this.mailCancelButton);
@@ -126,7 +137,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FeedbackMSGBox";
+            this.Name = "FeedbackScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FeedBack Form";
             this.ResumeLayout(false);
@@ -142,7 +153,7 @@
         private System.Windows.Forms.TextBox mailContentTextBox;
         private System.Windows.Forms.TextBox customerEmailTextBox;
         private System.Windows.Forms.TextBox mailSubjectTextBox;
-        private System.Windows.Forms.Button mailSendButton;
-        private System.Windows.Forms.Button mailCancelButton;
+        private MPAi.NewForms.MPAiButton mailSendButton;
+        private MPAi.NewForms.MPAiButton mailCancelButton;
     }
 }

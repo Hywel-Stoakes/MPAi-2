@@ -56,8 +56,8 @@
             this.modernRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.okayButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -222,6 +222,7 @@
             // userNameBox
             // 
             this.userNameBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userNameBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.userNameBox.Location = new System.Drawing.Point(130, 7);
             this.userNameBox.Name = "userNameBox";
             this.userNameBox.Size = new System.Drawing.Size(200, 20);
@@ -230,6 +231,7 @@
             // passwordBox
             // 
             this.passwordBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.passwordBox.Location = new System.Drawing.Point(130, 42);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(200, 20);
@@ -239,6 +241,7 @@
             // confirmPasswordBox
             // 
             this.confirmPasswordBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.confirmPasswordBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.confirmPasswordBox.Location = new System.Drawing.Point(130, 78);
             this.confirmPasswordBox.Name = "confirmPasswordBox";
             this.confirmPasswordBox.Size = new System.Drawing.Size(200, 20);
@@ -384,7 +387,7 @@
             this.nativeRadioButton.Location = new System.Drawing.Point(20, 3);
             this.nativeRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.nativeRadioButton.Name = "nativeRadioButton";
-            this.nativeRadioButton.Size = new System.Drawing.Size(94, 23);
+            this.nativeRadioButton.Size = new System.Drawing.Size(85, 23);
             this.nativeRadioButton.TabIndex = 0;
             this.nativeRadioButton.TabStop = true;
             this.nativeRadioButton.Text = "Native Māori";
@@ -428,15 +431,6 @@
             this.panel1.Size = new System.Drawing.Size(147, 32);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cancelButton);
-            this.panel2.Location = new System.Drawing.Point(183, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(148, 32);
-            this.panel2.TabIndex = 1;
-            // 
             // okayButton
             // 
             this.okayButton.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -450,6 +444,15 @@
             this.okayButton.Text = "OK";
             this.okayButton.UseVisualStyleBackColor = true;
             this.okayButton.Click += new System.EventHandler(this.okayButton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cancelButton);
+            this.panel2.Location = new System.Drawing.Point(183, 3);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(148, 32);
+            this.panel2.TabIndex = 1;
             // 
             // cancelButton
             // 

@@ -40,6 +40,8 @@
             this.userDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.userDataView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.userDataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.userDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDataView.Location = new System.Drawing.Point(12, 27);
             this.userDataView.Name = "userDataView";
@@ -75,7 +77,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(384, 261);
+            this.ClientSize = new System.Drawing.Size(384, 262);
             this.Controls.Add(this.dataReadOnly);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.userDataView);
