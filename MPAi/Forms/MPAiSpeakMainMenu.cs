@@ -26,7 +26,7 @@ namespace MPAi.NewForms
             // Disable score report button if the report has not been created before.
             ensureScoreReportButtonCorrectlyEnabled();
 
-            string name = UserManagement.CurrentUser.getRawName();
+            string name = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
             if (name == null)
             {
                 greetingLabel.Text = "Kia Ora, User!";

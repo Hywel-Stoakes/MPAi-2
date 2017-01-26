@@ -300,6 +300,28 @@ namespace MPAi
             return userName.ToLower();
         }
 
+        public string GetCorrectlyCapitalisedName()
+        {
+            string[] parts = userName.Split(' ');
+            string capUserName = "";
+
+            foreach (string word in parts)
+            {
+                if(!String.IsNullOrEmpty(word))
+                {
+                    if(capUserName.Equals(""))
+                    {
+                        capUserName += word.First().ToString().ToUpper() + word.Substring(1);
+                    }
+                    else
+                    {
+                        capUserName += " " + word.First().ToString().ToUpper() + word.Substring(1);
+                    }
+                }
+            }
+            return capUserName;
+        }
+
         /// <summary>
         /// Getter for the Users inputed username. Case sensitive.
         /// </summary>

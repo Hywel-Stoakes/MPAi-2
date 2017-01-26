@@ -126,7 +126,7 @@ namespace MPAi.Cores.Scoreboard
                         htw.AddAttribute(HtmlTextWriterAttribute.Class, "title");
                         htw.RenderBeginTag(HtmlTextWriterTag.Div);
                         htw.RenderBeginTag(HtmlTextWriterTag.H3);
-                        htw.Write(scoreboard.User.getName() + "'s MPAi Speak Pronunciation Scoreboard");
+                        htw.Write(scoreboard.User.GetCorrectlyCapitalisedName() + "'s MPAi Speak Pronunciation Scoreboard");
                         htw.RenderEndTag();
                         htw.RenderEndTag();
 
@@ -241,7 +241,7 @@ namespace MPAi.Cores.Scoreboard
                         htw.AddAttribute(HtmlTextWriterAttribute.Class, "title");
                         htw.RenderBeginTag(HtmlTextWriterTag.Div);
                         htw.RenderBeginTag(HtmlTextWriterTag.H3);
-                        htw.Write(scoreboard.User.getName() + "'s MPAi Sound Pronunciation Scoreboard");
+                        htw.Write(scoreboard.User.GetCorrectlyCapitalisedName() + "'s MPAi Sound Pronunciation Scoreboard");
                         htw.RenderEndTag();
                         htw.RenderEndTag();
 
