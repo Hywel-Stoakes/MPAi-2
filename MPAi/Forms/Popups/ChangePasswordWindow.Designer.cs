@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.buttonCancel = new MPAi.NewForms.MPAiButton(this.components);
+            this.buttonOK = new MPAi.NewForms.MPAiButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.codeBox2 = new System.Windows.Forms.TextBox();
@@ -39,8 +40,10 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.ForeColor = System.Drawing.Color.White;
             this.buttonCancel.Location = new System.Drawing.Point(197, 124);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 25);
@@ -52,7 +55,9 @@
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOK.ForeColor = System.Drawing.Color.White;
             this.buttonOK.Location = new System.Drawing.Point(116, 124);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 25);
@@ -87,6 +92,7 @@
             // 
             this.codeBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.codeBox2.Location = new System.Drawing.Point(12, 89);
             this.codeBox2.Name = "codeBox2";
             this.codeBox2.Size = new System.Drawing.Size(260, 20);
@@ -98,6 +104,7 @@
             // 
             this.codeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.codeBox.Location = new System.Drawing.Point(12, 37);
             this.codeBox.Name = "codeBox";
             this.codeBox.Size = new System.Drawing.Size(260, 20);
@@ -112,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(284, 161);
+            this.ClientSize = new System.Drawing.Size(284, 162);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label3);
@@ -134,8 +141,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonOK;
+        private MPAi.NewForms.MPAiButton buttonCancel;
+        private MPAi.NewForms.MPAiButton buttonOK;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox codeBox2;
