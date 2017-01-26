@@ -43,7 +43,16 @@ namespace MPAi.Cores.Scoreboard
                 return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "MPAiSoundReport.html");
             }
         }
-
+        /// <summary>
+        /// The address within the local repository of the generated CSS File.
+        /// </summary>
+        private static string OriginalScoreboardReportCSSAddress
+        {
+            get
+            {
+                return Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Resources", "CSSFiles", "Scoreboard.css");
+            }
+        }
         /// <summary>
         /// The address within the local repository of the generated CSS File.
         /// </summary>
@@ -78,174 +87,7 @@ namespace MPAi.Cores.Scoreboard
         /// </summary>
         private static void generateScoreboardCSS()
         {
-            if (!File.Exists(ScoreboardReportCSSAddress))
-            {
-                using (FileStream fs = new FileStream(ScoreboardReportCSSAddress, FileMode.Create))
-                {
-                    using (StreamWriter sw = new StreamWriter(fs))
-                    {
-                        sw.WriteLine("@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);");
-                        sw.WriteLine("");
-                        sw.WriteLine("body {");
-                        sw.WriteLine("  background-color: #7ea4ec;");
-                        sw.WriteLine("  font-family: \"Roboto\", helvetica, arial, sans-serif;");
-                        sw.WriteLine("  font-size: 16px;");
-                        sw.WriteLine("  font-weight: 400;");
-                        sw.WriteLine("  text-rendering: optimizeLegibility;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("div.title {");
-                        sw.WriteLine("	text-align: center;");
-                        sw.WriteLine("  display: block;");
-                        sw.WriteLine("  margin: auto;");
-                        sw.WriteLine("  max-width: 600px;");
-                        sw.WriteLine("  padding:5px;");
-                        sw.WriteLine("  width: 100%;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine(".title h3 {");
-                        sw.WriteLine("   color: #fafafa;");
-                        sw.WriteLine("   font-size: 36px;");
-                        sw.WriteLine("   font-weight: 400;");
-                        sw.WriteLine("   font-style: bold;");
-                        sw.WriteLine("   font-family: \"Roboto\", helvetica, arial, sans-serif;");
-                        sw.WriteLine("   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);");
-                        sw.WriteLine("   text-transform:uppercase;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("div.table-title {");
-                        sw.WriteLine("	text-align: center;");
-                        sw.WriteLine("  display: block;");
-                        sw.WriteLine("  margin: auto;");
-                        sw.WriteLine("  max-width: 600px;");
-                        sw.WriteLine("  padding:5px;");
-                        sw.WriteLine("  width: 100%;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine(".table-title h3 {");
-                        sw.WriteLine("   color: #fafafa;");
-                        sw.WriteLine("   font-size: 28px;");
-                        sw.WriteLine("   font-weight: 400;");
-                        sw.WriteLine("   font-style: normal;");
-                        sw.WriteLine("   font-family: \"Roboto\", helvetica, arial, sans-serif;");
-                        sw.WriteLine("   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);");
-                        sw.WriteLine("   text-transform:uppercase;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine(".table-fill {");
-                        sw.WriteLine("  background: white;");
-                        sw.WriteLine("  border-radius:3px;");
-                        sw.WriteLine("  border-collapse: collapse;");
-                        sw.WriteLine("  height: 320px;");
-                        sw.WriteLine("  margin: auto;");
-                        sw.WriteLine("  padding:50px;");
-                        sw.WriteLine("  width: 90%;");
-                        sw.WriteLine("  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);");
-                        sw.WriteLine("  animation: float 5s infinite;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("th {");
-                        sw.WriteLine("  color:#D5DDE5;");
-                        sw.WriteLine("  background:#1b1e24;");
-                        sw.WriteLine("  border-bottom:4px solid #9ea7af;");
-                        sw.WriteLine("  border-right: 1px solid #343a45;");
-                        sw.WriteLine("  font-size:23px;");
-                        sw.WriteLine("  font-weight: 100;");
-                        sw.WriteLine("  padding:24px;");
-                        sw.WriteLine("  text-align:left;");
-                        sw.WriteLine("  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);");
-                        sw.WriteLine("  vertical-align:middle;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("th:first-child {");
-                        sw.WriteLine("  border-top-left-radius:3px;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("th:last-child {");
-                        sw.WriteLine("  border-top-right-radius:3px;");
-                        sw.WriteLine("  border-right:none;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr {");
-                        sw.WriteLine("  border-top: 1px solid #C1C3D1;");
-                        sw.WriteLine("  border-bottom: 1px solid #C1C3D1;");
-                        sw.WriteLine("  color:#666B85;");
-                        sw.WriteLine("  font-size:16px;");
-                        sw.WriteLine("  font-weight:normal;");
-                        sw.WriteLine("  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:hover td{");
-                        sw.WriteLine("  background:#8E90aa;");
-                        sw.WriteLine("  color:#FFFFFF;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:first-child {");
-                        sw.WriteLine("  border-top:none;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:last-child {");
-                        sw.WriteLine("  border-bottom:none;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:nth-child(odd) td {");
-                        sw.WriteLine("  background:#EBEBEB;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:nth-child(odd):hover td {");
-                        sw.WriteLine("  background:#8E90aa;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:last-child td:first-child {");
-                        sw.WriteLine("  border-bottom-left-radius:3px;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:last-child td:last-child {");
-                        sw.WriteLine("  border-bottom-right-radius:3px;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr.good-colour td {");
-                        sw.WriteLine("  background:#A7FF66;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:hover.good-colour td {");
-                        sw.WriteLine("  background:#88FF33;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr.medium-colour td {");
-                        sw.WriteLine("  background:#FFDD66;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:hover.medium-colour td {");
-                        sw.WriteLine("  background:#FFD333");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr.bad-colour  td {");
-                        sw.WriteLine("  background:#FF666A;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("tr:hover.bad-colour  td {");
-                        sw.WriteLine("  background:#FF333A;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("td {");
-                        sw.WriteLine("  white-space:pre;");
-                        sw.WriteLine("  background:#FFFFFF;");
-                        sw.WriteLine("  padding:20px;");
-                        sw.WriteLine("  text-align:left;");
-                        sw.WriteLine("  vertical-align:middle;");
-                        sw.WriteLine("  font-weight:300;");
-                        sw.WriteLine("  font-size:18px;");
-                        sw.WriteLine("  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);");
-                        sw.WriteLine("  border-right: 1px solid #C1C3D1;");
-                        sw.WriteLine("}");
-                        sw.WriteLine("");
-                        sw.WriteLine("td:last-child {");
-                        sw.WriteLine("  border-right: 0px;");
-                        sw.WriteLine("}");
-                    }
-                }
-            }
+            File.Copy(OriginalScoreboardReportCSSAddress, ScoreboardReportCSSAddress);
         }
         /// <summary>
         /// Generates an HTML score report based on an input scoreboard.

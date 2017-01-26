@@ -3313,6 +3313,9 @@
     <EmbeddedResource Include="Archived Classes\Prior to 2.0\Components\TDButton.resx">
       <DependentUpon>TDButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\MPAiButton.resx">
+      <DependentUpon>MPAiButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\AdminConsole.resx">
       <DependentUpon>AdminConsole.cs</DependentUpon>
     </EmbeddedResource>
@@ -5734,6 +5737,7 @@
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\system_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\tutorials_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\upload_icon.png" />
+    <Content Include="Resources\CSSFiles\Scoreboard.css" />
     <Content Include="Resources\MPAi.ico" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_1.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_2.png" />
