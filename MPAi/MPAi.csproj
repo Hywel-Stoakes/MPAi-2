@@ -6421,7 +6421,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>XCOPY "$(ProjectDir)VlcLibs" "$(TargetDir)VlcLibs" /i /S /Y
-XCOPY "$(ProjectDir)Fomant" "$(TargetDir)Fomant" /i /S /Y
+XCOPY "$(ProjectDir)Formant" "$(TargetDir)Formant" /i /S /Y
 XCOPY "$(ProjectDir)HTK" "$(TargetDir)HTK" /i /S /Y
 XCOPY "$(ProjectDir)Audio" "$(TargetDir)Audio" /i /S /Y
 XCOPY "$(ProjectDir)App_Data" "$(TargetDir)App_Data" /i /S /Y</PreBuildEvent>
