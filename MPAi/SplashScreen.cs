@@ -16,6 +16,5 @@ namespace MPAid
             Height = BackgroundImage.Height;
             Icon = Properties.Resources.MPAid;
         }
-
     }
 }
