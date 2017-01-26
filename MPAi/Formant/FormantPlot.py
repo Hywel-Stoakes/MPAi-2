@@ -73,7 +73,6 @@ class FormantPlot:
         self.count  =0
 
         self.notStopped = False
-        self.createHelpMode()
 
 
 
@@ -112,21 +111,6 @@ class FormantPlot:
         # self.clearScreenButton = Button(self.formantPlotControlFrame, text='Clear Plot', command=self.clear, state='normal')
         # self.clearScreenButton.grid(row=1,column=2,sticky='w'+'e'+'n'+'s')
 
-    def createHelpMode(self):
-        self.formantPlotCanvas.delete('help')
-        font = ('Arial','15')
-        boxWidth = 230
-        x1 = (PLOTWIDTH/2)*(self.plotWidth/PLOTWIDTH) - (boxWidth)/2
-        y1 = 2
-        x2 = (PLOTWIDTH/2)*(self.plotWidth/PLOTWIDTH) + (boxWidth)/2
-        y2 = 32
-        helpBox = self.formantPlotCanvas.create_rectangle(x1,y1,x2,y2, tag=('help','helpBox'), fill='green', outline='black')
-        self.recordingBoxText = self.formantPlotCanvas.create_text((x1+x2)/2,(y1+y2)/2, tag=('help','helpText'), text='Help Mode',font=font, fill='black')
-
-
-
-        self.formantPlotCanvas.itemconfig('help', state='hidden')
-
 
     def createButtons(self):
         self.buttonCounter += 1
@@ -138,10 +122,10 @@ class FormantPlot:
         self.formantPlotCanvas.create_rectangle(0,self.plotHeight-height*30-8,self.plotWidth+10,self.plotHeight+10, tags='buttons', fill='#d3d3d3')
 
 
-        text = "  Help  "
-        helpButton = Button(self.parent, text=text,command=self.loadHelp, font=font )
+        text = "  Back to Menu  "
+        helpButton = Button(self.parent, text=text,command=self.goBackToMenu, font=font )
         helpButton.configure(height=height,activebackground='green', anchor=W, relief = GROOVE)
-        helpButtonWindow = self.formantPlotCanvas.create_window(2, self.plotHeight-4*(self.plotHeight/PLOTHEIGHT), anchor=SW,tags=('helpButton','buttons'),window=helpButton)
+        helpButtonWindow = self.formantPlotCanvas.create_window(2, self.plotHeight-4*(self.plotHeight/PLOTHEIGHT), anchor=SW,tags=('backButton','buttons'),window=helpButton)
 
 
         text = text=14*" "+"Record"+14*" "
@@ -164,6 +148,9 @@ class FormantPlot:
 
 
         self.formantPlotCanvas.itemconfig('buttons', state='normal')
+
+    def goBackToMenu(self):
+         self.formApp.backToMenu()
 
     def toggleVowelType(self,*event):
         if self.isRecording == False:
@@ -211,7 +198,6 @@ class FormantPlot:
         self.drawGoldStandardMonophthongs(True)
         self.redrawPlotInfo()
         self.createBoxs()
-        #self.createHelpMode()
         self.createButtons()
 
     def createKey(self,):

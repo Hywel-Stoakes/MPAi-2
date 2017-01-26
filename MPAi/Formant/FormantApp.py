@@ -35,6 +35,8 @@ class FormantApp:
     """
     def __init__(self):
 
+        self.goBackToMenu = False
+
         if len(sys.argv) == 3:
             if sys.argv[1].lower() == 'masculine' or sys.argv[1].lower() == 'feminine':
                 voiceType = sys.argv[1].lower()
@@ -461,7 +463,14 @@ class FormantApp:
     """
     def quitPlot(self):
         self.root.destroy()
-
+        if self.goBackToMenu:
+            sys.exit(0)
+        else:
+            sys.exit(15)
+       
+    def backToMenu(self):
+        self.goBackToMenu = True
+        self.quitPlot()
 
 
 #*******************************************************************************

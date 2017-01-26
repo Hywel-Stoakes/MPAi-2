@@ -286,7 +286,15 @@ namespace MPAi.NewForms
             if (!(PlotController.getCurrentPlotProcess() == null))
             {
                 //Kills any persistent Procecsses.
-                PlotController.getCurrentPlotProcess().Kill();
+                try
+                {
+                    PlotController.getCurrentPlotProcess().Kill();
+                    PlotController.getCurrentPlotProcess().WaitForExit();
+                    PlotController.getCurrentPlotProcess().Dispose();
+                }
+                catch (Exception exp) {
+                    Console.WriteLine(exp.StackTrace);
+                }
             }
 
             UserManagement.WriteSettings();

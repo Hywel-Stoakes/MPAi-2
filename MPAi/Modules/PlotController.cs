@@ -9,6 +9,8 @@ using System.Threading;
 using MPAi.Models;
 using MPAi.Cores.Scoreboard;
 using NAudio.CoreAudioApi;
+using MPAi.Forms;
+using MPAi.NewForms;
 
 namespace MPAi
 {
@@ -159,6 +161,18 @@ namespace MPAi
         {
             Console.WriteLine("Close Requested...");
             PlotExe.CloseMainWindow();
+            //Console.WriteLine(PlotExe.ExitCode);
+            //PlotExe.Kill();
+            //PlotExe.WaitForExit();
+            Console.WriteLine(PlotExe.ExitCode);
+
+            int errorCode = PlotExe.ExitCode;
+
+            PlotExe.Dispose();
+
+            if (errorCode == 15) {
+                Application.OpenForms.OfType<LoginScreen>().SingleOrDefault().Close();
+            }
 
             NewForms.MPAiSoundMainMenu menu = new MPAi.NewForms.MPAiSoundMainMenu();
             menu.Show();
@@ -238,7 +252,9 @@ namespace MPAi
                 Console.WriteLine(Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName));
                 //PlotExe.StartInfo.FileName = Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName);
                 currentPlotProcess = PlotExe;
+
                 PlotExe.Start();
+
                 // Hang up the main application to wait until it finished starting
                 while ((PlotStarted(GetPlotTitle()) == 1) && (!exitRequest))
                 {
@@ -260,6 +276,8 @@ namespace MPAi
                        await System.Threading.Tasks.Task.Delay(10);
                     }
                 }
+
+
                 ClosePlot();
                 
 
