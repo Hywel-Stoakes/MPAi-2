@@ -12,7 +12,7 @@ namespace MPAi.Cores.Scoreboard
     {
         private static void ensureUserDirectoryExists(MPAiUser user)
         {
-            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder,user.getName())))
+            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName())))
             {
                 Directory.CreateDirectory(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName()));
             }
@@ -63,6 +63,9 @@ namespace MPAi.Cores.Scoreboard
                             sw.WriteLine("<Analysis>");
                             sw.WriteLine(item.Analysis);
                             sw.WriteLine("</Analysis>");
+                            sw.WriteLine("<RecordingName>");
+                            sw.WriteLine(item.RecordingName);
+                            sw.WriteLine("</RecordingName>");
                         }
                         sw.WriteLine("</Content>");
                         sw.WriteLine("</Session>");
@@ -122,6 +125,7 @@ namespace MPAi.Cores.Scoreboard
                                                 string expected = "";
                                                 string recognised = "";
                                                 string analysis = "";
+                                                string recordingName = "";
 
                                                 if (line.Equals("<Expected>"))
                                                 {
@@ -129,11 +133,12 @@ namespace MPAi.Cores.Scoreboard
                                                     line = sr.ReadLine();
                                                     while (!line.Equals("</Expected>"))
                                                     {
-                                                        if(firstline)
+                                                        if (firstline)
                                                         {
                                                             firstline = false;
                                                             expected += line;
-                                                        } else
+                                                        }
+                                                        else
                                                         {
                                                             expected += String.Format(@"{0}", Environment.NewLine) + line;
                                                         }
@@ -181,7 +186,27 @@ namespace MPAi.Cores.Scoreboard
                                                     }
                                                     line = sr.ReadLine();
                                                 }
-                                                content.Add(new MPAiSpeakScoreBoardItem(expected, recognised, analysis));
+
+                                                if (line.Equals("<RecordingName>"))
+                                                {
+                                                    bool firstline = true;
+                                                    line = sr.ReadLine();
+                                                    while (!line.Equals("</RecordingName>"))
+                                                    {
+                                                        if (firstline)
+                                                        {
+                                                            firstline = false;
+                                                            recordingName += line;
+                                                        }
+                                                        else
+                                                        {
+                                                            recordingName += String.Format(@"{0}", Environment.NewLine) + line;
+                                                        }
+                                                        line = sr.ReadLine();
+                                                    }
+                                                    line = sr.ReadLine();
+                                                }
+                                                content.Add(new MPAiSpeakScoreBoardItem(expected, recognised, analysis, recordingName));
                                             }
                                             line = sr.ReadLine();
                                         }

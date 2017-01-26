@@ -48,7 +48,7 @@ namespace MPAi.NewForms
         Category cty = null;
 
         private IWaveIn waveIn;
-        private WaveOutEvent waveOut; 
+        private WaveOutEvent waveOut;
         private WaveFileWriter writer;
         private WaveFileReader reader;
 
@@ -99,7 +99,7 @@ namespace MPAi.NewForms
 
                     List<Word> view = DBModel.Word.Where(x => (
                        x.Category.Name.Equals("Word")
-                       && x.Recordings.Any(y =>y.Speaker.SpeakerId == current.Speaker.SpeakerId) 
+                       && x.Recordings.Any(y => y.Speaker.SpeakerId == current.Speaker.SpeakerId)
                        )).ToList();
 
                     view.Sort(new VowelComparer());
@@ -171,7 +171,7 @@ namespace MPAi.NewForms
                 if (secondsRecorded >= 10)
                 {
                     StopRecording(); // If we have recorded more than 10s of audio then stop recording
-                }    
+                }
             }
         }
 
@@ -347,7 +347,7 @@ namespace MPAi.NewForms
                     if (RecordingListBox.Items.Count > 0)
                     {
                         RecordingListBox.SelectedIndex = RecordingListBox.Items.Count - 1;
-                    }                   
+                    }
                 }
                 catch (Exception exp)
                 {
@@ -386,12 +386,17 @@ namespace MPAi.NewForms
             {
                 if (!recordingProgressBarLabel.Text.Equals(noCurrentFileText))
                 {
+                    if (UserManagement.CurrentUser.SpeakScoreboard.IsRecordingAlreadyAnalysed(recordingProgressBarLabel.Text))
+                    {
+                        MessageBox.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
+                        return;
+                    }
                     string target = ((WordComboBox.SelectedItem as Word) == null) ? string.Empty : (WordComboBox.SelectedItem as Word).Name;
                     Dictionary<string, string> result = RecEngine.Recognize(Path.Combine(outputFolder, recordingProgressBarLabel.Text)).ToDictionary(x => x.Key, x => x.Value);
                     //result.Add("Recording File Name", "hoihoi");
                     if (result.Count > 0)
                     {
-                        MPAiSpeakScoreBoardItem item = new MPAiSpeakScoreBoardItem(target, result.First().Value, PronuciationAdvisor.Advise(result.First().Key, target, result.First().Value));
+                        MPAiSpeakScoreBoardItem item = new MPAiSpeakScoreBoardItem(target, result.First().Value, PronuciationAdvisor.Advise(result.First().Key, target, result.First().Value), recordingProgressBarLabel.Text);
                         session.Content.Add(item);
 
                         AnalysisScreen analysisScreen = new AnalysisScreen(item.Similarity, item.Analysis);
@@ -409,7 +414,7 @@ namespace MPAi.NewForms
 
         private void ensureScoreReportButtonCorrectlyEnabled()
         {
-            if(UserManagement.CurrentUser.SpeakScoreboard.IsEmpty())
+            if (UserManagement.CurrentUser.SpeakScoreboard.IsEmpty())
             {
                 ScoreReportButton.Enabled = false;
             }
@@ -417,8 +422,8 @@ namespace MPAi.NewForms
             {
                 ScoreReportButton.Enabled = true;
             }
-            
-        } 
+
+        }
 
         /// <summary>
         /// Functionality for the Show Report button.
@@ -451,7 +456,7 @@ namespace MPAi.NewForms
         {
             if (playButton.Text.Equals(playText))
             {
-                AudioPlayer.Play(Path.Combine(outputFolder, recordingProgressBarLabel.Text));               
+                AudioPlayer.Play(Path.Combine(outputFolder, recordingProgressBarLabel.Text));
                 AudioPlayer.WaveOut.PlaybackStopped += playButton_Click;    // Subscribe to playback stopped.
                 playButton.Text = stopText;
             }
@@ -544,7 +549,7 @@ namespace MPAi.NewForms
             {
                 StopRecording();
                 StopPlay();
-            }           
+            }
         }
 
         /// <summary>
@@ -597,7 +602,7 @@ namespace MPAi.NewForms
         private void AddButton_Click(object sender, EventArgs e)
         {
             add();
-            
+
         }
 
         /// <summary>

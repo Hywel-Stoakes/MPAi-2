@@ -89,8 +89,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NAudio.1.7.3\lib\net35\NAudio.dll</HintPath>
+    <Reference Include="NAudio, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.0\lib\net35\NAudio.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -119,8 +119,8 @@
       <HintPath>..\packages\Vlc.DotNet.Forms.2.1.130\lib\net45\x86\Vlc.DotNet.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Vlc.DotNet.Wpf, Version=2.1.130.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
-      <HintPath>..\packages\Vlc.DotNet.Wpf.2.1.130\lib\net45\x86\Vlc.DotNet.Wpf.dll</HintPath>
+    <Reference Include="Vlc.DotNet.Wpf, Version=2.1.126.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=x86">
+      <HintPath>..\packages\Vlc.DotNet.Wpf.2.1.126\lib\net45\x86\Vlc.DotNet.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />

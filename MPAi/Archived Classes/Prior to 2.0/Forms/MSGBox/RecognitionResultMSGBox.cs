@@ -52,7 +52,7 @@ namespace MPAi.Forms.MSGBox
             string recognisedText = recognitionResultLabel.Text;
             string analysis = descriptionTextBox.Text;
 
-            scoreBoardItem = new MPAiSpeakScoreBoardItem(expectingText, recognisedText, analysis);
+            scoreBoardItem = new MPAiSpeakScoreBoardItem(expectingText, recognisedText, analysis, this.Text);
         }
         /// <summary>
         /// When the text box loses focus, invokes the pronunciation advisor to write a new recommendation based on what the user has typed.
