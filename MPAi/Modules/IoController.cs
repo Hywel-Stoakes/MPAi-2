@@ -21,9 +21,12 @@ namespace MPAi
         /// <param name="htmlPath">The file path of the HTML file to be viewed, as a string.</param>
         public static void ShowInBrowser(string htmlPath)
         {
-            Process browser = new Process();
-            browser.StartInfo.FileName = htmlPath;
-            browser.Start();
+            if (File.Exists(htmlPath))
+            {
+                Process browser = new Process();
+                browser.StartInfo.FileName = htmlPath;
+                browser.Start();
+            }
         }
 
         /// <summary>
