@@ -130,6 +130,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Archived Classes\Prior to 2.0\Cores\CollectionExtensions.cs" />
+    <Compile Include="Components\MPAiMessageBoxFactory.cs" />
+    <Compile Include="Components\MPAiMessageBoxTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\MPAiMessageBoxTemplate.Designer.cs">
+      <DependentUpon>MPAiMessageBoxTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cores\DirectoryManagement.cs" />
     <Compile Include="Cores\HTKEngine.cs" />
     <Compile Include="Cores\MailSender.cs" />
@@ -3315,6 +3322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MPAiButton.resx">
       <DependentUpon>MPAiButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\MPAiMessageBoxTemplate.resx">
+      <DependentUpon>MPAiMessageBoxTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\AdminConsole.resx">
       <DependentUpon>AdminConsole.cs</DependentUpon>

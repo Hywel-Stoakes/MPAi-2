@@ -13,6 +13,7 @@ namespace MPAi
         [STAThread]
         static void Main(string[] args)
         {
+            MPAi.NewForms.MPAiMessageBoxFactory.Show("blah", NewForms.MPAiMessageBoxButtons.YesNoCancel);
             if (args.Length > 0)
             {
                 if (args[0] == "initDB")
