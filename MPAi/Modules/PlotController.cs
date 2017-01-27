@@ -164,9 +164,13 @@ namespace MPAi
             //Console.WriteLine(PlotExe.ExitCode);
             //PlotExe.Kill();
             //PlotExe.WaitForExit();
-            Console.WriteLine(PlotExe.ExitCode);
 
-            int errorCode = PlotExe.ExitCode;
+            int errorCode = 0;
+
+            if (plotType == PlotType.FORMANT_PLOT)
+            {
+                errorCode = PlotExe.ExitCode;
+            }
 
             PlotExe.Dispose();
 
