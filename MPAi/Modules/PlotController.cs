@@ -129,7 +129,6 @@ namespace MPAi
 
                 foreach (var process in Process.GetProcessesByName("VowelRunner"))
                 {
-                   
                     process.Kill();
                     process.WaitForExit();
                     process.Dispose();
@@ -160,17 +159,22 @@ namespace MPAi
         public static void ClosePlot()
         {
             Console.WriteLine("Close Requested...");
-            PlotExe.CloseMainWindow();
+            //PlotExe.CloseMainWindow();
             //Console.WriteLine(PlotExe.ExitCode);
             //PlotExe.Kill();
             //PlotExe.WaitForExit();
 
             int errorCode = 0;
 
-            if (plotType == PlotType.FORMANT_PLOT)
+            if (PlotExe.HasExited)
             {
                 errorCode = PlotExe.ExitCode;
             }
+            
+
+            
+           
+            
 
             PlotExe.Dispose();
 
@@ -251,7 +255,7 @@ namespace MPAi
 
                 //PlotExe.StartInfo.WorkingDirectory = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Formant", "Dist");
 
-                PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
 
                 Console.WriteLine(Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName));
                 //PlotExe.StartInfo.FileName = Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName);

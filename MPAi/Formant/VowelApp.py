@@ -338,6 +338,16 @@ class VowelApp:
         self.root.mainloop()
 
     def quitApp(self):
-        print("QUITTING...")
+        print("QUITTING 1")
         self.vowelScorer.connectAndSendText()
+
+        print("QUITTING 2")
+
         self.root.destroy()
+        print("QUITTING 3")
+
+        sys.exit(0)
+        print("QUITTING 4")
+
+        quit()
+        print("QUITTING 5")

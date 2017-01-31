@@ -285,16 +285,31 @@ namespace MPAi.NewForms
         {
             if (!(PlotController.getCurrentPlotProcess() == null))
             {
-                //Kills any persistent Procecsses.
+                //Kills any persistent Processes.
                 try
                 {
-                    PlotController.getCurrentPlotProcess().Kill();
-                    PlotController.getCurrentPlotProcess().WaitForExit();
-                    PlotController.getCurrentPlotProcess().Dispose();
+                    //PlotController.getCurrentPlotProcess().Kill();
+                    //PlotController.getCurrentPlotProcess().WaitForExit();
+                    //PlotController.getCurrentPlotProcess().Dispose();
+                    
                 }
                 catch (Exception exp) {
                     Console.WriteLine(exp.StackTrace);
                 }
+            }
+
+            foreach (var process in Process.GetProcessesByName("VowelRunner"))
+            {
+                process.Kill();
+                process.WaitForExit();
+                process.Dispose();
+            }
+            foreach (var process in Process.GetProcessesByName("PlotRunner"))
+            {
+
+                process.Kill();
+                process.WaitForExit();
+                process.Dispose();
             }
 
             UserManagement.WriteSettings();

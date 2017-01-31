@@ -7,6 +7,8 @@ import tkFileDialog
 
 import os
 import SoundProcessing
+from time import sleep
+
 import thread
 
 DEFAULTHEIGHT = 680
@@ -66,8 +68,10 @@ class VowelPlot:
         x2 = (self.height/2)
         y2 = 32
         self.recordingBox = self.vowelPlotCanvas.create_rectangle(x1,y1,x2,y2, tag='recording', fill='red', outline='white')
-        self.recordingBoxText = self.vowelPlotCanvas.create_text((x1+x2)/2,(y1+y2)/2, tag='recording', text='Recording.',font=font, fill='black')
+        self.recordingBoxText = self.vowelPlotCanvas.create_text((x1+x2)/2,(y1+y2)/2, tag='recordingText', text='Recording.',font=font, fill='black')
         self.vowelPlotCanvas.itemconfig('recording', state='hidden')
+        self.vowelPlotCanvas.itemconfig('recordingText', state='hidden')
+
 
         x1 = (self.height/2)
         y1 = 2
@@ -444,6 +448,11 @@ class VowelPlot:
 
                 self.recordedAudio.record()
                 self.count2 = 0
+
+                self.vowelPlotCanvas.itemconfig('recording', state='normal', fill='orange')
+                self.vowelPlotCanvas.itemconfig('recordingText', state ='normal', text='Loading...')
+
+
                 thread.start_new_thread(self.multiThreadUpdateCanvas, ("Thread-1", self.notStopped))
             else:
                 print "Not SafeToRecord, please Wait..."
@@ -451,7 +460,12 @@ class VowelPlot:
             self.requestQuit()
 
     def multiThreadUpdateCanvas(self, threadName, notStopped):
+        sleep(1.2)
+        self.isLoading = False
+
         try:
+            self.vowelPlotCanvas.itemconfig('recording', fill='red')
+            self.vowelPlotCanvas.itemconfig('recordingText', text = 'Recording')
             while self.notStopped:
                 self.count2+=1
                 self.soundCopy.copy(self.recordedAudio)
@@ -459,10 +473,11 @@ class VowelPlot:
                 self.plotFormants(self.soundCopy)
                 if self.count2 % 10 == 0:
                     self.updateLoudnessMeter(self.soundCopy)
-
         except Exception:
             import traceback
-            print "ERROR:",traceback.format_exc()
+            print traceback.format_exc()
+
+
 
 
 
@@ -471,6 +486,8 @@ class VowelPlot:
 
             self.notStopped = False
             self.vowelPlotCanvas.itemconfig('recording', state='hidden')
+            self.vowelPlotCanvas.itemconfig('recordingText', state='hidden')
+
             self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
             self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
             self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
@@ -492,7 +509,7 @@ class VowelPlot:
             self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
             self.root.after(500 ,self.requestFinalScore)
 
-    
+
 
 
     def requestFinalScore(self):

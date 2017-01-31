@@ -467,7 +467,9 @@ class FormantApp:
             sys.exit(0)
         else:
             sys.exit(15)
-       
+
+        quit()
+
     def backToMenu(self):
         self.goBackToMenu = True
         self.quitPlot()
