@@ -51,6 +51,7 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 return Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Resources", "CSSFiles", "Scoreboard.css");
+                
             }
         }
         /// <summary>

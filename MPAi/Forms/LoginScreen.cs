@@ -46,6 +46,7 @@ namespace MPAi.NewForms
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recording"));
             Properties.Settings.Default.RecordingFolder = MPAi.Cores.DirectoryManagement.RecordingFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Report"));
+            MessageBox.Show(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Report"));
             Properties.Settings.Default.ReportFolder = MPAi.Cores.DirectoryManagement.ScoreboardReportFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK"));
             Properties.Settings.Default.HTKFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK");

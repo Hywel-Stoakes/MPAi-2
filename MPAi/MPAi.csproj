@@ -5747,8 +5747,8 @@
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\system_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\tutorials_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\upload_icon.png" />
-    <Content Include="Resources\CSSFiles\Scoreboard.css" />
-    <Content Include="Resources\MPAi.ico" />
+    <None Include="Resources\CSSFiles\Scoreboard.css" />
+    <None Include="Resources\MPAi.ico" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_1.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_2.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\play_64_1.png" />
@@ -5759,7 +5759,7 @@
     <None Include="Resources\VLCIcons\Forward.png" />
     <None Include="Resources\VLCIcons\Pause.png" />
     <None Include="Resources\VLCIcons\Play.png" />
-    <Content Include="Resources\VLCIcons\Backward.png" />
+    <None Include="Resources\VLCIcons\Backward.png" />
     <Content Include="VlcLibs\header-files\deprecated.h" />
     <Content Include="VlcLibs\header-files\libvlc.h" />
     <Content Include="VlcLibs\header-files\libvlc_events.h" />
@@ -6389,17 +6389,17 @@
     <None Include="Archived Classes\Prior to 2.0\Resources\correct.pngfile" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\changePswd.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Feedback.png" />
-    <Content Include="Resources\header.png" />
+    <None Include="Resources\header.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\help.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\HMMs.png" />
-    <Content Include="Resources\newUser.png" />
+    <None Include="Resources\newUser.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\openFolder.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\PictureNotFound.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Settings.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\signOut.png" />
-    <Content Include="Resources\SplashScreen.png" />
-    <Content Include="Resources\userLogo.png" />
-    <Content Include="Resources\LoginLogo.png" />
+    <None Include="Resources\SplashScreen.png" />
+    <None Include="Resources\userLogo.png" />
+    <None Include="Resources\LoginLogo.png" />
     <None Include="Archived Classes\Prior to 2.0\Resources\wrong.pngfile" />
   </ItemGroup>
   <ItemGroup>
