@@ -50,7 +50,7 @@ namespace MPAi.Cores.Scoreboard
         {
             get
             {
-                return Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Resources", "CSSFiles", "Scoreboard.css");
+                return Path.Combine(Directory.GetCurrentDirectory(), "Resources", "CSSFiles", "Scoreboard.css");
                 
             }
         }
@@ -88,6 +88,9 @@ namespace MPAi.Cores.Scoreboard
         /// </summary>
         private static void generateScoreboardCSS()
         {
+            System.Windows.Forms.MessageBox.Show(OriginalScoreboardReportCSSAddress);
+            System.Windows.Forms.MessageBox.Show(ScoreboardReportCSSAddress);
+
             File.Copy(OriginalScoreboardReportCSSAddress, ScoreboardReportCSSAddress);
         }
         /// <summary>
