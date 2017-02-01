@@ -78,7 +78,7 @@ namespace MPAi.Cores.Scoreboard
         {
             if (File.Exists(MPAiSoundScoreReportHTMLAddress))
             {
-                IoController.ShowInBrowser(MPAiSpeakScoreReportHTMLAddress);
+                IoController.ShowInBrowser(MPAiSoundScoreReportHTMLAddress);
             }
 
         }
