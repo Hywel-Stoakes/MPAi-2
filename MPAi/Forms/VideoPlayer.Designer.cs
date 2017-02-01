@@ -172,6 +172,8 @@
             this.VowelComboBox.SelectedIndexChanged += new System.EventHandler(this.VowelComboBox_SelectedIndexChanged);
             this.VowelComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VowelComboBox_KeyPress);
             this.VowelComboBox.Leave += new System.EventHandler(this.VowelComboBox_Leave);
+            this.VowelComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.VowelComboBox_DrawItem);
+            this.VowelComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             // 
             // tableLayoutPanel1
             // 
