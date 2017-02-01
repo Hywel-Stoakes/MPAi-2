@@ -5747,8 +5747,8 @@
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\system_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\tutorials_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\upload_icon.png" />
-    <None Include="Resources\CSSFiles\Scoreboard.css" />
-    <None Include="Resources\MPAi.ico" />
+    <Content Include="Resources\CSSFiles\Scoreboard.css" />
+    <Content Include="Resources\MPAi.ico" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_1.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_2.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\play_64_1.png" />
@@ -5756,10 +5756,10 @@
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\stop_64_1.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\stop_64_2.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\refresh_16.png" />
-    <None Include="Resources\VLCIcons\Forward.png" />
-    <None Include="Resources\VLCIcons\Pause.png" />
-    <None Include="Resources\VLCIcons\Play.png" />
-    <None Include="Resources\VLCIcons\Backward.png" />
+    <Content Include="Resources\VLCIcons\Forward.png" />
+    <Content Include="Resources\VLCIcons\Pause.png" />
+    <Content Include="Resources\VLCIcons\Play.png" />
+    <Content Include="Resources\VLCIcons\Backward.png" />
     <Content Include="VlcLibs\header-files\deprecated.h" />
     <Content Include="VlcLibs\header-files\libvlc.h" />
     <Content Include="VlcLibs\header-files\libvlc_events.h" />
@@ -6386,21 +6386,21 @@
     <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonYellow-0.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonYellow-1.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonYellow-2.png" />
-    <None Include="Archived Classes\Prior to 2.0\Resources\correct.pngfile" />
+    <Content Include="Archived Classes\Prior to 2.0\Resources\correct.pngfile" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\changePswd.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Feedback.png" />
-    <None Include="Resources\header.png" />
+    <Content Include="Resources\header.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\help.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\HMMs.png" />
-    <None Include="Resources\newUser.png" />
+    <Content Include="Resources\newUser.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\openFolder.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\PictureNotFound.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Settings.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\signOut.png" />
-    <None Include="Resources\SplashScreen.png" />
-    <None Include="Resources\userLogo.png" />
-    <None Include="Resources\LoginLogo.png" />
-    <None Include="Archived Classes\Prior to 2.0\Resources\wrong.pngfile" />
+    <Content Include="Resources\SplashScreen.png" />
+    <Content Include="Resources\userLogo.png" />
+    <Content Include="Resources\LoginLogo.png" />
+    <Content Include="Archived Classes\Prior to 2.0\Resources\wrong.pngfile" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -6411,6 +6411,7 @@
     <Folder Include="bin\Debug\Recording\" />
     <Folder Include="bin\Debug\Report\admin\" />
     <Folder Include="bin\Debug\Video\" />
+	<Folder Include="bin\Debug\Resources\" />
     <Folder Include="bin\Release\" />
     <Folder Include="bin\x86\Debug\" />
     <Folder Include="bin\x86\Release\" />
@@ -6435,6 +6436,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>XCOPY "$(ProjectDir)VlcLibs" "$(TargetDir)VlcLibs" /i /S /Y
+XCOPY "$(ProjectDir)Resources" "$(TargetDir)Resources" /i /S /Y
 XCOPY "$(ProjectDir)Formant" "$(TargetDir)Formant" /i /S /Y
 XCOPY "$(ProjectDir)HTK" "$(TargetDir)HTK" /i /S /Y
 XCOPY "$(ProjectDir)Audio" "$(TargetDir)Audio" /i /S /Y
