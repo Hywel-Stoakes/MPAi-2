@@ -6410,8 +6410,8 @@
     <Folder Include="bin\Debug\Formant\build\bdist.win32\winexe\bundle-2.7\" />
     <Folder Include="bin\Debug\Recording\" />
     <Folder Include="bin\Debug\Report\admin\" />
+    <Folder Include="bin\Debug\Resources\" />
     <Folder Include="bin\Debug\Video\" />
-	<Folder Include="bin\Debug\Resources\" />
     <Folder Include="bin\Release\" />
     <Folder Include="bin\x86\Debug\" />
     <Folder Include="bin\x86\Release\" />
@@ -6436,6 +6436,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>XCOPY "$(ProjectDir)VlcLibs" "$(TargetDir)VlcLibs" /i /S /Y
+XCOPY "$(ProjectDir)Video" "$(TargetDir)Video" /i /S /Y
 XCOPY "$(ProjectDir)Resources" "$(TargetDir)Resources" /i /S /Y
 XCOPY "$(ProjectDir)Formant" "$(TargetDir)Formant" /i /S /Y
 XCOPY "$(ProjectDir)HTK" "$(TargetDir)HTK" /i /S /Y
