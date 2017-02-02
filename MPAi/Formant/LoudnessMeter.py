@@ -59,12 +59,12 @@ class LoudnessMeter():
         loudnessLevelInPixels = loudness/self.wattsPerPixel
 
         color = self.getColor(loudnessLevelInPixels)
-        x1 = self.canvasWidth-self.width     #LEFT
-        y1 = self.height-loudnessLevelInPixels      #TOP
-        x2 = self.canvasWidth               #RIGHT
-        y2 = self.height                 #BOTTOM
-
-        self.canvas.create_rectangle(x1, y1, x2, y2, fill=color, tags='loudnessLevel')
+        # x1 = self.canvasWidth-self.width     #LEFT
+        # y1 = self.height-loudnessLevelInPixels      #TOP
+        # x2 = self.canvasWidth               #RIGHT
+        # y2 = self.height                 #BOTTOM
+        #
+        # self.canvas.create_rectangle(x1, y1, x2, y2, fill=color, tags='loudnessLevel')
 
 
 

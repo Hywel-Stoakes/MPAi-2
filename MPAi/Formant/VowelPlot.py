@@ -123,26 +123,6 @@ class VowelPlot:
         analysisButton.configure(activebackground='green', anchor=W, relief = GROOVE)
         analysisButtonWindow = self.vowelPlotCanvas.create_window(4, self.height-4, anchor=SW,tags=('analysisButton', 'firstButtons'),window=analysisButton)
 
-
-        # y = (self.height/2 - self.yIdeal*2)/3
-        # height = y
-        # width = height*1.62
-        # gapWidth = width/3
-        # cenButtonX = (self.height/2)-(width/2)
-        #
-        # x = [cenButtonX - gapWidth*2 - width*2, cenButtonX - gapWidth - width, cenButtonX, cenButtonX + width + gapWidth, cenButtonX + width*2 + gapWidth*2]
-        # for i in range(0,5):
-        #
-        #
-        #     buttonFrame = Frame(self.parent, width = (int)(width)*2, height = (int)(height)*2)
-        #     button = Button(buttonFrame, text = vowel[i], font=font ,command = lambda vow = vowel[i]: self.changeVowel(vow))
-        #
-        #     button.configure( activebackground = "#33B5E5", relief = 'groove')
-        #     buttonFrame.pack()
-        #     button.pack()
-        #     buttonWindow = self.vowelPlotCanvas.create_window((int)(x[i]), (int)(y), anchor=NW, window=buttonFrame, tag='firstButtons')
-        #
-        #     self.vowelPlotCanvas.itemconfig('firstButtons', state = 'normal')
     def requestQuit(self):
         self.formApp.quitApp()
 
@@ -310,42 +290,6 @@ class VowelPlot:
         self.soundCopy = Sound()
         self.loadedAudio = Sound()
 
-
-    #TESTING MOCK FUNCTION: Start
-    def plotFormants2(self, sound):
-        self.hasPlots = True
-        #probabilityOfVoicing = SoundProcessing.getProbabilityOfVoicing(sound,False)
-
-        if 1.0 == 1.0:
-            #formant = SoundProcessing.getFormants(sound,self.id,False)
-            id= self.id
-            data = self.goldStandardDiphthongs(id)
-            for f1mean, f1sd, f2mean, f2sd, vowel in data:
-                if vowel == self.vowel:
-                    m1 = f1mean
-                    sd1 = f1sd
-                    m2 = f2mean
-                    sd2 = f2sd
-                    count = 0
-                    for y in [m1-2*sd1,m1-sd1,m1-0.3*sd1, m1,m1+0.3*sd1, m1+sd1, m1+2*sd1]:
-                        for x in [m2-2*sd2,m2-sd2,m2-0.3*sd2, m2,m2+0.3*sd2, m2+sd2, m2+2*sd2]:
-                            count+=1
-
-
-                            radius = 3
-                            color = 'black'
-
-                            xx = self.x + (x + self.xShift-self.x)*self.xIdeal/self.f2sd
-                            yy = self.y + (y + self.yShift-self.y)*self.yIdeal/self.f1sd
-
-                            self.vowelPlotCanvas.create_oval(xx-radius,yy-radius,xx+radius,yy+radius, fill=color, tags="userformants")
-                            self.xFormantList.append(x)
-                            self.yFormantList.append(y)
-
-            self.stop()
-
-    #TESTING MOCK FUNCTION: END
-
     """
     Plot Fomrants takes a sound file and plots the last formant in the file.
     """
@@ -477,10 +421,6 @@ class VowelPlot:
             import traceback
             print traceback.format_exc()
 
-
-
-
-
     def stop(self):
         if self.vowelScorer.safeToRecord():
 
@@ -508,9 +448,6 @@ class VowelPlot:
             self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
             self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
             self.root.after(500 ,self.requestFinalScore)
-
-
-
 
     def requestFinalScore(self):
         print "Requesting Final Score"
