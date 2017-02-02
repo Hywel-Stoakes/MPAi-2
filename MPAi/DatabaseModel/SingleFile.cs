@@ -43,5 +43,12 @@
         /// Each recording can have a single video file associated with it.
         /// </summary>
         public virtual Recording Video { get; set; }
+        /// <summary>
+        /// ONE-TO-ONE RELATIONSHIP
+        /// SingleFile (Vocal Tract)-Recording
+        /// 
+        /// Each recording can have a single vocal tract file associated with it.
+        /// </summary>
+        public virtual Recording VocalTract { get; set; }
     }
 }

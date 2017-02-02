@@ -450,6 +450,7 @@
             // 
             this.soundListAllListBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.soundListAllListBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.soundListAllListBox.Enabled = true;
             this.soundListAllListBox.FormattingEnabled = true;
             this.soundListAllListBox.Location = new System.Drawing.Point(365, 148);
             this.soundListAllListBox.Name = "soundListAllListBox";
@@ -461,6 +462,7 @@
             // 
             this.soundListCurrentListBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.soundListCurrentListBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.soundListCurrentListBox.Enabled = true;
             this.soundListCurrentListBox.FormattingEnabled = true;
             this.soundListCurrentListBox.Location = new System.Drawing.Point(18, 148);
             this.soundListCurrentListBox.Name = "soundListCurrentListBox";

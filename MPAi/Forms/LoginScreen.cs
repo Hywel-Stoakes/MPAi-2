@@ -109,7 +109,7 @@ namespace MPAi.NewForms
             catch (Exception exp)
             {
                 MessageBox.Show(exp.StackTrace, "Database linking error!");
-                
+                Console.WriteLine(exp.StackTrace);
             }
         }
 

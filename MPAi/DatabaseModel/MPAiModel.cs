@@ -115,7 +115,12 @@ namespace MPAi.Models
                 .HasOptional(r => r.Video)
                 .WithOptionalDependent(s => s.Video)
                 .Map(m => m.MapKey("VideoId"));
-         
+
+            modelBuilder.Entity<Recording>()
+                .HasOptional(r => r.VocalTract)
+                .WithOptionalDependent(s => s.VocalTract)
+                .Map(m => m.MapKey("VocalTractId"));
+
             base.OnModelCreating(modelBuilder); // Continues creating the persistence context.
         }
         /// <summary>
@@ -145,7 +150,9 @@ namespace MPAi.Models
                 {
                     cty = new Category()
                     {
-                        Name = parser.Category
+                        // Vocal tract videos are of vowel sounds, and so need to be categorised as such.
+                        // However, the category section of the filename is also used to differentiate between videos and vocal tracts.
+                        Name = parser.Category.Equals("vocaltract") ? "vowel" : parser.Category
                     };
                     this.Category.AddOrUpdate(x => x.Name, cty);
                     this.SaveChanges();
@@ -184,13 +191,17 @@ namespace MPAi.Models
                         Name = parser.FullName,
                         Address = parser.Address,
                     };
-                    if (parser.MediaFormat == "audio")
+                    if (parser.MediaFormat.Equals("audio"))
                     {
                         sf.Audio = rd;
                     }
-                    else if (parser.MediaFormat == "video")
+                    else if (parser.MediaFormat.Equals("video"))
                     {
                         sf.Video = rd;
+                    }
+                    else if (parser.MediaFormat.Equals("vocaltract"))
+                    {
+                        sf.VocalTract = rd;
                     }
                     this.SingleFile.AddOrUpdate(x => x.Name, sf);
                     this.SaveChanges();

@@ -59,5 +59,11 @@ namespace MPAi.Models
         /// Each recording can have a single video attached.
         /// </summary>
         public virtual SingleFile Video { get; set; }
+        /// <summary>
+        /// ONE-TO-ONE RELATIONSHIP
+        /// Recording-SingleFile (Video)
+        /// 
+        /// </summary>
+        public virtual SingleFile VocalTract { get; set; }
     }
 }

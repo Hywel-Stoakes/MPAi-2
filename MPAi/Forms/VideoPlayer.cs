@@ -27,6 +27,9 @@ namespace MPAi.NewForms
         private string recordText = "Record";
         private string stopText = "Stop";
 
+        private string videoText = " (Video)";
+        private string vocalText = " (Vocal Tract)";
+
         private string noFileText = "No current file";
         private string myRecordingText = "My new recording";
         private string selectFolderString = "Select Vlc libraries folder.";
@@ -55,7 +58,7 @@ namespace MPAi.NewForms
         delegate void delegateStopper();
 
         // The list of recordings to play.
-        private List<Word> wordsList;
+        private List<Recording> wordsList;
         // The index of the current recording.
         private int currentRecordingIndex = 0;
 
@@ -123,29 +126,38 @@ namespace MPAi.NewForms
 
                     MPAiUser current = UserManagement.CurrentUser;
 
-                    List<Word> view = DBModel.Word.Where(x => (
-                       x.Category.Name.Equals("Vowel")
-                       && x.Recordings.Any(y => y.Speaker.SpeakerId == current.Speaker.SpeakerId) 
+                    List<Recording> videoView = DBModel.Recording.Where(x => (
+                       (x.Word.Category.CategoryId == 2)   // If the category is vowel, and
+                       && (x.Speaker.SpeakerId == current.Speaker.SpeakerId)    // The speaker matches the current user, and
+                       && ((x.Video != null) || (x.VocalTract != null))   // The recording has a video or vocaltract attached.
                        )).ToList();
 
-                    // Can't sort a control's Items field, so we sort a list and add values.
-                    view.Sort(new VowelComparer());
+                    wordsList = videoView;   // Take this action before display names are changed
 
-                    // Lists of Word objects, but only their name needs to be displayed to the user.
+                    // Lists of Recording objects, but only their name needs to be displayed to the user.
                     soundListAllListBox.DisplayMember = "Name";
                     VowelComboBox.DisplayMember = "Name";
                     soundListCurrentListBox.DisplayMember = "Name";
 
                     // Set the values in all the lists used by the program.
-                    soundListAllListBox.DataSource = new BindingSource() { DataSource = view };
-                    foreach (Word wd in view)
+                    foreach (Recording rd in videoView)
                     {
-                        soundListCurrentListBox.Items.Add(wd);
-                        VowelComboBox.Items.Add(wd);
+                        // Adjust the display names of the recordings in the list, so they are human readable.
+                        if (rd.Video != null)
+                        {
+                            rd.Name = DBModel.Word.SingleOrDefault(x => x.WordId == rd.WordId).Name + " (Video)";
+                        }
+                        else if (rd.VocalTract != null)
+                        {
+                            rd.Name = DBModel.Word.SingleOrDefault(x => x.WordId == rd.WordId).Name + " (Vocal Tract)";
+                        }
+                        soundListCurrentListBox.Items.Add(rd);
+                        VowelComboBox.Items.Add(rd);
                     }
-                    wordsList = view;
 
-                    selectItemInComboBox();                 
+                    soundListAllListBox.DataSource = new BindingSource() { DataSource = videoView };
+
+                    selectItemInComboBox();
                 }
             }
             catch (Exception exp)
@@ -176,7 +188,7 @@ namespace MPAi.NewForms
             {
                 return;
             }
-            foreach (Word w in VowelComboBox.Items)
+            foreach (Recording w in VowelComboBox.Items)
             {
                 if (w.Name.Equals(VowelComboBox.Text))
                 {
@@ -557,15 +569,21 @@ namespace MPAi.NewForms
         {
             using (MPAiModel DBModel = new MPAiModel())
             {
-                Word wd = wordsList[currentRecordingIndex];
-                Speaker spk = null;   // Get the speaker from user settings.
-                Recording rd = DBModel.Recording.SingleOrDefault(x => x.WordId == wd.WordId
-                //&& x.SpeakerId == spk.SpeakerId // Comment this line out to test until we have user settings up and running.
-                );    // Get the recording that corresponds to the speaker and word above.
+                // The word list only holds proxy objects, as it's context has closed. A database query is needed to get it's recordings.
+                Recording rd = DBModel.Recording.Find(wordsList[currentRecordingIndex].RecordingId);
+                Speaker spk = UserManagement.CurrentUser.Speaker;   // Get the speaker from user settings.
 
                 if (rd != null) // If the recording exists
                 {
-                    SingleFile sf = rd.Video;
+                    SingleFile sf = null;
+                    if (rd.Video != null)
+                    {
+                        sf = rd.Video;
+                    }
+                    else if (rd.VocalTract != null)
+                    {
+                        sf = rd.VocalTract;
+                    }
                     if (sf == null)
                     {
                         asyncStop();
@@ -805,18 +823,18 @@ namespace MPAi.NewForms
             asyncStop();    // Stop playback - changing lists can cause unusual behaviour.
 
             // Can't remove from a list as we iterate through it, so add the items to remove to a list, then delete them.
-            List<Word> tempList = new List<Word>(); 
-            foreach (Word wd in soundListCurrentListBox.SelectedItems)
+            List<Recording> tempList = new List<Recording>(); 
+            foreach (Recording rd in soundListCurrentListBox.SelectedItems)
             {
-                tempList.Add(wd);
+                tempList.Add(rd);
             }
 
             // Remove the word from all the lists used by the screen.
-            foreach (Word wd in tempList)   
+            foreach (Recording rd in tempList)   
             {
-                soundListCurrentListBox.Items.Remove(wd);
-                VowelComboBox.Items.Remove(wd);
-                wordsList.Remove(wd);
+                soundListCurrentListBox.Items.Remove(rd);
+                VowelComboBox.Items.Remove(rd);
+                wordsList.Remove(rd);
             }
 
             selectItemInComboBox();
@@ -838,10 +856,10 @@ namespace MPAi.NewForms
 
             // Add all words to each list used by the screen. These will always be in he correct order, as the All box doesn't change.
             soundListCurrentListBox.Items.AddRange(soundListAllListBox.Items);
-            foreach (Word wd in soundListAllListBox.Items)     
+            foreach (Recording rd in soundListAllListBox.Items)     
             {
-                VowelComboBox.Items.Add(wd);
-                wordsList.Add(wd);
+                VowelComboBox.Items.Add(rd);
+                wordsList.Add(rd);
             }
 
             selectItemInComboBox();
@@ -856,23 +874,23 @@ namespace MPAi.NewForms
         {
             asyncStop();        // Stop playback - changing lists can cause unusual behaviour.
 
-            List<Word> tempList = new List<Word>();
+            List<Recording> tempList = new List<Recording>();
             // Add all words tha should be added to each list used by the screen. These will always be in he correct order, as the All box doesn't change.
-            foreach (Word wd in soundListAllListBox.Items)
+            foreach (Recording rd in soundListAllListBox.Items)
             {
-                if (soundListCurrentListBox.Items.Contains(wd) || soundListAllListBox.SelectedItems.Contains(wd))   
+                if (soundListCurrentListBox.Items.Contains(rd) || soundListAllListBox.SelectedItems.Contains(rd))   
                 {
-                    tempList.Add(wd);
+                    tempList.Add(rd);
                 }
             }
 
             // It is more efficient to clear the lists and add new items than to sort the existing lists.
             VowelComboBox.Items.Clear();
             soundListCurrentListBox.Items.Clear();
-            foreach (Word wd in tempList)
+            foreach (Recording rd in tempList)
             {
-                VowelComboBox.Items.Add(wd);
-                soundListCurrentListBox.Items.Add(wd);
+                VowelComboBox.Items.Add(rd);
+                soundListCurrentListBox.Items.Add(rd);
             }
             wordsList = tempList;
 
