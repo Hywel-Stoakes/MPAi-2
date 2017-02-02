@@ -72,6 +72,7 @@ namespace MPAi.NewForms
         private readonly int bottomHeight;
 
         private bool appClosing = true;
+        private bool playRecording;
 
         /// <summary>
         /// Wrapper propety for repeatTimes, also prevents too many repeats by updating repeatsRemaining.
@@ -608,17 +609,27 @@ namespace MPAi.NewForms
         /// </summary>
         private void asyncPlay()
         {
+            if (!recordingProgressBarLabel.Text.Equals(noFileText))
+            {
+                playRecording = true;
+            }
+            else
+            {
+                playRecording = false;
+            }
             // Get a new instance of the delegate
             delegatePlayer VLCDelegate = new delegatePlayer(vlcControl.Play);
             // Call play asynchronously.
             VLCDelegate.BeginInvoke(new Uri(filePath), new string[] { }, null, null);
-            if (!recordingProgressBarLabel.Text.Equals(noFileText))
-            {
-                // Play audio at same time as video
-                audioPlayer.Stop();
-                audioPlayer.Play(audioFilePath);
-            }
+            
+        }
 
+        private void asyncPlay(string audioFilePath)
+        {
+            playRecording = false; //About to play user recording so next recording should be from the database. so set playrecording to false.
+            delegatePlayer VLCDelegate = new delegatePlayer(vlcControl.Play);
+            // Call play asynchronously.
+            VLCDelegate.BeginInvoke(new Uri(audioFilePath), new string[] { }, null, null);
         }
 
         /// <summary>
@@ -718,12 +729,34 @@ namespace MPAi.NewForms
             // The only way to loop playback is to have a delegate call play asynchronously. 
             if (RepeatTimes == 11)
             {
-                asyncPlay();
+                if ((!recordingProgressBarLabel.Text.Equals(noFileText)) && (playRecording))
+                {
+                    asyncPlay(audioFilePath);
+                }
+                else
+                {
+                    asyncPlay();
+                }
+                    
             }
             else if (repeatsRemaining > 0)
             {
-                asyncPlay();
-                repeatsRemaining -= 1;
+
+                if ((!recordingProgressBarLabel.Text.Equals(noFileText)) && (playRecording))
+                {
+                    asyncPlay(audioFilePath);
+                }
+                else
+                {
+                    asyncPlay();
+                    repeatsRemaining -= 1;
+                }
+                
+            }
+            else if((repeatsRemaining == 0) && ((!recordingProgressBarLabel.Text.Equals(noFileText)) && (playRecording)))
+            {
+                playRecording = false;
+                asyncPlay(audioFilePath);
             }
             else
             {
