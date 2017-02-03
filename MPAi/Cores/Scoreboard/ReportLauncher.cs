@@ -116,10 +116,13 @@ namespace MPAi.Cores.Scoreboard
                         htw.RenderBeginTag(HtmlTextWriterTag.Html);
                         // Table settings
                         htw.RenderBeginTag(HtmlTextWriterTag.Head);
+                        htw.AddAttribute("charset", "UTF-8");
+                        htw.RenderBeginTag(HtmlTextWriterTag.Meta);
                         htw.AddAttribute(HtmlTextWriterAttribute.Rel, "stylesheet");
                         htw.AddAttribute(HtmlTextWriterAttribute.Type, "text/css");
                         htw.AddAttribute(HtmlTextWriterAttribute.Href, "Scoreboard.css");
                         htw.RenderBeginTag(HtmlTextWriterTag.Link);
+                        htw.RenderEndTag();
                         htw.RenderEndTag();
                         htw.RenderEndTag();
                         //Scoreboard Title
@@ -231,10 +234,13 @@ namespace MPAi.Cores.Scoreboard
                         htw.RenderBeginTag(HtmlTextWriterTag.Html);
                         // Table settings
                         htw.RenderBeginTag(HtmlTextWriterTag.Head);
+                        htw.AddAttribute("charset", "UTF-8");
+                        htw.RenderBeginTag(HtmlTextWriterTag.Meta);
                         htw.AddAttribute(HtmlTextWriterAttribute.Rel, "stylesheet");
                         htw.AddAttribute(HtmlTextWriterAttribute.Type, "text/css");
                         htw.AddAttribute(HtmlTextWriterAttribute.Href, "Scoreboard.css");
                         htw.RenderBeginTag(HtmlTextWriterTag.Link);
+                        htw.RenderEndTag();
                         htw.RenderEndTag();
                         htw.RenderEndTag();
                         //Scoreboard Title
