@@ -147,11 +147,11 @@ namespace MPAi.NewForms
                         // Adjust the display names of the recordings in the list, so they are human readable.
                         if (rd.Video != null)
                         {
-                            rd.Name = DBModel.Word.SingleOrDefault(x => x.WordId == rd.WordId).Name + " (Video)";
+                            rd.Name = DBModel.Word.SingleOrDefault(x => x.WordId == rd.WordId).Name + videoText;
                         }
                         else if (rd.VocalTract != null)
                         {
-                            rd.Name = DBModel.Word.SingleOrDefault(x => x.WordId == rd.WordId).Name + " (Vocal Tract)";
+                            rd.Name = DBModel.Word.SingleOrDefault(x => x.WordId == rd.WordId).Name + vocalText;
                         }
                         soundListCurrentListBox.Items.Add(rd);
                         VowelComboBox.Items.Add(rd);
@@ -933,14 +933,11 @@ namespace MPAi.NewForms
 
         /// <summary>
         /// VowelComboBox should always have a value selected. 
-        /// This method should be called when the selected item may have been deleted, and it selects index 0 if this is the case.
+        /// This method should be called when the selected item may have been deleted, and it selects index 0.
         /// </summary>
         private void selectItemInComboBox()
         {
-            if (VowelComboBox.SelectedItem == null)
-            {
-                VowelComboBox.SelectedIndex = 0;
-            }
+            VowelComboBox.SelectedIndex = 0;
         }
 
         /// <summary>

@@ -972,14 +972,11 @@ namespace MPAi.NewForms
 
         /// <summary>
         /// VowelComboBox should always have a value selected. 
-        /// This method should be called when the selected item may have been deleted, and it selects index 0 if this is the case.
+        /// This method should be called when the selected item may have been deleted, and it selects index 0.
         /// </summary>
         private void selectItemInComboBox()
         {
-            if (VowelComboBox.SelectedItem == null)
-            {
-                VowelComboBox.SelectedIndex = 0;
-            }
+            VowelComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
