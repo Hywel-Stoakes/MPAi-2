@@ -42,7 +42,8 @@
             // 
             // logoBox
             // 
-            this.logoBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.logoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoBox.BackgroundImage")));
             this.logoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -54,6 +55,8 @@
             // 
             // usernameTextBox
             // 
+            this.usernameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.usernameTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.usernameTextBox.Location = new System.Drawing.Point(12, 127);
@@ -68,6 +71,8 @@
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.passwordTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.passwordTextBox.Location = new System.Drawing.Point(12, 162);
@@ -82,7 +87,7 @@
             // 
             // speakLaunchButton
             // 
-            this.speakLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.speakLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.speakLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.speakLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.speakLaunchButton.ForeColor = System.Drawing.Color.White;
@@ -96,7 +101,7 @@
             // 
             // signupButton
             // 
-            this.signupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signupButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signupButton.ForeColor = System.Drawing.Color.White;
@@ -110,6 +115,7 @@
             // 
             // rememberCheckBox
             // 
+            this.rememberCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.rememberCheckBox.AutoSize = true;
             this.rememberCheckBox.Location = new System.Drawing.Point(100, 199);
             this.rememberCheckBox.Name = "rememberCheckBox";
@@ -121,11 +127,11 @@
             // 
             // soundLaunchButton
             // 
-            this.soundLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.soundLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.soundLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.soundLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.soundLaunchButton.ForeColor = System.Drawing.Color.White;
-            this.soundLaunchButton.Location = new System.Drawing.Point(98, 227);
+            this.soundLaunchButton.Location = new System.Drawing.Point(104, 227);
             this.soundLaunchButton.Name = "soundLaunchButton";
             this.soundLaunchButton.Size = new System.Drawing.Size(80, 23);
             this.soundLaunchButton.TabIndex = 21;
@@ -146,6 +152,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.logoBox);
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login to MPAi";
