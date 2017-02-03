@@ -16,6 +16,7 @@ namespace MPAi.NewForms
     /// </summary>
     public partial class MenuStrip : System.Windows.Forms.MenuStrip
     {
+        private string changetext = "Your settings have been changed. You may need to reload the current form for your changes to take effect.";
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -90,6 +91,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToNative();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
+            MessageBox.Show(changetext);
         }
 
         /// <summary>
@@ -103,6 +105,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToModern();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToModern();   // and the current user in the list of users.
+            MessageBox.Show(changetext);
         }
 
         /// <summary>
@@ -116,6 +119,7 @@ namespace MPAi.NewForms
             masculineToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
+            MessageBox.Show(changetext);
         }
 
         /// <summary>
@@ -129,6 +133,7 @@ namespace MPAi.NewForms
             masculineToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();   // and the current user in the list of users.
+            MessageBox.Show(changetext);
         }
 
         /// <summary>
