@@ -88,9 +88,6 @@ namespace MPAi.Cores.Scoreboard
         /// </summary>
         private static void generateScoreboardCSS()
         {
-            System.Windows.Forms.MessageBox.Show(OriginalScoreboardReportCSSAddress);
-            System.Windows.Forms.MessageBox.Show(ScoreboardReportCSSAddress);
-
             File.Copy(OriginalScoreboardReportCSSAddress, ScoreboardReportCSSAddress);
         }
         /// <summary>

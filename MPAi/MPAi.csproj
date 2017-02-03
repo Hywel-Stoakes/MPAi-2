@@ -5759,6 +5759,16 @@
     <Content Include="Resources\VLCIcons\Pause.png" />
     <Content Include="Resources\VLCIcons\Play.png" />
     <Content Include="Resources\VLCIcons\Backward.png" />
+    <Content Include="Video\oldmale-vocaltract-a-Peter.mp4" />
+    <Content Include="Video\oldmale-vocaltract-e-Peter.mp4" />
+    <Content Include="Video\oldmale-vocaltract-i-Peter.mp4" />
+    <Content Include="Video\oldmale-vocaltract-o-Peter.mp4" />
+    <Content Include="Video\oldmale-vocaltract-u-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-a-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-e-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-i-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-o-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-u-Peter.mp4" />
     <Content Include="VlcLibs\header-files\deprecated.h" />
     <Content Include="VlcLibs\header-files\libvlc.h" />
     <Content Include="VlcLibs\header-files\libvlc_events.h" />

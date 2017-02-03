@@ -253,12 +253,10 @@ namespace MPAi
                 PlotExe.StartInfo.UseShellExecute = true;
                 PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FormantFolder, "Dist");
 
-                //PlotExe.StartInfo.WorkingDirectory = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Formant", "Dist");
-
-                PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+                // Run with the python console in the background, Hidden = no, Normal = yes
+                PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 
                 Console.WriteLine(Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName));
-                //PlotExe.StartInfo.FileName = Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName);
                 currentPlotProcess = PlotExe;
 
                 PlotExe.Start();
