@@ -24,7 +24,9 @@ namespace MPAi.NewForms
 
         private string updateFailedText = "Failed to update!";
         private string deleteFailedText = "Failed to update!";
-        private string noValidFilesText = "No valid files found! MPAi recordings must be .wav or .mp4 files.";
+        private string noValidFilesText = "No valid files found! MPAi recordings must be .wav "
+            //+ "or .mp4 
+            + "files.";
 
         private string renamewarningText = "All MPAi files must follow a particular naming convention.\nFor the files that don't follow this convention, MPAi will bring up a window for you to enter thier details, and rename the automatically.\nThis may make a long time for large numbers of files.";
         private string warningText = "Warning!";
@@ -69,7 +71,10 @@ namespace MPAi.NewForms
                     currentFolderTextBox.Text = selectedDirectory.FullName;
                     ListBox localListBox = mediaLocalListBox;
                     // Replace the values in the list box with the files in the folder that are of a valid format.
-                    FileInfo[] view = selectedDirectory.GetFiles().Where(x => x.Extension.Equals(".wav") || x.Extension.Equals(".mp4")).ToArray();
+                    FileInfo[] view = selectedDirectory.GetFiles().Where(
+                        x => x.Extension.Equals(".wav") 
+                        //|| x.Extension.Equals(".mp4") // Currently, MPAi's video player cannot support multiple video files for the same sound.
+                        ).ToArray();
                     localListBox.DataSource = new BindingSource() { DataSource = view}; 
                     if (view.Count() < 1)
                     {
