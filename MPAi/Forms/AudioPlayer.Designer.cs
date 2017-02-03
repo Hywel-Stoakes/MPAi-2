@@ -299,9 +299,11 @@
             this.VowelComboBox.Name = "VowelComboBox";
             this.VowelComboBox.Size = new System.Drawing.Size(353, 21);
             this.VowelComboBox.TabIndex = 1;
+            this.VowelComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.VowelComboBox_DrawItem);
             this.VowelComboBox.SelectedIndexChanged += new System.EventHandler(this.VowelComboBox_SelectedIndexChanged);
             this.VowelComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VowelComboBox_KeyPress);
             this.VowelComboBox.Leave += new System.EventHandler(this.VowelComboBox_Leave);
+            this.VowelComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             // 
             // optionsButton
             // 
