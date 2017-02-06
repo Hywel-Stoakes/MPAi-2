@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace MPAi
 {
@@ -14,18 +15,22 @@ namespace MPAi
     /// </summary>
     public static class IoController
     {
-
+        private static string fileNotFoundText = "File not found!";
         /// <summary>
         /// Loads the user's default browser to view the specified HTML file.
         /// </summary>
         /// <param name="htmlPath">The file path of the HTML file to be viewed, as a string.</param>
         public static void ShowInBrowser(string htmlPath)
         {
-            if (File.Exists(htmlPath))
+            try
             {
                 Process browser = new Process();
                 browser.StartInfo.FileName = htmlPath;
                 browser.Start();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(fileNotFoundText);
             }
         }
 
