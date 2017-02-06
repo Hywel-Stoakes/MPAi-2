@@ -56,7 +56,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>MPAi.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>MPAi.Program</StartupObject>
@@ -5730,7 +5731,6 @@
     <Content Include="HTK\Tools\LNorm.exe" />
     <Content Include="HTK\Tools\LPlex.exe" />
     <Content Include="HTK\Tools\LSubset.exe" />
-    <Content Include="MPAi.ico" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\MPAid.jpg" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\pronunaid.JPG" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\recognitionresult.jpg" />
@@ -5746,6 +5746,7 @@
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\system_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\tutorials_icon.png" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\upload_icon.png" />
+    <Content Include="MPAi.ico" />
     <Content Include="Resources\CSSFiles\Scoreboard.css" />
     <Content Include="Resources\MPAi.ico" />
     <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_1.png" />
