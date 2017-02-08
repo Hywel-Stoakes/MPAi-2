@@ -1,0 +1,6 @@
+c:\users\joshb\onedrive\documents\visual studio 2015\Projects\MPAiCleaner\MPAiCleaner\bin\Debug\MPAiCleaner.exe.config
+c:\users\joshb\onedrive\documents\visual studio 2015\Projects\MPAiCleaner\MPAiCleaner\bin\Debug\MPAiCleaner.exe
+c:\users\joshb\onedrive\documents\visual studio 2015\Projects\MPAiCleaner\MPAiCleaner\bin\Debug\MPAiCleaner.pdb
+c:\users\joshb\onedrive\documents\visual studio 2015\Projects\MPAiCleaner\MPAiCleaner\obj\Debug\MPAiCleaner.csprojResolveAssemblyReference.cache
+c:\users\joshb\onedrive\documents\visual studio 2015\Projects\MPAiCleaner\MPAiCleaner\obj\Debug\MPAiCleaner.exe
+c:\users\joshb\onedrive\documents\visual studio 2015\Projects\MPAiCleaner\MPAiCleaner\obj\Debug\MPAiCleaner.pdb
