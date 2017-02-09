@@ -23,8 +23,22 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
-            //checkAppropriateComponents();
-            //authoriseAdmin();
+            checkAndSetNativeDisplayVoice();
+            checkAppropriateComponents();
+            authoriseAdmin();
+        }
+
+        private void checkAndSetNativeDisplayVoice()
+        {
+            MPAi.Models.VoiceType? voiceType = UserManagement.CurrentUser.Voice;
+            if (voiceType.Equals(MPAi.Models.VoiceType.FEMININE_MODERN) || voiceType.Equals(MPAi.Models.VoiceType.FEMININE_NATIVE))
+            {
+                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.FEMININE);
+            }
+            else
+            {
+                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.MASCULINE);
+            }
         }
 
         /// <summary>
@@ -36,8 +50,9 @@ namespace MPAi.NewForms
             container.Add(this);
 
             InitializeComponent();
-            //checkAppropriateComponents();
-            //authoriseAdmin();
+            checkAndSetNativeDisplayVoice();
+            checkAppropriateComponents();
+            authoriseAdmin();
         }
 
         /// <summary>
@@ -120,6 +135,7 @@ namespace MPAi.NewForms
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
             MessageBox.Show(changetext);
+            checkAndSetNativeDisplayVoice();
         }
 
         /// <summary>
@@ -134,6 +150,7 @@ namespace MPAi.NewForms
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();   // and the current user in the list of users.
             MessageBox.Show(changetext);
+            checkAndSetNativeDisplayVoice();
         }
 
         /// <summary>
