@@ -119,5 +119,29 @@ namespace MPAi.NewForms
         {
             createUser();
         }
+
+        private void masculineRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if(masculineRadioButton.Checked)
+            {
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
+            }
+            else
+            {
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
+            }
+        }
+
+        private void feminineRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (feminineRadioButton.Checked)
+            {
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
+            }
+            else
+            {
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
+            }
+        }
     }
 }

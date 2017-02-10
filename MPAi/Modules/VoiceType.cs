@@ -68,4 +68,25 @@ namespace MPAi.Models
             }
         }
     }
+
+    public enum Gender
+    {
+        FEMININE, MASCULINE
+    }
+
+    public static class DisplayVoice
+    {
+        public static string DisplayNative(Gender gender)
+        {
+            switch (gender)
+            {
+                case Gender.FEMININE:
+                    return "Kuia Māori";
+                case Gender.MASCULINE:
+                    return "Kaumatua Māori";
+                default:
+                    return null;
+            }
+        }
+    }
 }
