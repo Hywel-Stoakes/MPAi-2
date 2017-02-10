@@ -50,7 +50,7 @@ namespace MPAi.NewForms
             using (MPAiModel DBModel = new MPAiModel())
             {
                 // Add all local database files to the list.
-                List<SingleFile> view = DBModel.SingleFile.ToList();    
+                List<SingleFile> view = DBModel.SingleFile.Where(x => x.Audio != null).ToList();    
                 onDBListBox.DataSource = view;
                 onDBListBox.DisplayMember = "Name";
             }

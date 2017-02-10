@@ -23,9 +23,9 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
-            //checkAndSetNativeDisplayVoice();
-            //checkAppropriateComponents();
-            //authoriseAdmin();
+            checkAndSetNativeDisplayVoice();
+            checkAppropriateComponents();
+            authoriseAdmin();
         }
 
         /// <summary>
@@ -37,9 +37,9 @@ namespace MPAi.NewForms
             container.Add(this);
 
             InitializeComponent();
-            //checkAndSetNativeDisplayVoice();
-            //checkAppropriateComponents();
-            //authoriseAdmin();
+            checkAndSetNativeDisplayVoice();
+            checkAppropriateComponents();
+            authoriseAdmin();
         }
 
         private void checkAndSetNativeDisplayVoice()
