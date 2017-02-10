@@ -3202,10 +3202,10 @@
     <Compile Include="Modules\PlotController.cs" />
     <Compile Include="Modules\UserManagement.cs" />
     <Compile Include="Cores\VowelComparer.cs" />
-    <Compile Include="Forms\AnalysisScreen.cs">
+    <Compile Include="Forms\Popups\AnalysisScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnalysisScreen.Designer.cs">
+    <Compile Include="Forms\Popups\AnalysisScreen.Designer.cs">
       <DependentUpon>AnalysisScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AudioPlayer.cs">
@@ -3353,7 +3353,7 @@
     <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnalysisScreen.resx">
+    <EmbeddedResource Include="Forms\Popups\AnalysisScreen.resx">
       <DependentUpon>AnalysisScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AudioPlayer.resx">

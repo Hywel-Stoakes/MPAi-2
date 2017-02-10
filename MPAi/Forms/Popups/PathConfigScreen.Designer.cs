@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SystemConfig));
             this.audioFolderTextBox = new System.Windows.Forms.TextBox();
             this.audioFolderLabel = new System.Windows.Forms.Label();
             this.audioFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
@@ -305,6 +306,7 @@
             this.Controls.Add(this.audioFolderLabel);
             this.Controls.Add(this.audioFolderTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SystemConfig";

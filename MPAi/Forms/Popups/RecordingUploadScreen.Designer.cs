@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingUploadScreen));
             this.toLocalButton = new MPAi.NewForms.MPAiButton(this.components);
             this.toDBButton = new MPAi.NewForms.MPAiButton(this.components);
             this.onDBListBox = new System.Windows.Forms.ListBox();
@@ -123,7 +124,7 @@
             this.currentFolderTextBox.MinimumSize = new System.Drawing.Size(175, 23);
             this.currentFolderTextBox.Name = "currentFolderTextBox";
             this.currentFolderTextBox.ReadOnly = true;
-            this.currentFolderTextBox.Size = new System.Drawing.Size(175, 23);
+            this.currentFolderTextBox.Size = new System.Drawing.Size(175, 20);
             this.currentFolderTextBox.TabIndex = 17;
             this.currentFolderTextBox.Text = "No Folder Selected";
             // 
@@ -184,8 +185,9 @@
             this.Controls.Add(this.onDBListBox);
             this.Controls.Add(this.allLocalItemsButton);
             this.Controls.Add(this.mediaLocalListBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RecordingUploadScreen";
-            this.Text = "RecordingUploadScreen";
+            this.Text = "Upload Recordings";
             this.ResumeLayout(false);
             this.PerformLayout();
 

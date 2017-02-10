@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MPAiSoundMainMenu));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.headerBox = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -36,10 +37,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.learnButton = new MPAi.NewForms.MPAiButton(this.components);
             this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.targetButton = new MPAi.NewForms.MPAiButton(this.components);
             this.formantButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.targetButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -166,15 +167,6 @@
             this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.formantButton);
@@ -184,6 +176,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(538, 50);
             this.panel1.TabIndex = 3;
+            // 
+            // formantButton
+            // 
+            this.formantButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.formantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.formantButton.ForeColor = System.Drawing.Color.White;
+            this.formantButton.Location = new System.Drawing.Point(270, 14);
+            this.formantButton.Name = "formantButton";
+            this.formantButton.Size = new System.Drawing.Size(70, 23);
+            this.formantButton.TabIndex = 3;
+            this.formantButton.Text = "Formant";
+            this.formantButton.UseVisualStyleBackColor = false;
+            this.formantButton.Click += new System.EventHandler(this.formantButton_Click);
             // 
             // targetButton
             // 
@@ -199,18 +204,14 @@
             this.targetButton.UseVisualStyleBackColor = true;
             this.targetButton.Click += new System.EventHandler(this.testButton_Click);
             // 
-            // formantButton
+            // menuStrip1
             // 
-            this.formantButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.formantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.formantButton.ForeColor = System.Drawing.Color.White;
-            this.formantButton.Location = new System.Drawing.Point(270, 14);
-            this.formantButton.Name = "formantButton";
-            this.formantButton.Size = new System.Drawing.Size(70, 23);
-            this.formantButton.TabIndex = 3;
-            this.formantButton.Text = "Formant";
-            this.formantButton.UseVisualStyleBackColor = false;
-            this.formantButton.Click += new System.EventHandler(this.formantButton_Click);
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // MPAiSoundMainMenu
             // 
@@ -220,10 +221,11 @@
             this.ClientSize = new System.Drawing.Size(544, 361);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MPAiSoundMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MPAiSoundMainMenu";
+            this.Text = "MPAi Vowels";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MPAiSoundMainMenu_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

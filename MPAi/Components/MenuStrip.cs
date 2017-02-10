@@ -23,9 +23,23 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
-            checkAndSetNativeDisplayVoice();
-            checkAppropriateComponents();
-            authoriseAdmin();
+            //checkAndSetNativeDisplayVoice();
+            //checkAppropriateComponents();
+            //authoriseAdmin();
+        }
+
+        /// <summary>
+        /// Constructor that adds this menu to a container.
+        /// </summary>
+        /// <param name="container">The container to add this menu to, as an IContainer.</param>
+        public MenuStrip(IContainer container) : base()
+        {
+            container.Add(this);
+
+            InitializeComponent();
+            //checkAndSetNativeDisplayVoice();
+            //checkAppropriateComponents();
+            //authoriseAdmin();
         }
 
         private void checkAndSetNativeDisplayVoice()
@@ -39,20 +53,6 @@ namespace MPAi.NewForms
             {
                 nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.MASCULINE);
             }
-        }
-
-        /// <summary>
-        /// Constructor that adds this menu to a container.
-        /// </summary>
-        /// <param name="container">The container to add this menu to, as an IContainer.</param>
-        public MenuStrip(IContainer container) : base()
-        {
-            container.Add(this);
-
-            InitializeComponent();
-            checkAndSetNativeDisplayVoice();
-            checkAppropriateComponents();
-            authoriseAdmin();
         }
 
         /// <summary>

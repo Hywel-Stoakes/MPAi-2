@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordWindow));
             this.buttonCancel = new MPAi.NewForms.MPAiButton(this.components);
             this.buttonOK = new MPAi.NewForms.MPAiButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
@@ -127,13 +128,14 @@
             this.Controls.Add(this.codeBox2);
             this.Controls.Add(this.codeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(300, 200);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "ChangePasswordWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Change your password";
+            this.Text = "Change Password";
             this.ResumeLayout(false);
             this.PerformLayout();
 

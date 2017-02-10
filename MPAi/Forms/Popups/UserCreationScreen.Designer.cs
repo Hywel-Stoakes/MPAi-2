@@ -52,8 +52,8 @@
             this.feminineRadioButton = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.modernRadioButton = new System.Windows.Forms.RadioButton();
+            this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.okayButton = new MPAi.NewForms.MPAiButton(this.components);
@@ -378,6 +378,19 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(243, 29);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
+            // modernRadioButton
+            // 
+            this.modernRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.modernRadioButton.AutoSize = true;
+            this.modernRadioButton.Location = new System.Drawing.Point(148, 3);
+            this.modernRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.modernRadioButton.Name = "modernRadioButton";
+            this.modernRadioButton.Size = new System.Drawing.Size(90, 23);
+            this.modernRadioButton.TabIndex = 1;
+            this.modernRadioButton.Text = "Modern Māori";
+            this.modernRadioButton.UseVisualStyleBackColor = true;
+            // 
             // nativeRadioButton
             // 
             this.nativeRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -392,19 +405,6 @@
             this.nativeRadioButton.TabStop = true;
             this.nativeRadioButton.Text = "Kaumatua Māori";
             this.nativeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // modernRadioButton
-            // 
-            this.modernRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.modernRadioButton.AutoSize = true;
-            this.modernRadioButton.Location = new System.Drawing.Point(148, 3);
-            this.modernRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.modernRadioButton.Name = "modernRadioButton";
-            this.modernRadioButton.Size = new System.Drawing.Size(90, 23);
-            this.modernRadioButton.TabIndex = 1;
-            this.modernRadioButton.Text = "Modern Māori";
-            this.modernRadioButton.UseVisualStyleBackColor = true;
             // 
             // ButtonPanel
             // 
@@ -475,6 +475,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(361, 365);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserCreationScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create a New User";
