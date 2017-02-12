@@ -581,7 +581,9 @@ namespace MPAi.NewForms
                         }
                         break;
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Error:
-                        MessageBox.Show(invalidStateString);
+                        {
+                            MessageBox.Show(invalidStateString);
+                        }
                         break;
                     default:
                         break;
