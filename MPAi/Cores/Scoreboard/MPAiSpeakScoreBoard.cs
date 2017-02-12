@@ -13,11 +13,12 @@ namespace MPAi.Cores.Scoreboard
     /// </summary>
     public class MPAiSpeakScoreBoardItem
     {
-        public MPAiSpeakScoreBoardItem(string expectedText, string recognisedText, string analysis)
+        public MPAiSpeakScoreBoardItem(string expectedText, string recognisedText, string analysis, string recordingName)
         {
             this.expectedText = expectedText;
             this.recognisedText = recognisedText;
             this.analysis = analysis;
+            this.recordingName = recordingName;
             this.similarity = SimilarityScore(SimilarityAlgorithm.DamereauLevensheinDistanceAlgorithm);
         }
         /// <summary>
@@ -64,6 +65,16 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 return similarity;
+            }
+        }
+
+        private string recordingName;
+
+        public string RecordingName
+        {
+            get
+            {
+                return recordingName;
             }
         }
     }
@@ -121,9 +132,9 @@ namespace MPAi.Cores.Scoreboard
             this.content = content;
         }
 
-        public void AddScoreBoardItem(string expectedText, string recognisedText, string analysis)
+        public void AddScoreBoardItem(string expectedText, string recognisedText, string analysis, string recordingName)
         {
-            Content.Add(new MPAiSpeakScoreBoardItem(expectedText, recognisedText, analysis));
+            Content.Add(new MPAiSpeakScoreBoardItem(expectedText, recognisedText, analysis, recordingName));
         }
 
         public static int ComparisionByDate(MPAiSpeakScoreBoardSession x, MPAiSpeakScoreBoardSession y)
@@ -188,14 +199,29 @@ namespace MPAi.Cores.Scoreboard
 
         public bool IsEmpty()
         {
-            foreach(MPAiSpeakScoreBoardSession session in Sessions)
+            foreach (MPAiSpeakScoreBoardSession session in Sessions)
             {
-                if(!session.IsEmpty())
+                if (!session.IsEmpty())
                 {
                     return false;
                 }
             }
             return true;
+        }
+
+        public bool IsRecordingAlreadyAnalysed(string recordingName)
+        {
+            foreach (MPAiSpeakScoreBoardSession session in Sessions)
+            {
+                foreach (MPAiSpeakScoreBoardItem item in session.Content)
+                {
+                    if (recordingName.Equals(item.RecordingName))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
     /// <summary>

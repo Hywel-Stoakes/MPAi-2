@@ -85,13 +85,13 @@ namespace MPAi.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("./Fomant")]
-        public string FomantFolder {
+        [global::System.Configuration.DefaultSettingValueAttribute("./Formant")]
+        public string FormantFolder {
             get {
-                return ((string)(this["FomantFolder"]));
+                return ((string)(this["FormantFolder"]));
             }
             set {
-                this["FomantFolder"] = value;
+                this["FormantFolder"] = value;
             }
         }
         

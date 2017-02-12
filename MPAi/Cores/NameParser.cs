@@ -116,7 +116,6 @@ namespace MPAi.Cores
         {
             try
             {
-
                 Console.WriteLine(fileName);
                 string[] parts = fileName.Split('-');
                 Speaker = parts[0];
@@ -232,7 +231,11 @@ namespace MPAi.Cores
         {
             get
             {
-                if (audioExtsTable.Contains(ext))
+                if (category.Equals("vocaltract"))
+                {
+                    return "vocaltract";
+                }
+                else if (audioExtsTable.Contains(ext))
                 {
                     return "audio";
                 }

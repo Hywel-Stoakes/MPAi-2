@@ -17,8 +17,8 @@
     <Setting Name="HTKFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">./HTK</Value>
     </Setting>
-    <Setting Name="FomantFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">./Fomant</Value>
+    <Setting Name="FormantFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./Formant</Value>
     </Setting>
     <Setting Name="RecordingFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">./Recording</Value>

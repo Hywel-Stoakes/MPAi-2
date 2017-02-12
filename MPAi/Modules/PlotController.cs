@@ -9,6 +9,8 @@ using System.Threading;
 using MPAi.Models;
 using MPAi.Cores.Scoreboard;
 using NAudio.CoreAudioApi;
+using MPAi.Forms;
+using MPAi.NewForms;
 
 namespace MPAi
 {
@@ -25,7 +27,7 @@ namespace MPAi
 
     {
 
-        public enum PlotType { formantPlot, vowelPlot }
+        public enum PlotType { FORMANT_PLOT, VOWEL_PLOT }
 
         private static PlotType? plotType;
         private static VoiceType? voiceType;
@@ -110,8 +112,14 @@ namespace MPAi
             var devices = deviceEnum.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active).ToList();
             if (devices.Count == 0)
             {
-                MessageBox.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
-
+                if (plotType == PlotType.VOWEL_PLOT)
+                {
+                    MessageBox.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
+                }
+                else if (plotType == PlotType.FORMANT_PLOT) {
+                    MessageBox.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
+                } 
+                
                 NewForms.MPAiSoundMainMenu menu = new MPAi.NewForms.MPAiSoundMainMenu();
                 menu.Show();
 
@@ -122,6 +130,15 @@ namespace MPAi
                 foreach (var process in Process.GetProcessesByName("VowelRunner"))
                 {
                     process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
+                }
+                foreach (var process in Process.GetProcessesByName("PlotRunner"))
+                {
+
+                    process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
                 }
 
 
@@ -142,7 +159,28 @@ namespace MPAi
         public static void ClosePlot()
         {
             Console.WriteLine("Close Requested...");
-            PlotExe.CloseMainWindow();
+            //PlotExe.CloseMainWindow();
+            //Console.WriteLine(PlotExe.ExitCode);
+            //PlotExe.Kill();
+            //PlotExe.WaitForExit();
+
+            int errorCode = 0;
+
+            if (PlotExe.HasExited)
+            {
+                errorCode = PlotExe.ExitCode;
+            }
+            
+
+            
+           
+            
+
+            PlotExe.Dispose();
+
+            if (errorCode == 15) {
+                Application.OpenForms.OfType<LoginScreen>().SingleOrDefault().Close();
+            }
 
             NewForms.MPAiSoundMainMenu menu = new MPAi.NewForms.MPAiSoundMainMenu();
             menu.Show();
@@ -161,26 +199,28 @@ namespace MPAi
                 // Before starting a new process, tidy up any old ones in the background.
                 //  ClosePlot();
 
+                if (plotType == PlotType.VOWEL_PLOT)
+                {
 
-                pythonPipe = new PythonPipe();
+                    pythonPipe = new PythonPipe();
 
-                pipeThread = new Thread(new ThreadStart(pythonPipe.ConnectAndRecieve));
-                pipeThread.IsBackground = true;
-                pipeThread.Start();
+                    pipeThread = new Thread(new ThreadStart(pythonPipe.ConnectAndRecieve));
+                    pipeThread.IsBackground = true;
+                    pipeThread.Start();
 
-                Console.WriteLine("after Thread");
-
+                    Console.WriteLine("after Thread");
+                }
 
 
                 PlotExe = new Process();
-                //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FomantFolder, @"dist",@"VowelRunner.exe");
+                //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FormantFolder, @"dist",@"VowelRunner.exe");
 
 
-                if (plotType == PlotType.vowelPlot)
+                if (plotType == PlotType.VOWEL_PLOT)
                 {
                     PlotExe.StartInfo.FileName = @"VowelRunner.exe";
                 }
-                else if (plotType == PlotType.formantPlot)
+                else if (plotType == PlotType.FORMANT_PLOT)
                 {
                     PlotExe.StartInfo.FileName = @"PlotRunner.exe";
                 }
@@ -192,62 +232,60 @@ namespace MPAi
                 // based on the requested voiceType.
                 switch (voiceType)
                 {
-                    case VoiceType.MASCULINE_HERITAGE:
-                        PlotExe.StartInfo.Arguments = @"masculine heritage";
+                    case VoiceType.MASCULINE_NATIVE:
+                        PlotExe.StartInfo.Arguments = @"masculine native";
                         break;
                     case VoiceType.MASCULINE_MODERN:
 
                         PlotExe.StartInfo.Arguments = @"masculine modern";
                         break;
-                    case VoiceType.FEMININE_HERITAGE:
-                        PlotExe.StartInfo.Arguments = @"feminine heritage";
+                    case VoiceType.FEMININE_NATIVE:
+                        PlotExe.StartInfo.Arguments = @"feminine native";
                         break;
                     case VoiceType.FEMININE_MODERN:
                         PlotExe.StartInfo.Arguments = @"feminine modern";
                         break;
                     default:
-                        PlotExe.StartInfo.Arguments = @"masculine heritage";
+                        PlotExe.StartInfo.Arguments = @"masculine native";
                         break;
                 }
                 
                 PlotExe.StartInfo.UseShellExecute = true;
-                PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FomantFolder, "Dist");
+                PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FormantFolder, "Dist");
 
-                //PlotExe.StartInfo.WorkingDirectory = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Fomant", "Dist");
-
+                // Run with the python console in the background, Hidden = no, Normal = yes
                 PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 
                 Console.WriteLine(Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName));
-                //PlotExe.StartInfo.FileName = Path.Combine(PlotExe.StartInfo.WorkingDirectory, PlotExe.StartInfo.FileName);
                 currentPlotProcess = PlotExe;
+
                 PlotExe.Start();
-                int count = 0;
+
                 // Hang up the main application to wait until it finished starting
                 while ((PlotStarted(GetPlotTitle()) == 1) && (!exitRequest))
                 {
-                    count++;
-                    Console.Write(count);
-
                     // Wait 5 ms before checking if secondary application has started, preventing CPU blocking.
                     await System.Threading.Tasks.Task.Delay(5);
                 }
-                Console.WriteLine(PlotStarted(GetPlotTitle()));
-                Console.WriteLine(!PlotExe.HasExited);
-                Console.WriteLine("End of first loop.");
-                while ( !exitRequest)
+                
+                if (plotType == PlotType.VOWEL_PLOT)
                 {
-
-                    await System.Threading.Tasks.Task.Delay(10);
-
+                    while (!exitRequest)
+                    {
+                        await System.Threading.Tasks.Task.Delay(10);
+                    }
+                    StopThread();
+                }
+                else
+                {
+                    while ((PlotStarted(GetPlotTitle()) != 1) && (!PlotExe.HasExited )) {
+                       await System.Threading.Tasks.Task.Delay(10);
+                    }
                 }
 
 
-
-                Console.WriteLine("Request end of program.");
-
-                StopThread();
                 ClosePlot();
-
+                
 
             }
             catch (Exception exp)
@@ -277,13 +315,13 @@ namespace MPAi
         /// <returns>The title of the  plot, as a string.</returns>
         public static string GetPlotTitle()
         {
-            if (plotType == PlotType.vowelPlot)
+            if (plotType == PlotType.VOWEL_PLOT)
             {
                 return (@"Vowel Plot");
             }
-            else if (plotType == PlotType.formantPlot)
+            else if (plotType == PlotType.FORMANT_PLOT)
             {
-                return (@"Fomant Plot");
+                return (@"Formant Plot");
             }
             return null;
 
