@@ -580,8 +580,12 @@ namespace MPAi.NewForms
                             playButton.ImageIndex = 3;
                         }
                         break;
+                    case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Error:
+                        {
+                            MessageBox.Show(invalidStateString);
+                        }
+                        break;
                     default:
-                        MessageBox.Show(invalidStateString);
                         break;
                 }
             }

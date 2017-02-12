@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MPAiSpeakMainMenu));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.headerBox = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.learnButton = new MPAi.NewForms.MPAiButton(this.components);
             this.testButton = new MPAi.NewForms.MPAiButton(this.components);
             this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,15 +83,6 @@
             this.headerBox.Size = new System.Drawing.Size(544, 70);
             this.headerBox.TabIndex = 1;
             this.headerBox.TabStop = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // splitContainer2
             // 
@@ -185,6 +177,15 @@
             this.reportButton.UseVisualStyleBackColor = true;
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // MPAiSpeakMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,10 +194,11 @@
             this.ClientSize = new System.Drawing.Size(544, 361);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MPAiSpeakMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MPAiSpeakMainMenu";
+            this.Text = "MPAi Words";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MPAiSpeakMainMenu_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

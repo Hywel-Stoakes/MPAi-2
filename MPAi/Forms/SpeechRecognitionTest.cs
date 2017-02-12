@@ -393,7 +393,6 @@ namespace MPAi.NewForms
                     }
                     string target = ((WordComboBox.SelectedItem as Word) == null) ? string.Empty : (WordComboBox.SelectedItem as Word).Name;
                     Dictionary<string, string> result = RecEngine.Recognize(Path.Combine(outputFolder, recordingProgressBarLabel.Text)).ToDictionary(x => x.Key, x => x.Value);
-                    //result.Add("Recording File Name", "hoihoi");
                     if (result.Count > 0)
                     {
                         MPAiSpeakScoreBoardItem item = new MPAiSpeakScoreBoardItem(target, result.First().Value, PronuciationAdvisor.Advise(result.First().Key, target, result.First().Value), recordingProgressBarLabel.Text);
@@ -401,6 +400,10 @@ namespace MPAi.NewForms
 
                         AnalysisScreen analysisScreen = new AnalysisScreen(item.Similarity, item.Analysis);
                         analysisScreen.ShowDialog(this);
+                    }
+                    else
+                    {
+                        MessageBox.Show("There was a error while analysing this recording.\nHTK Engine did not return a match between the recording and a word.\nIf this problem persist, reinstall MPAi");
                     }
                 }
             }
