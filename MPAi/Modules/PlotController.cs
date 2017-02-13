@@ -125,13 +125,13 @@ namespace MPAi.Modules
             else
             {
 
-                foreach (var process in Process.GetProcessesByName("VowelRunner"))
+                foreach (var process in Process.GetProcessesByName("MPAiVowelRunner"))
                 {
                     process.Kill();
                     process.WaitForExit();
                     process.Dispose();
                 }
-                foreach (var process in Process.GetProcessesByName("PlotRunner"))
+                foreach (var process in Process.GetProcessesByName("MPAiPlotRunner"))
                 {
 
                     process.Kill();
@@ -216,11 +216,11 @@ namespace MPAi.Modules
 
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
-                    PlotExe.StartInfo.FileName = @"VowelRunner.exe";
+                    PlotExe.StartInfo.FileName = @"MPAiVowelRunner.exe";
                 }
                 else if (plotType == PlotType.FORMANT_PLOT)
                 {
-                    PlotExe.StartInfo.FileName = @"PlotRunner.exe";
+                    PlotExe.StartInfo.FileName = @"MPAiPlotRunner.exe";
                 }
 
 
@@ -315,11 +315,11 @@ namespace MPAi.Modules
         {
             if (plotType == PlotType.VOWEL_PLOT)
             {
-                return (@"Vowel Plot");
+                return (@"MPAi Vowel Plot");
             }
             else if (plotType == PlotType.FORMANT_PLOT)
             {
-                return (@"Formant Plot");
+                return (@"MPAi Formant Plot");
             }
             return null;
 

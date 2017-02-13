@@ -32,16 +32,16 @@ namespace MPAi.Forms.Popups
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingUploadScreen));
-            this.toLocalButton = new MPAiButton(this.components);
-            this.toDBButton = new MPAiButton(this.components);
+            this.toLocalButton = new MPAi.Components.MPAiButton(this.components);
+            this.toDBButton = new MPAi.Components.MPAiButton(this.components);
             this.onDBListBox = new System.Windows.Forms.ListBox();
-            this.allLocalItemsButton = new MPAiButton(this.components);
+            this.allLocalItemsButton = new MPAi.Components.MPAiButton(this.components);
             this.mediaLocalListBox = new System.Windows.Forms.ListBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.currentFolderTextBox = new System.Windows.Forms.TextBox();
-            this.selectFolderButton = new MPAiButton(this.components);
-            this.allDatabaseItemsButton = new MPAiButton(this.components);
-            this.backButton = new MPAiButton(this.components);
+            this.selectFolderButton = new MPAi.Components.MPAiButton(this.components);
+            this.allDatabaseItemsButton = new MPAi.Components.MPAiButton(this.components);
+            this.backButton = new MPAi.Components.MPAiButton(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
@@ -189,6 +189,7 @@ namespace MPAi.Forms.Popups
             this.Controls.Add(this.mediaLocalListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RecordingUploadScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Upload Recordings";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -41,8 +41,8 @@ namespace MPAi.Forms.Popups
             this.panel1 = new System.Windows.Forms.Panel();
             this.descriptionBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.scoreReportButton = new MPAiButton(this.components);
-            this.backButton = new MPAiButton(this.components);
+            this.scoreReportButton = new MPAi.Components.MPAiButton(this.components);
+            this.backButton = new MPAi.Components.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -213,7 +213,7 @@ namespace MPAi.Forms.Popups
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AnalysisScreen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Analysis Screen";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
