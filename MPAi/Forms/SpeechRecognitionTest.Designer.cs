@@ -148,6 +148,8 @@
             this.WordComboBox.Name = "WordComboBox";
             this.WordComboBox.Size = new System.Drawing.Size(350, 21);
             this.WordComboBox.TabIndex = 0;
+            this.WordComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.WordComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.WordComboBox_DrawItem);
             this.WordComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WordComboBox_KeyPress);
             // 
             // analyzeButton

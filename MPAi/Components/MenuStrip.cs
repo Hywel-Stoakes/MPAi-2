@@ -23,6 +23,8 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
+
+            checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
         }
@@ -36,8 +38,22 @@ namespace MPAi.NewForms
             container.Add(this);
 
             InitializeComponent();
+            checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
+        }
+
+        private void checkAndSetNativeDisplayVoice()
+        {
+            MPAi.Models.VoiceType? voiceType = UserManagement.CurrentUser.Voice;
+            if (voiceType.Equals(MPAi.Models.VoiceType.FEMININE_MODERN) || voiceType.Equals(MPAi.Models.VoiceType.FEMININE_NATIVE))
+            {
+                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.FEMININE);
+            }
+            else
+            {
+                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.MASCULINE);
+            }
         }
 
         /// <summary>

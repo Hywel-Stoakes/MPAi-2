@@ -161,6 +161,12 @@
     <Compile Include="Forms\Popups\AdminConsole.Designer.cs">
       <DependentUpon>AdminConsole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Popups\AdministratorConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popups\AdministratorConsole.Designer.cs">
+      <DependentUpon>AdministratorConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Popups\ChangePasswordWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3328,6 +3334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\AdminConsole.resx">
       <DependentUpon>AdminConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Popups\AdministratorConsole.resx">
+      <DependentUpon>AdministratorConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
