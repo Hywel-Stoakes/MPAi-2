@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPAi.Modules;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MPAi
+namespace MPAi.Forms.Popups
 {
     /// <summary>
     /// Class representing the Administrator's Console form, allowing the administrator to change all user's account settings.

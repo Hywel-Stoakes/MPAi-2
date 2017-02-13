@@ -1,12 +1,11 @@
-﻿using MPAi.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MPAi
+namespace MPAi.Modules
 {
     /// <summary>
     /// Maintains details of all of the users of the system, the current user, and the administrator.

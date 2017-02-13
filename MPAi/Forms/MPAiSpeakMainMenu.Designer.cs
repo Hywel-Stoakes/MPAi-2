@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms
 {
     partial class MPAiSpeakMainMenu
     {
@@ -35,10 +37,10 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.learnButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.testButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
+            this.learnButton = new MPAiButton(this.components);
+            this.testButton = new MPAiButton(this.components);
+            this.reportButton = new MPAiButton(this.components);
+            this.menuStrip1 = new MenuStrip(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();

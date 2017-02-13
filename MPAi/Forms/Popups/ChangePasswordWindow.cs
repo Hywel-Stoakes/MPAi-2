@@ -1,6 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using MPAi.Modules;
+using System.Windows.Forms;
 
-namespace MPAi
+namespace MPAi.Forms.Popups
 {
     /// <summary>
     /// Class representing the window to change your password.

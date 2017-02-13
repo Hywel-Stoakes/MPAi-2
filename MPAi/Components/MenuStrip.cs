@@ -1,5 +1,6 @@
-﻿using MPAi.Forms.Config;
-using MPAi.Forms.MSGBox;
+﻿using MPAi.Forms;
+using MPAi.Forms.Popups;
+using MPAi.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Components
 {
     /// <summary>
     /// The menu strip that appears at the top of each form.
@@ -45,15 +46,15 @@ namespace MPAi.NewForms
 
         private void checkAndSetNativeDisplayVoice()
         {
-            MPAi.Models.VoiceType? voiceType = UserManagement.CurrentUser.Voice;
-            if (voiceType.Equals(MPAi.Models.VoiceType.FEMININE_MODERN) || voiceType.Equals(MPAi.Models.VoiceType.FEMININE_NATIVE))
+            VoiceType? voiceType = UserManagement.CurrentUser.Voice;
+            if (voiceType.Equals(VoiceType.FEMININE_MODERN) || voiceType.Equals(VoiceType.FEMININE_NATIVE))
             {
-                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.FEMININE);
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
                 Console.WriteLine("Feminine");
             }
             else
             {
-                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.MASCULINE);
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
                 Console.WriteLine("Masculine");
             }
         }
@@ -76,19 +77,19 @@ namespace MPAi.NewForms
         {
             switch (UserManagement.CurrentUser.Voice)
             {
-                case Models.VoiceType.FEMININE_NATIVE:
+                case VoiceType.FEMININE_NATIVE:
                     nativeMāoriToolStripMenuItem.Checked = true;
                     feminineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.FEMININE_MODERN:
+                case VoiceType.FEMININE_MODERN:
                     modernMāoriToolStripMenuItem.Checked = true;
                     feminineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.MASCULINE_NATIVE:
+                case VoiceType.MASCULINE_NATIVE:
                     nativeMāoriToolStripMenuItem.Checked = true;
                     masculineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.MASCULINE_MODERN:
+                case VoiceType.MASCULINE_MODERN:
                     modernMāoriToolStripMenuItem.Checked = true;
                     masculineToolStripMenuItem.Checked = true;
                     break;

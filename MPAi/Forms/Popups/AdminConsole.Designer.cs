@@ -1,4 +1,4 @@
-﻿namespace MPAi
+﻿namespace MPAi.Forms.Popups
 {
     partial class AdminConsole
     {

@@ -1,5 +1,6 @@
 ﻿using MPAi.Cores;
-using MPAi.Models;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms.Popups
 {
     public partial class RecordingUploadScreen : Form
     {

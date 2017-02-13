@@ -1,4 +1,7 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+using MPAi.Modules;
+
+namespace MPAi.Forms.Popups
 {
     partial class RenameFileDialog
     {
@@ -36,9 +39,9 @@
             this.speakerLabel = new System.Windows.Forms.Label();
             this.filenameTextBox = new System.Windows.Forms.TextBox();
             this.filenameLabel = new System.Windows.Forms.Label();
-            this.filePickerButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.renameButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.filePickerButton = new MPAiButton(this.components);
+            this.renameButton = new MPAiButton(this.components);
+            this.cancelButton = new MPAiButton(this.components);
             this.WordComboBox = new System.Windows.Forms.ComboBox();
             this.ExplanationLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -218,7 +221,7 @@
             // 
             // voiceTypeConverterBindingSource
             // 
-            this.voiceTypeConverterBindingSource.DataSource = typeof(MPAi.Models.VoiceTypeConverter);
+            this.voiceTypeConverterBindingSource.DataSource = typeof(VoiceTypeConverter);
             // 
             // RenameFileDialog
             // 

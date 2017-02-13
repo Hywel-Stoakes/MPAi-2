@@ -1,5 +1,6 @@
 ﻿using MPAi.Cores;
-using MPAi.Models;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 using System;
@@ -17,7 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
     public partial class VideoPlayer : Form, MainFormInterface
     {

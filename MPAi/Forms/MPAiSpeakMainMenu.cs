@@ -1,6 +1,6 @@
 ﻿using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
-using MPAi.Models;
+using MPAi.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
     public partial class MPAiSpeakMainMenu : Form, MainFormInterface
     {

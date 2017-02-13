@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms
 {
     partial class LoginScreen
     {
@@ -34,9 +36,9 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.rememberCheckBox = new System.Windows.Forms.CheckBox();
-            this.soundLaunchButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.signupButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.speakLaunchButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.soundLaunchButton = new MPAiButton(this.components);
+            this.signupButton = new MPAiButton(this.components);
+            this.speakLaunchButton = new MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 

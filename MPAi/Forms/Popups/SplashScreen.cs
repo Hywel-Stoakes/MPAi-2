@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace MPAi
+namespace MPAi.Forms.Popups
 {
     /// <summary>
     /// Class for the splash screen that shows while the program is loading.

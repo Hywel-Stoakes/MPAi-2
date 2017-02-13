@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPAi.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,14 +18,14 @@ namespace MPAi
             {
                 if (args[0] == "initDB")
                 {
-                    Application.Run(new NewForms.LoginScreen("initDB"));
+                    Application.Run(new LoginScreen("initDB"));
                     return;
                 }
             }
             Console.WriteLine("Running Normally.");
 
             
-            Application.Run(new NewForms.LoginScreen());
+            Application.Run(new LoginScreen());
 
             Application.Exit();
         }
