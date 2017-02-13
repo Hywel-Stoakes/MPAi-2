@@ -150,12 +150,6 @@
     <Compile Include="Components\MPAiButton.Designer.cs">
       <DependentUpon>MPAiButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Popups\AdminConsole.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Popups\AdminConsole.Designer.cs">
-      <DependentUpon>AdminConsole.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Popups\AdministratorConsole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +161,12 @@
     </Compile>
     <Compile Include="Forms\Popups\ChangePasswordWindow.Designer.cs">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Popups\ConfirmRandomisedPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popups\ConfirmRandomisedPassword.Designer.cs">
+      <DependentUpon>ConfirmRandomisedPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Popups\FeedbackScreen.cs">
       <SubType>Form</SubType>
@@ -3249,14 +3249,14 @@
     <EmbeddedResource Include="Components\MPAiMessageBoxTemplate.resx">
       <DependentUpon>MPAiMessageBoxTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Popups\AdminConsole.resx">
-      <DependentUpon>AdminConsole.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\AdministratorConsole.resx">
       <DependentUpon>AdministratorConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Popups\ConfirmRandomisedPassword.resx">
+      <DependentUpon>ConfirmRandomisedPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\FeedbackScreen.resx">
       <DependentUpon>FeedbackScreen.cs</DependentUpon>

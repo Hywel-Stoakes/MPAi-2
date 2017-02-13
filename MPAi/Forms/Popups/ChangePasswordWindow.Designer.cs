@@ -32,8 +32,8 @@ namespace MPAi.Forms.Popups
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordWindow));
-            this.buttonCancel = new MPAiButton(this.components);
-            this.buttonOK = new MPAiButton(this.components);
+            this.buttonCancel = new MPAi.Components.MPAiButton(this.components);
+            this.buttonOK = new MPAi.Components.MPAiButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.codeBox2 = new System.Windows.Forms.TextBox();
@@ -136,7 +136,7 @@ namespace MPAi.Forms.Popups
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "ChangePasswordWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
             this.ResumeLayout(false);
             this.PerformLayout();

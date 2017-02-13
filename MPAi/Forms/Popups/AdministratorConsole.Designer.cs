@@ -36,7 +36,7 @@ namespace MPAi.Forms.Popups
             userTable.Dock = System.Windows.Forms.DockStyle.Top;
             userTable.Location = new System.Drawing.Point(0, 0);
 
-            if(UserManagement.GetAllUsers() == null || UserManagement.GetAllUsers().Count < 1)
+            if (UserManagement.GetAllUsers() == null || UserManagement.GetAllUsers().Count < 1)
             {
                 userTable.RowCount = 5;
                 userTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -91,14 +91,14 @@ namespace MPAi.Forms.Popups
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministratorConsole));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = generateUserTable();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.mpAiButton1 = new MPAiButton(this.components);
+            this.mpAiButton1 = new MPAi.Components.MPAiButton(this.components);
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -116,48 +116,28 @@ namespace MPAi.Forms.Popups
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(244, 191);
             this.panel1.TabIndex = 0;
-            //// 
-            //// tableLayoutPanel1
-            //// 
-            //this.tableLayoutPanel1.AutoSize = true;
-            //this.tableLayoutPanel1.ColumnCount = 2;
-            //this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            //this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            //this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            //this.tableLayoutPanel1.Controls.Add(this.button1, 1, 0);
-            //this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            //this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            //this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            //this.tableLayoutPanel1.RowCount = 5;
-            //this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            //this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            //this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            //this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            //this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            //this.tableLayoutPanel1.Size = new System.Drawing.Size(223, 200);
-            //this.tableLayoutPanel1.TabIndex = 0;
-            //this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
-            //// 
-            //// label1
-            //// 
-            //this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            //this.label1.AutoSize = true;
-            //this.label1.Location = new System.Drawing.Point(38, 13);
-            //this.label1.Name = "label1";
-            //this.label1.Size = new System.Drawing.Size(35, 13);
-            //this.label1.TabIndex = 0;
-            //this.label1.Text = "label1";
-            //this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //// 
-            //// button1
-            //// 
-            //this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            //this.button1.Location = new System.Drawing.Point(129, 8);
-            //this.button1.Name = "button1";
-            //this.button1.Size = new System.Drawing.Size(75, 23);
-            //this.button1.TabIndex = 1;
-            //this.button1.Text = "button1";
-            //this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -189,6 +169,7 @@ namespace MPAi.Forms.Popups
             this.mpAiButton1.TabIndex = 0;
             this.mpAiButton1.Text = "Close";
             this.mpAiButton1.UseVisualStyleBackColor = false;
+            this.mpAiButton1.Click += new System.EventHandler(this.close_Click);
             // 
             // AdministratorConsole
             // 
@@ -198,12 +179,11 @@ namespace MPAi.Forms.Popups
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdministratorConsole";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Administrator Console";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

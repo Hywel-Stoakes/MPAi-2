@@ -58,9 +58,9 @@ namespace MPAi.Forms.Popups
             this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.okayButton = new MPAiButton(this.components);
+            this.okayButton = new MPAi.Components.MPAiButton(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new MPAiButton(this.components);
+            this.cancelButton = new MPAi.Components.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -479,7 +479,7 @@ namespace MPAi.Forms.Popups
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserCreationScreen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create a New User";
             this.Load += new System.EventHandler(this.UserCreationScreen_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
