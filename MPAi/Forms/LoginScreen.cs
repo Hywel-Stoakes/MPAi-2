@@ -261,6 +261,7 @@ namespace MPAi.NewForms
         {
             if (login())
             {
+                //new MPAi.Forms.Popups.AdministratorConsole().Show();
                 new MPAiSpeakMainMenu().Show();
                 Hide(); // As this is the first form that gets loaded, it becomes the main form for the program. If it is closed, the program terminates.
             }

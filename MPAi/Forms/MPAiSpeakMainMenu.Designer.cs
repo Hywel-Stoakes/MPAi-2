@@ -39,6 +39,7 @@
             this.testButton = new MPAi.NewForms.MPAiButton(this.components);
             this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
             this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -227,5 +228,6 @@
         private MPAiButton testButton;
         private MPAiButton reportButton;
         private MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
