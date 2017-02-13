@@ -34,7 +34,15 @@ namespace MPAi.Forms.Popups
 
         private void resetButtonClick(object sender, EventArgs e)
         {
-            MessageBox.Show(userButtonMap[(MPAi.NewForms.MPAiButton) sender].UserID);
+            MPAiUser user = userButtonMap[(MPAi.NewForms.MPAiButton)sender];
+            ConfirmRandomisedPassword dialog = new ConfirmRandomisedPassword();
+            user.UserPswd = dialog.ConfirmPassword(user.GetCorrectlyCapitalisedName(), user.UserPswd);
+            UserManagement.WriteSettings();
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

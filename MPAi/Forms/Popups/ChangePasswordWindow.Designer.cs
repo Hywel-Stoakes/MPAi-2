@@ -134,7 +134,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "ChangePasswordWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
             this.ResumeLayout(false);
             this.PerformLayout();
