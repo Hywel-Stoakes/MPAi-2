@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
+using MPAi.Components;
 
 namespace MPAi.Forms
 {
@@ -209,7 +210,7 @@ namespace MPAi.Forms
                     return;
                 }
             }
-            MessageBox.Show(vowelNotFoundText);
+            MPAiMessageBoxFactory.Show(vowelNotFoundText);
             VowelComboBox.Focus();
         }
 
@@ -337,7 +338,7 @@ namespace MPAi.Forms
                 else
                 {
                     // If they select a file that is not a wav file, stop them and retry.
-                    MessageBox.Show(wrongFileFormatError);
+                    MPAiMessageBoxFactory.Show(wrongFileFormatError);
                     addFromFileButton_Click(sender, e);
                 }
             }
@@ -416,13 +417,13 @@ namespace MPAi.Forms
                 else
                 {
                     recordButton.Text = recordText;
-                    MessageBox.Show(noAudioDeviceText, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show(noAudioDeviceText, warningText, MPAiMessageBoxButtons.OK);
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }
@@ -469,7 +470,7 @@ namespace MPAi.Forms
             {
                 if (e.Exception != null)
                 {
-                    MessageBox.Show(String.Format(formatErrorText, e.Exception.Message));
+                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
                 }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = myRecordingText;
@@ -566,7 +567,7 @@ namespace MPAi.Forms
                         break;
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Error:
                         {
-                            MessageBox.Show(invalidStateString);
+                            MPAiMessageBoxFactory.Show(invalidStateString);
                         }
                         break;
                     default:
@@ -575,7 +576,7 @@ namespace MPAi.Forms
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message);
+                MPAiMessageBoxFactory.Show(exp.Message);
                 Console.WriteLine(exp);
             }
         }
@@ -605,7 +606,7 @@ namespace MPAi.Forms
                     if (sf == null)
                     {
                         asyncStop();
-                        MessageBox.Show(noVideoString);
+                        MPAiMessageBoxFactory.Show(noVideoString);
                         return;
                     }
                     filePath = Path.Combine(sf.Address, sf.Name);
@@ -615,7 +616,7 @@ namespace MPAi.Forms
                 }
                 else
                 {
-                    MessageBox.Show(invalidRecordingString);
+                    MPAiMessageBoxFactory.Show(invalidRecordingString);
                 }
             }
         }

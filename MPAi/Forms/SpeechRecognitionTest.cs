@@ -16,6 +16,7 @@ using System.Data.Entity;
 using MPAi.DatabaseModel;
 using MPAi.Modules;
 using MPAi.Forms.Popups;
+using MPAi.Components;
 
 namespace MPAi.Forms
 {
@@ -272,7 +273,7 @@ namespace MPAi.Forms
                 Resample();
                 if (e.Exception != null)
                 {
-                    MessageBox.Show(String.Format(formatErrorText, e.Exception.Message));
+                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
                 }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = outputFileName;
@@ -359,12 +360,12 @@ namespace MPAi.Forms
                 catch (Exception exp)
                 {
                     Console.WriteLine(exp);
-                    MessageBox.Show(couldntDeleteRecordingText);
+                    MPAiMessageBoxFactory.Show(couldntDeleteRecordingText);
                 }
             }
             else
             {
-                MessageBox.Show(recordingNotSelectedText);
+                MPAiMessageBoxFactory.Show(recordingNotSelectedText);
             }
             // If no items remain, disable buttons relating to them.
             if (RecordingListBox.Items.Count < 1)
@@ -395,7 +396,7 @@ namespace MPAi.Forms
                 {
                     if (UserManagement.CurrentUser.SpeakScoreboard.IsRecordingAlreadyAnalysed(recordingProgressBarLabel.Text))
                     {
-                        MessageBox.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
+                        MPAiMessageBoxFactory.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
                         return;
                     }
                     string target = ((WordComboBox.SelectedItem as Word) == null) ? string.Empty : (WordComboBox.SelectedItem as Word).Name;
@@ -410,14 +411,14 @@ namespace MPAi.Forms
                     }
                     else
                     {
-                        MessageBox.Show("There was a error while analysing this recording.\nHTK Engine did not return a match between the recording and a word.\nIf this problem persist, reinstall MPAi");
+                        MPAiMessageBoxFactory.Show("There was a error while analysing this recording.\nHTK Engine did not return a match between the recording and a word.\nIf this problem persist, reinstall MPAi");
                     }
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }
@@ -592,14 +593,13 @@ namespace MPAi.Forms
                 else
                 {
                     recordButton.Text = recordText;
-                    MessageBox.Show(noAudioDeviceText,
-                    warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show(noAudioDeviceText, warningText, MPAiMessageBoxButtons.OK);
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }

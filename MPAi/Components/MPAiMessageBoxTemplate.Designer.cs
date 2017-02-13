@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MPAiMessageBoxTemplate));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.captionLabel = new System.Windows.Forms.Label();
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -62,6 +64,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.messageTextBox);
+            this.panel1.Controls.Add(this.captionLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -69,15 +72,25 @@
             this.panel1.Size = new System.Drawing.Size(284, 219);
             this.panel1.TabIndex = 0;
             // 
+            // captionLabel
+            // 
+            this.captionLabel.AutoSize = true;
+            this.captionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.captionLabel.Location = new System.Drawing.Point(10, 14);
+            this.captionLabel.Name = "captionLabel";
+            this.captionLabel.Size = new System.Drawing.Size(61, 13);
+            this.captionLabel.TabIndex = 0;
+            this.captionLabel.Text = "Message:";
+            // 
             // messageTextBox
             // 
             this.messageTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.messageTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageTextBox.Location = new System.Drawing.Point(10, 10);
+            this.messageTextBox.Location = new System.Drawing.Point(10, 35);
             this.messageTextBox.Multiline = true;
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.ReadOnly = true;
-            this.messageTextBox.Size = new System.Drawing.Size(264, 199);
+            this.messageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.messageTextBox.Size = new System.Drawing.Size(264, 174);
             this.messageTextBox.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -91,7 +104,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 39);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -101,7 +114,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MPAiMessageBoxTemplate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MPAiMessageBox";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -119,5 +134,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.Label captionLabel;
     }
 }

@@ -12,6 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using MPAi.Cores;
 using NAudio.CoreAudioApi;
 using System.IO;
+using MPAi.Components;
 
 namespace MPAi.Forms.Popups
 {
@@ -50,7 +51,7 @@ namespace MPAi.Forms.Popups
             }
             catch(Exception exp)
             {
-                MessageBox.Show(exp.Message);
+                MPAiMessageBoxFactory.Show(exp.Message);
             }
         }
         /// <summary>
@@ -67,7 +68,7 @@ namespace MPAi.Forms.Popups
             }
             catch(Exception exp)
             {
-                MessageBox.Show(exp.Message);
+                MPAiMessageBoxFactory.Show(exp.Message);
             }
         }
         /// <summary>

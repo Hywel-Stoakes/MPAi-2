@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MPAi.Components;
 
 namespace MPAi.Forms.Popups
 {
@@ -65,20 +66,20 @@ namespace MPAi.Forms.Popups
         {
             if (userNameBox.Text.Trim() == "")
             {
-                MessageBox.Show("Username should not be empty! ",
-                  "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("Username should not be empty! ",
+                  "Oops", MPAiMessageBoxButtons.OK);
                 return;
             }
             else if ((passwordBox.Text.Trim() == "") || (confirmPasswordBox.Text.Trim() == ""))
             {
-                MessageBox.Show("Passwords should not be empty! ",
-                   "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("Passwords should not be empty! ",
+                   "Oops", MPAiMessageBoxButtons.OK);
                 return;
             }
             else if (passwordBox.Text != confirmPasswordBox.Text)
             {
-                MessageBox.Show("Passwords do not match! ",
-                    "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("Passwords do not match! ",
+                    "Oops", MPAiMessageBoxButtons.OK);
                 return;
             }
 
@@ -86,13 +87,13 @@ namespace MPAi.Forms.Popups
 
             if (!UserManagement.CreateNewUser(candidate))
             {
-                MessageBox.Show("User already exists, please use a different name! ",
-                    "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("User already exists, please use a different name! ",
+                    "Oops", MPAiMessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Registration successful! ",
-                        "Congratulations", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MPAiMessageBoxFactory.Show("Registration successful! ",
+                        "Congratulations", MPAiMessageBoxButtons.OK);
                 UserManagement.WriteSettings();
                 LoginScreen loginWindow = (LoginScreen)Owner;      // Only LoginWindow can open this form.
                 loginWindow.VisualizeUser(candidate);

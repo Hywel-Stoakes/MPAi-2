@@ -9,6 +9,7 @@ using System.Threading;
 using MPAi.Cores.Scoreboard;
 using NAudio.CoreAudioApi;
 using MPAi.Forms;
+using MPAi.Components;
 
 namespace MPAi.Modules
 {
@@ -112,10 +113,10 @@ namespace MPAi.Modules
             {
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
-                    MessageBox.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
+                    MPAiMessageBoxFactory.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
                 }
                 else if (plotType == PlotType.FORMANT_PLOT) {
-                    MessageBox.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
+                    MPAiMessageBoxFactory.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
                 } 
                 
                 MPAiSoundMainMenu menu = new MPAiSoundMainMenu();

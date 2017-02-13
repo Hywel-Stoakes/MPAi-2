@@ -12,6 +12,7 @@ using MPAi.Cores;
 using System.Data.Entity;
 using MPAi.Modules;
 using MPAi.DatabaseModel;
+using MPAi.Components;
 
 namespace MPAi.Forms.Popups
 {
@@ -92,7 +93,7 @@ namespace MPAi.Forms.Popups
             }
             catch (Exception exp)
             {
-                MessageBox.Show(dataLinkErrorText);
+                MPAiMessageBoxFactory.Show(dataLinkErrorText);
                 Console.WriteLine(exp);
             }
         }
@@ -116,7 +117,7 @@ namespace MPAi.Forms.Popups
                 case ("Masculine, Modern Māori"):
                     return "youngmale";
                 default:
-                    MessageBox.Show("Invalid Speaker type!");
+                    MPAiMessageBoxFactory.Show("Invalid Speaker type!");
                     return null;
             }
         }
@@ -148,7 +149,7 @@ namespace MPAi.Forms.Popups
             }
             catch (Exception exp)
             {
-                MessageBox.Show(dataLinkErrorText);
+                MPAiMessageBoxFactory.Show(dataLinkErrorText);
                 Console.WriteLine(exp);
             }
         }
@@ -209,11 +210,11 @@ namespace MPAi.Forms.Popups
             {
                 if (exp.GetType() == typeof(FileNotFoundException))
                 {
-                    MessageBox.Show(exp.Message, noSuchFileText);
+                    MPAiMessageBoxFactory.Show(exp.Message, noSuchFileText);
                 }
                 else if (exp.GetType() == typeof(IOException))
                 {
-                    MessageBox.Show(exp.Message, alreadyExistsText);
+                    MPAiMessageBoxFactory.Show(exp.Message, alreadyExistsText);
                 }
             }
         }
@@ -254,7 +255,7 @@ namespace MPAi.Forms.Popups
                     return;
                 }
             }
-            MessageBox.Show(wordNotFoundText);
+            MPAiMessageBoxFactory.Show(wordNotFoundText);
             WordComboBox.Focus();
         }
 
@@ -294,7 +295,7 @@ namespace MPAi.Forms.Popups
                     return;
                 }
             }
-            MessageBox.Show(categoryNotFoundText);
+            MPAiMessageBoxFactory.Show(categoryNotFoundText);
             categoryComboBox.Focus();
         }
 

@@ -42,7 +42,7 @@
             this.MinimizeBox = false;
             this.Name = "SplashScreen";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MPAi";
             this.ResumeLayout(false);
 

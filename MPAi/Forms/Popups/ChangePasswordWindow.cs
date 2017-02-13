@@ -1,5 +1,6 @@
 ﻿using MPAi.Modules;
 using System.Windows.Forms;
+using MPAi.Components;
 
 namespace MPAi.Forms.Popups
 {
@@ -52,26 +53,26 @@ namespace MPAi.Forms.Popups
             // If you want requirements for passwords, (such as 8 characters in length, etc.) implement it here.
             if ((codeBox.Text.Trim() == "") || (codeBox2.Text.Trim() == ""))
             {
-                MessageBox.Show("Passwords should not be empty!",
-                   "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("Passwords should not be empty!",
+                   "Oops", MPAiMessageBoxButtons.OK);
 
             }
             else if (codeBox.Text != codeBox2.Text)
             {
-                MessageBox.Show("Passwords do not match!",
-                   "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("Passwords do not match!",
+                   "Oops", MPAiMessageBoxButtons.OK);
             }
             else if (codeBox.Text.Equals(currentUser.getCode()))
             {
-                MessageBox.Show("That is already your password!",
-                   "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show("That is already your password!",
+                   "Oops", MPAiMessageBoxButtons.OK);
             }
             else
             {
                 UserManagement.ChangeUserCode(currentUser.getName(), codeBox.Text);
                 UserManagement.WriteSettings();
-                MessageBox.Show("Password changed! ",
-                      "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MPAiMessageBoxFactory.Show("Password changed! ",
+                      "Done", MPAiMessageBoxButtons.OK);
                 Close();
             }
         }

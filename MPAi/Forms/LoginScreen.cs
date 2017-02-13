@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MPAi.Components;
 
 namespace MPAi.Forms
 {
@@ -114,7 +115,7 @@ namespace MPAi.Forms
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.StackTrace, "Database linking error!");
+                MPAiMessageBoxFactory.Show(exp.StackTrace, "Database linking error!");
                 Console.WriteLine(exp.StackTrace);
             }
         }
@@ -225,15 +226,15 @@ namespace MPAi.Forms
             {
                 if (UserManagement.ContainsUser(tUser))
                 {
-                    MessageBox.Show("Password is incorrect!",
-                    "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show("Password is incorrect!",
+                    "Oops", MPAiMessageBoxButtons.OK);
                     passwordTextBox.Clear();
                     watermarkPassword(true);
                 }
                 else
                 {
-                    MessageBox.Show("User does not exist!",
-                    "Oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show("User does not exist!",
+                    "Oops", MPAiMessageBoxButtons.OK);
                     usernameTextBox.Clear();
                     watermarkUsername(false);
                     passwordTextBox.Clear();

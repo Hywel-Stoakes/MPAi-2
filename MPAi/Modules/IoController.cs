@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MPAi.Components;
 
 namespace MPAi.Modules
 {
@@ -30,7 +31,7 @@ namespace MPAi.Modules
             }
             catch
             {
-                MessageBox.Show(fileNotFoundText);
+                MPAiMessageBoxFactory.Show(fileNotFoundText);
             }
         }
 
