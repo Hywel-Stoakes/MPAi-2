@@ -1,4 +1,6 @@
-﻿namespace MPAi.Forms.Config
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class SystemConfig
     {
@@ -32,23 +34,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SystemConfig));
             this.audioFolderTextBox = new System.Windows.Forms.TextBox();
             this.audioFolderLabel = new System.Windows.Forms.Label();
-            this.audioFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.audioFolderSelectButton = new MPAiButton(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.saveButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.videoFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.saveButton = new MPAiButton(this.components);
+            this.cancelButton = new MPAiButton(this.components);
+            this.videoFolderSelectButton = new MPAiButton(this.components);
             this.videoFolderlabel = new System.Windows.Forms.Label();
             this.videoFolderTextBox = new System.Windows.Forms.TextBox();
-            this.reportFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.reportFolderSelectButton = new MPAiButton(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.reportFolderTextBox = new System.Windows.Forms.TextBox();
-            this.recordingFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.recordingFolderSelectButton = new MPAiButton(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.recordingFolderTextBox = new System.Windows.Forms.TextBox();
-            this.HTKFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.HTKFolderSelectButton = new MPAiButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.HTKFolderTextBox = new System.Windows.Forms.TextBox();
-            this.formantFolderSelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.formantFolderSelectButton = new MPAiButton(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.formantFolderTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -321,23 +323,23 @@
 
         private System.Windows.Forms.TextBox audioFolderTextBox;
         private System.Windows.Forms.Label audioFolderLabel;
-        private MPAi.NewForms.MPAiButton audioFolderSelectButton;
+        private MPAiButton audioFolderSelectButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private MPAi.NewForms.MPAiButton saveButton;
-        private MPAi.NewForms.MPAiButton cancelButton;
-        private MPAi.NewForms.MPAiButton videoFolderSelectButton;
+        private MPAiButton saveButton;
+        private MPAiButton cancelButton;
+        private MPAiButton videoFolderSelectButton;
         private System.Windows.Forms.Label videoFolderlabel;
         private System.Windows.Forms.TextBox videoFolderTextBox;
-        private MPAi.NewForms.MPAiButton reportFolderSelectButton;
+        private MPAiButton reportFolderSelectButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox reportFolderTextBox;
-        private MPAi.NewForms.MPAiButton recordingFolderSelectButton;
+        private MPAiButton recordingFolderSelectButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox recordingFolderTextBox;
-        private MPAi.NewForms.MPAiButton HTKFolderSelectButton;
+        private MPAiButton HTKFolderSelectButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox HTKFolderTextBox;
-        private MPAi.NewForms.MPAiButton formantFolderSelectButton;
+        private MPAiButton formantFolderSelectButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox formantFolderTextBox;
         private System.Windows.Forms.Label label5;

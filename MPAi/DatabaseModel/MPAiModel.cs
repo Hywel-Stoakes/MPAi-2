@@ -1,4 +1,4 @@
-namespace MPAi.Models
+namespace MPAi.DatabaseModel
 {
     using System;
     using System.Data.Entity;
@@ -8,6 +8,8 @@ namespace MPAi.Models
     using Cores;
     using System.Runtime.Remoting.Contexts;
     using System.IO;
+    using Modules;    
+    
     /// <summary>
     /// Class handling the persistence contexts and object persistence for MPAi.
     /// </summary>
@@ -30,7 +32,7 @@ namespace MPAi.Models
 
             Database.SetInitializer<MPAiModel>(new MPAiModelInitializer());
         }
-        //Variables representing the set of values taken out of the database.
+        // Variables representing the set of values taken out of the database.
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Recording> Recording { get; set; }
         public virtual DbSet<Speaker> Speaker { get; set; }

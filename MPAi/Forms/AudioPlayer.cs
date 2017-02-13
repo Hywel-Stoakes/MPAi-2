@@ -1,5 +1,4 @@
 ﻿using MPAi.Cores;
-using MPAi.Models;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 using System;
@@ -17,8 +16,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
 using System.Threading;
+using MPAi.Modules;
+using MPAi.DatabaseModel;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
     public partial class AudioPlayer : Form, MainFormInterface
     {

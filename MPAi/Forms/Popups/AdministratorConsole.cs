@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MPAi.Components;
+using MPAi.Modules;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +15,7 @@ namespace MPAi.Forms.Popups
     public partial class AdministratorConsole : Form
     {
 
-        private System.Collections.Generic.Dictionary<MPAi.NewForms.MPAiButton, MPAiUser> userButtonMap;
+        private System.Collections.Generic.Dictionary<MPAiButton, MPAiUser> userButtonMap;
 
         public AdministratorConsole()
         {
@@ -34,7 +36,7 @@ namespace MPAi.Forms.Popups
 
         private void resetButtonClick(object sender, EventArgs e)
         {
-            MessageBox.Show(userButtonMap[(MPAi.NewForms.MPAiButton) sender].UserID);
+            MessageBox.Show(userButtonMap[(MPAiButton) sender].UserID);
         }
     }
 }

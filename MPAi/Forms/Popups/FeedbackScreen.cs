@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MPAi.Cores;
 
-namespace MPAi.Forms.MSGBox
+namespace MPAi.Forms.Popups
 {
     /// <summary>
     /// Class behind the form used to send feedback about MPAi.

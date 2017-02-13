@@ -11,8 +11,9 @@ using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
 using System.IO;
 using System.Diagnostics;
+using MPAi.Modules;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms.Popups
 {
     public partial class AnalysisScreen : Form
     {

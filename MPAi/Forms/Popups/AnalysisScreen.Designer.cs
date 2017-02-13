@@ -1,6 +1,7 @@
-﻿using MPAi.Cores;
+﻿using MPAi.Components;
+using MPAi.Cores;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms.Popups
 {
     partial class AnalysisScreen
     {
@@ -40,8 +41,8 @@ namespace MPAi.NewForms
             this.panel1 = new System.Windows.Forms.Panel();
             this.descriptionBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.scoreReportButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.scoreReportButton = new MPAiButton(this.components);
+            this.backButton = new MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();

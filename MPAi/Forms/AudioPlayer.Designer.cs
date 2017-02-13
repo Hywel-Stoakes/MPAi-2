@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms
 {
     partial class AudioPlayer
     {
@@ -34,34 +36,34 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.vlcControl = new Vlc.DotNet.Forms.VlcControl();
-            this.backwardButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.backwardButton = new MPAiButton(this.components);
             this.backImageList = new System.Windows.Forms.ImageList(this.components);
-            this.playButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.playButton = new MPAiButton(this.components);
             this.playImageList = new System.Windows.Forms.ImageList(this.components);
-            this.forwardButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.forwardButton = new MPAiButton(this.components);
             this.forwardImageList = new System.Windows.Forms.ImageList(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.VowelComboBox = new System.Windows.Forms.ComboBox();
-            this.optionsButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.resetButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.optionsButton = new MPAiButton(this.components);
+            this.backButton = new MPAiButton(this.components);
+            this.resetButton = new MPAiButton(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.playNextCheckBox = new System.Windows.Forms.CheckBox();
-            this.removeButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.removeButton = new MPAiButton(this.components);
             this.divider4 = new System.Windows.Forms.Label();
             this.divider3 = new System.Windows.Forms.Label();
             this.divider2 = new System.Windows.Forms.Label();
             this.divider1 = new System.Windows.Forms.Label();
-            this.soundListAddAllButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.soundListRemoveButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.soundListAddButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.soundListAddAllButton = new MPAiButton(this.components);
+            this.soundListRemoveButton = new MPAiButton(this.components);
+            this.soundListAddButton = new MPAiButton(this.components);
             this.soundListAllListBox = new System.Windows.Forms.ListBox();
             this.soundListCurrentListBox = new System.Windows.Forms.ListBox();
             this.soundListAllLabel = new System.Windows.Forms.Label();
             this.soundListCurrentLabel = new System.Windows.Forms.Label();
-            this.addFromFileButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.recordButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.AudioInputDeviceButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.addFromFileButton = new MPAiButton(this.components);
+            this.recordButton = new MPAiButton(this.components);
+            this.AudioInputDeviceButton = new MPAiButton(this.components);
             this.AudioInputDeviceComboBox = new System.Windows.Forms.ComboBox();
             this.AudioInputDeviceLabel = new System.Windows.Forms.Label();
             this.repeatSpinner = new System.Windows.Forms.DomainUpDown();
@@ -69,7 +71,7 @@
             this.recordingProgressBarLabel = new System.Windows.Forms.Label();
             this.repeatTrackBar = new System.Windows.Forms.TrackBar();
             this.recordingProgressBar = new System.Windows.Forms.ProgressBar();
-            this.menuStrip2 = new MPAi.NewForms.MenuStrip(this.components);
+            this.menuStrip2 = new MenuStrip(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayerPanel)).BeginInit();
             this.VideoPlayerPanel.Panel1.SuspendLayout();

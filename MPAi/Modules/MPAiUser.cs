@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
-using MPAi.Models;
 using MPAi.Cores.Scoreboard;
 using System.Windows.Forms;
 using MPAi.Cores;
@@ -18,8 +17,9 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Vlc.DotNet.Forms;
 using System.Threading;
+using MPAi.DatabaseModel;
 
-namespace MPAi
+namespace MPAi.Modules
 {
     /// <summary>
     /// Class representing a user in the MPAi system.

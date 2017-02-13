@@ -1,4 +1,4 @@
-namespace MPAi.Models
+namespace MPAi.DatabaseModel
 {
     using System;
     using System.Collections.Generic;

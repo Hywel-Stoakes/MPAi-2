@@ -8,17 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
-using MPAi.Models;
 using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
-using MPAi.Forms.MSGBox;
 using System.Data.Entity;
-using MPAi.Forms.Config;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
+using MPAi.Forms.Popups;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
 
     public partial class SpeechRecognitionTest : Form, MainFormInterface

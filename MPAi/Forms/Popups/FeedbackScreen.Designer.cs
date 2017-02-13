@@ -1,4 +1,6 @@
-﻿namespace MPAi.Forms.MSGBox
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class FeedbackScreen
     {
@@ -36,8 +38,8 @@
             this.mailContentTextBox = new System.Windows.Forms.TextBox();
             this.customerEmailTextBox = new System.Windows.Forms.TextBox();
             this.mailSubjectTextBox = new System.Windows.Forms.TextBox();
-            this.mailSendButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.mailCancelButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.mailSendButton = new MPAiButton(this.components);
+            this.mailCancelButton = new MPAiButton(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -155,7 +157,7 @@
         private System.Windows.Forms.TextBox mailContentTextBox;
         private System.Windows.Forms.TextBox customerEmailTextBox;
         private System.Windows.Forms.TextBox mailSubjectTextBox;
-        private MPAi.NewForms.MPAiButton mailSendButton;
-        private MPAi.NewForms.MPAiButton mailCancelButton;
+        private MPAiButton mailSendButton;
+        private MPAiButton mailCancelButton;
     }
 }

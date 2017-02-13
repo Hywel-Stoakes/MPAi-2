@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms
 {
     partial class SpeechRecognitionTest
     {
@@ -32,25 +34,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeechRecognitionTest));
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SpeechRecognitionTestPanel = new System.Windows.Forms.SplitContainer();
-            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.optionsButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.backButton = new MPAiButton(this.components);
+            this.optionsButton = new MPAiButton(this.components);
             this.WordComboBox = new System.Windows.Forms.ComboBox();
-            this.analyzeButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.analyzeButton = new MPAiButton(this.components);
             this.recordingProgressBarLabel = new System.Windows.Forms.Label();
-            this.recordButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.playButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.recordButton = new MPAiButton(this.components);
+            this.playButton = new MPAiButton(this.components);
             this.recordingProgressBar = new System.Windows.Forms.ProgressBar();
-            this.AudioInputDeviceButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.RenameButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.AudioInputDeviceButton = new MPAiButton(this.components);
+            this.RenameButton = new MPAiButton(this.components);
             this.AudioInputDeviceComboBox = new System.Windows.Forms.ComboBox();
-            this.DeleteButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.DeleteButton = new MPAiButton(this.components);
             this.AudioInputDeviceLabel = new System.Windows.Forms.Label();
-            this.AddButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.ScoreReportButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.SelectButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.AddButton = new MPAiButton(this.components);
+            this.ScoreReportButton = new MPAiButton(this.components);
+            this.SelectButton = new MPAiButton(this.components);
             this.RecordingListBox = new System.Windows.Forms.ListBox();
             this.RecordingListLabel = new System.Windows.Forms.Label();
-            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
+            this.menuStrip1 = new MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.SpeechRecognitionTestPanel)).BeginInit();
             this.SpeechRecognitionTestPanel.Panel1.SuspendLayout();
             this.SpeechRecognitionTestPanel.Panel2.SuspendLayout();

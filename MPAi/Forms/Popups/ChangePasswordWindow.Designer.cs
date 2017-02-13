@@ -1,4 +1,6 @@
-﻿namespace MPAi
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class ChangePasswordWindow
     {
@@ -30,8 +32,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordWindow));
-            this.buttonCancel = new MPAi.NewForms.MPAiButton(this.components);
-            this.buttonOK = new MPAi.NewForms.MPAiButton(this.components);
+            this.buttonCancel = new MPAiButton(this.components);
+            this.buttonOK = new MPAiButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.codeBox2 = new System.Windows.Forms.TextBox();
@@ -143,8 +145,8 @@
 
         #endregion
 
-        private MPAi.NewForms.MPAiButton buttonCancel;
-        private MPAi.NewForms.MPAiButton buttonOK;
+        private MPAiButton buttonCancel;
+        private MPAiButton buttonOK;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox codeBox2;

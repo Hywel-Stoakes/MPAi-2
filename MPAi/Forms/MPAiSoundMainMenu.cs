@@ -1,5 +1,6 @@
 ﻿using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
+using MPAi.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
     public partial class MPAiSoundMainMenu : Form, MainFormInterface
     {
@@ -93,7 +94,7 @@ namespace MPAi.NewForms
         {
             MPAiUser user = UserManagement.CurrentUser;
             PlotController.PlotType? plotType = PlotController.PlotType.VOWEL_PLOT;
-            Models.VoiceType? voiceType = user.Voice;
+            VoiceType? voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
 
            
@@ -126,7 +127,7 @@ namespace MPAi.NewForms
         {
             MPAiUser user = UserManagement.CurrentUser;
             PlotController.PlotType? plotType = PlotController.PlotType.FORMANT_PLOT;
-            Models.VoiceType? voiceType = user.Voice;
+            VoiceType? voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
 
 

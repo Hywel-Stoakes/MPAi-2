@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using MPAi.DatabaseModel;
 
 namespace MPAi.Cores
 {
@@ -133,7 +134,7 @@ namespace MPAi.Cores
         {
             string[] parts = fileName.Split('-');
 
-            MPAi.Models.MPAiModel DBModel = MPAi.Models.MPAiModel.InitializeDBModel();
+            MPAiModel DBModel = MPAiModel.InitializeDBModel();
 
             if (parts.Length < 4)
             {

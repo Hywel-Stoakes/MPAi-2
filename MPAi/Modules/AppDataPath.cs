@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace MPAi.Models
+namespace MPAi.Modules
 {
     /// <summary>
     /// Wrapper class for the App_Data folder path, allowing it to be accessed easily.

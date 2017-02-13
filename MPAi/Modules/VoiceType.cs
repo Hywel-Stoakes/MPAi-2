@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MPAi.Models
+namespace MPAi.Modules
 {
     /// <summary>
     /// Enum representing the VoiceType setting for a user.

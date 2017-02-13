@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPAi.Modules;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MPAi.Models;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms.Popups
 {
     public partial class UserCreationScreen : Form
     {
