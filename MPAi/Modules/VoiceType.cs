@@ -67,6 +67,22 @@ namespace MPAi.Models
                 return null;
             }
         }
+
+        public static string getDisplayNameFromVoiceType(VoiceType? voicetype)
+        {
+            switch(voicetype)
+            {
+                case VoiceType.FEMININE_MODERN:
+                    return "Feminine, Modern Māori";
+                case VoiceType.FEMININE_NATIVE:
+                    return "Feminine, Kuia Māori";
+                case VoiceType.MASCULINE_MODERN:
+                    return "Masculine, Modern Māori";
+                case VoiceType.MASCULINE_NATIVE:
+                    return "Masculine, Kaumatua Māori";
+            }
+            return "No Voice Type";
+        }
     }
 
     public enum Gender

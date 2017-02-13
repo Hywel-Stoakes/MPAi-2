@@ -161,6 +161,12 @@
     <Compile Include="Forms\Popups\AdminConsole.Designer.cs">
       <DependentUpon>AdminConsole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Popups\AdministratorConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popups\AdministratorConsole.Designer.cs">
+      <DependentUpon>AdministratorConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Popups\ChangePasswordWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3329,6 +3335,9 @@
     <EmbeddedResource Include="Forms\Popups\AdminConsole.resx">
       <DependentUpon>AdminConsole.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Popups\AdministratorConsole.resx">
+      <DependentUpon>AdministratorConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -5766,10 +5775,27 @@
     <Content Include="Video\oldmale-vocaltract-o-Peter.mp4" />
     <Content Include="Video\oldmale-vocaltract-u-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-a-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ae-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ai-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ao-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-au-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-e-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-i-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-o-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ou-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-r-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-u-Peter.mp4" />
+    <Content Include="Video\youngfemale-vowel-a-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ae-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ai-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ao-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-au-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-e-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-i-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-o-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ou-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-r-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-u-Rose.mp4" />
     <Content Include="VlcLibs\header-files\deprecated.h" />
     <Content Include="VlcLibs\header-files\libvlc.h" />
     <Content Include="VlcLibs\header-files\libvlc_events.h" />

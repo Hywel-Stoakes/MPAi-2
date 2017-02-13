@@ -146,7 +146,7 @@ namespace MPAi.Cores.Scoreboard
                             htw.AddAttribute(HtmlTextWriterAttribute.Class, "table-title");
                             htw.RenderBeginTag(HtmlTextWriterTag.Div);
                             htw.RenderBeginTag(HtmlTextWriterTag.H3);
-                            htw.Write(session.DateAndTime.ToString());
+                            htw.Write(session.DateAndTime.ToString("dd MMMM yyyy, h:mm tt"));
                             htw.RenderEndTag();
                             htw.RenderEndTag();
                             // Header row of the table
@@ -264,7 +264,7 @@ namespace MPAi.Cores.Scoreboard
                             htw.AddAttribute(HtmlTextWriterAttribute.Class, "table-title");
                             htw.RenderBeginTag(HtmlTextWriterTag.Div);
                             htw.RenderBeginTag(HtmlTextWriterTag.H3);
-                            htw.Write(session.DateAndTime.ToString());
+                            htw.Write(session.DateAndTime.ToString("dd MMMM yyyy, h:mm tt"));
                             htw.RenderEndTag();
                             htw.RenderEndTag();
                             // Header row of the table
