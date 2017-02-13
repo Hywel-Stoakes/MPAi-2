@@ -182,6 +182,9 @@ class VowelPlot:
         scoreText = "Score: "+(str)(score)+ " %"
         self.vowelPlotCanvas.itemconfig(self.textID, text=scoreText)
         self.score = score
+        self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
+        self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
+        self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
 
     def distanceToScore(self, distance):
 
