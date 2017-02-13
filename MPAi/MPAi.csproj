@@ -191,12 +191,6 @@
     <Compile Include="Archived Classes\Prior to 2.0\Forms\LoginWindow.Designer.cs">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Popups\ConfirmRandomisedPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Popups\ConfirmRandomisedPassword.Designer.cs">
-      <DependentUpon>ConfirmRandomisedPassword.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Popups\FeedbackScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3355,9 +3349,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Popups\ConfirmRandomisedPassword.resx">
-      <DependentUpon>ConfirmRandomisedPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\FeedbackScreen.resx">
       <DependentUpon>FeedbackScreen.cs</DependentUpon>

@@ -88,7 +88,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministratorConsole));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = generateUserTable();
             this.label1 = new System.Windows.Forms.Label();
@@ -187,7 +186,6 @@
             this.mpAiButton1.TabIndex = 0;
             this.mpAiButton1.Text = "Close";
             this.mpAiButton1.UseVisualStyleBackColor = false;
-            this.mpAiButton1.Click += new System.EventHandler(this.close_Click);
             // 
             // AdministratorConsole
             // 
@@ -197,9 +195,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdministratorConsole";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Administrator Console";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

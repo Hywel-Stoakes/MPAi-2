@@ -187,7 +187,6 @@
             this.Controls.Add(this.mediaLocalListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RecordingUploadScreen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Upload Recordings";
             this.ResumeLayout(false);
             this.PerformLayout();

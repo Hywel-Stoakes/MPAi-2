@@ -242,7 +242,7 @@
             this.Controls.Add(this.cancelButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RenameFileDialog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rename File";
             ((System.ComponentModel.ISupportInitialize)(this.voiceTypeConverterBindingSource)).EndInit();
             this.ResumeLayout(false);
