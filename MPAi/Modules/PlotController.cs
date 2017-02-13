@@ -1,15 +1,15 @@
+using MPAi.Components;
+using MPAi.Cores.Scoreboard;
+using MPAi.Forms;
+using NAudio.CoreAudioApi;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.IO.Pipes;
-using System.Windows.Forms;
 using System.Threading;
-using MPAi.Cores.Scoreboard;
-using NAudio.CoreAudioApi;
-using MPAi.Forms;
-using MPAi.Components;
+using System.Windows.Forms;
 
 namespace MPAi.Modules
 {

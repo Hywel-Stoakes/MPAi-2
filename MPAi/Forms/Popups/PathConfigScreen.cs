@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using MPAi.Cores;
-using NAudio.CoreAudioApi;
+﻿using MPAi.Components;
+using System;
 using System.IO;
-using MPAi.Components;
+using System.Windows.Forms;
 
 namespace MPAi.Forms.Popups
 {

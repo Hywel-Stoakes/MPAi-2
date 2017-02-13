@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using NAudio.CoreAudioApi;
-using NAudio.Wave;
+﻿using MPAi.Components;
 using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
-using System.Data.Entity;
 using MPAi.DatabaseModel;
-using MPAi.Modules;
 using MPAi.Forms.Popups;
-using MPAi.Components;
+using MPAi.Modules;
+using NAudio.CoreAudioApi;
+using NAudio.Wave;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace MPAi.Forms
 {

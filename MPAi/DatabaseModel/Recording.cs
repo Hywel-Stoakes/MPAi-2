@@ -1,10 +1,8 @@
 namespace MPAi.DatabaseModel
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
     /// <summary>
     /// Entity class for mapping a recording into the database.
     /// </summary>

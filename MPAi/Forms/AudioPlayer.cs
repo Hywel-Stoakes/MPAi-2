@@ -1,24 +1,18 @@
-﻿using MPAi.Cores;
+﻿using MPAi.Components;
+using MPAi.Cores;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
-using System.Threading;
-using MPAi.Modules;
-using MPAi.DatabaseModel;
-using MPAi.Components;
 
 namespace MPAi.Forms
 {

@@ -1,6 +1,6 @@
-﻿using MPAi.Modules;
+﻿using MPAi.Components;
+using MPAi.Modules;
 using System.Windows.Forms;
-using MPAi.Components;
 
 namespace MPAi.Forms.Popups
 {

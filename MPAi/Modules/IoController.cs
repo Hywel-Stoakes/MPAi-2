@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MPAi.Components;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using MPAi.Components;
 
 namespace MPAi.Modules
 {

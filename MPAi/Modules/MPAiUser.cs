@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MPAi.Cores.Scoreboard;
+using MPAi.DatabaseModel;
+using System;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using MPAi.Cores.Scoreboard;
-using System.Windows.Forms;
-using MPAi.Cores;
-using NAudio.CoreAudioApi;
-using NAudio.Wave;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using Vlc.DotNet.Forms;
-using System.Threading;
-using MPAi.DatabaseModel;
+using System.IO;
+using System.Linq;
 
 namespace MPAi.Modules
 {

@@ -1,19 +1,13 @@
-﻿using MPAi.DatabaseModel;
+﻿using MPAi.Components;
+using MPAi.DatabaseModel;
 using MPAi.Forms.Popups;
 using MPAi.Modules;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MPAi.Components;
 
 namespace MPAi.Forms
 {

@@ -1,15 +1,13 @@
 namespace MPAi.DatabaseModel
 {
+    using Cores;
+    using Modules;
     using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
     using System.Data.Entity.Migrations;
-    using Cores;
-    using System.Runtime.Remoting.Contexts;
     using System.IO;
-    using Modules;    
-    
+    using System.Linq;
+
     /// <summary>
     /// Class handling the persistence contexts and object persistence for MPAi.
     /// </summary>
