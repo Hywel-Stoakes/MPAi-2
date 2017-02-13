@@ -158,7 +158,6 @@ namespace MPAi.Cores.Scoreboard
 
                                                 if (line.Equals("<CorrectnessPercentage>"))
                                                 {
-                                                    bool firstline = true;
                                                     line = sr.ReadLine();
                                                     while (!line.Equals("</CorrectnessPercentage>"))
                                                     {

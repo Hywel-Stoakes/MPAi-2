@@ -17,7 +17,6 @@ namespace MPAi.Components
     /// </summary>
     public partial class MenuStrip : System.Windows.Forms.MenuStrip
     {
-        private string changetext = "Your settings have been changed. You may need to reload the current form for your changes to take effect.";
         /// <summary>
         /// Default constructor.
         /// </summary>

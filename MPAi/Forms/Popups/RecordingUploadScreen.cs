@@ -24,8 +24,7 @@ namespace MPAi.Forms.Popups
         private string selectAllLocalText = "Select All Local Files";
         private string deselectAllLocalText = "Deselect All Local Files";
 
-        private string updateFailedText = "Failed to update!";
-        private string deleteFailedText = "Failed to update!";
+        private string deleteFailedText = "Failed to delete!";
         private string noValidFilesText = "No valid files found! MPAi recordings must be .wav "
             //+ "or .mp4 
             + "files.";

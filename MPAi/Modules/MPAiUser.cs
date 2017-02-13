@@ -32,7 +32,6 @@ namespace MPAi.Modules
         private MPAiSpeakScoreBoard speakScoreboard;
         private MPAiSoundScoreBoard soundScoreboard;
         private Speaker speaker;
-        private Category category;
         private readonly string adminStr = "admin";
 
         /// <summary>

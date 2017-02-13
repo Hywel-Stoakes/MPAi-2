@@ -15,14 +15,12 @@ namespace MPAi.Forms.Popups
     {
         private Random random = new Random();
         private bool accepted = false;
-        private string username;
 
         public ConfirmRandomisedPassword()
         {
             InitializeComponent();
 
             passwordBox.Text = generateRandomPassword();
-            Console.WriteLine(this.username);
         }
 
         public string ConfirmPassword(string username, string password)

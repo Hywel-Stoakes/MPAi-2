@@ -82,7 +82,6 @@ namespace MPAi.Modules
         }
 
         private static Process PlotExe;
-        private static bool shutdown;
         private static bool exitRequest = false;
         private static Process currentPlotProcess;
 
@@ -297,8 +296,6 @@ namespace MPAi.Modules
 
         private static void StopThread()
         {
-
-            shutdown = true;
             pythonPipe.requestShutDown();
         }
 
@@ -331,9 +328,8 @@ namespace MPAi.Modules
     /// </summary>
     public class PythonPipe
     {
-        private Boolean pipeServerIsClosed;
-        private Boolean firstTime;
-        private Boolean shutdown = false;
+        private bool pipeServerIsClosed;
+        private bool shutdown = false;
        
         
         public void requestShutDown()
@@ -344,20 +340,12 @@ namespace MPAi.Modules
         public void ConnectAndRecieve()
         {
             pipeServerIsClosed = false;
-            firstTime = true;
-
 
             while (!pipeServerIsClosed)
             {
-
                 if (!shutdown)
                 {
                     Console.WriteLine("PythonPipe.connectAndRecieve is running in its own thread");
-                    // Open the named pipe.
-
-                    ////firstTime = false;
-
-                    
 
                     using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("NPSSVowelPlot", PipeDirection.InOut, 254))
                     {
@@ -372,7 +360,6 @@ namespace MPAi.Modules
                         {
                             try
                             {
-
                                 var recievedLength = (int)binaryReader.ReadUInt64();            // Read string length
                                 string recievedString = new string(binaryReader.ReadChars(recievedLength - 1));
 
@@ -384,7 +371,6 @@ namespace MPAi.Modules
                                 Console.WriteLine(length);
                                 MPAiSoundScoreBoardSession session = UserManagement.CurrentUser.SoundScoreboard.NewScoreBoardSession();
                                 
-
                                 int count = 0;
                                 foreach (String str in recievedStringList) {
                                     String[] lineStringList = str.Split(' ');
@@ -412,12 +398,8 @@ namespace MPAi.Modules
                                         session.OverallCorrectnessPercentage = overallPercentage;
                                     }
                                     count++;
-
-
                                 }
-
                                 ReportLauncher.GenerateMPAiSoundScoreHTML(UserManagement.CurrentUser.SoundScoreboard);
-
                             }
                             catch (EndOfStreamException)
                             {
@@ -427,18 +409,11 @@ namespace MPAi.Modules
                         Console.WriteLine("Requesting plotcontrooler to shut down ");
                         PlotController.RequestShutDown();
                     }
-
-
-
                 } else
                 {
                     break;
                 }
-
-
             }
-
-
         }
     }
 }

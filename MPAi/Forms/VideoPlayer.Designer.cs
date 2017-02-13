@@ -694,7 +694,6 @@ namespace MPAi.Forms
         private System.Windows.Forms.CheckBox playNextCheckBox;
         private MPAiButton resetButton;
         private System.Windows.Forms.Label label1;
-        private MenuStrip menuStrip1;
         private MenuStrip menuStrip2;
     }
 }

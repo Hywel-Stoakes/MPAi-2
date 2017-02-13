@@ -35,7 +35,6 @@ namespace MPAi.Forms
         private string selectFolderString = "Select Vlc libraries folder.";
 
         private string invalidStateString = "Invalid State!";
-        private string noVideoString = "No video recording was found for that sound.";
         private string invalidRecordingString = "Invalid recording!";
         private string vowelNotFoundText = "That sound is not valid. Try another, or select from the list.";
         private string formatErrorText = "A problem was encountered during recording {0}";

@@ -14,23 +14,16 @@ namespace MPAi.Cores
     /// </summary>
     class MailSender
     {
-        private SmtpClient SmtpServer;
         private bool IsEmailValid;
         /// <summary>
-        /// Default constructor. Sets up the SMTP server to send feedback from.
+        /// Default constructor.
         /// </summary>
-        public MailSender()
-        {
-            SmtpServer = new SmtpClient("smtp.gmail.com");
-            SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("MPAicustomer@gmail.com", "Crusader1");
-            SmtpServer.EnableSsl = true;
-        }
+        public MailSender() {}
         /// <summary>
         /// Verifies that the input string is a valid email address.
         /// </summary>
-        /// <param name="strIn"></param>
-        /// <returns></returns>
+        /// <param name="strIn">The string to validate.</param>
+        /// <returns>Boolean true if the string is a valid email, false otherwise</returns>
         public bool ValidateEmail(string strIn)
         {
             IsEmailValid = false;
@@ -103,7 +96,13 @@ namespace MPAi.Cores
         /// <param name="msg">The message to send, as a MailMessage object.</param>
         public void Send(MailMessage msg)
         {
-            SmtpServer.Send(msg); 
+            using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com"))
+            {
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("MPAicustomer@gmail.com", "Crusader1");
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(msg);
+            } 
         }
     }
 }

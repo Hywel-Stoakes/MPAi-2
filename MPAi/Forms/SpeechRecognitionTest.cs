@@ -30,7 +30,6 @@ namespace MPAi.Forms
         private string stopText = "Stop";
         private string recordText = "Record";
 
-        private string dataLinkErrorText = "Database linking error!";
         private string formatErrorText = "A problem was encountered during recording {0}";
         private string couldntDeleteRecordingText = "Could not delete recording";
         private string noCurrentFileText = "No current file";
@@ -43,14 +42,8 @@ namespace MPAi.Forms
         private string tempFilename;
         private string tempFolder;
 
-        // Assign these using user settings, or main menu, depending on implementation.
-        Speaker spk = null;
-        Category cty = null;
-
         private IWaveIn waveIn;
-        private WaveOutEvent waveOut;
         private WaveFileWriter writer;
-        private WaveFileReader reader;
 
         private HTKEngine RecEngine = new HTKEngine();
         private MPAiSpeakScoreBoardSession session;
@@ -230,7 +223,6 @@ namespace MPAi.Forms
         private void StopPlay()
         {
             AudioPlayer.Stop();
-            FinalizeWaveFile(reader);
         }
 
         /// <summary>

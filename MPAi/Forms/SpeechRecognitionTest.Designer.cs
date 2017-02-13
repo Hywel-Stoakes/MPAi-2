@@ -396,7 +396,6 @@ namespace MPAi.Forms
 
         #endregion
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private MenuStrip mpAiSoundMenuStrip1;
         private System.Windows.Forms.SplitContainer SpeechRecognitionTestPanel;
         private MPAiButton backButton;
         private MPAiButton optionsButton;

@@ -220,7 +220,6 @@ namespace MPAi.Forms
 
         #endregion
 
-        private MenuStrip mpAiSoundMenuStrip1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox headerBox;
         private System.Windows.Forms.SplitContainer splitContainer2;
