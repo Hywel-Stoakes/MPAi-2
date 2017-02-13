@@ -103,6 +103,14 @@ namespace MPAi.NewForms
         }
 
         /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            populateBoxes();
+        }
+
+        /// <summary>
         /// Set up repeat spinner programatically. Visual Studio tends to delete values when set up in the designer, and some values can't be set in form properties.
         /// </summary>
         private void setUpSpinner()
@@ -118,6 +126,9 @@ namespace MPAi.NewForms
         /// </summary>
         private void populateBoxes()
         {
+            // Stop playback and clear the boxes, to prevent errors.
+            asyncStop();
+            VowelComboBox.Items.Clear();
             try
             {
                 // Create new database context.

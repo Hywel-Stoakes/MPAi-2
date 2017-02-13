@@ -91,7 +91,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToNative();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToModern();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToModern();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace MPAi.NewForms
             masculineToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace MPAi.NewForms
             masculineToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>

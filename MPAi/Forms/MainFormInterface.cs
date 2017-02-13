@@ -15,5 +15,10 @@ namespace MPAi.NewForms
         /// Used to close the form without ending the program.
         /// </summary>
         void closeThis();
+
+        /// <summary>
+        /// Used to refresh list boxes when the user changes their settings.
+        /// </summary>
+        void userChanged();
     }
 }

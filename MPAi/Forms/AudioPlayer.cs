@@ -100,6 +100,14 @@ namespace MPAi.NewForms
             toggleOptions();    // For development, the bottom panel is visible, but the user won't need the bottom panel most of the time.
         }
 
+        /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            populateBoxes();
+        }
+
         delegate void SetProgressCallback(int value);
 
         /// <summary>
@@ -163,6 +171,9 @@ namespace MPAi.NewForms
         /// </summary>
         private void populateBoxes()
         {
+            // Stop playback and clear the boxes, to prevent errors.
+            asyncStop();
+            VowelComboBox.Items.Clear();
             try
             {
                 // Create new database context.

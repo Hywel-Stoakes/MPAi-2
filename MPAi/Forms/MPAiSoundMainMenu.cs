@@ -49,6 +49,14 @@ namespace MPAi.NewForms
         }
 
         /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            // No action taken.
+        }
+
+        /// <summary>
         /// Fires when the form closes. 
         /// If the user pressed the back button, the next form will be loaded. 
         /// If the user closed the form in some other way, the app will temrinate.

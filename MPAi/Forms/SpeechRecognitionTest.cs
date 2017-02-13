@@ -74,7 +74,7 @@ namespace MPAi.NewForms
             LoadWasapiDevices();
             CreateDirectory();
             DataBinding();
-            populateWordComboBox();
+            populateBoxes();
             bottomHeight = SpeechRecognitionTestPanel.Height - SpeechRecognitionTestPanel.SplitterDistance;
             toggleOptions();    // For development, the bottom panel is visible, but the user won't need the bottom panel most of the time.
             toggleListButtons(RecordingListBox.SelectedItems.Count > 0);
@@ -84,9 +84,17 @@ namespace MPAi.NewForms
         }
 
         /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            populateBoxes();
+        }
+
+        /// <summary>
         /// Gets the words from the database.
         /// </summary>
-        private void populateWordComboBox()
+        private void populateBoxes()
         {
             try
             {
