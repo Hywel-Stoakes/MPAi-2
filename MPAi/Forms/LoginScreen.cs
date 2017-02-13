@@ -68,6 +68,10 @@ namespace MPAi.NewForms
 
             // Initialise the LoginScreen.
             InitializeComponent();
+
+            // Change this property to set what is pressed when the user presses enter. Currently it's set to Speak.
+            AcceptButton = speakLaunchButton;
+            
             // Checks the "Remember Me"checkbox value
             bool autoLog = rememberCheckBox.Checked = Properties.Settings.Default.autoLoginSetting;
             // If the user has been remembered, populate the username and password fields with their username and password.

@@ -23,6 +23,7 @@ namespace MPAi.NewForms
         public MenuStrip() : base()
         {
             InitializeComponent();
+
             checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
@@ -135,7 +136,6 @@ namespace MPAi.NewForms
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
             MessageBox.Show(changetext);
-            checkAndSetNativeDisplayVoice();
         }
 
         /// <summary>
@@ -150,7 +150,6 @@ namespace MPAi.NewForms
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();   // and the current user in the list of users.
             MessageBox.Show(changetext);
-            checkAndSetNativeDisplayVoice();
         }
 
         /// <summary>
