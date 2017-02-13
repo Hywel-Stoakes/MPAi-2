@@ -1,5 +1,6 @@
-﻿using MPAi.Forms.Config;
-using MPAi.Forms.MSGBox;
+﻿using MPAi.Forms;
+using MPAi.Forms.Popups;
+using MPAi.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Components
 {
     /// <summary>
     /// The menu strip that appears at the top of each form.
@@ -45,15 +46,15 @@ namespace MPAi.NewForms
 
         private void checkAndSetNativeDisplayVoice()
         {
-            MPAi.Models.VoiceType? voiceType = UserManagement.CurrentUser.Voice;
-            if (voiceType.Equals(MPAi.Models.VoiceType.FEMININE_MODERN) || voiceType.Equals(MPAi.Models.VoiceType.FEMININE_NATIVE))
+            VoiceType? voiceType = UserManagement.CurrentUser.Voice;
+            if (voiceType.Equals(VoiceType.FEMININE_MODERN) || voiceType.Equals(VoiceType.FEMININE_NATIVE))
             {
-                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.FEMININE);
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
                 Console.WriteLine("Feminine");
             }
             else
             {
-                nativeMāoriToolStripMenuItem.Text = MPAi.Models.DisplayVoice.DisplayNative(MPAi.Models.Gender.MASCULINE);
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
                 Console.WriteLine("Masculine");
             }
         }
@@ -76,19 +77,19 @@ namespace MPAi.NewForms
         {
             switch (UserManagement.CurrentUser.Voice)
             {
-                case Models.VoiceType.FEMININE_NATIVE:
+                case VoiceType.FEMININE_NATIVE:
                     nativeMāoriToolStripMenuItem.Checked = true;
                     feminineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.FEMININE_MODERN:
+                case VoiceType.FEMININE_MODERN:
                     modernMāoriToolStripMenuItem.Checked = true;
                     feminineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.MASCULINE_NATIVE:
+                case VoiceType.MASCULINE_NATIVE:
                     nativeMāoriToolStripMenuItem.Checked = true;
                     masculineToolStripMenuItem.Checked = true;
                     break;
-                case Models.VoiceType.MASCULINE_MODERN:
+                case VoiceType.MASCULINE_MODERN:
                     modernMāoriToolStripMenuItem.Checked = true;
                     masculineToolStripMenuItem.Checked = true;
                     break;
@@ -108,7 +109,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToNative();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -122,7 +123,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToModern();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToModern();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -137,8 +138,7 @@ namespace MPAi.NewForms
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
             checkAndSetNativeDisplayVoice();
-
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -154,8 +154,7 @@ namespace MPAi.NewForms
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();
             checkAndSetNativeDisplayVoice(); // and the current user in the list of users.
-
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>

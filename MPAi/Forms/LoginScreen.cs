@@ -1,4 +1,6 @@
-﻿using MPAi.Models;
+﻿using MPAi.DatabaseModel;
+using MPAi.Forms.Popups;
+using MPAi.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
     public partial class LoginScreen : Form
     {
@@ -303,13 +305,13 @@ namespace MPAi.NewForms
                 }
             }
 
-            foreach (var process in Process.GetProcessesByName("VowelRunner"))
+            foreach (var process in Process.GetProcessesByName("MPAiVowelRunner"))
             {
                 process.Kill();
                 process.WaitForExit();
                 process.Dispose();
             }
-            foreach (var process in Process.GetProcessesByName("PlotRunner"))
+            foreach (var process in Process.GetProcessesByName("MPAiPlotRunner"))
             {
 
                 process.Kill();

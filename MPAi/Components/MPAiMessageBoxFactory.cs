@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace MPAi.NewForms
+namespace MPAi.Components
 {
     public static class MPAiMessageBoxFactory
     {

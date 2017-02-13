@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MPAi.Cores;
-using MPAi.Models;
 using System.Data.Entity;
+using MPAi.Modules;
+using MPAi.DatabaseModel;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms.Popups
 {
     public partial class RenameFileDialog : Form
     {

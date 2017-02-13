@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class RecordingUploadScreen
     {
@@ -30,16 +32,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingUploadScreen));
-            this.toLocalButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.toDBButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.toLocalButton = new MPAiButton(this.components);
+            this.toDBButton = new MPAiButton(this.components);
             this.onDBListBox = new System.Windows.Forms.ListBox();
-            this.allLocalItemsButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.allLocalItemsButton = new MPAiButton(this.components);
             this.mediaLocalListBox = new System.Windows.Forms.ListBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.currentFolderTextBox = new System.Windows.Forms.TextBox();
-            this.selectFolderButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.allDatabaseItemsButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.selectFolderButton = new MPAiButton(this.components);
+            this.allDatabaseItemsButton = new MPAiButton(this.components);
+            this.backButton = new MPAiButton(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 

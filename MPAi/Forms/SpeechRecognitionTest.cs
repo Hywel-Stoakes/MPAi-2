@@ -8,17 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
-using MPAi.Models;
 using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
-using MPAi.Forms.MSGBox;
 using System.Data.Entity;
-using MPAi.Forms.Config;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
+using MPAi.Forms.Popups;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
 
     public partial class SpeechRecognitionTest : Form, MainFormInterface
@@ -74,7 +73,7 @@ namespace MPAi.NewForms
             LoadWasapiDevices();
             CreateDirectory();
             DataBinding();
-            populateWordComboBox();
+            populateBoxes();
             bottomHeight = SpeechRecognitionTestPanel.Height - SpeechRecognitionTestPanel.SplitterDistance;
             toggleOptions();    // For development, the bottom panel is visible, but the user won't need the bottom panel most of the time.
             toggleListButtons(RecordingListBox.SelectedItems.Count > 0);
@@ -84,9 +83,17 @@ namespace MPAi.NewForms
         }
 
         /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            populateBoxes();
+        }
+
+        /// <summary>
         /// Gets the words from the database.
         /// </summary>
-        private void populateWordComboBox()
+        private void populateBoxes()
         {
             try
             {

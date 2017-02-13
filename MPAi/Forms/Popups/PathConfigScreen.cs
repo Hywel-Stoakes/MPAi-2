@@ -13,7 +13,7 @@ using MPAi.Cores;
 using NAudio.CoreAudioApi;
 using System.IO;
 
-namespace MPAi.Forms.Config
+namespace MPAi.Forms.Popups
 {
     /// <summary>
     /// Class for the system configuration form.

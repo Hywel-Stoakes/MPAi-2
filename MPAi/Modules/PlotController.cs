@@ -6,13 +6,11 @@ using System.Runtime.InteropServices;
 using System.IO.Pipes;
 using System.Windows.Forms;
 using System.Threading;
-using MPAi.Models;
 using MPAi.Cores.Scoreboard;
 using NAudio.CoreAudioApi;
 using MPAi.Forms;
-using MPAi.NewForms;
 
-namespace MPAi
+namespace MPAi.Modules
 {
     /// <summary>
     /// Class to runs and closes plots written in python which has been converting into an exe.
@@ -120,20 +118,20 @@ namespace MPAi
                     MessageBox.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
                 } 
                 
-                NewForms.MPAiSoundMainMenu menu = new MPAi.NewForms.MPAiSoundMainMenu();
+                MPAiSoundMainMenu menu = new MPAiSoundMainMenu();
                 menu.Show();
 
             }
             else
             {
 
-                foreach (var process in Process.GetProcessesByName("VowelRunner"))
+                foreach (var process in Process.GetProcessesByName("MPAiVowelRunner"))
                 {
                     process.Kill();
                     process.WaitForExit();
                     process.Dispose();
                 }
-                foreach (var process in Process.GetProcessesByName("PlotRunner"))
+                foreach (var process in Process.GetProcessesByName("MPAiPlotRunner"))
                 {
 
                     process.Kill();
@@ -182,7 +180,7 @@ namespace MPAi
                 Application.OpenForms.OfType<LoginScreen>().SingleOrDefault().Close();
             }
 
-            NewForms.MPAiSoundMainMenu menu = new MPAi.NewForms.MPAiSoundMainMenu();
+            MPAiSoundMainMenu menu = new MPAiSoundMainMenu();
             menu.Show();
         }
 
@@ -218,11 +216,11 @@ namespace MPAi
 
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
-                    PlotExe.StartInfo.FileName = @"VowelRunner.exe";
+                    PlotExe.StartInfo.FileName = @"MPAiVowelRunner.exe";
                 }
                 else if (plotType == PlotType.FORMANT_PLOT)
                 {
-                    PlotExe.StartInfo.FileName = @"PlotRunner.exe";
+                    PlotExe.StartInfo.FileName = @"MPAiPlotRunner.exe";
                 }
 
 
@@ -317,11 +315,11 @@ namespace MPAi
         {
             if (plotType == PlotType.VOWEL_PLOT)
             {
-                return (@"Vowel Plot");
+                return (@"MPAi Vowel Plot");
             }
             else if (plotType == PlotType.FORMANT_PLOT)
             {
-                return (@"Formant Plot");
+                return (@"MPAi Formant Plot");
             }
             return null;
 

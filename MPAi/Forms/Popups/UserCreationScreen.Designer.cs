@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class UserCreationScreen
     {
@@ -56,9 +58,9 @@
             this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.okayButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.okayButton = new MPAiButton(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.cancelButton = new MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();

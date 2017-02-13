@@ -1,4 +1,4 @@
-﻿namespace MPAi.NewForms
+﻿namespace MPAi.Components
 {
     partial class MenuStrip
     {

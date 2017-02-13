@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms
 {
     partial class MPAiSoundMainMenu
     {
@@ -35,12 +37,12 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.learnButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.reportButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.learnButton = new MPAiButton(this.components);
+            this.reportButton = new MPAiButton(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.formantButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.targetButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.menuStrip1 = new MPAi.NewForms.MenuStrip(this.components);
+            this.formantButton = new MPAiButton(this.components);
+            this.targetButton = new MPAiButton(this.components);
+            this.menuStrip1 = new MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -186,7 +188,7 @@
             this.formantButton.Name = "formantButton";
             this.formantButton.Size = new System.Drawing.Size(70, 23);
             this.formantButton.TabIndex = 3;
-            this.formantButton.Text = "Formant";
+            this.formantButton.Text = "Test";
             this.formantButton.UseVisualStyleBackColor = false;
             this.formantButton.Click += new System.EventHandler(this.formantButton_Click);
             // 

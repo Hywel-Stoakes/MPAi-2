@@ -1,4 +1,7 @@
-﻿namespace MPAi.Forms.Popups
+﻿using MPAi.Components;
+using MPAi.Modules;
+
+namespace MPAi.Forms.Popups
 {
     partial class AdministratorConsole
     {
@@ -22,7 +25,7 @@
 
         private System.Windows.Forms.TableLayoutPanel generateUserTable()
         {
-            userButtonMap = new System.Collections.Generic.Dictionary<MPAi.NewForms.MPAiButton, MPAiUser>();
+            userButtonMap = new System.Collections.Generic.Dictionary<MPAiButton, MPAiUser>();
 
             System.Windows.Forms.TableLayoutPanel userTable = new System.Windows.Forms.TableLayoutPanel();
             userTable.SuspendLayout();
@@ -63,7 +66,7 @@
                     label.BackColor = System.Drawing.Color.Transparent;
                     userTable.Controls.Add(label, 0, i);
 
-                    MPAi.NewForms.MPAiButton button = new MPAi.NewForms.MPAiButton();
+                    MPAiButton button = new MPAiButton();
                     button.Text = "Reset Password";
                     button.Size = new System.Drawing.Size(100, 23);
                     button.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -93,7 +96,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.mpAiButton1 = new MPAi.NewForms.MPAiButton(this.components);
+            this.mpAiButton1 = new MPAiButton(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -217,6 +220,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private NewForms.MPAiButton mpAiButton1;
+        private MPAiButton mpAiButton1;
     }
 }
