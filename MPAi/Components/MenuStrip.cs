@@ -23,6 +23,8 @@ namespace MPAi.Components
             checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
+
+            userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
         }
 
         /// <summary>
@@ -37,6 +39,8 @@ namespace MPAi.Components
             checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
+
+            userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
         }
 
         private void checkAndSetNativeDisplayVoice()

@@ -226,6 +226,7 @@ namespace MPAi.Forms.Popups
             this.userNameBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userNameBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.userNameBox.Location = new System.Drawing.Point(130, 7);
+            this.userNameBox.MaxLength = 25;
             this.userNameBox.Name = "userNameBox";
             this.userNameBox.Size = new System.Drawing.Size(200, 20);
             this.userNameBox.TabIndex = 0;
