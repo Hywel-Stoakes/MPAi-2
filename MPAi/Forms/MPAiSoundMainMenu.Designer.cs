@@ -37,12 +37,18 @@ namespace MPAi.Forms
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.learnButton = new MPAiButton(this.components);
-            this.reportButton = new MPAiButton(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.formantButton = new MPAiButton(this.components);
-            this.targetButton = new MPAiButton(this.components);
-            this.menuStrip1 = new MenuStrip(this.components);
+            this.TestTipLabel = new System.Windows.Forms.Label();
+            this.TargetTipLabel = new System.Windows.Forms.Label();
+            this.formantButton = new MPAi.Components.MPAiButton(this.components);
+            this.targetButton = new MPAi.Components.MPAiButton(this.components);
+            this.learnPanel = new System.Windows.Forms.Panel();
+            this.LearnTipLabel = new System.Windows.Forms.Label();
+            this.learnButton = new MPAi.Components.MPAiButton(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ScoreTipLabel = new System.Windows.Forms.Label();
+            this.reportButton = new MPAi.Components.MPAiButton(this.components);
+            this.menuStrip1 = new MPAi.Components.MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -54,6 +60,8 @@ namespace MPAi.Forms
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.learnPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -128,9 +136,9 @@ namespace MPAi.Forms
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.learnButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.reportButton, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.learnPanel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -138,39 +146,14 @@ namespace MPAi.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 168);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // learnButton
-            // 
-            this.learnButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.learnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.learnButton.ForeColor = System.Drawing.Color.White;
-            this.learnButton.Location = new System.Drawing.Point(197, 16);
-            this.learnButton.Name = "learnButton";
-            this.learnButton.Size = new System.Drawing.Size(150, 23);
-            this.learnButton.TabIndex = 0;
-            this.learnButton.Text = "Learn";
-            this.learnButton.UseVisualStyleBackColor = true;
-            this.learnButton.Click += new System.EventHandler(this.learnButton_Click);
-            // 
-            // reportButton
-            // 
-            this.reportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.reportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportButton.ForeColor = System.Drawing.Color.White;
-            this.reportButton.Location = new System.Drawing.Point(197, 128);
-            this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(150, 23);
-            this.reportButton.TabIndex = 2;
-            this.reportButton.Text = "Score Report";
-            this.reportButton.UseVisualStyleBackColor = true;
-            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.TestTipLabel);
+            this.panel1.Controls.Add(this.TargetTipLabel);
             this.panel1.Controls.Add(this.formantButton);
             this.panel1.Controls.Add(this.targetButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -179,18 +162,43 @@ namespace MPAi.Forms
             this.panel1.Size = new System.Drawing.Size(538, 50);
             this.panel1.TabIndex = 3;
             // 
+            // TestTipLabel
+            // 
+            this.TestTipLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TestTipLabel.Location = new System.Drawing.Point(0, 34);
+            this.TestTipLabel.Name = "TestTipLabel";
+            this.TestTipLabel.Size = new System.Drawing.Size(538, 13);
+            this.TestTipLabel.TabIndex = 6;
+            this.TestTipLabel.Text = "Hone your pronunciation at your own pace with the full Formant space!";
+            this.TestTipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TestTipLabel.Visible = false;
+            // 
+            // TargetTipLabel
+            // 
+            this.TargetTipLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TargetTipLabel.Location = new System.Drawing.Point(0, 34);
+            this.TargetTipLabel.Name = "TargetTipLabel";
+            this.TargetTipLabel.Size = new System.Drawing.Size(541, 13);
+            this.TargetTipLabel.TabIndex = 5;
+            this.TargetTipLabel.Text = "Test your vowel pronunciation with our Formant target!";
+            this.TargetTipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TargetTipLabel.Visible = false;
+            // 
             // formantButton
             // 
+            this.formantButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.formantButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.formantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.formantButton.ForeColor = System.Drawing.Color.White;
-            this.formantButton.Location = new System.Drawing.Point(270, 14);
+            this.formantButton.Location = new System.Drawing.Point(274, 8);
             this.formantButton.Name = "formantButton";
             this.formantButton.Size = new System.Drawing.Size(70, 23);
             this.formantButton.TabIndex = 3;
             this.formantButton.Text = "Test";
             this.formantButton.UseVisualStyleBackColor = false;
             this.formantButton.Click += new System.EventHandler(this.formantButton_Click);
+            this.formantButton.MouseEnter += new System.EventHandler(this.formantButton_MouseEnter);
+            this.formantButton.MouseLeave += new System.EventHandler(this.formantButton_MouseLeave);
             // 
             // targetButton
             // 
@@ -198,13 +206,89 @@ namespace MPAi.Forms
             this.targetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.targetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.targetButton.ForeColor = System.Drawing.Color.White;
-            this.targetButton.Location = new System.Drawing.Point(194, 14);
+            this.targetButton.Location = new System.Drawing.Point(194, 8);
             this.targetButton.Name = "targetButton";
             this.targetButton.Size = new System.Drawing.Size(70, 23);
             this.targetButton.TabIndex = 2;
             this.targetButton.Text = "Target";
             this.targetButton.UseVisualStyleBackColor = true;
             this.targetButton.Click += new System.EventHandler(this.testButton_Click);
+            this.targetButton.MouseEnter += new System.EventHandler(this.targetButton_MouseEnter);
+            this.targetButton.MouseLeave += new System.EventHandler(this.targetButton_MouseLeave);
+            // 
+            // learnPanel
+            // 
+            this.learnPanel.Controls.Add(this.LearnTipLabel);
+            this.learnPanel.Controls.Add(this.learnButton);
+            this.learnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.learnPanel.Location = new System.Drawing.Point(3, 3);
+            this.learnPanel.Name = "learnPanel";
+            this.learnPanel.Size = new System.Drawing.Size(538, 50);
+            this.learnPanel.TabIndex = 4;
+            // 
+            // LearnTipLabel
+            // 
+            this.LearnTipLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LearnTipLabel.Location = new System.Drawing.Point(-3, 29);
+            this.LearnTipLabel.Name = "LearnTipLabel";
+            this.LearnTipLabel.Size = new System.Drawing.Size(541, 12);
+            this.LearnTipLabel.TabIndex = 4;
+            this.LearnTipLabel.Text = "Watch videos or vocal tract images of Maori sounds!";
+            this.LearnTipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LearnTipLabel.Visible = false;
+            // 
+            // learnButton
+            // 
+            this.learnButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.learnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.learnButton.ForeColor = System.Drawing.Color.White;
+            this.learnButton.Location = new System.Drawing.Point(194, 3);
+            this.learnButton.Name = "learnButton";
+            this.learnButton.Size = new System.Drawing.Size(150, 23);
+            this.learnButton.TabIndex = 0;
+            this.learnButton.Text = "Learn";
+            this.learnButton.UseVisualStyleBackColor = true;
+            this.learnButton.Click += new System.EventHandler(this.learnButton_Click);
+            this.learnButton.MouseEnter += new System.EventHandler(this.learnButton_MouseEnter);
+            this.learnButton.MouseLeave += new System.EventHandler(this.learnButton_MouseLeave);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.ScoreTipLabel);
+            this.panel2.Controls.Add(this.reportButton);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 115);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(538, 50);
+            this.panel2.TabIndex = 5;
+            // 
+            // ScoreTipLabel
+            // 
+            this.ScoreTipLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ScoreTipLabel.Location = new System.Drawing.Point(0, 32);
+            this.ScoreTipLabel.Name = "ScoreTipLabel";
+            this.ScoreTipLabel.Size = new System.Drawing.Size(538, 16);
+            this.ScoreTipLabel.TabIndex = 7;
+            this.ScoreTipLabel.Text = "View your best scores!";
+            this.ScoreTipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ScoreTipLabel.Visible = false;
+            // 
+            // reportButton
+            // 
+            this.reportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.reportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportButton.ForeColor = System.Drawing.Color.White;
+            this.reportButton.Location = new System.Drawing.Point(194, 8);
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(150, 23);
+            this.reportButton.TabIndex = 2;
+            this.reportButton.Text = "Score Report";
+            this.reportButton.UseVisualStyleBackColor = true;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            this.reportButton.MouseEnter += new System.EventHandler(this.reportButton_MouseEnter);
+            this.reportButton.MouseLeave += new System.EventHandler(this.reportButton_MouseLeave);
             // 
             // menuStrip1
             // 
@@ -240,6 +324,8 @@ namespace MPAi.Forms
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.learnPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +343,11 @@ namespace MPAi.Forms
         private System.Windows.Forms.Panel panel1;
         private MPAiButton formantButton;
         private MPAiButton targetButton;
+        private System.Windows.Forms.Label TestTipLabel;
+        private System.Windows.Forms.Label TargetTipLabel;
+        private System.Windows.Forms.Panel learnPanel;
+        private System.Windows.Forms.Label LearnTipLabel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label ScoreTipLabel;
     }
 }
