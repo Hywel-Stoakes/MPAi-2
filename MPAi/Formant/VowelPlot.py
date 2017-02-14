@@ -24,6 +24,7 @@ SCALEDOWN = 3
 class VowelPlot:
 
     def __init__(self, parent, path, root, id, formApp, vowelScorer, vowel, width, height):
+        self.axisButtonClicked = False
         self.vowelScorer = vowelScorer
         self.width = width
         self.height = height
@@ -48,6 +49,7 @@ class VowelPlot:
         # sound Setup:
         self.initialiseSounds()
         self.Recording = False
+        self.Waiting = False
 
         self.drawTarget(vowel)
 
@@ -55,7 +57,9 @@ class VowelPlot:
         #Plot
         self.vowelPlotFrame = self.parent
         self.vowelPlotCanvas = Canvas(self.vowelPlotFrame, height=self.width, width=self.height, bg='white')
-
+        self.vowelPlotCanvas.delete('Loudness')
+        self.vowelPlotCanvas.delete('toLoud')
+        self.vowelPlotCanvas.delete('toQuiet')
         self.vowelPlotCanvas.pack(fill='both', expand=1)
 
         #Creates the loudnessMeter on the formant plot canvas.
@@ -85,13 +89,13 @@ class VowelPlot:
         self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
         self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
 
-
-
     def createText(self):
         self.vowelPlotCanvas.delete('helptext')
-        self.vowelPlotCanvas.create_text(self.width/2, self.height-60,tag='helptext', font=self.font, text= "Click on the target to begin.")
-        self.vowelPlotCanvas.create_text(self.width/2, self.height-40,tag='helptext', font=self.font, text= "After 250 Plots the round will finish.")
-        self.vowelPlotCanvas.create_text(self.width/2, 10, tag='helptext', font=self.font, text="Choose a Vowel to practice.")
+        self.vowelPlotCanvas.delete('tophelptext')
+
+        self.vowelPlotCanvas.create_text(self.width/2, self.height-50,tag='helptext', font=self.font, text= "Click on the target to begin.")
+        self.vowelPlotCanvas.create_text(self.width/2, self.height-30,tag='helptext', font=self.font, text= "After 250 Plots the round will finish.")
+        self.vowelPlotCanvas.create_text(self.width/2, 10, tag='tophelptext', font=self.font, text="Choose a Vowel to practice.")
 
     def setUpButtonsFirstTime(self):
         self.vowelPlotCanvas.delete("firstButtons")
@@ -100,32 +104,33 @@ class VowelPlot:
 
 
         aButton = Button(self.parent, text = vowel[0], font = font, command = lambda vow=vowel[0]: self.changeVowel(vow))
-        aButton.configure( activebackground = "#33B5E5", relief  = GROOVE)
+        aButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         aButtonWindow = self.vowelPlotCanvas.create_window(self.width/2 - 160, 50, window = aButton, tags="firstButtons")
 
         eButton = Button(self.parent, text = vowel[1], font = font, command = lambda vow=vowel[1]: self.changeVowel(vow))
-        eButton.configure( activebackground = "#33B5E5", relief  = GROOVE)
+        eButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         eButtonWindow = self.vowelPlotCanvas.create_window(self.width/2 - 80, 50, window = eButton, tags="firstButtons")
 
         iButton = Button(self.parent, text = vowel[2]+" ", font = font, command = lambda vow=vowel[2]: self.changeVowel(vow))
-        iButton.configure( activebackground = "#33B5E5", relief  = GROOVE)
+        iButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         iButtonWindow = self.vowelPlotCanvas.create_window(self.width/2, 50, window = iButton, tags="firstButtons")
 
         oButton = Button(self.parent, text = vowel[3], font = font, command = lambda vow=vowel[3]: self.changeVowel(vow))
-        oButton.configure( activebackground = "#33B5E5", relief  = GROOVE)
+        oButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         oButtonWindow = self.vowelPlotCanvas.create_window(self.width/2 + 80, 50, window = oButton, tags="firstButtons")
 
         uButton = Button(self.parent, text = vowel[4], font = font, command = lambda vow=vowel[4]: self.changeVowel(vow))
-        uButton.configure( activebackground = "#33B5E5", relief  = GROOVE)
+        uButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         uButtonWindow = self.vowelPlotCanvas.create_window(self.width/2 + 160, 50, window = uButton, tags="firstButtons")
 
         analysisButton = Button(self.parent, text="    Analysis    \nand\ngo back",command=self.requestQuit, font = ('Arial','15') )
-        analysisButton.configure(activebackground='green', anchor=W, relief = GROOVE)
+        analysisButton.configure(activebackground='#FA4A4A', anchor=W, relief = GROOVE)
         analysisButtonWindow = self.vowelPlotCanvas.create_window(4, self.height-4, anchor=SW,tags=('analysisButton', 'firstButtons'),window=analysisButton)
 
     def requestQuit(self):
         self.formApp.quitApp()
 
+    #handles the Resizing of the application and all its child. currently disabled.
     def onResize(self, width, height):
 
         self.width = width
@@ -144,7 +149,6 @@ class VowelPlot:
 
     def changeVowel(self, vowel):
         self.formApp.loadVowelPlot(self.id, vowel,self.width,self.height)
-
 
     """
     setUpScore Sets the current score to be 0, creates the score text.
@@ -168,7 +172,6 @@ class VowelPlot:
             scoreText = (str)(self.score)+ " %"
 
         self.textID = self.vowelPlotCanvas.create_text(self.width/2, self.height-(60*(self.height/DEFAULTHEIGHT)), tag='score', font=font, text=scoreText)
-
 
     def updateScore(self, score):
         self.hasScore = True
@@ -203,8 +206,6 @@ class VowelPlot:
             return 0
 
         self.updateScore((int)(score))
-
-
 
     def drawTarget(self, letter):
         self.vowelPlotCanvas.delete("vowelOval")
@@ -242,6 +243,98 @@ class VowelPlot:
                     i+=1
                 self.vowelPlotCanvas.create_text(self.width/2, self.height/2,  fill='#00007f', font = font, tag = 'vowelOval', text=vowel)
                 self.vowelPlotCanvas.tag_bind('vowelOval',"<Button-1>", lambda event, : self.toggleRecord(event))
+
+                self.vowelPlotCanvas.delete('questionMarkButton')
+                self.questionMarkButton = Button(self.parent, text = " Show Axis", command=self.showAxisClicked, font = ('Arial', '13'))
+                self.questionMarkButton.configure(activebackground='#FA4A4A', bg = 'white', anchor=W, relief = GROOVE)
+                questionMarkButtonWindow = self.vowelPlotCanvas.create_window(self.width - 2, self.height - 2, anchor=SE,tags=('questionMarkButton'),window=self.questionMarkButton)
+                self.questionMarkButton.bind("<Enter>", self.showAxisHoovering)
+                self.questionMarkButton.bind("<Leave>", self.hideAxisHoovering)
+
+                self.drawAxis()
+
+    def showAxisHoovering(self, *args):
+        if not self.axisButtonClicked:
+            self.questionMarkButton.config(relief=SUNKEN)
+            self.showAxis()
+
+    def hideAxisHoovering(self, *args):
+        if not self.axisButtonClicked:
+            self.questionMarkButton.config(relief=GROOVE, bg = 'white')
+            self.hideAxis()
+    def showAxisClicked(self, *args):
+        if self.axisButtonClicked:
+            self.questionMarkButton.config( bg = 'white')
+
+            self.hideAxis
+            self.axisButtonClicked = False
+        else:
+            self.questionMarkButton.config(relief =SUNKEN, bg = '#FA4A4A')
+            self.showAxis
+            self.axisButtonClicked = True
+
+    def showAxis(self):
+        self.vowelPlotCanvas.itemconfig('axis', state='normal')
+
+    def hideAxis(self):
+        self.vowelPlotCanvas.itemconfig('axis', state='hidden')
+
+    def drawAxis(self):
+        self.vowelPlotCanvas.delete('axis')
+        axisFont = ('Arial','13')
+
+        #Draw y Axis
+        xAxis = self.width/2
+        yAxis1 = (self.height/2) - self.yIdeal*2
+        yAxis2 = (self.height/2) - self.yIdeal*0.3
+        yAxis3 = (self.height/2) + self.yIdeal*0.3
+        yAxis4 = (self.height/2) + self.yIdeal*2 + 25
+        self.vowelPlotCanvas.create_line(xAxis, yAxis1, xAxis, yAxis2, tags='axis', width = 2)
+        self.vowelPlotCanvas.create_line(xAxis, yAxis3, xAxis, yAxis4, tags='axis', width = 2)
+
+        for index in range(2,10):
+            yCoor = index * ((self.yIdeal*2)/10)
+            self.vowelPlotCanvas.create_line( xAxis, self.height/2 + yCoor, xAxis-6, self.height/2 + yCoor, tags = 'axis', width = 2)
+            self.vowelPlotCanvas.create_line( xAxis, self.height/2 - yCoor, xAxis-6, self.height/2 - yCoor, tags = 'axis', width = 2)
+
+        self.vowelPlotCanvas.create_text(xAxis+10, yAxis1 - 15, text="Mouth Less Open",  tags='axis',font=axisFont, anchor=CENTER)
+        self.vowelPlotCanvas.create_text(xAxis+10, yAxis4 + 10, text="Mouth More Open", tags='axis', font=axisFont, anchor=CENTER)
+
+        #ArrowHead y
+        self.vowelPlotCanvas.create_polygon(( self.width/2, yAxis4+3, self.width/2-10, yAxis4-17, self.width/2+10, yAxis4-17), tags='axis' , fill='#000000')
+
+        #Draw x Axis
+        yAxis = self.height/2
+        xAxis1 = (self.width/2) - self.xIdeal*2 - 25
+        xAxis2 = (self.width/2) - self.xIdeal*0.3
+        xAxis3 = (self.width/2) + self.xIdeal*0.3
+        xAxis4 = (self.width/2) + self.xIdeal*2
+        self.vowelPlotCanvas.create_line(xAxis1, yAxis, xAxis2, yAxis, tags='axis', width = 2)
+        self.vowelPlotCanvas.create_line(xAxis3, yAxis, xAxis4, yAxis, tags='axis', width = 2)
+
+        for index in range(2,10):
+            xCoor = index * ((self.xIdeal*2)/10)
+            self.vowelPlotCanvas.create_line(self.width/2 + xCoor, yAxis, self.width/2 + xCoor, yAxis+6,tags = 'axis', width = 2)
+            self.vowelPlotCanvas.create_line(self.width/2 - xCoor, yAxis, self.width/2 - xCoor, yAxis+6,tags = 'axis', width = 2)
+
+        self.vowelPlotCanvas.create_text(xAxis4+40, yAxis-20, text="Tongue", tags='axis', font=axisFont, anchor=CENTER)
+        self.vowelPlotCanvas.create_text(xAxis4+40, yAxis, text="Less", tags='axis', font=axisFont, anchor=CENTER)
+        self.vowelPlotCanvas.create_text(xAxis4+40, yAxis+20, text="Forward", tags='axis', font=axisFont, anchor=CENTER)
+
+        self.vowelPlotCanvas.create_text(xAxis1-40, yAxis-20, text="Tongue", tags='axis', font=axisFont, anchor=CENTER)
+        self.vowelPlotCanvas.create_text(xAxis1-40, yAxis, text="More", tags='axis', font=axisFont, anchor=CENTER)
+        self.vowelPlotCanvas.create_text(xAxis1-40, yAxis+20, text="Forward", tags='axis', font=axisFont, anchor=CENTER)
+
+        #ArrowHead x
+        self.vowelPlotCanvas.create_polygon((xAxis1-3, self.height/2, xAxis1+17, self.height/2-10, xAxis1+17, self.height/2+10), tags='axis', fill='#000000')
+
+        if self.axisButtonClicked:
+            self.vowelPlotCanvas.itemconfig('axis', state='normal')
+            self.questionMarkButton.config(relief =SUNKEN, bg = '#FA4A4A')
+
+        else:
+            self.vowelPlotCanvas.itemconfig('axis', state='hidden')
+            self.questionMarkButton.config(relief =GROOVE, bg = 'white')
 
     def toggleRecord(self, event):
         if self.Recording:
@@ -335,22 +428,6 @@ class VowelPlot:
 
                     self.distanceToScore(distance)
 
-                    if(abs(x-self.x) > self.height ):
-                        y1 = y
-                        y2 = y+3
-                        y3 = y-3
-                        if(x < 0):
-                            x1 = 8   # |>
-                            x2 = 1
-
-                        else:
-                            x1 = self.height-8
-                            x2 = self.height-1
-
-                        # self.vowelPlotCanvas.create_line(x2,y1, x1,y2, fill='black', tag='arrow')
-                        # self.vowelPlotCanvas.create_line(x1,y2, x1,y3, fill='black', tag='arrow')
-                        # self.vowelPlotCanvas.create_line(x1,y3, x2,y1, fill='black', tag='arrow')
-
                     if(abs(y-self.y) > self.height ):
                         pass
 
@@ -377,27 +454,33 @@ class VowelPlot:
         try:
             if self.vowelScorer.safeToRecord():
                 self.Recording = True
-
+                self.Waiting = False
+                self.vowelPlotCanvas.itemconfig('questionMarkButton', state = 'hidden')
                 self.formApp.preventResizing()
                 self.xFormantList = []
                 self.yFormantList = []
                 self.recordedAudio = Sound()
-                self.setUpScore()
                 self.clear()
 
                 self.plotCount = 0
                 self.notStopped = True
+                self.vowelPlotCanvas.itemconfig('waitingText', state='hidden')
+                #self.vowelPlotCanvas.itemconfig('axis', state='normal')
                 self.vowelPlotCanvas.itemconfig('analysisButton', state = 'hidden')
-                self.vowelPlotCanvas.itemconfig('helptext', state='hidden')
                 self.vowelPlotCanvas.itemconfig('firstButtons', state='hidden')
                 self.vowelPlotCanvas.itemconfig('recording', state='normal')
                 self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
+                self.vowelPlotCanvas.itemconfig('tophelptext', state='hidden')
+                self.vowelPlotCanvas.itemconfig('helptext', state='hidden')
+                self.vowelPlotCanvas.itemconfig('score', state='hidden')
 
                 self.recordedAudio.record()
                 self.count2 = 0
 
                 self.vowelPlotCanvas.itemconfig('recording', state='normal', fill='orange')
                 self.vowelPlotCanvas.itemconfig('recordingText', state ='normal', text='Loading...')
+
+                #LOADING AXIS.
 
 
                 thread.start_new_thread(self.multiThreadUpdateCanvas, ("Thread-1", self.notStopped))
@@ -408,7 +491,10 @@ class VowelPlot:
 
     def multiThreadUpdateCanvas(self, threadName, notStopped):
         sleep(1.2)
+        self.setUpScore()
         self.isLoading = False
+        #self.vowelPlotCanvas.itemconfig('axis', state='hidden')
+        self.vowelPlotCanvas.itemconfig('score', state='normal')
 
         try:
             self.vowelPlotCanvas.itemconfig('recording', fill='red')
@@ -430,31 +516,34 @@ class VowelPlot:
             self.notStopped = False
             self.vowelPlotCanvas.itemconfig('recording', state='hidden')
             self.vowelPlotCanvas.itemconfig('recordingText', state='hidden')
-
+            self.vowelPlotCanvas.itemconfig('waitingText', state='normal')
             self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
             self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
             self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
+            self.vowelPlotCanvas.itemconfig('analysisButton', state = 'normal')
             self.vowelPlotCanvas.itemconfig('firstButtons', state='normal')
-
+            self.vowelPlotCanvas.itemconfig('tophelptext', state='hidden')
+            self.vowelPlotCanvas.itemconfig('helptext', state='hidden')
+            self.vowelPlotCanvas.itemconfig('score', state='normal')
+            self.vowelPlotCanvas.itemconfig('questionMarkButton', state= 'normal')
             self.recordedAudio.stop()
             self.root.after(100 ,self.loudnessMeter.clearMeter)
-            #self.root.after(100 ,self.displayFinalScore)
             self.Recording = False
+            self.Waiting = True
             self.vowelScorer.updateScore(self.vowel, self.rawScore, self.plottedInfo)
             self.rawScore = 0
             self.plotCounter = 0
             self.plottedInfo = [0,0,0,0,0]
-            self.vowelPlotCanvas.itemconfig('analysisButton', state='normal')
-            #self.root.after(100,self.formApp.allowResizing)
-
-            self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
+            self.root.after(500 ,self.requestFinalScore)
             self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
             self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
-            self.root.after(500 ,self.requestFinalScore)
+            self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
 
     def requestFinalScore(self):
-        print "Requesting Final Score"
         self.displayFinalScore(self.vowelScorer.getLastScore())
+        self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
+        self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
+        self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
 
     def clear(self):
         self.vowelPlotCanvas.delete('userformants')

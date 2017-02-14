@@ -7,7 +7,7 @@ to the VowelPlotController.cs. Which creates the processs on which VowelPlot run
 
 vowelScorer Handles sending and recieving messages from the controller.
 mainly the sending off the finally results to the analysis form.
-
+F
 Author: Joshua Brundan
 """
 class VowelScorer:
@@ -151,5 +151,5 @@ class VowelScorer:
             print 'Wrote:', lineList
         except IOError:
             print "Pipe File does not exist."
-        #time.sleep(2)
+        # #time.sleep(2)
         self.isSafeToRecord = True

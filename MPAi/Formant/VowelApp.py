@@ -190,6 +190,7 @@ class VowelApp:
         self.root.mainloop()
 
     def quitApp(self):
+        print("Exiting")
         self.vowelScorer.connectAndSendText()
         self.root.destroy()
         sys.exit(0)
