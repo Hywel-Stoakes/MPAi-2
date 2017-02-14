@@ -1,14 +1,15 @@
+using MPAi.Components;
+using MPAi.Cores.Scoreboard;
+using MPAi.Forms;
+using NAudio.CoreAudioApi;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.IO.Pipes;
-using System.Windows.Forms;
 using System.Threading;
-using MPAi.Cores.Scoreboard;
-using NAudio.CoreAudioApi;
-using MPAi.Forms;
+using System.Windows.Forms;
 
 namespace MPAi.Modules
 {
@@ -22,13 +23,11 @@ namespace MPAi.Modules
     /// Due the nature of the exes. This class limits the project to be purely windows based.
     /// </summary>
     public static class PlotController
-
     {
-
         public enum PlotType { FORMANT_PLOT, VOWEL_PLOT }
 
         private static PlotType? plotType;
-        private static VoiceType? voiceType;
+        private static VoiceType voiceType;
         private static Thread pipeThread;
         private static PythonPipe pythonPipe;
 
@@ -81,13 +80,11 @@ namespace MPAi.Modules
         }
 
         private static Process PlotExe;
-        private static bool shutdown;
         private static bool exitRequest = false;
         private static Process currentPlotProcess;
 
         public static Process getCurrentPlotProcess() {
-            return currentPlotProcess;
-                
+            return currentPlotProcess;             
         }
 
         /// <summary>
@@ -98,13 +95,11 @@ namespace MPAi.Modules
         /// requestedPlotType determines if RunPlot runs a Vowel or Formant Plot.
         /// requestedVoiceType determines if we use heratage/ modern and masculine/feminine for the plots. 
         /// </summary>
-        public static void RunPlot(PlotType? requestedPlotType, VoiceType? requestedVoiceType)
+        public static void RunPlot(PlotType? requestedPlotType, VoiceType requestedVoiceType)
         {
             exitRequest = false;
             plotType = requestedPlotType;
             voiceType = requestedVoiceType;
-
-           
 
             var deviceEnum = new MMDeviceEnumerator();
             var devices = deviceEnum.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active).ToList();
@@ -112,19 +107,17 @@ namespace MPAi.Modules
             {
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
-                    MessageBox.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
+                    MPAiMessageBoxFactory.Show("No recording device detected.\nVowel Plot requires a working microphone to function correctly.\nPlease plug in Microphone, or update Drivers.");
                 }
                 else if (plotType == PlotType.FORMANT_PLOT) {
-                    MessageBox.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
+                    MPAiMessageBoxFactory.Show("No recording device detected.\nFormant Plot requires a working microphone to function correctly.\nPlease plug in Microphone or update Drivers.");
                 } 
                 
                 MPAiSoundMainMenu menu = new MPAiSoundMainMenu();
                 menu.Show();
-
             }
             else
             {
-
                 foreach (var process in Process.GetProcessesByName("MPAiVowelRunner"))
                 {
                     process.Kill();
@@ -138,17 +131,15 @@ namespace MPAi.Modules
                     process.WaitForExit();
                     process.Dispose();
                 }
-
-
                 if (PlotStarted(GetPlotTitle()) == 1)
+                {
                     StartPlot();
+                }
                 else
+                {
                     ShowPlot(GetPlotTitle());
-
-            }
-           
-
-            
+                }
+            }  
         }
         /// <summary>
         /// Used to clean up after a  plot has been closed, as the process is simply put into the background.
@@ -168,12 +159,6 @@ namespace MPAi.Modules
             {
                 errorCode = PlotExe.ExitCode;
             }
-            
-
-            
-           
-            
-
             PlotExe.Dispose();
 
             if (errorCode == 15) {
@@ -184,22 +169,18 @@ namespace MPAi.Modules
             menu.Show();
         }
 
-
         /// <summary>
         /// Creates a new process, connects it to the python Runner file, and starts the  plot. 
         /// Also tidies up after an older process if it is still running.
         /// </summary>
         private static async void StartPlot()
         {
-            
             try
             {
                 // Before starting a new process, tidy up any old ones in the background.
                 //  ClosePlot();
-
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
-
                     pythonPipe = new PythonPipe();
 
                     pipeThread = new Thread(new ThreadStart(pythonPipe.ConnectAndRecieve));
@@ -208,11 +189,8 @@ namespace MPAi.Modules
 
                     Console.WriteLine("after Thread");
                 }
-
-
                 PlotExe = new Process();
                 //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FormantFolder, @"dist",@"VowelRunner.exe");
-
 
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
@@ -223,30 +201,26 @@ namespace MPAi.Modules
                     PlotExe.StartInfo.FileName = @"MPAiPlotRunner.exe";
                 }
 
-
-
-
-                // Gets the arguments required for the console command to run the exe file.
-                // based on the requested voiceType.
-                switch (voiceType)
+                if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
                 {
-                    case VoiceType.MASCULINE_NATIVE:
-                        PlotExe.StartInfo.Arguments = @"masculine native";
-                        break;
-                    case VoiceType.MASCULINE_MODERN:
-
-                        PlotExe.StartInfo.Arguments = @"masculine modern";
-                        break;
-                    case VoiceType.FEMININE_NATIVE:
-                        PlotExe.StartInfo.Arguments = @"feminine native";
-                        break;
-                    case VoiceType.FEMININE_MODERN:
-                        PlotExe.StartInfo.Arguments = @"feminine modern";
-                        break;
-                    default:
-                        PlotExe.StartInfo.Arguments = @"masculine native";
-                        break;
+                    PlotExe.StartInfo.Arguments = @"masculine native";
                 }
+                else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
+                {
+                    PlotExe.StartInfo.Arguments = @"masculine modern";
+                }
+                else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
+                {
+                    PlotExe.StartInfo.Arguments = @"feminine native";
+                }
+                else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
+                {
+                    PlotExe.StartInfo.Arguments = @"feminine modern";
+                }
+                else
+                {
+                    PlotExe.StartInfo.Arguments = @"masculine native";
+                }             
                 
                 PlotExe.StartInfo.UseShellExecute = true;
                 PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FormantFolder, "Dist");
@@ -280,11 +254,7 @@ namespace MPAi.Modules
                        await System.Threading.Tasks.Task.Delay(10);
                     }
                 }
-
-
-                ClosePlot();
-                
-
+                ClosePlot();     
             }
             catch (Exception exp)
             {
@@ -296,8 +266,6 @@ namespace MPAi.Modules
 
         private static void StopThread()
         {
-
-            shutdown = true;
             pythonPipe.requestShutDown();
         }
 
@@ -330,9 +298,8 @@ namespace MPAi.Modules
     /// </summary>
     public class PythonPipe
     {
-        private Boolean pipeServerIsClosed;
-        private Boolean firstTime;
-        private Boolean shutdown = false;
+        private bool pipeServerIsClosed;
+        private bool shutdown = false;
        
         
         public void requestShutDown()
@@ -343,20 +310,12 @@ namespace MPAi.Modules
         public void ConnectAndRecieve()
         {
             pipeServerIsClosed = false;
-            firstTime = true;
-
 
             while (!pipeServerIsClosed)
             {
-
                 if (!shutdown)
                 {
                     Console.WriteLine("PythonPipe.connectAndRecieve is running in its own thread");
-                    // Open the named pipe.
-
-                    ////firstTime = false;
-
-                    
 
                     using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("NPSSVowelPlot", PipeDirection.InOut, 254))
                     {
@@ -371,7 +330,6 @@ namespace MPAi.Modules
                         {
                             try
                             {
-
                                 var recievedLength = (int)binaryReader.ReadUInt64();            // Read string length
                                 string recievedString = new string(binaryReader.ReadChars(recievedLength - 1));
 
@@ -383,7 +341,6 @@ namespace MPAi.Modules
                                 Console.WriteLine(length);
                                 MPAiSoundScoreBoardSession session = UserManagement.CurrentUser.SoundScoreboard.NewScoreBoardSession();
                                 
-
                                 int count = 0;
                                 foreach (String str in recievedStringList) {
                                     String[] lineStringList = str.Split(' ');
@@ -411,12 +368,8 @@ namespace MPAi.Modules
                                         session.OverallCorrectnessPercentage = overallPercentage;
                                     }
                                     count++;
-
-
                                 }
-
                                 ReportLauncher.GenerateMPAiSoundScoreHTML(UserManagement.CurrentUser.SoundScoreboard);
-
                             }
                             catch (EndOfStreamException)
                             {
@@ -426,18 +379,11 @@ namespace MPAi.Modules
                         Console.WriteLine("Requesting plotcontrooler to shut down ");
                         PlotController.RequestShutDown();
                     }
-
-
-
                 } else
                 {
                     break;
                 }
-
-
             }
-
-
         }
     }
 }

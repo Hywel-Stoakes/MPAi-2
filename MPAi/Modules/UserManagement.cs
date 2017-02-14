@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
 namespace MPAi.Modules
 {
@@ -207,12 +205,12 @@ namespace MPAi.Modules
                             int n = reader.ReadInt32();
                             for (int i = 0; i < n; i++)
                             {
-                                allUsers.Add(new MPAiUser(reader.ReadString(), reader.ReadString(), VoiceTypeConverter.getVoiceTypeFromString(reader.ReadString())));
+                                allUsers.Add(new MPAiUser(reader.ReadString(), reader.ReadString(), VoiceType.getVoiceTypeFromString(reader.ReadString())));
                             }
                             // restore the last used user, if there was one.
                             string name = reader.ReadString();
                             string code = reader.ReadString();
-                            VoiceType? type = VoiceTypeConverter.getVoiceTypeFromString(reader.ReadString());
+                            VoiceType type = VoiceType.getVoiceTypeFromString(reader.ReadString());
                             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(code))
                             {
                                 currentUser = new MPAiUser(name, code, type);
@@ -247,7 +245,7 @@ namespace MPAi.Modules
                             {
                                 writer.Write(user.getName());
                                 writer.Write(user.getCode());
-                                writer.Write(VoiceTypeConverter.getStringFromVoiceType(user.Voice));
+                                writer.Write(VoiceType.getStringFromVoiceType(user.Voice));
                             }         
                             if (CurrentUser == null)    // If there is a current user, store it.
                             {
@@ -259,7 +257,7 @@ namespace MPAi.Modules
                             { 
                                 writer.Write(CurrentUser.getName());
                                 writer.Write(CurrentUser.getCode());
-                                writer.Write(VoiceTypeConverter.getStringFromVoiceType(CurrentUser.Voice));
+                                writer.Write(VoiceType.getStringFromVoiceType(CurrentUser.Voice));
                             }                                                                   
                         }
                     }

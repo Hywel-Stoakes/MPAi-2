@@ -36,9 +36,9 @@ namespace MPAi.Forms
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.rememberCheckBox = new System.Windows.Forms.CheckBox();
-            this.soundLaunchButton = new MPAiButton(this.components);
-            this.signupButton = new MPAiButton(this.components);
-            this.speakLaunchButton = new MPAiButton(this.components);
+            this.soundLaunchButton = new MPAi.Components.MPAiButton(this.components);
+            this.signupButton = new MPAi.Components.MPAiButton(this.components);
+            this.speakLaunchButton = new MPAi.Components.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +62,7 @@ namespace MPAi.Forms
             this.usernameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.usernameTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.usernameTextBox.Location = new System.Drawing.Point(12, 127);
+            this.usernameTextBox.MaxLength = 25;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(260, 20);
             this.usernameTextBox.TabIndex = 16;

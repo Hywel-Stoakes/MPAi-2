@@ -1,10 +1,5 @@
 ﻿using MPAi.Modules;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.UI;
 
 namespace MPAi.Cores.Scoreboard
@@ -89,8 +84,8 @@ namespace MPAi.Cores.Scoreboard
         /// </summary>
         private static void generateScoreboardCSS()
         {
-            //System.Windows.Forms.MessageBox.Show(OriginalScoreboardReportCSSAddress);
-            //System.Windows.Forms.MessageBox.Show(ScoreboardReportCSSAddress);
+            //System.Windows.Forms.MPAiMessageBoxFactory.Show(OriginalScoreboardReportCSSAddress);
+            //System.Windows.Forms.MPAiMessageBoxFactory.Show(ScoreboardReportCSSAddress);
             File.Copy(OriginalScoreboardReportCSSAddress, ScoreboardReportCSSAddress);
         }
         /// <summary>

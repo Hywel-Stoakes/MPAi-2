@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using MPAi.Components;
 using MPAi.Cores;
+using System;
+using System.Net.Mail;
+using System.Windows.Forms;
 
 namespace MPAi.Forms.Popups
 {
@@ -45,17 +39,17 @@ namespace MPAi.Forms.Popups
                     mail.Subject = mailSubjectTextBox.Text;
                     mail.Body = string.Format("{0}{1}{2}{3}This email is sent from {4}", mailContentTextBox.Text, Environment.NewLine, Environment.NewLine, Environment.NewLine, customerEmailTextBox.Text);
                     send.Send(mail);
-                    MessageBox.Show("Mail has been sent!", "Thanks!");
+                    MPAiMessageBoxFactory.Show("Mail has been sent!", "Thanks!");
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid email address!", "Email Address Error!");
+                    MPAiMessageBoxFactory.Show("Please enter a valid email address!", "Email Address Error!");
                 }
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "Message Sending Error!");
+                MPAiMessageBoxFactory.Show(exp.Message, "Message Sending Error!");
             }
         }
 

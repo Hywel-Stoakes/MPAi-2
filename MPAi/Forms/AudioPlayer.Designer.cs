@@ -725,7 +725,6 @@ namespace MPAi.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Panel panel1;
-        private MenuStrip menuStrip1;
         private MenuStrip menuStrip2;
     }
 }

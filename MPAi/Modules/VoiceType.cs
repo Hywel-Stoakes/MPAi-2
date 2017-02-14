@@ -1,104 +1,134 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MPAi.Modules
 {
-    /// <summary>
-    /// Enum representing the VoiceType setting for a user.
-    /// </summary>
-    public enum VoiceType
+
+    public enum GenderType
     {
-        MASCULINE_NATIVE, MASCULINE_MODERN, FEMININE_NATIVE, FEMININE_MODERN
+        FEMININE, MASCULINE
     }
 
-    /// <summary>
-    /// Class for retrieving the appropriate VoiceType enum value from the given string
-    /// </summary>
-    public static class VoiceTypeConverter
+    public enum LanguageType
     {
-        // It is more efficient to have two dictionaries; we need to look up keys by value and values by key.
+        NATIVE, MODERN
+    }
 
-        private static Dictionary<string, VoiceType?> voiceTypeDictionary = new Dictionary<string, VoiceType?>()
-        {
-            { "MASCULINE_NATIVE", VoiceType.MASCULINE_NATIVE },
-            { "MASCULINE_MODERN", VoiceType.MASCULINE_MODERN },
-            { "FEMININE_NATIVE", VoiceType.FEMININE_NATIVE },
-            { "FEMININE_MODERN", VoiceType.FEMININE_MODERN },
-        };
+    public class VoiceType
+    {
+        private GenderType gender;
 
-        private static Dictionary<VoiceType?, string> voiceStringDictionary = new Dictionary<VoiceType?, string>()
+        public GenderType Gender
         {
-            { VoiceType.MASCULINE_NATIVE, "MASCULINE_NATIVE" },
-            { VoiceType.MASCULINE_MODERN, "MASCULINE_MODERN" },
-            { VoiceType.FEMININE_NATIVE, "FEMININE_NATIVE" },
-            { VoiceType.FEMININE_MODERN, "FEMININE_MODERN" },
-        };
+            get
+            {
+                return gender;
+            }
+
+            set
+            {
+                gender = value;
+            }
+        }
+
+        private LanguageType language;
+        public LanguageType Language
+        {
+            get
+            {
+                return language;
+            }
+
+            set
+            {
+                language = value;
+            }
+        }
+
+
+        public VoiceType(GenderType gender, LanguageType language)
+        {
+            this.language = language;
+            this.gender = gender;
+        }
 
         /// <summary>
         /// Returns the appropriate enum for the inputted string; null if string is not in dictionary.
         /// </summary>
         /// <param name="voiceString">The string to convert into VoiceType</param>
-        public static VoiceType? getVoiceTypeFromString(string voiceString)
+        public static VoiceType getVoiceTypeFromString(string voiceString)
         {
-            if(voiceTypeDictionary.ContainsKey(voiceString))
+            switch(voiceString)
             {
-                return voiceTypeDictionary[voiceString];
-            } else
-            {
-                return null;
+                case "MASCULINE_NATIVE":
+                    return new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE);
+                case "MASCULINE_MODERN":
+                    return new VoiceType(GenderType.MASCULINE, LanguageType.MODERN);
+                case "FEMININE_NATIVE":
+                    return new VoiceType(GenderType.FEMININE, LanguageType.NATIVE);
+                case "FEMININE_MODERN":
+                    return new VoiceType(GenderType.FEMININE, LanguageType.MODERN);
             }
+            return null;
         }
 
         /// <summary>
         /// Returns the appropriate string for the inputted enum; null if enum is not in dictionary.
         /// </summary>
         /// <param name="voiceString">The enum to convert into a string.</param>
-        public static string getStringFromVoiceType(VoiceType? voiceType)
+        public static string getStringFromVoiceType(VoiceType voiceType)
         {
-            if (voiceTypeDictionary.ContainsValue(voiceType))
+            if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
             {
-                return voiceStringDictionary[voiceType];
+                return "MASCULINE_NATIVE";
             }
-            else
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
             {
-                return null;
+                return "FEMININE_NATIVE";
             }
+            else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                return "MASCULINE_MODERN";
+            }
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                return "FEMININE_MODERN";
+            }
+
+            return null;
         }
 
-        public static string getDisplayNameFromVoiceType(VoiceType? voicetype)
+        public static string getDisplayNameFromVoiceType(VoiceType voiceType)
         {
-            switch(voicetype)
+            if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
             {
-                case VoiceType.FEMININE_MODERN:
-                    return "Feminine, Modern Māori";
-                case VoiceType.FEMININE_NATIVE:
-                    return "Feminine, Kuia Māori";
-                case VoiceType.MASCULINE_MODERN:
-                    return "Masculine, Modern Māori";
-                case VoiceType.MASCULINE_NATIVE:
-                    return "Masculine, Kaumatua Māori";
+                return "Masculine, Kaumatua Māori";       
+            }
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
+            {
+                return "Feminine, Kuia Māori";
+            }
+            else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                return "Masculine, Modern Māori";
+            }
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                return "Feminine, Modern Māori";
             }
             return "No Voice Type";
         }
     }
 
-    public enum Gender
-    {
-        FEMININE, MASCULINE
-    }
 
     public static class DisplayVoice
     {
-        public static string DisplayNative(Gender gender)
+        public static string DisplayNative(GenderType gender)
         {
             switch (gender)
             {
-                case Gender.FEMININE:
+                case GenderType.FEMININE:
                     return "Kuia Māori";
-                case Gender.MASCULINE:
+                case GenderType.MASCULINE:
                     return "Kaumatua Māori";
                 default:
                     return null;

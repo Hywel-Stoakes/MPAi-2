@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
+﻿using MPAi.Components;
 using MPAi.Cores;
-using System.Data.Entity;
-using MPAi.Modules;
 using MPAi.DatabaseModel;
+using MPAi.Modules;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace MPAi.Forms.Popups
 {
@@ -39,11 +35,11 @@ namespace MPAi.Forms.Popups
             InitializeComponent();
             // Use user settings or menu data to automatically fill the fields.
             // Speaker = user's screen name
-            speakerComboBox.Items.AddRange( new object[4]{ VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.FEMININE_NATIVE),
-                VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.MASCULINE_NATIVE),
-                VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.FEMININE_MODERN),
-                VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.MASCULINE_MODERN) });
-            speakerComboBox.SelectedItem = VoiceTypeConverter.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice);
+            speakerComboBox.Items.AddRange( new object[4]{ VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.FEMININE, LanguageType.NATIVE)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.FEMININE, LanguageType.MODERN)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.MODERN)) });
+            speakerComboBox.SelectedItem = VoiceType.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice);
             // Category has a drop down list for scalability, although in this version it's just Word and Vowel.
             populateCategoryComboBox(); 
             // Word will need a drop-down list
@@ -92,7 +88,7 @@ namespace MPAi.Forms.Popups
             }
             catch (Exception exp)
             {
-                MessageBox.Show(dataLinkErrorText);
+                MPAiMessageBoxFactory.Show(dataLinkErrorText);
                 Console.WriteLine(exp);
             }
         }
@@ -116,7 +112,7 @@ namespace MPAi.Forms.Popups
                 case ("Masculine, Modern Māori"):
                     return "youngmale";
                 default:
-                    MessageBox.Show("Invalid Speaker type!");
+                    MPAiMessageBoxFactory.Show("Invalid Speaker type!");
                     return null;
             }
         }
@@ -148,7 +144,7 @@ namespace MPAi.Forms.Popups
             }
             catch (Exception exp)
             {
-                MessageBox.Show(dataLinkErrorText);
+                MPAiMessageBoxFactory.Show(dataLinkErrorText);
                 Console.WriteLine(exp);
             }
         }
@@ -209,11 +205,11 @@ namespace MPAi.Forms.Popups
             {
                 if (exp.GetType() == typeof(FileNotFoundException))
                 {
-                    MessageBox.Show(exp.Message, noSuchFileText);
+                    MPAiMessageBoxFactory.Show(exp.Message, noSuchFileText);
                 }
                 else if (exp.GetType() == typeof(IOException))
                 {
-                    MessageBox.Show(exp.Message, alreadyExistsText);
+                    MPAiMessageBoxFactory.Show(exp.Message, alreadyExistsText);
                 }
             }
         }
@@ -254,7 +250,7 @@ namespace MPAi.Forms.Popups
                     return;
                 }
             }
-            MessageBox.Show(wordNotFoundText);
+            MPAiMessageBoxFactory.Show(wordNotFoundText);
             WordComboBox.Focus();
         }
 
@@ -294,7 +290,7 @@ namespace MPAi.Forms.Popups
                     return;
                 }
             }
-            MessageBox.Show(categoryNotFoundText);
+            MPAiMessageBoxFactory.Show(categoryNotFoundText);
             categoryComboBox.Focus();
         }
 

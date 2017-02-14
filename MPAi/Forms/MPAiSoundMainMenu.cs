@@ -1,15 +1,7 @@
-﻿using MPAi.Cores;
-using MPAi.Cores.Scoreboard;
+﻿using MPAi.Cores.Scoreboard;
 using MPAi.Modules;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MPAi.Forms
@@ -94,7 +86,7 @@ namespace MPAi.Forms
         {
             MPAiUser user = UserManagement.CurrentUser;
             PlotController.PlotType? plotType = PlotController.PlotType.VOWEL_PLOT;
-            VoiceType? voiceType = user.Voice;
+            VoiceType voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
 
            
@@ -127,11 +119,50 @@ namespace MPAi.Forms
         {
             MPAiUser user = UserManagement.CurrentUser;
             PlotController.PlotType? plotType = PlotController.PlotType.FORMANT_PLOT;
-            VoiceType? voiceType = user.Voice;
+            VoiceType voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
 
-
             closeThis();
+        }
+
+        private void targetButton_MouseEnter(object sender, EventArgs e)
+        {
+            TargetTipLabel.Visible = true;
+        }
+
+        private void targetButton_MouseLeave(object sender, EventArgs e)
+        {
+            TargetTipLabel.Visible = false;
+        }
+
+        private void learnButton_MouseEnter(object sender, EventArgs e)
+        {
+            LearnTipLabel.Visible = true;
+        }
+
+        private void learnButton_MouseLeave(object sender, EventArgs e)
+        {
+            LearnTipLabel.Visible = false;
+        }
+
+        private void formantButton_MouseEnter(object sender, EventArgs e)
+        {
+            TestTipLabel.Visible = true;
+        }
+
+        private void formantButton_MouseLeave(object sender, EventArgs e)
+        {
+            TestTipLabel.Visible = false;
+        }
+
+        private void reportButton_MouseEnter(object sender, EventArgs e)
+        {
+            ScoreTipLabel.Visible = true;
+        }
+
+        private void reportButton_MouseLeave(object sender, EventArgs e)
+        {
+            ScoreTipLabel.Visible = false;
         }
     }
 }

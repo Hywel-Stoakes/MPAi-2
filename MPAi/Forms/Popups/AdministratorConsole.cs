@@ -1,13 +1,7 @@
 ﻿using MPAi.Components;
 using MPAi.Modules;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MPAi.Forms.Popups
@@ -36,7 +30,15 @@ namespace MPAi.Forms.Popups
 
         private void resetButtonClick(object sender, EventArgs e)
         {
-            MessageBox.Show(userButtonMap[(MPAiButton) sender].UserID);
+            MPAiUser user = userButtonMap[(MPAiButton)sender];
+            ConfirmRandomisedPassword dialog = new ConfirmRandomisedPassword();
+            user.UserPswd = dialog.ConfirmPassword(user.GetCorrectlyCapitalisedName(), user.UserPswd);
+            UserManagement.WriteSettings();
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

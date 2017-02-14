@@ -1,9 +1,7 @@
 ﻿using MPAi.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-
+using MPAi.Modules; 
 namespace MPAi
 {
     static class Program
@@ -14,6 +12,9 @@ namespace MPAi
         [STAThread]
         static void Main(string[] args)
         {
+            Console.WriteLine(VoiceType.getStringFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.MODERN)));
+
+
             if (args.Length > 0)
             {
                 if (args[0] == "initDB")

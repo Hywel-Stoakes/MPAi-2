@@ -1,23 +1,18 @@
-﻿using MPAi.Cores;
+﻿using MPAi.Components;
+using MPAi.Cores;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
-using System.Threading;
-using MPAi.Modules;
-using MPAi.DatabaseModel;
 
 namespace MPAi.Forms
 {
@@ -34,7 +29,6 @@ namespace MPAi.Forms
         private string selectFolderString = "Select Vlc libraries folder.";
 
         private string invalidStateString = "Invalid State!";
-        private string noVideoString = "No video recording was found for that sound.";
         private string invalidRecordingString = "Invalid recording!";
         private string vowelNotFoundText = "That sound is not valid. Try another, or select from the list.";
         private string formatErrorText = "A problem was encountered during recording {0}";
@@ -186,7 +180,7 @@ namespace MPAi.Forms
 
                     List<Word> view = DBModel.Word.Where(x => (
                        x.Category.Name.Equals("Word")
-                       //&& x.Recordings.Any(y => y.Speaker.SpeakerId == current.Speaker.SpeakerId)  // Until the Menubar is finished, this won't work. Comment this line out to test.
+                       && x.Recordings.Any(y => y.Speaker.SpeakerId == current.Speaker.SpeakerId)  // Until the Menubar is finished, this won't work. Comment this line out to test.
                        )).ToList();
 
                     // Can't sort a control's Items field, so we sort a list and add values.
@@ -244,7 +238,7 @@ namespace MPAi.Forms
                     return;
                 }
             }
-            MessageBox.Show(vowelNotFoundText);
+            MPAiMessageBoxFactory.Show(vowelNotFoundText);
             VowelComboBox.Focus();
         }
 
@@ -443,13 +437,13 @@ namespace MPAi.Forms
                 else
                 {
                     recordButton.Text = recordText;
-                    MessageBox.Show(noAudioDeviceText, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show(noAudioDeviceText, warningText, MPAiMessageBoxButtons.OK);
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }
@@ -497,7 +491,7 @@ namespace MPAi.Forms
             {
                 if (e.Exception != null)
                 {
-                    MessageBox.Show(String.Format(formatErrorText, e.Exception.Message));
+                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
                 }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = myRecordingText;
@@ -594,7 +588,7 @@ namespace MPAi.Forms
                         break;
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Error:
                         {
-                            MessageBox.Show(invalidStateString);
+                            MPAiMessageBoxFactory.Show(invalidStateString);
                         }
                         break;
                     default:
@@ -603,7 +597,7 @@ namespace MPAi.Forms
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message);
+                MPAiMessageBoxFactory.Show(exp.Message);
                 Console.WriteLine(exp);
             }
         }
@@ -618,6 +612,7 @@ namespace MPAi.Forms
             {
                 Word wd = wordsList[currentRecordingIndex];
                 Speaker spk = UserManagement.CurrentUser.Speaker;  // Get the speaker from user settings.
+                Console.WriteLine(UserManagement.CurrentUser.Speaker.Name + " " + VoiceType.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice));
                 Recording rd = DBModel.Recording.Local.Where(x => x.WordId == wd.WordId && x.SpeakerId == spk.SpeakerId).SingleOrDefault();
 
                 if (rd != null)
@@ -632,7 +627,7 @@ namespace MPAi.Forms
                 }
                 else
                 {
-                    MessageBox.Show(invalidRecordingString);
+                    MPAiMessageBoxFactory.Show(invalidRecordingString);
                 }
             }
         }

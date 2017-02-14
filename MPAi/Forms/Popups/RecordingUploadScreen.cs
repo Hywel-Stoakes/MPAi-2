@@ -1,16 +1,12 @@
-﻿using MPAi.Cores;
+﻿using MPAi.Components;
+using MPAi.Cores;
 using MPAi.DatabaseModel;
 using MPAi.Modules;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MPAi.Forms.Popups
@@ -23,8 +19,7 @@ namespace MPAi.Forms.Popups
         private string selectAllLocalText = "Select All Local Files";
         private string deselectAllLocalText = "Deselect All Local Files";
 
-        private string updateFailedText = "Failed to update!";
-        private string deleteFailedText = "Failed to update!";
+        private string deleteFailedText = "Failed to delete!";
         private string noValidFilesText = "No valid files found! MPAi recordings must be .wav "
             //+ "or .mp4 
             + "files.";
@@ -79,7 +74,7 @@ namespace MPAi.Forms.Popups
                     localListBox.DataSource = new BindingSource() { DataSource = view}; 
                     if (view.Count() < 1)
                     {
-                        MessageBox.Show(noValidFilesText);
+                        MPAiMessageBoxFactory.Show(noValidFilesText);
                     }
                     localListBox.DisplayMember = "Name";     // Display the names.
                 }
@@ -101,8 +96,8 @@ namespace MPAi.Forms.Popups
             {
                 using (MPAiModel DBModel = new MPAiModel())
                 {
-                    DialogResult renameAction = MessageBox.Show(renamewarningText,
-                        warningText, MessageBoxButtons.OKCancel);
+                    DialogResult renameAction = MPAiMessageBoxFactory.Show(renamewarningText,
+                        warningText, MPAiMessageBoxButtons.OKCancel);
                     // If the user selected cancel, don't take any action.
                     if (renameAction.Equals(DialogResult.Cancel))
                     {
@@ -166,7 +161,7 @@ namespace MPAi.Forms.Popups
             catch (Exception exp)
             {
                 Console.WriteLine(exp.StackTrace);
-                MessageBox.Show(exp.StackTrace);
+                MPAiMessageBoxFactory.Show(exp.StackTrace);
             }
             finally
             {
@@ -240,7 +235,7 @@ namespace MPAi.Forms.Popups
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, deleteFailedText);
+                MPAiMessageBoxFactory.Show(exp.Message, deleteFailedText);
             }
         }
 

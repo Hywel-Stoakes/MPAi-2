@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using NAudio.CoreAudioApi;
-using NAudio.Wave;
+﻿using MPAi.Components;
 using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
-using System.Data.Entity;
 using MPAi.DatabaseModel;
-using MPAi.Modules;
 using MPAi.Forms.Popups;
+using MPAi.Modules;
+using NAudio.CoreAudioApi;
+using NAudio.Wave;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace MPAi.Forms
 {
@@ -29,7 +26,6 @@ namespace MPAi.Forms
         private string stopText = "Stop";
         private string recordText = "Record";
 
-        private string dataLinkErrorText = "Database linking error!";
         private string formatErrorText = "A problem was encountered during recording {0}";
         private string couldntDeleteRecordingText = "Could not delete recording";
         private string noCurrentFileText = "No current file";
@@ -42,14 +38,8 @@ namespace MPAi.Forms
         private string tempFilename;
         private string tempFolder;
 
-        // Assign these using user settings, or main menu, depending on implementation.
-        Speaker spk = null;
-        Category cty = null;
-
         private IWaveIn waveIn;
-        private WaveOutEvent waveOut;
         private WaveFileWriter writer;
-        private WaveFileReader reader;
 
         private HTKEngine RecEngine = new HTKEngine();
         private MPAiSpeakScoreBoardSession session;
@@ -103,6 +93,7 @@ namespace MPAi.Forms
                     DBModel.Database.Initialize(false); // Added for safety; if the database has not been initialised, initialise it.
 
                     MPAiUser current = UserManagement.CurrentUser;
+                    Console.WriteLine(VoiceType.getDisplayNameFromVoiceType(current.Voice));
 
                     List<Word> view = DBModel.Word.Where(x => (
                        x.Category.Name.Equals("Word")
@@ -229,7 +220,6 @@ namespace MPAi.Forms
         private void StopPlay()
         {
             AudioPlayer.Stop();
-            FinalizeWaveFile(reader);
         }
 
         /// <summary>
@@ -272,7 +262,7 @@ namespace MPAi.Forms
                 Resample();
                 if (e.Exception != null)
                 {
-                    MessageBox.Show(String.Format(formatErrorText, e.Exception.Message));
+                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
                 }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = outputFileName;
@@ -359,12 +349,12 @@ namespace MPAi.Forms
                 catch (Exception exp)
                 {
                     Console.WriteLine(exp);
-                    MessageBox.Show(couldntDeleteRecordingText);
+                    MPAiMessageBoxFactory.Show(couldntDeleteRecordingText);
                 }
             }
             else
             {
-                MessageBox.Show(recordingNotSelectedText);
+                MPAiMessageBoxFactory.Show(recordingNotSelectedText);
             }
             // If no items remain, disable buttons relating to them.
             if (RecordingListBox.Items.Count < 1)
@@ -395,7 +385,7 @@ namespace MPAi.Forms
                 {
                     if (UserManagement.CurrentUser.SpeakScoreboard.IsRecordingAlreadyAnalysed(recordingProgressBarLabel.Text))
                     {
-                        MessageBox.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
+                        MPAiMessageBoxFactory.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
                         return;
                     }
                     string target = ((WordComboBox.SelectedItem as Word) == null) ? string.Empty : (WordComboBox.SelectedItem as Word).Name;
@@ -410,14 +400,14 @@ namespace MPAi.Forms
                     }
                     else
                     {
-                        MessageBox.Show("There was a error while analysing this recording.\nHTK Engine did not return a match between the recording and a word.\nIf this problem persist, reinstall MPAi");
+                        MPAiMessageBoxFactory.Show("There was a error while analysing this recording.\nHTK Engine did not return a match between the recording and a word.\nIf this problem persist, reinstall MPAi");
                     }
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }
@@ -592,14 +582,13 @@ namespace MPAi.Forms
                 else
                 {
                     recordButton.Text = recordText;
-                    MessageBox.Show(noAudioDeviceText,
-                    warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show(noAudioDeviceText, warningText, MPAiMessageBoxButtons.OK);
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }

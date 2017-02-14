@@ -39,9 +39,9 @@ namespace MPAi.Forms.Popups
             this.speakerLabel = new System.Windows.Forms.Label();
             this.filenameTextBox = new System.Windows.Forms.TextBox();
             this.filenameLabel = new System.Windows.Forms.Label();
-            this.filePickerButton = new MPAiButton(this.components);
-            this.renameButton = new MPAiButton(this.components);
-            this.cancelButton = new MPAiButton(this.components);
+            this.filePickerButton = new MPAi.Components.MPAiButton(this.components);
+            this.renameButton = new MPAi.Components.MPAiButton(this.components);
+            this.cancelButton = new MPAi.Components.MPAiButton(this.components);
             this.WordComboBox = new System.Windows.Forms.ComboBox();
             this.ExplanationLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -221,7 +221,7 @@ namespace MPAi.Forms.Popups
             // 
             // voiceTypeConverterBindingSource
             // 
-            this.voiceTypeConverterBindingSource.DataSource = typeof(VoiceTypeConverter);
+            this.voiceTypeConverterBindingSource.DataSource = typeof(MPAi.Modules.VoiceType);
             // 
             // RenameFileDialog
             // 
@@ -245,7 +245,7 @@ namespace MPAi.Forms.Popups
             this.Controls.Add(this.cancelButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RenameFileDialog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rename File";
             ((System.ComponentModel.ISupportInitialize)(this.voiceTypeConverterBindingSource)).EndInit();
             this.ResumeLayout(false);
