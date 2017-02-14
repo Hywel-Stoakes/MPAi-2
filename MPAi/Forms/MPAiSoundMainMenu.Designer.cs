@@ -37,7 +37,7 @@ namespace MPAi.Forms
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.greetingLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.testPanel = new System.Windows.Forms.Panel();
             this.TestTipLabel = new System.Windows.Forms.Label();
             this.TargetTipLabel = new System.Windows.Forms.Label();
             this.formantButton = new MPAi.Components.MPAiButton(this.components);
@@ -45,7 +45,7 @@ namespace MPAi.Forms
             this.learnPanel = new System.Windows.Forms.Panel();
             this.LearnTipLabel = new System.Windows.Forms.Label();
             this.learnButton = new MPAi.Components.MPAiButton(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.ReportPanel = new System.Windows.Forms.Panel();
             this.ScoreTipLabel = new System.Windows.Forms.Label();
             this.reportButton = new MPAi.Components.MPAiButton(this.components);
             this.menuStrip1 = new MPAi.Components.MenuStrip(this.components);
@@ -59,9 +59,9 @@ namespace MPAi.Forms
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.testPanel.SuspendLayout();
             this.learnPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.ReportPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -136,9 +136,9 @@ namespace MPAi.Forms
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.testPanel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.learnPanel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ReportPanel, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -150,17 +150,17 @@ namespace MPAi.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 168);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // panel1
+            // testPanel
             // 
-            this.panel1.Controls.Add(this.TestTipLabel);
-            this.panel1.Controls.Add(this.TargetTipLabel);
-            this.panel1.Controls.Add(this.formantButton);
-            this.panel1.Controls.Add(this.targetButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 59);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(538, 50);
-            this.panel1.TabIndex = 3;
+            this.testPanel.Controls.Add(this.TestTipLabel);
+            this.testPanel.Controls.Add(this.TargetTipLabel);
+            this.testPanel.Controls.Add(this.formantButton);
+            this.testPanel.Controls.Add(this.targetButton);
+            this.testPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.testPanel.Location = new System.Drawing.Point(3, 59);
+            this.testPanel.Name = "testPanel";
+            this.testPanel.Size = new System.Drawing.Size(538, 50);
+            this.testPanel.TabIndex = 3;
             // 
             // TestTipLabel
             // 
@@ -253,15 +253,15 @@ namespace MPAi.Forms
             this.learnButton.MouseEnter += new System.EventHandler(this.learnButton_MouseEnter);
             this.learnButton.MouseLeave += new System.EventHandler(this.learnButton_MouseLeave);
             // 
-            // panel2
+            // ReportPanel
             // 
-            this.panel2.Controls.Add(this.ScoreTipLabel);
-            this.panel2.Controls.Add(this.reportButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 115);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(538, 50);
-            this.panel2.TabIndex = 5;
+            this.ReportPanel.Controls.Add(this.ScoreTipLabel);
+            this.ReportPanel.Controls.Add(this.reportButton);
+            this.ReportPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReportPanel.Location = new System.Drawing.Point(3, 115);
+            this.ReportPanel.Name = "ReportPanel";
+            this.ReportPanel.Size = new System.Drawing.Size(538, 50);
+            this.ReportPanel.TabIndex = 5;
             // 
             // ScoreTipLabel
             // 
@@ -323,9 +323,9 @@ namespace MPAi.Forms
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.testPanel.ResumeLayout(false);
             this.learnPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.ReportPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,14 +340,14 @@ namespace MPAi.Forms
         private MPAiButton learnButton;
         private MPAiButton reportButton;
         private MenuStrip menuStrip1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel testPanel;
         private MPAiButton formantButton;
         private MPAiButton targetButton;
         private System.Windows.Forms.Label TestTipLabel;
         private System.Windows.Forms.Label TargetTipLabel;
         private System.Windows.Forms.Panel learnPanel;
         private System.Windows.Forms.Label LearnTipLabel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel ReportPanel;
         private System.Windows.Forms.Label ScoreTipLabel;
     }
 }

@@ -109,5 +109,35 @@ namespace MPAi.Forms
                 Application.Exit();
             }
         }
+
+        private void learnButton_MouseEnter(object sender, EventArgs e)
+        {
+            LearnTipLabel.Visible = true;
+        }
+
+        private void learnButton_MouseLeave(object sender, EventArgs e)
+        {
+            LearnTipLabel.Visible = false;
+        }
+
+        private void testButton_MouseEnter(object sender, EventArgs e)
+        {
+            TestTipLabel.Visible = true;
+        }
+
+        private void testButton_MouseLeave(object sender, EventArgs e)
+        {
+            TestTipLabel.Visible = false;
+        }
+
+        private void reportButton_MouseEnter(object sender, EventArgs e)
+        {
+            ScoreTipLabel.Visible = true;
+        }
+
+        private void reportButton_MouseLeave(object sender, EventArgs e)
+        {
+            ScoreTipLabel.Visible = false;
+        }
     }
 }
