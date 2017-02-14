@@ -180,7 +180,7 @@ namespace MPAi.Forms
 
                     List<Word> view = DBModel.Word.Where(x => (
                        x.Category.Name.Equals("Word")
-                       //&& x.Recordings.Any(y => y.Speaker.SpeakerId == current.Speaker.SpeakerId)  // Until the Menubar is finished, this won't work. Comment this line out to test.
+                       && x.Recordings.Any(y => y.Speaker.SpeakerId == current.Speaker.SpeakerId)  // Until the Menubar is finished, this won't work. Comment this line out to test.
                        )).ToList();
 
                     // Can't sort a control's Items field, so we sort a list and add values.
@@ -612,6 +612,7 @@ namespace MPAi.Forms
             {
                 Word wd = wordsList[currentRecordingIndex];
                 Speaker spk = UserManagement.CurrentUser.Speaker;  // Get the speaker from user settings.
+                Console.WriteLine(UserManagement.CurrentUser.Speaker.Name + " " + VoiceType.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice));
                 Recording rd = DBModel.Recording.Local.Where(x => x.WordId == wd.WordId && x.SpeakerId == spk.SpeakerId).SingleOrDefault();
 
                 if (rd != null)

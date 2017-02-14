@@ -221,7 +221,7 @@ namespace MPAi.Forms.Popups
             // 
             // voiceTypeConverterBindingSource
             // 
-            this.voiceTypeConverterBindingSource.DataSource = typeof(MPAi.Modules.VoiceTypeConverter);
+            this.voiceTypeConverterBindingSource.DataSource = typeof(MPAi.Modules.VoiceType);
             // 
             // RenameFileDialog
             // 

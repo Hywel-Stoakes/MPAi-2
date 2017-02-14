@@ -9,7 +9,7 @@ namespace MPAi.Forms.Popups
     {
         private string username = null;
         private string usercode = null;
-        private VoiceType? voiceType = null;
+        private VoiceType voiceType = null;
 
         /// <summary>
         /// Default Constructor.
@@ -29,19 +29,19 @@ namespace MPAi.Forms.Popups
             usercode = passwordBox.Text;
             if(masculineRadioButton.Checked && nativeRadioButton.Checked)
             {
-                voiceType = VoiceType.MASCULINE_NATIVE;
+                voiceType = new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE);
             }
             else if (masculineRadioButton.Checked && modernRadioButton.Checked)
             {
-                voiceType = VoiceType.MASCULINE_MODERN;
+                voiceType = new VoiceType(GenderType.MASCULINE, LanguageType.MODERN);
             }
             else if (feminineRadioButton.Checked && nativeRadioButton.Checked)
             {
-                voiceType = VoiceType.FEMININE_NATIVE;
+                voiceType = new VoiceType(GenderType.FEMININE, LanguageType.NATIVE);
             }
             else if (feminineRadioButton.Checked && modernRadioButton.Checked)
             {
-                voiceType = VoiceType.FEMININE_MODERN;
+                voiceType = new VoiceType(GenderType.FEMININE, LanguageType.MODERN);
             }
 
             return (new MPAiUser(username, usercode, voiceType));
@@ -118,11 +118,11 @@ namespace MPAi.Forms.Popups
         {
             if(masculineRadioButton.Checked)
             {
-                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(GenderType.MASCULINE);
             }
             else
             {
-                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(GenderType.FEMININE);
             }
         }
 
@@ -130,11 +130,11 @@ namespace MPAi.Forms.Popups
         {
             if (feminineRadioButton.Checked)
             {
-                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(GenderType.FEMININE);
             }
             else
             {
-                nativeRadioButton.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
+                nativeRadioButton.Text = DisplayVoice.DisplayNative(GenderType.MASCULINE);
             }
         }
     }

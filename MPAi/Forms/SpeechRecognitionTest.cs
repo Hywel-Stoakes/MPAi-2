@@ -93,6 +93,7 @@ namespace MPAi.Forms
                     DBModel.Database.Initialize(false); // Added for safety; if the database has not been initialised, initialise it.
 
                     MPAiUser current = UserManagement.CurrentUser;
+                    Console.WriteLine(VoiceType.getDisplayNameFromVoiceType(current.Voice));
 
                     List<Word> view = DBModel.Word.Where(x => (
                        x.Category.Name.Equals("Word")

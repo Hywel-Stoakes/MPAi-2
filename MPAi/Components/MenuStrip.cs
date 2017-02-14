@@ -45,16 +45,14 @@ namespace MPAi.Components
 
         private void checkAndSetNativeDisplayVoice()
         {
-            VoiceType? voiceType = UserManagement.CurrentUser.Voice;
-            if (voiceType.Equals(VoiceType.FEMININE_MODERN) || voiceType.Equals(VoiceType.FEMININE_NATIVE))
+            VoiceType voiceType = UserManagement.CurrentUser.Voice;
+            if (voiceType.Gender.Equals(GenderType.FEMININE))
             {
-                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(Gender.FEMININE);
-                Console.WriteLine("Feminine");
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(GenderType.FEMININE);
             }
             else
             {
-                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(Gender.MASCULINE);
-                Console.WriteLine("Masculine");
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(GenderType.MASCULINE);
             }
         }
 
@@ -74,26 +72,27 @@ namespace MPAi.Components
         /// </summary>
         private void checkAppropriateComponents()
         {
-            switch (UserManagement.CurrentUser.Voice)
+            VoiceType voiceType = UserManagement.CurrentUser.Voice;
+
+            if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
             {
-                case VoiceType.FEMININE_NATIVE:
-                    nativeMāoriToolStripMenuItem.Checked = true;
-                    feminineToolStripMenuItem.Checked = true;
-                    break;
-                case VoiceType.FEMININE_MODERN:
-                    modernMāoriToolStripMenuItem.Checked = true;
-                    feminineToolStripMenuItem.Checked = true;
-                    break;
-                case VoiceType.MASCULINE_NATIVE:
-                    nativeMāoriToolStripMenuItem.Checked = true;
-                    masculineToolStripMenuItem.Checked = true;
-                    break;
-                case VoiceType.MASCULINE_MODERN:
-                    modernMāoriToolStripMenuItem.Checked = true;
-                    masculineToolStripMenuItem.Checked = true;
-                    break;
-                case null:
-                    break;
+                nativeMāoriToolStripMenuItem.Checked = true;
+                masculineToolStripMenuItem.Checked = true;
+            }
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
+            {
+                nativeMāoriToolStripMenuItem.Checked = true;
+                feminineToolStripMenuItem.Checked = true;
+            }
+            else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                modernMāoriToolStripMenuItem.Checked = true;
+                masculineToolStripMenuItem.Checked = true;
+            }
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                modernMāoriToolStripMenuItem.Checked = true;
+                feminineToolStripMenuItem.Checked = true;
             }
         }
 

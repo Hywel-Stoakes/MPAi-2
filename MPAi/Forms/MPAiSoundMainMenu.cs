@@ -86,7 +86,7 @@ namespace MPAi.Forms
         {
             MPAiUser user = UserManagement.CurrentUser;
             PlotController.PlotType? plotType = PlotController.PlotType.VOWEL_PLOT;
-            VoiceType? voiceType = user.Voice;
+            VoiceType voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
 
            
@@ -119,9 +119,8 @@ namespace MPAi.Forms
         {
             MPAiUser user = UserManagement.CurrentUser;
             PlotController.PlotType? plotType = PlotController.PlotType.FORMANT_PLOT;
-            VoiceType? voiceType = user.Voice;
+            VoiceType voiceType = user.Voice;
             PlotController.RunPlot(plotType, voiceType);
-
 
             closeThis();
         }

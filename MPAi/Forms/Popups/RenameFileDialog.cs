@@ -35,11 +35,11 @@ namespace MPAi.Forms.Popups
             InitializeComponent();
             // Use user settings or menu data to automatically fill the fields.
             // Speaker = user's screen name
-            speakerComboBox.Items.AddRange( new object[4]{ VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.FEMININE_NATIVE),
-                VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.MASCULINE_NATIVE),
-                VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.FEMININE_MODERN),
-                VoiceTypeConverter.getDisplayNameFromVoiceType(VoiceType.MASCULINE_MODERN) });
-            speakerComboBox.SelectedItem = VoiceTypeConverter.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice);
+            speakerComboBox.Items.AddRange( new object[4]{ VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.FEMININE, LanguageType.NATIVE)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.FEMININE, LanguageType.MODERN)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.MODERN)) });
+            speakerComboBox.SelectedItem = VoiceType.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice);
             // Category has a drop down list for scalability, although in this version it's just Word and Vowel.
             populateCategoryComboBox(); 
             // Word will need a drop-down list
