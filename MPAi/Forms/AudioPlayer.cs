@@ -40,7 +40,6 @@ namespace MPAi.Forms
         private string audioFilePath = Path.Combine(AppDataPath.Temp, "AudioPlayerRecordedAudio.wav");
         private WaveFileWriter writer;
         private WasapiCapture waveIn;
-        private NAudioPlayer audioPlayer = new NAudioPlayer();
 
         // Used to keep track of the currently playing file.
         private string filePath;
@@ -575,14 +574,12 @@ namespace MPAi.Forms
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing:   // If playing, pause and update the button.
                         {
                             vlcControl.Pause();
-                            audioPlayer.Pause();
                             playButton.ImageIndex = 1;
                         }
                         break;
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused:    // If paused, play and update the button.
                         {
                             vlcControl.Play();  // asyncPlay is not used here, as it starts playback from the beginning.
-                            audioPlayer.Unpause();
                             playButton.ImageIndex = 3;
                         }
                         break;
@@ -676,11 +673,6 @@ namespace MPAi.Forms
             delegateStopper VLCDelegate = new delegateStopper(vlcControl.Stop);
             // Call stop asynchronously.
             VLCDelegate.BeginInvoke(null, null);
-            if (!recordingProgressBarLabel.Text.Equals(noFileText))
-            {
-                // Stop audio when video is stopped.
-                audioPlayer.Stop();
-            }
         }
 
         /// <summary>

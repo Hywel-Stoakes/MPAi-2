@@ -62,8 +62,6 @@ namespace MPAi.Components
         private void authoriseAdmin()
         {
             configToolStripMenuItem.Visible = UserManagement.currentUserIsAdmin();
-
-            changePasswordToolStripMenuItem.Visible = !UserManagement.currentUserIsAdmin();
             consoleToolStripMenuItem.Visible = UserManagement.currentUserIsAdmin();
         }
 

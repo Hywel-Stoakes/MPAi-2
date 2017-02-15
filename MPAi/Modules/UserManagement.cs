@@ -14,7 +14,7 @@ namespace MPAi.Modules
         private static MPAiUser currentUser = null; // Make sure that current user has the correct voice type when you assign to it.
         private static string userDirRoot = AppDataPath.Path;
         private static string fileName = "AppSettings.dat";
-        private static readonly string adminStr = "admin";
+        private static readonly string adminName = "admin";
 
         private static List<MPAiUser> allUsers;
 
@@ -26,7 +26,6 @@ namespace MPAi.Modules
             }
         }
 
-
         /// <summary>
         /// Constructor for the UserManagement class, restores current user's settings, all users, and creates an admin user if one doesn't already exist.
         /// </summary>
@@ -37,7 +36,7 @@ namespace MPAi.Modules
 
             if (allUsers.Count == 0)
             {
-                allUsers.Add(new MPAiUser(adminStr, adminStr));
+                allUsers.Add(new MPAiUser(adminName, adminName, new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE), true, true));
             }
         }
 
@@ -133,7 +132,7 @@ namespace MPAi.Modules
         /// <returns>True if the current user is the administrator, false if not.</returns>
         public static bool currentUserIsAdmin()
         {
-            return (CurrentUser.getName() == adminStr);
+            return CurrentUser.IsAdmin;
         }
 
         /// <summary>
@@ -202,7 +201,7 @@ namespace MPAi.Modules
                             int n = reader.ReadInt32();
                             for (int i = 0; i < n; i++)
                             {
-                                allUsers.Add(new MPAiUser(reader.ReadString(), reader.ReadString(), VoiceType.getVoiceTypeFromString(reader.ReadString())));
+                                allUsers.Add(new MPAiUser(reader.ReadString(), reader.ReadString(), VoiceType.getVoiceTypeFromString(reader.ReadString()), reader.ReadBoolean(), reader.ReadBoolean()));
                             }
                             // restore the last used user, if there was one.
 
@@ -242,6 +241,8 @@ namespace MPAi.Modules
                                 writer.Write(user.getName());
                                 writer.Write(user.getCode());
                                 writer.Write(VoiceType.getStringFromVoiceType(user.Voice));
+                                writer.Write(user.IsAdmin);
+                                writer.Write(user.OriginalAdmin);
                             }         
                             if (CurrentUser == null)    // If there is a current user, store it.
                             {

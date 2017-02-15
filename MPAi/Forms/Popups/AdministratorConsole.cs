@@ -10,10 +10,12 @@ namespace MPAi.Forms.Popups
     {
 
         private System.Collections.Generic.Dictionary<MPAiButton, MPAiUser> userButtonMap;
+        private System.Collections.Generic.Dictionary<CheckBox, MPAiUser> userCheckBoxMap;
 
         public AdministratorConsole()
         {
             InitializeComponent();
+            Console.WriteLine("Height: " + generatedUserTable.Size.Height);
         }
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -36,8 +38,19 @@ namespace MPAi.Forms.Popups
             UserManagement.WriteSettings();
         }
 
+        private void checkBoxChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.CheckBox checkBox = (System.Windows.Forms.CheckBox)sender;
+            MPAiUser user = userCheckBoxMap[checkBox];
+            user.IsAdmin = checkBox.Checked;
+            //Console.WriteLine(user.UserID + " isAdmin: " + user.IsAdmin);
+            UserManagement.WriteSettings();
+        }
+
         private void close_Click(object sender, EventArgs e)
         {
+
+            Console.WriteLine("Height: " + generatedUserTable.Size.Height);
             Close();
         }
     }

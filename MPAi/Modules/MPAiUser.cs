@@ -20,7 +20,8 @@ namespace MPAi.Modules
         private MPAiSpeakScoreBoard speakScoreboard;
         private MPAiSoundScoreBoard soundScoreboard;
         private Speaker speaker;
-        private readonly string adminStr = "admin";
+        private bool isAdmin;
+        private bool originalAdmin;
 
         /// <summary>
         /// Wrapper property for the user's username, allowing access from outside the class.
@@ -33,7 +34,7 @@ namespace MPAi.Modules
             set
             {
                 // prevent the user from changing the name of the admin
-                if (userName != adminStr)
+                if (!originalAdmin)
                 {
                     userName = value;
                 }
@@ -59,7 +60,8 @@ namespace MPAi.Modules
         public VoiceType Voice
         {
             get { return voiceType; }
-            set {
+            set
+            {
                 voiceType = value;
             }
         }
@@ -70,7 +72,27 @@ namespace MPAi.Modules
         [DisplayName("IsAdministrator")]
         public bool IsAdmin
         {
-            get { return isAdmin(); }
+            get
+            {
+                return isAdmin;
+            }
+
+            set
+            {
+                isAdmin = value;
+            }
+        }
+
+        /// <summary>
+        /// Wrapper property for the original administrator status of the user, allowing ti to be checked from outside the class.
+        /// </summary>
+        [DisplayName("OriginalAdmin")]
+        public bool OriginalAdmin
+        {
+            get
+            {
+                return originalAdmin;
+            }
         }
 
         public Speaker Speaker
@@ -133,17 +155,41 @@ namespace MPAi.Modules
             // As Peter Keegan's recordings are the only one we have for testing, users default to MASCULINE_NATIVE.
         }
 
+        public MPAiUser(string name, string code, bool admin) :
+            this(name, code, new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE), admin)
+        {
+            // As Peter Keegan's recordings are the only one we have for testing, users default to MASCULINE_NATIVE.
+        }
+
 
         /// <summary>
         /// Constructor for the MPAiUser class.
         /// </summary>
         /// <param name="name">The new user's username</param>
         /// <param name="code">The new user's password</param>
-        public MPAiUser(string name, string code, VoiceType voiceType)
+        public MPAiUser(string name, string code, VoiceType voiceType) :
+            this(name, code, voiceType, false)
         {
+           
+        }
+
+        public MPAiUser(string name, string code, VoiceType voiceType, bool admin):
+            this(name, code, voiceType, admin, false)
+        {
+            
+        }
+
+        public MPAiUser(string name, string code, VoiceType voiceType, bool admin, bool originalAdmin)
+        {
+            if(!admin && originalAdmin)
+            {
+                throw new ArgumentException("Cannot create a user who is not an admin but is an original admin.");
+            }
             userName = name;
             passWord = code;
             Voice = voiceType;
+            this.isAdmin = admin;
+            this.originalAdmin = originalAdmin;
         }
 
         public void setSpeakerFromVoiceType()
@@ -237,14 +283,7 @@ namespace MPAi.Modules
         {
             return (code.Equals(passWord));
         }
-        /// <summary>
-        /// Checks if the username of the user matches that of the admin, returning whether or not they are the same person.
-        /// </summary>
-        /// <returns>True if the user is the administrator, false otherwise.</returns>
-        public bool isAdmin()
-        {
-            return (getName() == adminStr);
-        }
+
         /// <summary>
         /// Getter for username, Not case senstive.
         /// </summary>
