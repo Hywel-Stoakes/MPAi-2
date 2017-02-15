@@ -34,7 +34,10 @@ namespace MPAi.Forms.Popups
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnalysisScreen));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.correctnessLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.alreadyAnalysedLabel = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +50,11 @@ namespace MPAi.Forms.Popups
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -62,33 +70,74 @@ namespace MPAi.Forms.Popups
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.correctnessLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer4);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(498, 315);
-            this.splitContainer1.SplitterDistance = 99;
+            this.splitContainer1.SplitterDistance = 85;
             this.splitContainer1.TabIndex = 255;
             this.splitContainer1.TabStop = false;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.correctnessLabel);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.panel2);
+            this.splitContainer4.Size = new System.Drawing.Size(498, 85);
+            this.splitContainer4.SplitterDistance = 56;
+            this.splitContainer4.TabIndex = 3;
+            this.splitContainer4.TabStop = false;
             // 
             // correctnessLabel
             // 
             this.correctnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.correctnessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.correctnessLabel.ForeColor = System.Drawing.Color.White;
             this.correctnessLabel.Location = new System.Drawing.Point(0, 0);
             this.correctnessLabel.Name = "correctnessLabel";
-            this.correctnessLabel.Size = new System.Drawing.Size(498, 99);
+            this.correctnessLabel.Size = new System.Drawing.Size(498, 56);
             this.correctnessLabel.TabIndex = 1;
             this.correctnessLabel.Text = "Pronunciation is 100% Correct";
-            this.correctnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.correctnessLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.alreadyAnalysedLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(498, 25);
+            this.panel2.TabIndex = 0;
+            // 
+            // alreadyAnalysedLabel
+            // 
+            this.alreadyAnalysedLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.alreadyAnalysedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alreadyAnalysedLabel.ForeColor = System.Drawing.Color.White;
+            this.alreadyAnalysedLabel.Location = new System.Drawing.Point(0, 0);
+            this.alreadyAnalysedLabel.Name = "alreadyAnalysedLabel";
+            this.alreadyAnalysedLabel.Size = new System.Drawing.Size(498, 25);
+            this.alreadyAnalysedLabel.TabIndex = 3;
+            this.alreadyAnalysedLabel.Text = "(Recording has already been analysed, and will not be added again to scoreboard)";
+            this.alreadyAnalysedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitContainer2
             // 
@@ -104,8 +153,8 @@ namespace MPAi.Forms.Popups
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer2.Size = new System.Drawing.Size(498, 212);
-            this.splitContainer2.SplitterDistance = 167;
+            this.splitContainer2.Size = new System.Drawing.Size(498, 226);
+            this.splitContainer2.SplitterDistance = 178;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
@@ -122,20 +171,20 @@ namespace MPAi.Forms.Popups
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.panel1);
-            this.splitContainer3.Size = new System.Drawing.Size(498, 167);
-            this.splitContainer3.SplitterDistance = 36;
+            this.splitContainer3.Size = new System.Drawing.Size(498, 178);
+            this.splitContainer3.SplitterDistance = 25;
             this.splitContainer3.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(498, 36);
+            this.label1.Size = new System.Drawing.Size(498, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Analysis:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
@@ -144,7 +193,7 @@ namespace MPAi.Forms.Popups
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.panel1.Size = new System.Drawing.Size(498, 127);
+            this.panel1.Size = new System.Drawing.Size(498, 149);
             this.panel1.TabIndex = 0;
             // 
             // descriptionBox
@@ -156,7 +205,7 @@ namespace MPAi.Forms.Popups
             this.descriptionBox.Name = "descriptionBox";
             this.descriptionBox.ReadOnly = true;
             this.descriptionBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionBox.Size = new System.Drawing.Size(458, 127);
+            this.descriptionBox.Size = new System.Drawing.Size(458, 149);
             this.descriptionBox.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -173,7 +222,7 @@ namespace MPAi.Forms.Popups
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 41);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 44);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // scoreReportButton
@@ -182,7 +231,7 @@ namespace MPAi.Forms.Popups
             this.scoreReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.scoreReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.scoreReportButton.ForeColor = System.Drawing.Color.White;
-            this.scoreReportButton.Location = new System.Drawing.Point(12, 9);
+            this.scoreReportButton.Location = new System.Drawing.Point(12, 10);
             this.scoreReportButton.Name = "scoreReportButton";
             this.scoreReportButton.Size = new System.Drawing.Size(100, 23);
             this.scoreReportButton.TabIndex = 0;
@@ -196,7 +245,7 @@ namespace MPAi.Forms.Popups
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(410, 9);
+            this.backButton.Location = new System.Drawing.Point(410, 10);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
@@ -219,6 +268,11 @@ namespace MPAi.Forms.Popups
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -246,5 +300,8 @@ namespace MPAi.Forms.Popups
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MPAiButton scoreReportButton;
         private MPAiButton backButton;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label alreadyAnalysedLabel;
     }
 }

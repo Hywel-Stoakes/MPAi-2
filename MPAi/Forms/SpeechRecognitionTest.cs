@@ -383,19 +383,24 @@ namespace MPAi.Forms
             {
                 if (!recordingProgressBarLabel.Text.Equals(noCurrentFileText))
                 {
-                    if (UserManagement.CurrentUser.SpeakScoreboard.IsRecordingAlreadyAnalysed(recordingProgressBarLabel.Text))
-                    {
-                        MPAiMessageBoxFactory.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
-                        return;
-                    }
+
                     string target = ((WordComboBox.SelectedItem as Word) == null) ? string.Empty : (WordComboBox.SelectedItem as Word).Name;
                     Dictionary<string, string> result = RecEngine.Recognize(Path.Combine(outputFolder, recordingProgressBarLabel.Text)).ToDictionary(x => x.Key, x => x.Value);
                     if (result.Count > 0)
                     {
-                        MPAiSpeakScoreBoardItem item = new MPAiSpeakScoreBoardItem(target, result.First().Value, PronuciationAdvisor.Advise(result.First().Key, target, result.First().Value), recordingProgressBarLabel.Text);
-                        session.Content.Add(item);
+                        MPAiSpeakScoreBoardItem item;
+                        AnalysisScreen analysisScreen;
+                        item = new MPAiSpeakScoreBoardItem(target, result.First().Value, PronuciationAdvisor.Advise(result.First().Key, target, result.First().Value), recordingProgressBarLabel.Text);
 
-                        AnalysisScreen analysisScreen = new AnalysisScreen(item.Similarity, item.Analysis);
+                        if (!UserManagement.CurrentUser.SpeakScoreboard.IsRecordingAlreadyAnalysed(recordingProgressBarLabel.Text))
+                        {
+                            session.Content.Add(item);
+                            analysisScreen = new AnalysisScreen(item.Similarity, item.Analysis);
+                        }
+                        else
+                        {
+                            analysisScreen = new AnalysisScreen(item.Similarity, item.Analysis, true);
+                        }  
                         analysisScreen.ShowDialog(this);
                     }
                     else
