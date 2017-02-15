@@ -1,19 +1,10 @@
-﻿using MPAi.Cores;
-using MPAi.Cores.Scoreboard;
-using MPAi.Models;
+﻿using MPAi.Cores.Scoreboard;
+using MPAi.Modules;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
     public partial class MPAiSpeakMainMenu : Form, MainFormInterface
     {
@@ -35,6 +26,14 @@ namespace MPAi.NewForms
             {
                 greetingLabel.Text = "Kia Ora, " + name + "!";
             }
+        }
+
+        /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            // No action taken.
         }
 
         /// <summary>
@@ -109,6 +108,36 @@ namespace MPAi.NewForms
                 Properties.Settings.Default.Save();
                 Application.Exit();
             }
+        }
+
+        private void learnButton_MouseEnter(object sender, EventArgs e)
+        {
+            LearnTipLabel.Visible = true;
+        }
+
+        private void learnButton_MouseLeave(object sender, EventArgs e)
+        {
+            LearnTipLabel.Visible = false;
+        }
+
+        private void testButton_MouseEnter(object sender, EventArgs e)
+        {
+            TestTipLabel.Visible = true;
+        }
+
+        private void testButton_MouseLeave(object sender, EventArgs e)
+        {
+            TestTipLabel.Visible = false;
+        }
+
+        private void reportButton_MouseEnter(object sender, EventArgs e)
+        {
+            ScoreTipLabel.Visible = true;
+        }
+
+        private void reportButton_MouseLeave(object sender, EventArgs e)
+        {
+            ScoreTipLabel.Visible = false;
         }
     }
 }

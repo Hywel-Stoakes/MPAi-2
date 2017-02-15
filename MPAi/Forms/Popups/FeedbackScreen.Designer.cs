@@ -1,4 +1,6 @@
-﻿namespace MPAi.Forms.MSGBox
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class FeedbackScreen
     {
@@ -29,14 +31,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedbackScreen));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mailContentTextBox = new System.Windows.Forms.TextBox();
             this.customerEmailTextBox = new System.Windows.Forms.TextBox();
             this.mailSubjectTextBox = new System.Windows.Forms.TextBox();
-            this.mailSendButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.mailCancelButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.mailSendButton = new MPAiButton(this.components);
+            this.mailCancelButton = new MPAiButton(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -135,11 +138,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FeedbackScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FeedBack Form";
+            this.Text = "Feedback Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +157,7 @@
         private System.Windows.Forms.TextBox mailContentTextBox;
         private System.Windows.Forms.TextBox customerEmailTextBox;
         private System.Windows.Forms.TextBox mailSubjectTextBox;
-        private MPAi.NewForms.MPAiButton mailSendButton;
-        private MPAi.NewForms.MPAiButton mailCancelButton;
+        private MPAiButton mailSendButton;
+        private MPAiButton mailCancelButton;
     }
 }

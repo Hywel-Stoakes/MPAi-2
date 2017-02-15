@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class UserCreationScreen
     {
@@ -52,13 +54,13 @@
             this.feminineRadioButton = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.modernRadioButton = new System.Windows.Forms.RadioButton();
+            this.nativeRadioButton = new System.Windows.Forms.RadioButton();
             this.ButtonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.okayButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.okayButton = new MPAi.Components.MPAiButton(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.cancelButton = new MPAi.Components.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -224,6 +226,7 @@
             this.userNameBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userNameBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.userNameBox.Location = new System.Drawing.Point(130, 7);
+            this.userNameBox.MaxLength = 25;
             this.userNameBox.Name = "userNameBox";
             this.userNameBox.Size = new System.Drawing.Size(200, 20);
             this.userNameBox.TabIndex = 0;
@@ -312,8 +315,8 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.08642F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.91358F));
             this.tableLayoutPanel3.Controls.Add(this.masculineRadioButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.feminineRadioButton, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -321,7 +324,6 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(243, 29);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -339,19 +341,21 @@
             this.masculineRadioButton.TabStop = true;
             this.masculineRadioButton.Text = "Masculine";
             this.masculineRadioButton.UseVisualStyleBackColor = true;
+            this.masculineRadioButton.CheckedChanged += new System.EventHandler(this.masculineRadioButton_CheckedChanged);
             // 
             // feminineRadioButton
             // 
             this.feminineRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.feminineRadioButton.AutoSize = true;
-            this.feminineRadioButton.Location = new System.Drawing.Point(141, 3);
+            this.feminineRadioButton.Location = new System.Drawing.Point(148, 3);
             this.feminineRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.feminineRadioButton.Name = "feminineRadioButton";
             this.feminineRadioButton.Size = new System.Drawing.Size(67, 23);
             this.feminineRadioButton.TabIndex = 1;
             this.feminineRadioButton.Text = "Feminine";
             this.feminineRadioButton.UseVisualStyleBackColor = true;
+            this.feminineRadioButton.CheckedChanged += new System.EventHandler(this.feminineRadioButton_CheckedChanged);
             // 
             // panel4
             // 
@@ -365,18 +369,30 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.nativeRadioButton, 0, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.08642F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.91358F));
             this.tableLayoutPanel4.Controls.Add(this.modernRadioButton, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.nativeRadioButton, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(243, 29);
             this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // modernRadioButton
+            // 
+            this.modernRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.modernRadioButton.AutoSize = true;
+            this.modernRadioButton.Location = new System.Drawing.Point(148, 3);
+            this.modernRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.modernRadioButton.Name = "modernRadioButton";
+            this.modernRadioButton.Size = new System.Drawing.Size(90, 23);
+            this.modernRadioButton.TabIndex = 1;
+            this.modernRadioButton.Text = "Modern Māori";
+            this.modernRadioButton.UseVisualStyleBackColor = true;
             // 
             // nativeRadioButton
             // 
@@ -387,24 +403,11 @@
             this.nativeRadioButton.Location = new System.Drawing.Point(20, 3);
             this.nativeRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.nativeRadioButton.Name = "nativeRadioButton";
-            this.nativeRadioButton.Size = new System.Drawing.Size(85, 23);
+            this.nativeRadioButton.Size = new System.Drawing.Size(102, 23);
             this.nativeRadioButton.TabIndex = 0;
             this.nativeRadioButton.TabStop = true;
-            this.nativeRadioButton.Text = "Native Māori";
+            this.nativeRadioButton.Text = "Kaumatua Māori";
             this.nativeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // modernRadioButton
-            // 
-            this.modernRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.modernRadioButton.AutoSize = true;
-            this.modernRadioButton.Location = new System.Drawing.Point(141, 3);
-            this.modernRadioButton.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.modernRadioButton.Name = "modernRadioButton";
-            this.modernRadioButton.Size = new System.Drawing.Size(90, 23);
-            this.modernRadioButton.TabIndex = 1;
-            this.modernRadioButton.Text = "Modern Māori";
-            this.modernRadioButton.UseVisualStyleBackColor = true;
             // 
             // ButtonPanel
             // 
@@ -475,8 +478,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(361, 365);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserCreationScreen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create a New User";
             this.Load += new System.EventHandler(this.UserCreationScreen_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

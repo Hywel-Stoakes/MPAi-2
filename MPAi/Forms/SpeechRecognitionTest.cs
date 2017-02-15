@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-
-using NAudio.CoreAudioApi;
-using NAudio.Wave;
-using MPAi.Models;
+﻿using MPAi.Components;
 using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
-using MPAi.Forms.MSGBox;
-using System.Data.Entity;
-using MPAi.Forms.Config;
+using MPAi.DatabaseModel;
+using MPAi.Forms.Popups;
+using MPAi.Modules;
+using NAudio.CoreAudioApi;
+using NAudio.Wave;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms
 {
 
     public partial class SpeechRecognitionTest : Form, MainFormInterface
@@ -30,7 +26,6 @@ namespace MPAi.NewForms
         private string stopText = "Stop";
         private string recordText = "Record";
 
-        private string dataLinkErrorText = "Database linking error!";
         private string formatErrorText = "A problem was encountered during recording {0}";
         private string couldntDeleteRecordingText = "Could not delete recording";
         private string noCurrentFileText = "No current file";
@@ -43,14 +38,8 @@ namespace MPAi.NewForms
         private string tempFilename;
         private string tempFolder;
 
-        // Assign these using user settings, or main menu, depending on implementation.
-        Speaker spk = null;
-        Category cty = null;
-
         private IWaveIn waveIn;
-        private WaveOutEvent waveOut;
         private WaveFileWriter writer;
-        private WaveFileReader reader;
 
         private HTKEngine RecEngine = new HTKEngine();
         private MPAiSpeakScoreBoardSession session;
@@ -74,7 +63,7 @@ namespace MPAi.NewForms
             LoadWasapiDevices();
             CreateDirectory();
             DataBinding();
-            populateWordComboBox();
+            populateBoxes();
             bottomHeight = SpeechRecognitionTestPanel.Height - SpeechRecognitionTestPanel.SplitterDistance;
             toggleOptions();    // For development, the bottom panel is visible, but the user won't need the bottom panel most of the time.
             toggleListButtons(RecordingListBox.SelectedItems.Count > 0);
@@ -84,9 +73,17 @@ namespace MPAi.NewForms
         }
 
         /// <summary>
+        /// When the user changes their voice settings, take this action.
+        /// </summary>
+        public void userChanged()
+        {
+            populateBoxes();
+        }
+
+        /// <summary>
         /// Gets the words from the database.
         /// </summary>
-        private void populateWordComboBox()
+        private void populateBoxes()
         {
             try
             {
@@ -96,6 +93,7 @@ namespace MPAi.NewForms
                     DBModel.Database.Initialize(false); // Added for safety; if the database has not been initialised, initialise it.
 
                     MPAiUser current = UserManagement.CurrentUser;
+                    Console.WriteLine(VoiceType.getDisplayNameFromVoiceType(current.Voice));
 
                     List<Word> view = DBModel.Word.Where(x => (
                        x.Category.Name.Equals("Word")
@@ -222,7 +220,6 @@ namespace MPAi.NewForms
         private void StopPlay()
         {
             AudioPlayer.Stop();
-            FinalizeWaveFile(reader);
         }
 
         /// <summary>
@@ -265,7 +262,7 @@ namespace MPAi.NewForms
                 Resample();
                 if (e.Exception != null)
                 {
-                    MessageBox.Show(String.Format(formatErrorText, e.Exception.Message));
+                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
                 }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = outputFileName;
@@ -352,12 +349,12 @@ namespace MPAi.NewForms
                 catch (Exception exp)
                 {
                     Console.WriteLine(exp);
-                    MessageBox.Show(couldntDeleteRecordingText);
+                    MPAiMessageBoxFactory.Show(couldntDeleteRecordingText);
                 }
             }
             else
             {
-                MessageBox.Show(recordingNotSelectedText);
+                MPAiMessageBoxFactory.Show(recordingNotSelectedText);
             }
             // If no items remain, disable buttons relating to them.
             if (RecordingListBox.Items.Count < 1)
@@ -388,12 +385,11 @@ namespace MPAi.NewForms
                 {
                     if (UserManagement.CurrentUser.SpeakScoreboard.IsRecordingAlreadyAnalysed(recordingProgressBarLabel.Text))
                     {
-                        MessageBox.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
+                        MPAiMessageBoxFactory.Show("Recording '" + recordingProgressBarLabel.Text + "' has already been analysed!");
                         return;
                     }
                     string target = ((WordComboBox.SelectedItem as Word) == null) ? string.Empty : (WordComboBox.SelectedItem as Word).Name;
                     Dictionary<string, string> result = RecEngine.Recognize(Path.Combine(outputFolder, recordingProgressBarLabel.Text)).ToDictionary(x => x.Key, x => x.Value);
-                    //result.Add("Recording File Name", "hoihoi");
                     if (result.Count > 0)
                     {
                         MPAiSpeakScoreBoardItem item = new MPAiSpeakScoreBoardItem(target, result.First().Value, PronuciationAdvisor.Advise(result.First().Key, target, result.First().Value), recordingProgressBarLabel.Text);
@@ -402,12 +398,16 @@ namespace MPAi.NewForms
                         AnalysisScreen analysisScreen = new AnalysisScreen(item.Similarity, item.Analysis);
                         analysisScreen.ShowDialog(this);
                     }
+                    else
+                    {
+                        MPAiMessageBoxFactory.Show("There was a error while analysing this recording.\nHTK Engine did not return a match between the recording and a word.\nIf this problem persist, reinstall MPAi");
+                    }
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }
@@ -582,14 +582,13 @@ namespace MPAi.NewForms
                 else
                 {
                     recordButton.Text = recordText;
-                    MessageBox.Show(noAudioDeviceText,
-                    warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MPAiMessageBoxFactory.Show(noAudioDeviceText, warningText, MPAiMessageBoxButtons.OK);
                 }
             }
             catch (Exception exp)
             {
 #if DEBUG
-                MessageBox.Show(exp.Message, warningText, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MPAiMessageBoxFactory.Show(exp.Message, warningText, MPAiMessageBoxButtons.OK);
 #endif
             }
         }
@@ -706,6 +705,33 @@ namespace MPAi.NewForms
                 Properties.Settings.Default.Save();
                 Application.Exit();
             }
+        }
+
+        /// <summary>
+        /// Override for default draw method, allowing for greater customisation of combo boxes.
+        /// </summary>
+        /// <param name="sender">Automatically generated by Visual Studio.</param>
+        /// <param name="e">Automatically generated by Visual Studio.</param>
+        private void WordComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            Color colour, highlightColour;
+            // Set the colour here.
+            colour = Color.LavenderBlush;
+            highlightColour = Color.AliceBlue;
+
+            // If the item is not selected, paint over it with the correct colour
+            if (!((e.State & DrawItemState.Selected) == DrawItemState.Selected))
+            {
+                e.Graphics.FillRectangle(new SolidBrush(colour), e.Bounds);
+            }
+            // If it is selected, paint over it with the highlight colour.
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(highlightColour), e.Bounds);
+            }
+            e.Graphics.DrawString(WordComboBox.GetItemText(WordComboBox.Items[e.Index]), SystemFonts.DefaultFont, new SolidBrush(Color.Black), e.Bounds);
+            e.DrawFocusRectangle();
         }
     }
 }

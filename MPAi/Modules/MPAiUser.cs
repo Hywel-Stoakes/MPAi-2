@@ -1,25 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MPAi.Cores.Scoreboard;
+using MPAi.DatabaseModel;
+using System;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using MPAi.Models;
-using MPAi.Cores.Scoreboard;
-using System.Windows.Forms;
-using MPAi.Cores;
-using NAudio.CoreAudioApi;
-using NAudio.Wave;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using Vlc.DotNet.Forms;
-using System.Threading;
+using System.IO;
+using System.Linq;
 
-namespace MPAi
+namespace MPAi.Modules
 {
     /// <summary>
     /// Class representing a user in the MPAi system.
@@ -28,11 +16,10 @@ namespace MPAi
     {
         private string userName;
         private string passWord;
-        private VoiceType? voiceType;
+        private VoiceType voiceType;
         private MPAiSpeakScoreBoard speakScoreboard;
         private MPAiSoundScoreBoard soundScoreboard;
         private Speaker speaker;
-        private Category category;
         private readonly string adminStr = "admin";
 
         /// <summary>
@@ -69,12 +56,11 @@ namespace MPAi
         /// Wrapper property for the user's voice type, allowing access outside of the class.
         /// </summary>
         [DisplayName("VoiceType")]
-        public VoiceType? Voice
+        public VoiceType Voice
         {
             get { return voiceType; }
             set {
                 voiceType = value;
-                setSpeakerFromVoiceType();
             }
         }
         
@@ -91,6 +77,7 @@ namespace MPAi
         {
             get
             {
+                setSpeakerFromVoiceType();
                 return speaker;
             }
 
@@ -141,7 +128,7 @@ namespace MPAi
         /// <param name="name">The new user's username</param>
         /// <param name="code">The new user's password</param>
         public MPAiUser(string name, string code) :
-            this(name, code, VoiceType.MASCULINE_NATIVE)
+            this(name, code, new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE))
         {
             // As Peter Keegan's recordings are the only one we have for testing, users default to MASCULINE_NATIVE.
         }
@@ -152,7 +139,7 @@ namespace MPAi
         /// </summary>
         /// <param name="name">The new user's username</param>
         /// <param name="code">The new user's password</param>
-        public MPAiUser(string name, string code, VoiceType? voiceType)
+        public MPAiUser(string name, string code, VoiceType voiceType)
         {
             userName = name;
             passWord = code;
@@ -164,23 +151,22 @@ namespace MPAi
             using (MPAiModel DBModel = new MPAiModel())
             {
                 InitializeDBModel(DBModel);
-                switch (voiceType)
+
+                if(voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
                 {
-                    case VoiceType.MASCULINE_NATIVE:
-                        speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 2).SingleOrDefault();
-                        break;
-
-                    case VoiceType.FEMININE_NATIVE:
-                        speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 1).SingleOrDefault();
-                        break;
-
-                    case VoiceType.MASCULINE_MODERN:
-                        speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 4).SingleOrDefault();
-                        break;
-
-                    case VoiceType.FEMININE_MODERN:
-                        speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 3).SingleOrDefault();
-                        break;
+                    speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 2).SingleOrDefault();
+                }
+                else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
+                {
+                    speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 1).SingleOrDefault();
+                }
+                else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
+                {
+                    speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 4).SingleOrDefault();
+                }
+                else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
+                {
+                    speaker = DBModel.Speaker.Local.Where(x => x.SpeakerId == 3).SingleOrDefault();
                 }
             }
         }
@@ -217,15 +203,7 @@ namespace MPAi
         /// </summary>
         public void changeVoiceToFeminine()
         {
-            switch(voiceType)
-            {
-                case VoiceType.MASCULINE_NATIVE:
-                    Voice = VoiceType.FEMININE_NATIVE;
-                    break;
-                case VoiceType.MASCULINE_MODERN:
-                    Voice = VoiceType.FEMININE_MODERN;
-                    break;
-            }
+            Voice.Gender = GenderType.FEMININE;
         }
 
         /// <summary>
@@ -233,15 +211,7 @@ namespace MPAi
         /// </summary>
         public void changeVoiceToMasculine()
         {
-            switch (voiceType)
-            {
-                case VoiceType.FEMININE_NATIVE:
-                    Voice = VoiceType.MASCULINE_NATIVE;
-                    break;
-                case VoiceType.FEMININE_MODERN:
-                    Voice = VoiceType.MASCULINE_MODERN;
-                    break;
-            }
+            Voice.Gender = GenderType.MASCULINE;
         }
 
         /// <summary>
@@ -249,30 +219,14 @@ namespace MPAi
         /// </summary>
         public void changeVoiceToNative()
         {
-            switch (voiceType)
-            {
-                case VoiceType.FEMININE_MODERN:
-                    Voice = VoiceType.FEMININE_NATIVE;
-                    break;
-                case VoiceType.MASCULINE_MODERN:
-                    Voice = VoiceType.MASCULINE_NATIVE;
-                    break;
-            }
+            Voice.Language = LanguageType.NATIVE;
         }
         /// <summary>
         /// Changes the voice type to Modern.
         /// </summary>
         public void changeVoiceToModern()
         {
-            switch (voiceType)
-            {
-                case VoiceType.FEMININE_NATIVE:
-                    Voice = VoiceType.FEMININE_MODERN;
-                    break;
-                case VoiceType.MASCULINE_NATIVE:
-                    Voice = VoiceType.MASCULINE_MODERN;
-                    break;
-            }
+            Voice.Language = LanguageType.MODERN;
         }
         /// <summary>
         /// Checks if the input string matches this user's password. Case sensitive.

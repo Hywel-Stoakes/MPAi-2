@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MPAi.DatabaseModel;
+using System;
 using System.IO;
+using System.Linq;
 
 namespace MPAi.Cores
 {
@@ -133,7 +131,7 @@ namespace MPAi.Cores
         {
             string[] parts = fileName.Split('-');
 
-            MPAi.Models.MPAiModel DBModel = MPAi.Models.MPAiModel.InitializeDBModel();
+            MPAiModel DBModel = MPAiModel.InitializeDBModel();
 
             if (parts.Length < 4)
             {

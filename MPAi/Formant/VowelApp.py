@@ -83,7 +83,7 @@ class VowelApp:
     """
     def initialiseRoot(self):
         self.root = Tk()
-        self.root.title("Vowel Plot") #Dont change the title without changing the c# code to end the process.
+        self.root.title("MPAi Vowel Plot") #Dont change the title without changing the c# code to end the process.
         self.root.protocol("WM_DELETE_WINDOW", self.quitApp) #Defines the default close operation.
         self.resizeCount=0
 
@@ -190,6 +190,7 @@ class VowelApp:
         self.root.mainloop()
 
     def quitApp(self):
+        print("Exiting")
         self.vowelScorer.connectAndSendText()
         self.root.destroy()
         sys.exit(0)

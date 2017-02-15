@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
+﻿using MPAi.Components;
 using MPAi.Cores;
-using MPAi.Models;
-using System.Data.Entity;
+using MPAi.DatabaseModel;
+using MPAi.Modules;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Forms.Popups
 {
     public partial class RenameFileDialog : Form
     {
@@ -38,8 +35,11 @@ namespace MPAi.NewForms
             InitializeComponent();
             // Use user settings or menu data to automatically fill the fields.
             // Speaker = user's screen name
-            speakerComboBox.Items.AddRange( new object[4]{ VoiceType.FEMININE_NATIVE, VoiceType.MASCULINE_NATIVE, VoiceType.FEMININE_MODERN, VoiceType.MASCULINE_MODERN });
-            speakerComboBox.SelectedItem = UserManagement.CurrentUser.Voice;
+            speakerComboBox.Items.AddRange( new object[4]{ VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.FEMININE, LanguageType.NATIVE)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.NATIVE)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.FEMININE, LanguageType.MODERN)),
+                VoiceType.getDisplayNameFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.MODERN)) });
+            speakerComboBox.SelectedItem = VoiceType.getDisplayNameFromVoiceType(UserManagement.CurrentUser.Voice);
             // Category has a drop down list for scalability, although in this version it's just Word and Vowel.
             populateCategoryComboBox(); 
             // Word will need a drop-down list
@@ -88,7 +88,7 @@ namespace MPAi.NewForms
             }
             catch (Exception exp)
             {
-                MessageBox.Show(dataLinkErrorText);
+                MPAiMessageBoxFactory.Show(dataLinkErrorText);
                 Console.WriteLine(exp);
             }
         }
@@ -99,20 +99,20 @@ namespace MPAi.NewForms
         /// </summary>
         /// <param name="voice">A VoiceType enum representing the voice type to convert.</param>
         /// <returns>A string which is the old format for the input enum.</returns>
-        private string ConvertVoiceType(VoiceType? voice)
+        private string ConvertDisplayVoiceType(string voice)
         {
             switch (voice)
             {
-                case (VoiceType.FEMININE_NATIVE):
+                case ("Feminine, Kuia Māori"):
                     return "oldfemale";
-                case (VoiceType.MASCULINE_NATIVE):
+                case ("Masculine, Kaumatua Māori"):
                     return "oldmale";
-                case (VoiceType.FEMININE_MODERN):
+                case ("Feminine, Modern Māori"):
                     return "youngfemale";
-                case (VoiceType.MASCULINE_MODERN):
+                case ("Masculine, Modern Māori"):
                     return "youngmale";
                 default:
-                    MessageBox.Show("Invalid Speaker type!");
+                    MPAiMessageBoxFactory.Show("Invalid Speaker type!");
                     return null;
             }
         }
@@ -144,7 +144,7 @@ namespace MPAi.NewForms
             }
             catch (Exception exp)
             {
-                MessageBox.Show(dataLinkErrorText);
+                MPAiMessageBoxFactory.Show(dataLinkErrorText);
                 Console.WriteLine(exp);
             }
         }
@@ -190,7 +190,7 @@ namespace MPAi.NewForms
                 NameParser parser = new NameParser();
                 parser.Address = Path.GetDirectoryName(file.FullName);
                 parser.Ext = Path.GetExtension(file.FullName);
-                parser.Speaker = ConvertVoiceType((VoiceType?)speakerComboBox.SelectedItem);
+                parser.Speaker = ConvertDisplayVoiceType((string)speakerComboBox.SelectedItem);
                 parser.Category = categoryComboBox.Text;
                 parser.Word = WordComboBox.Text;
                 parser.Label = labelTextBox.Text;
@@ -205,11 +205,11 @@ namespace MPAi.NewForms
             {
                 if (exp.GetType() == typeof(FileNotFoundException))
                 {
-                    MessageBox.Show(exp.Message, noSuchFileText);
+                    MPAiMessageBoxFactory.Show(exp.Message, noSuchFileText);
                 }
                 else if (exp.GetType() == typeof(IOException))
                 {
-                    MessageBox.Show(exp.Message, alreadyExistsText);
+                    MPAiMessageBoxFactory.Show(exp.Message, alreadyExistsText);
                 }
             }
         }
@@ -250,7 +250,7 @@ namespace MPAi.NewForms
                     return;
                 }
             }
-            MessageBox.Show(wordNotFoundText);
+            MPAiMessageBoxFactory.Show(wordNotFoundText);
             WordComboBox.Focus();
         }
 
@@ -290,7 +290,7 @@ namespace MPAi.NewForms
                     return;
                 }
             }
-            MessageBox.Show(categoryNotFoundText);
+            MPAiMessageBoxFactory.Show(categoryNotFoundText);
             categoryComboBox.Focus();
         }
 

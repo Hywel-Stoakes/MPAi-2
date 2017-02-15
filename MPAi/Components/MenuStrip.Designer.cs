@@ -1,4 +1,4 @@
-﻿namespace MPAi.NewForms
+﻿namespace MPAi.Components
 {
     partial class MenuStrip
     {
@@ -72,7 +72,7 @@
             // 
             this.nativeMāoriToolStripMenuItem.Name = "nativeMāoriToolStripMenuItem";
             this.nativeMāoriToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.nativeMāoriToolStripMenuItem.Text = "Native Māori";
+            this.nativeMāoriToolStripMenuItem.Text = "Kaumatua Māori";
             this.nativeMāoriToolStripMenuItem.Click += new System.EventHandler(this.nativeMāoriToolStripMenuItem_Click);
             // 
             // modernMāoriToolStripMenuItem

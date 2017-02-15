@@ -1,30 +1,30 @@
-﻿using MPAi.Forms.Config;
-using MPAi.Forms.MSGBox;
+﻿using MPAi.Forms;
+using MPAi.Forms.Popups;
+using MPAi.Modules;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MPAi.NewForms
+namespace MPAi.Components
 {
     /// <summary>
     /// The menu strip that appears at the top of each form.
     /// </summary>
     public partial class MenuStrip : System.Windows.Forms.MenuStrip
     {
-        private string changetext = "Your settings have been changed. You may need to reload the current form for your changes to take effect.";
         /// <summary>
         /// Default constructor.
         /// </summary>
         public MenuStrip() : base()
         {
             InitializeComponent();
+
+            checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
+
+            userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
         }
 
         /// <summary>
@@ -36,8 +36,24 @@ namespace MPAi.NewForms
             container.Add(this);
 
             InitializeComponent();
+            checkAndSetNativeDisplayVoice();
             checkAppropriateComponents();
             authoriseAdmin();
+
+            userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
+        }
+
+        private void checkAndSetNativeDisplayVoice()
+        {
+            VoiceType voiceType = UserManagement.CurrentUser.Voice;
+            if (voiceType.Gender.Equals(GenderType.FEMININE))
+            {
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(GenderType.FEMININE);
+            }
+            else
+            {
+                nativeMāoriToolStripMenuItem.Text = DisplayVoice.DisplayNative(GenderType.MASCULINE);
+            }
         }
 
         /// <summary>
@@ -56,28 +72,28 @@ namespace MPAi.NewForms
         /// </summary>
         private void checkAppropriateComponents()
         {
-            switch (UserManagement.CurrentUser.Voice)
+            VoiceType voiceType = UserManagement.CurrentUser.Voice;
+
+            if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
             {
-                case Models.VoiceType.FEMININE_NATIVE:
-                    nativeMāoriToolStripMenuItem.Checked = true;
-                    feminineToolStripMenuItem.Checked = true;
-                    break;
-                case Models.VoiceType.FEMININE_MODERN:
-                    modernMāoriToolStripMenuItem.Checked = true;
-                    feminineToolStripMenuItem.Checked = true;
-                    break;
-                case Models.VoiceType.MASCULINE_NATIVE:
-                    nativeMāoriToolStripMenuItem.Checked = true;
-                    masculineToolStripMenuItem.Checked = true;
-                    break;
-                case Models.VoiceType.MASCULINE_MODERN:
-                    modernMāoriToolStripMenuItem.Checked = true;
-                    masculineToolStripMenuItem.Checked = true;
-                    break;
-                case null:
-                    break;
+                nativeMāoriToolStripMenuItem.Checked = true;
+                masculineToolStripMenuItem.Checked = true;
             }
-            
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
+            {
+                nativeMāoriToolStripMenuItem.Checked = true;
+                feminineToolStripMenuItem.Checked = true;
+            }
+            else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                modernMāoriToolStripMenuItem.Checked = true;
+                masculineToolStripMenuItem.Checked = true;
+            }
+            else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
+            {
+                modernMāoriToolStripMenuItem.Checked = true;
+                feminineToolStripMenuItem.Checked = true;
+            }
         }
 
         /// <summary>
@@ -91,7 +107,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToNative();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -105,7 +121,7 @@ namespace MPAi.NewForms
             modernMāoriToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToModern();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToModern();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -119,7 +135,8 @@ namespace MPAi.NewForms
             masculineToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
             UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            checkAndSetNativeDisplayVoice();
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -129,11 +146,13 @@ namespace MPAi.NewForms
         /// <param name="e">Automatically generated by Visual Studio.</param>
         private void masculineToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             feminineToolStripMenuItem.Checked = false;
             masculineToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
-            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();   // and the current user in the list of users.
-            MessageBox.Show(changetext);
+            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();
+            checkAndSetNativeDisplayVoice(); // and the current user in the list of users.
+            ((MainFormInterface)Parent).userChanged();
         }
 
         /// <summary>
@@ -166,7 +185,7 @@ namespace MPAi.NewForms
         /// <param name="e">Automatically generated by Visual Studio.</param>
         private void consoleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AdminConsole().ShowDialog(this);
+            new AdministratorConsole().ShowDialog(this);
         }
 
         /// <summary>
@@ -218,14 +237,13 @@ namespace MPAi.NewForms
         /// <param name="e">Automatically generated by Visual Studio.</param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                this, "Maori Pronunciation Aid (MPAi) " +
+            MPAiMessageBoxFactory.Show(
+                "Maori Pronunciation Aid (MPAi) " +
                 Application.ProductVersion + "\n\n" +
                 "Dr. Catherine Watson\n" +
                 "The University of Auckland",
                 "About",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                MPAiMessageBoxButtons.OK);
         }
     }
 }
