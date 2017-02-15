@@ -15,7 +15,6 @@ namespace MPAi.Forms.Popups
         public AdministratorConsole()
         {
             InitializeComponent();
-            Console.WriteLine("Height: " + generatedUserTable.Size.Height);
         }
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -38,19 +37,30 @@ namespace MPAi.Forms.Popups
             UserManagement.WriteSettings();
         }
 
+        private void deleteButtonClick(object sender, EventArgs e)
+        {
+            MPAiUser user = userButtonMap[(MPAiButton)sender];
+            if(MPAiMessageBoxFactory.Show("Are you sure you want to delete " + user.GetCorrectlyCapitalisedName() + "'s account?", MPAiMessageBoxButtons.YesNoCancel).Equals(DialogResult.Yes))
+            {
+                UserManagement.RemoveUser(user);
+                generatedUserTable = generateUserTable();
+                this.Close();
+                new AdministratorConsole().ShowDialog();
+                Console.WriteLine("delete " + user.GetCorrectlyCapitalisedName());
+            }
+            UserManagement.WriteSettings();
+        }
+
         private void checkBoxChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.CheckBox checkBox = (System.Windows.Forms.CheckBox)sender;
             MPAiUser user = userCheckBoxMap[checkBox];
             user.IsAdmin = checkBox.Checked;
-            //Console.WriteLine(user.UserID + " isAdmin: " + user.IsAdmin);
             UserManagement.WriteSettings();
         }
 
         private void close_Click(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Height: " + generatedUserTable.Size.Height);
             Close();
         }
     }

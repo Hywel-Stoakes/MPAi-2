@@ -54,7 +54,7 @@ namespace MPAi.Modules
         /// </summary>
         /// <param name="username">The name of the user to get.</param>
         /// <returns>The MPAiUser with name username.</returns>
-        public static MPAiUser getUser(string username)
+        public static MPAiUser GetUser(string username)
         {
             return GetAllUsers().Find(x => x.getName().Equals(username.ToLower()));
         }
@@ -130,7 +130,7 @@ namespace MPAi.Modules
         /// Checks if the current user is the administrator.
         /// </summary>
         /// <returns>True if the current user is the administrator, false if not.</returns>
-        public static bool currentUserIsAdmin()
+        public static bool IsCurrentUserAdmin()
         {
             return CurrentUser.IsAdmin;
         }
@@ -144,9 +144,9 @@ namespace MPAi.Modules
         public static bool AuthenticateUser(ref MPAiUser tUser)
         {
             // This changes the field, as the property's setter is designed to be used from outside the class, and would cause this to break.
-            if (allUsers.Contains(tUser) && getUser(tUser.getName()).codeCorrect(tUser.getCode()))
+            if (allUsers.Contains(tUser) && GetUser(tUser.getName()).codeCorrect(tUser.getCode()))
             {
-                MPAiUser user = getUser(tUser.getName());
+                MPAiUser user = GetUser(tUser.getName());
                 currentUser = user;    // Set the user as the current user.
                 return true;
             }
