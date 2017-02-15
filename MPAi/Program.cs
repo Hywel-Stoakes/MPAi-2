@@ -13,6 +13,18 @@ namespace MPAi
         static void Main(string[] args)
         {
             Console.WriteLine(VoiceType.getStringFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.MODERN)));
+
+
+            if (args.Length > 0)
+            {
+                if (args[0] == "initDB")
+                {
+                    Application.Run(new LoginScreen("initDB"));
+                    return;
+                }
+            }
+            Console.WriteLine("Running Normally.");
+
             
             Application.Run(new LoginScreen());
 
