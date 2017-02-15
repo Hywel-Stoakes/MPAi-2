@@ -324,16 +324,21 @@ namespace MPAi.Forms
 
             foreach (var process in Process.GetProcessesByName("MPAiVowelRunner"))
             {
-                process.Kill();
-                process.WaitForExit();
-                process.Dispose();
+                if (process == null)
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
+                }
             }
             foreach (var process in Process.GetProcessesByName("MPAiPlotRunner"))
             {
-
-                process.Kill();
-                process.WaitForExit();
-                process.Dispose();
+                if (process == null)
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
+                }
             }
 
             UserManagement.WriteSettings();
