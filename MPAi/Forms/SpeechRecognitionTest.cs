@@ -49,6 +49,8 @@ namespace MPAi.Forms
 
         private bool appClosing = true;
 
+        bool dataEvent = false;
+
         public NAudioPlayer AudioPlayer
         {
             get { return audioPlayer; }
@@ -206,7 +208,11 @@ namespace MPAi.Forms
         private void StopRecording()
         {
             recordButton.Text = recordText;
-            waveIn.DataAvailable -= OnDataAvailable;
+            if (dataEvent)
+            {
+                waveIn.DataAvailable -= OnDataAvailable;
+                dataEvent = false;
+            }
             if (waveIn != null)
             {
                 waveIn.StopRecording();
@@ -575,6 +581,7 @@ namespace MPAi.Forms
                     // Use wasapi by default
                     waveIn = new WasapiCapture(device);
                     waveIn.DataAvailable += OnDataAvailable;
+                    dataEvent = true;   // Track whether an event is subscribed to. 
                     waveIn.RecordingStopped += OnRecordingStopped;
 
                     tempFilename = String.Format("{0}-{1:yyy-MM-dd-HH-mm-ss}.wav", UserManagement.CurrentUser.getName(), DateTime.Now);
