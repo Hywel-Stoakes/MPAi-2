@@ -311,7 +311,7 @@ namespace MPAi.Forms
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MPAiSoundMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MPAi Vowels";
+            this.Text = "MPAi Sounds";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MPAiSoundMainMenu_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
