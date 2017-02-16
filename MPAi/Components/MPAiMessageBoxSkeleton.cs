@@ -7,6 +7,8 @@ namespace MPAi.Components
     {
         private DialogResult result = DialogResult.None;
 
+        private MPAiButton button1 = null, button2 = null, button3 = null;
+
         public MPAiMessageBoxTemplate()
         {
             InitializeComponent();
@@ -16,12 +18,18 @@ namespace MPAi.Components
         {
             tableLayoutPanel1.Controls.Add(button, 0, 0);
             button.Click += buttonClick;
+            button.TabIndex = 0;
+            button.TabStop = true;
+            button1 = button;
         }
 
         public void SetPanel2Button(MPAiButton button)
         {
             tableLayoutPanel1.Controls.Add(button, 1, 0);
             button.Click += buttonClick;
+            button.TabIndex = 0;
+            button.TabStop = true;
+            button2 = button;
         }
 
         public void SetPanel3Button(MPAiButton button)
@@ -30,6 +38,7 @@ namespace MPAi.Components
             button.Click += buttonClick;
             button.TabIndex = 0;
             button.TabStop = true;
+            button3 = button;
         }
 
         public void SetMessageText(string text)
@@ -50,6 +59,23 @@ namespace MPAi.Components
 
         public DialogResult ShowMessageBox()
         {
+            if(button3 != null)
+            {
+                this.button3.Select();
+            }
+            else if (button2 != null)
+            {
+                this.button2.Select();
+            }
+            else if (button1 != null)
+            {
+                this.button1.Select();
+            }
+            else
+            {
+                captionLabel.Select();
+            }
+
             this.ShowDialog();
             return result;
         }
