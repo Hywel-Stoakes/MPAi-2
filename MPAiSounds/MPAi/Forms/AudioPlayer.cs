@@ -65,6 +65,7 @@ namespace MPAi.Forms
         // Used to determine if the entire application is closing, or just the form.
         private bool appClosing = true;
         private bool playRecording;
+        private bool onDataAvailableSubscribed = false;
 
         /// <summary>
         /// Wrapper propety for repeatTimes, also prevents too many repeats by updating repeatsRemaining.
@@ -303,6 +304,8 @@ namespace MPAi.Forms
         public void closeThis()
         {
             appClosing = false; // Tell the FormClosing event not to end the program.
+            asyncStop();
+            StopRecording();
             Close();
         }
 
@@ -389,7 +392,11 @@ namespace MPAi.Forms
         /// </summary>
         private void StopRecording()
         {
-            waveIn.DataAvailable -= OnDataAvailable;
+            if (onDataAvailableSubscribed)
+            {
+                waveIn.DataAvailable -= OnDataAvailable;
+                onDataAvailableSubscribed = false;
+            }
 
             recordButton.Text = recordText;
             if (waveIn != null)
@@ -430,6 +437,8 @@ namespace MPAi.Forms
                     // Use wasapi by default
                     waveIn = new WasapiCapture(device);
                     waveIn.DataAvailable += OnDataAvailable;
+                    onDataAvailableSubscribed = true;
+
                     waveIn.RecordingStopped += OnRecordingStopped;
                     Console.Write(audioFilePath);
                     writer = new WaveFileWriter(audioFilePath, waveIn.WaveFormat);
