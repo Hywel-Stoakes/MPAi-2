@@ -251,7 +251,9 @@ namespace MPAi.Modules
                             else
                             { 
                                 writer.Write((Int32)(allUsers.FindIndex(CurrentUser.Equals)));
-                            }                                                                   
+                            }
+                            // Set file to hidden once it has been written to.
+                            File.SetAttributes(GetSettingFilePath(), File.GetAttributes(GetSettingFilePath()) | FileAttributes.Hidden);
                         }
                     }
                 }
