@@ -43,7 +43,7 @@ namespace MPAi.Forms
             this.forwardButton = new MPAiButton(this.components);
             this.forwardImageList = new System.Windows.Forms.ImageList(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.VowelComboBox = new System.Windows.Forms.ComboBox();
+            this.WordComboBox = new MPAiComboBox();
             this.optionsButton = new MPAiButton(this.components);
             this.backButton = new MPAiButton(this.components);
             this.resetButton = new MPAiButton(this.components);
@@ -131,7 +131,7 @@ namespace MPAi.Forms
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.VowelComboBox);
+            this.panel1.Controls.Add(this.WordComboBox);
             this.panel1.Controls.Add(this.optionsButton);
             this.panel1.Controls.Add(this.backButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -288,24 +288,23 @@ namespace MPAi.Forms
             this.progressBar1.Size = new System.Drawing.Size(304, 23);
             this.progressBar1.TabIndex = 9;
             // 
-            // VowelComboBox
+            // WordComboBox
             // 
-            this.VowelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.WordComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VowelComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.VowelComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.VowelComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.VowelComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.VowelComboBox.FormattingEnabled = true;
-            this.VowelComboBox.ItemHeight = 13;
-            this.VowelComboBox.Location = new System.Drawing.Point(111, 45);
-            this.VowelComboBox.Name = "VowelComboBox";
-            this.VowelComboBox.Size = new System.Drawing.Size(353, 19);
-            this.VowelComboBox.TabIndex = 1;
-            this.VowelComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.VowelComboBox_DrawItem);
-            this.VowelComboBox.SelectedIndexChanged += new System.EventHandler(this.VowelComboBox_SelectedIndexChanged);
-            this.VowelComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VowelComboBox_KeyPress);
-            this.VowelComboBox.Leave += new System.EventHandler(this.VowelComboBox_Leave);
+            this.WordComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.WordComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.WordComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.WordComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.WordComboBox.FormattingEnabled = true;
+            this.WordComboBox.ItemHeight = 13;
+            this.WordComboBox.Location = new System.Drawing.Point(111, 45);
+            this.WordComboBox.Name = "WordComboBox";
+            this.WordComboBox.Size = new System.Drawing.Size(353, 19);
+            this.WordComboBox.TabIndex = 1;
+            this.WordComboBox.SelectedIndexChanged += new System.EventHandler(this.WordComboBox_SelectedIndexChanged);
+            this.WordComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WordComboBox_KeyPress);
+            this.WordComboBox.Leave += new System.EventHandler(this.WordComboBox_Leave);
             // 
             // optionsButton
             // 
@@ -686,7 +685,7 @@ namespace MPAi.Forms
         #endregion
 
         private System.Windows.Forms.SplitContainer VideoPlayerPanel;
-        private System.Windows.Forms.ComboBox VowelComboBox;
+        private MPAiComboBox WordComboBox;
         private MPAiButton backButton;
         private MPAiButton optionsButton;
         private System.Windows.Forms.DomainUpDown repeatSpinner;

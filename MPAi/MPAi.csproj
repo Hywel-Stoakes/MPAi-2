@@ -127,6 +127,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MPAiComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MPAiComboBox.Designer.cs">
+      <DependentUpon>MPAiComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MPAiMessageBoxFactory.cs" />
     <Compile Include="Components\MPAiMessageBoxTemplate.cs">
       <SubType>Form</SubType>

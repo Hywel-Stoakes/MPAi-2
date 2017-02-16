@@ -36,7 +36,7 @@ namespace MPAi.Forms
             this.SpeechRecognitionTestPanel = new System.Windows.Forms.SplitContainer();
             this.backButton = new MPAiButton(this.components);
             this.optionsButton = new MPAiButton(this.components);
-            this.WordComboBox = new System.Windows.Forms.ComboBox();
+            this.WordComboBox = new MPAiComboBox();
             this.analyzeButton = new MPAiButton(this.components);
             this.recordingProgressBarLabel = new System.Windows.Forms.Label();
             this.recordButton = new MPAiButton(this.components);
@@ -151,7 +151,6 @@ namespace MPAi.Forms
             this.WordComboBox.Size = new System.Drawing.Size(350, 21);
             this.WordComboBox.TabIndex = 0;
             this.WordComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.WordComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.WordComboBox_DrawItem);
             this.WordComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WordComboBox_KeyPress);
             // 
             // analyzeButton
@@ -399,7 +398,7 @@ namespace MPAi.Forms
         private System.Windows.Forms.SplitContainer SpeechRecognitionTestPanel;
         private MPAiButton backButton;
         private MPAiButton optionsButton;
-        private System.Windows.Forms.ComboBox WordComboBox;
+        private MPAiComboBox WordComboBox;
         private MPAiButton analyzeButton;
         private System.Windows.Forms.Label recordingProgressBarLabel;
         private MPAiButton recordButton;
