@@ -210,12 +210,7 @@ namespace MPAi.Modules
                             {
                                 currentUser = allUsers[index];
                             }
-                        }
-                        else
-                        {
-                            // Set file to hidden, in case this just created the file.
-                            File.SetAttributes(GetSettingFilePath(), File.GetAttributes(GetSettingFilePath()) | FileAttributes.Hidden);
-                        }                         
+                        }                       
                     }
                 }
             }
@@ -257,8 +252,6 @@ namespace MPAi.Modules
                             { 
                                 writer.Write((Int32)(allUsers.FindIndex(CurrentUser.Equals)));
                             }
-                            // Set file to hidden once it has been written to.
-                            File.SetAttributes(GetSettingFilePath(), File.GetAttributes(GetSettingFilePath()) | FileAttributes.Hidden);
                         }
                     }
                 }

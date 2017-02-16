@@ -154,11 +154,6 @@ namespace MPAi.Cores
                             HTKFolder = reader.ReadString();
                             FormantFolder = reader.ReadString();
                         }
-                        else
-                        {
-                            // Set file to hidden, in case this just created the file.
-                            File.SetAttributes(settingsFile, File.GetAttributes(settingsFile) | FileAttributes.Hidden);
-                        }
                     }
                 }
             }
@@ -175,7 +170,7 @@ namespace MPAi.Cores
         {
             try
             {
-                using (FileStream fs = new FileStream(settingsFile, FileMode.Create))
+                using (FileStream fs = new FileStream(settingsFile, FileMode.Create, FileAccess.Write))
                 {
                     using (BinaryWriter writer = new BinaryWriter(fs))
                     {
@@ -186,9 +181,6 @@ namespace MPAi.Cores
                         writer.Write(RecordingFolder);
                         writer.Write(HTKFolder);
                         writer.Write(FormantFolder);
-
-                        // Set file to hidden once it has been written to.
-                        File.SetAttributes(settingsFile, File.GetAttributes(settingsFile) | FileAttributes.Hidden);
                     }
                 }
             }
