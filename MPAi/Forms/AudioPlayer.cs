@@ -1031,20 +1031,21 @@ namespace MPAi.Forms
             e.DrawBackground();
             Color colour, highlightColour;
             // Set the colour here.
-            colour = Color.LavenderBlush;
-            highlightColour = Color.AliceBlue;
+            colour = Color.White;
+            highlightColour = System.Drawing.Color.FromArgb(0xFF, 0xFA, 0x4A, 0x4A);
 
             // If the item is not selected, paint over it with the correct colour
             if (!((e.State & DrawItemState.Selected) == DrawItemState.Selected))
             {
                 e.Graphics.FillRectangle(new SolidBrush(colour), e.Bounds);
+                e.Graphics.DrawString(VowelComboBox.GetItemText(VowelComboBox.Items[e.Index]), SystemFonts.DefaultFont, new SolidBrush(Color.Black), e.Bounds);
             }
             // If it is selected, paint over it with the highlight colour.
             else
             {
                 e.Graphics.FillRectangle(new SolidBrush(highlightColour), e.Bounds);
+                e.Graphics.DrawString(VowelComboBox.GetItemText(VowelComboBox.Items[e.Index]), SystemFonts.DefaultFont, new SolidBrush(Color.White), e.Bounds);
             }
-            e.Graphics.DrawString(VowelComboBox.GetItemText(VowelComboBox.Items[e.Index]), SystemFonts.DefaultFont, new SolidBrush(Color.Black), e.Bounds);
             e.DrawFocusRectangle();
         }
     }
