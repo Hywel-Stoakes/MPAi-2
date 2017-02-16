@@ -3167,12 +3167,6 @@
     <Compile Include="Modules\PlotController.cs" />
     <Compile Include="Modules\UserManagement.cs" />
     <Compile Include="Cores\VowelComparer.cs" />
-    <Compile Include="Forms\Popups\AnalysisScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Popups\AnalysisScreen.Designer.cs">
-      <DependentUpon>AnalysisScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3185,12 +3179,6 @@
     </Compile>
     <Compile Include="Components\MenuStrip.Designer.cs">
       <DependentUpon>MenuStrip.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Popups\RenameFileDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Popups\RenameFileDialog.Designer.cs">
-      <DependentUpon>RenameFileDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MPAiSoundMainMenu.cs">
       <SubType>Form</SubType>
@@ -3243,17 +3231,11 @@
     <EmbeddedResource Include="Forms\Popups\FeedbackScreen.resx">
       <DependentUpon>FeedbackScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Popups\AnalysisScreen.resx">
-      <DependentUpon>AnalysisScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MenuStrip.resx">
       <DependentUpon>MenuStrip.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Popups\RenameFileDialog.resx">
-      <DependentUpon>RenameFileDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MPAiSoundMainMenu.resx">
       <DependentUpon>MPAiSoundMainMenu.cs</DependentUpon>
