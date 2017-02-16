@@ -142,9 +142,9 @@ namespace MPAi.Forms
 
                     List<Recording> videoView = DBModel.Recording.Where(x => (
                        (x.Word.Category.Name.Equals("vowel"))   // If the category is vowel, and
-                       && (current.Speaker.Name.Contains("female") ? x.Speaker.Name.Contains("female") : !x.Speaker.Name.Contains("female"))    // The speaker's gender matches the current user's gender, and
-                       && ((x.Video != null))   // There is a video of that speaker, or
-                       || (x.VocalTract != null)   // The recording has a vocaltract attached. (They are gender neutral, albeit with a male voice.)
+                       && (current.Speaker.Name.Equals(x.Speaker.Name))    // The speaker's gender matches the current user's gender, and
+                       && ((x.Video != null)   // There is a video of that speaker, or
+                       || (x.VocalTract != null))   // The recording has a vocaltract attached. (They are gender neutral, albeit with a male voice.)
                        )).ToList();
 
                     wordsList = videoView;   // Take this action before display names are changed
