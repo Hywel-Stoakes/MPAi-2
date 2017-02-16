@@ -11,9 +11,9 @@ namespace MPAi.Cores.Scoreboard
     {
         private static void ensureUserDirectoryExists()
         {
-            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName())))
+            if (!Directory.Exists(Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName())))
             {
-                Directory.CreateDirectory(Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName()));
+                Directory.CreateDirectory(Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName()));
             }
         }
         /// <summary>
@@ -24,7 +24,7 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 ensureUserDirectoryExists();
-                return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "MPAiSpeakReport.html");
+                return Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName(), "MPAiSpeakReport.html");
             }
         }
 
@@ -36,7 +36,7 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 ensureUserDirectoryExists();
-                return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "MPAiSoundReport.html");
+                return Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName(), "MPAiSoundReport.html");
             }
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 ensureUserDirectoryExists();
-                return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "Scoreboard.css");
+                return Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName(), "Scoreboard.css");
             }
         }
 

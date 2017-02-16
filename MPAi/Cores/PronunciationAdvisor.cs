@@ -123,7 +123,7 @@ namespace MPAi.Cores
         {
             try
             {
-                string filepath = Path.Combine(Properties.Settings.Default.HTKFolder, @"Dictionaries", @"lexicon.txt");
+                string filepath = Path.Combine(DirectoryManagement.HTKFolder, @"Dictionaries", @"lexicon.txt");
                 if (File.Exists(filepath))
                 {
                     dictionary.Clear();

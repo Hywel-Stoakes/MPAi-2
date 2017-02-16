@@ -667,7 +667,7 @@ namespace MPAi.Forms
         /// </summary>
         private void rename()
         {
-            using (RenameFileDialog renameDialog = new RenameFileDialog(Path.Combine(Properties.Settings.Default.RecordingFolder, RecordingListBox.GetItemText(RecordingListBox.SelectedItem))))
+            using (RenameFileDialog renameDialog = new RenameFileDialog(Path.Combine(DirectoryManagement.RecordingFolder, RecordingListBox.GetItemText(RecordingListBox.SelectedItem))))
             {
                 if (renameDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -714,7 +714,7 @@ namespace MPAi.Forms
             if (appClosing)
             {
                 UserManagement.WriteSettings();
-                Properties.Settings.Default.Save();
+                DirectoryManagement.WritePaths();
                 Application.Exit();
             }
         }

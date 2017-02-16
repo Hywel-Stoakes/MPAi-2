@@ -13,9 +13,9 @@ namespace MPAi.Cores.Scoreboard
         /// <param name="user"></param>
         private static void ensureUserDirectoryExists(MPAiUser user)
         {
-            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName())))
+            if (!Directory.Exists(Path.Combine(DirectoryManagement.ScoreboardReportFolder, user.getName())))
             {
-                Directory.CreateDirectory(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName()));
+                Directory.CreateDirectory(Path.Combine(DirectoryManagement.ScoreboardReportFolder, user.getName()));
             }
         }
 
@@ -27,7 +27,7 @@ namespace MPAi.Cores.Scoreboard
         public static string SpeakScoreboardFileAddress(MPAiUser user)
         {
             ensureUserDirectoryExists(user);
-            return Path.Combine(Properties.Settings.Default.ReportFolder, user.getName(), "MPAiSpeakScoreboard.txt");
+            return Path.Combine(DirectoryManagement.ScoreboardReportFolder, user.getName(), "MPAiSpeakScoreboard.txt");
 
         }
 

@@ -35,18 +35,8 @@ namespace MPAi.Forms
 
             InitializeDB();
 
-            /*
-            Set the default folders to where the application is currently running. 
-            The program depends on having a full path, but the dynamic settings can't be added by default.
-            Also create the directories if they don't already exist.
-            */
+            //Set the default folders to where the application is currently running. 
             DirectoryManagement.Initialise();
-            Properties.Settings.Default.AudioFolder = DirectoryManagement.AudioFolder;
-            Properties.Settings.Default.VideoFolder = DirectoryManagement.VideoFolder;
-            Properties.Settings.Default.RecordingFolder = DirectoryManagement.RecordingFolder;
-            Properties.Settings.Default.ReportFolder = DirectoryManagement.ScoreboardReportFolder;
-            Properties.Settings.Default.HTKFolder = DirectoryManagement.HTKFolder;
-            Properties.Settings.Default.FormantFolder = DirectoryManagement.FormantFolder;
 
             // Kill any erroneous processes that may be running.
             int currentPID = Process.GetCurrentProcess().Id;
@@ -338,7 +328,7 @@ namespace MPAi.Forms
             }
 
             UserManagement.WriteSettings();
-            Properties.Settings.Default.Save();
+            DirectoryManagement.WritePaths();
         }
     }                                                    
 }                                                        

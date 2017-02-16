@@ -24,7 +24,7 @@ namespace MPAi.Cores
                 ProcessStartInfo processInfo = new ProcessStartInfo(filePath);
                 processInfo.CreateNoWindow = true;
                 processInfo.UseShellExecute = false;
-                processInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.HTKFolder, @"Batches");
+                processInfo.WorkingDirectory = Path.Combine(DirectoryManagement.HTKFolder, @"Batches");
                 // Redirect the output
                 processInfo.RedirectStandardError = true;
                 processInfo.RedirectStandardOutput = true;
@@ -52,8 +52,8 @@ namespace MPAi.Cores
         /// <returns>The IDictionary object output by the analyse method.</returns>
         public IDictionary<string, string> Recognize(String RecordingPath)
         {
-            string BatchesFolder = Path.Combine(Properties.Settings.Default.HTKFolder, @"Batches");
-            string MLFsFolder = Path.Combine(Properties.Settings.Default.HTKFolder, @"MLFs");
+            string BatchesFolder = Path.Combine(DirectoryManagement.HTKFolder, @"Batches");
+            string MLFsFolder = Path.Combine(DirectoryManagement.HTKFolder, @"MLFs");
             // Deprecated: This batch file is not used.
             //RunBatchFile(Path.Combine(BatchesFolder, "Recordings2MFCs.bat"), RecordingPath);
             RunBatchFile(Path.Combine(BatchesFolder, "ModelEvaluater.bat"), RecordingPath);

@@ -1017,7 +1017,7 @@ namespace MPAi.Forms
             if (appClosing)
             {
                 UserManagement.WriteSettings();
-                Properties.Settings.Default.Save();
+                DirectoryManagement.WritePaths();
                 Application.Exit();
             }
         }

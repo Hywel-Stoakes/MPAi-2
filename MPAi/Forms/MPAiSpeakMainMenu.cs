@@ -1,4 +1,5 @@
-﻿using MPAi.Cores.Scoreboard;
+﻿using MPAi.Cores;
+using MPAi.Cores.Scoreboard;
 using MPAi.Modules;
 using System;
 using System.IO;
@@ -105,7 +106,7 @@ namespace MPAi.Forms
             if (appClosing)
             {
                 UserManagement.WriteSettings();
-                Properties.Settings.Default.Save();
+                DirectoryManagement.WritePaths();
                 Application.Exit();
             }
         }
