@@ -1,4 +1,5 @@
 ﻿using MPAi.Components;
+using MPAi.Cores;
 using MPAi.DatabaseModel;
 using MPAi.Forms.Popups;
 using MPAi.Modules;
@@ -40,17 +41,17 @@ namespace MPAi.Forms
             Also create the directories if they don't already exist.
             */
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Audio"));
-            Properties.Settings.Default.AudioFolder = MPAi.Cores.DirectoryManagement.AudioFolder;
+            Properties.Settings.Default.AudioFolder = DirectoryManagement.AudioFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Video"));
-            Properties.Settings.Default.VideoFolder = MPAi.Cores.DirectoryManagement.VideoFolder;
+            Properties.Settings.Default.VideoFolder = DirectoryManagement.VideoFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recording"));
-            Properties.Settings.Default.RecordingFolder = MPAi.Cores.DirectoryManagement.RecordingFolder;
+            Properties.Settings.Default.RecordingFolder = DirectoryManagement.RecordingFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Report"));
-            Properties.Settings.Default.ReportFolder = MPAi.Cores.DirectoryManagement.ScoreboardReportFolder;
+            Properties.Settings.Default.ReportFolder = DirectoryManagement.ScoreboardReportFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK"));
-            Properties.Settings.Default.HTKFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK");
+            Properties.Settings.Default.HTKFolder = DirectoryManagement.HTKFolder;
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Formant"));
-            Properties.Settings.Default.FormantFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Formant");
+            Properties.Settings.Default.FormantFolder = DirectoryManagement.FormantFolder;
 
             // Kill any erroneous processes that may be running.
             int currentPID = Process.GetCurrentProcess().Id;

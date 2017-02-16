@@ -9,6 +9,8 @@ namespace MPAi.Cores
         private static string videoFolder;
         private static string audioFolder;
         private static string recordingFolder;
+        private static string htkFolder;
+        private static string formantFolder;
 
         public static string ScoreboardReportFolder
         {
@@ -91,6 +93,48 @@ namespace MPAi.Cores
             set
             {
                 recordingFolder = value;
+            }
+        }
+
+        public static string HTKFolder
+        {
+            get
+            {
+                if (htkFolder == null)
+                {
+                    string path = Path.Combine(AppDataPath.Path, "HTK");
+                    ensureDirectoryExists(path);
+                    return Path.Combine(path);
+                }
+                else
+                {
+                    return htkFolder;
+                }
+            }
+            set
+            {
+                htkFolder = value;
+            }
+        }
+
+        public static string FormantFolder
+        {
+            get
+            {
+                if (formantFolder == null)
+                {
+                    string path = Path.Combine(AppDataPath.Path, "Formant");
+                    ensureDirectoryExists(path);
+                    return Path.Combine(path);
+                }
+                else
+                {
+                    return formantFolder;
+                }
+            }
+            set
+            {
+                formantFolder = value;
             }
         }
 
