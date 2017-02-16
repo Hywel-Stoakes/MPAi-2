@@ -118,6 +118,23 @@ namespace MPAi.Cores
         }
 
         /// <summary>
+        /// Called to set up file paths, or read from the user's settings if they have been configured prior.
+        /// </summary>
+        public static void Initialise()
+        {
+            if (File.Exists(settingsFile))
+            {
+                // Read out of the file
+                ReadPaths();
+            }
+            else
+            {
+                // Write defaults to file
+                WritePaths();
+            }
+        }
+
+        /// <summary>
         /// Opens the settings file and populates the fields with the values saved during the last session.
         /// </summary>
         public static void ReadPaths()
