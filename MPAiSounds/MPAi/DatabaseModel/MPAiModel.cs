@@ -227,17 +227,6 @@ namespace MPAi.DatabaseModel
         /// <param name="context">The current MPAiModel object representing the persistence context.</param>
         protected override void Seed(MPAiModel context)
         {
-            if(Directory.Exists(DirectoryManagement.AudioFolder))
-            {
-                DirectoryInfo dirInfo = new DirectoryInfo(DirectoryManagement.AudioFolder);
-                foreach(FileInfo fInfo in dirInfo.GetFiles("*.wav", SearchOption.AllDirectories))   // Also searches subdirectories.
-                {
-                    if(fInfo.Extension.Contains("wav"))
-                    {
-                        context.AddOrUpdateRecordingFile(Path.Combine(fInfo.DirectoryName, fInfo.FullName));
-                    }
-                }
-            }
             if (Directory.Exists(DirectoryManagement.VideoFolder))
             {
                 DirectoryInfo dirInfo = new DirectoryInfo(DirectoryManagement.VideoFolder);

@@ -141,15 +141,11 @@
       <DependentUpon>MPAiMessageBoxSkeleton.cs</DependentUpon>
     </Compile>
     <Compile Include="Cores\DirectoryManagement.cs" />
-    <Compile Include="Cores\HTKEngine.cs" />
     <Compile Include="Cores\MailSender.cs" />
     <Compile Include="Cores\Scoreboard\MPAiSoundScoreBoard.cs" />
     <Compile Include="Cores\NAudioPlayer.cs" />
-    <Compile Include="Cores\PronunciationAdvisor.cs" />
     <Compile Include="Cores\Scoreboard\MPAiSoundScoreboardLoader.cs" />
-    <Compile Include="Cores\Scoreboard\MPAiSpeakScoreboardLoader.cs" />
     <Compile Include="Cores\Scoreboard\ReportLauncher.cs" />
-    <Compile Include="Cores\Scoreboard\MPAiSpeakScoreBoard.cs" />
     <Compile Include="Components\MPAiButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3166,7 +3162,6 @@
     <Compile Include="Cores\NameParser.cs" />
     <Compile Include="Modules\PlotController.cs" />
     <Compile Include="Modules\UserManagement.cs" />
-    <Compile Include="Cores\VowelComparer.cs" />
     <Compile Include="Forms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4773,7 +4768,8 @@
     <Content Include="Formant\data\maori\monDataModernFemale.txt" />
     <Content Include="Formant\data\maori\monDataModernMale.txt" />
     <Content Include="Formant\data\README.txt" />
-    <Content Include="Formant\dist\PlotRunner.exe" />
+    <Content Include="Formant\dist\MPAiPlotRunner.exe" />
+    <Content Include="Formant\dist\MPAiVowelRunner.exe" />
     <Content Include="Formant\dist\python27.dll" />
     <Content Include="Formant\dist\tcl85.dll" />
     <Content Include="Formant\dist\tcl\snacklib\libsnack.dll" />
@@ -4795,18 +4791,17 @@
     <Content Include="Formant\dist\tcl\tk8.5\images\tai-ku.gif" />
     <Content Include="Formant\dist\tcl\tkSnack.py" />
     <Content Include="Formant\dist\tk85.dll" />
-    <Content Include="Formant\dist\VowelRunner.exe" />
     <Content Include="Formant\dist\w9xpopen.exe" />
     <Content Include="Formant\FormantApp.py" />
     <Content Include="Formant\FormantPlot.py" />
     <Content Include="Formant\LoudnessMeter.py" />
-    <Content Include="Formant\PlotRunner.py" />
+    <Content Include="Formant\MPAiPlotRunner.py" />
+    <Content Include="Formant\MPAiVowelRunner.py" />
     <Content Include="Formant\pyInstallation.txt" />
     <Content Include="Formant\setup.py" />
     <Content Include="Formant\SoundProcessing.py" />
     <Content Include="Formant\VowelApp.py" />
     <Content Include="Formant\VowelPlot.py" />
-    <Content Include="Formant\VowelRunner.py" />
     <Content Include="Formant\VowelScorer.py" />
     <Content Include="Formant\VowelScorerTester.py" />
     <Content Include="HTK\Dictionaries\lexicon.txt" />

@@ -17,7 +17,6 @@ namespace MPAi.Modules
         private string userName;
         private string passWord;
         private VoiceType voiceType;
-        private MPAiSpeakScoreBoard speakScoreboard;
         private MPAiSoundScoreBoard soundScoreboard;
         private Speaker speaker;
         private bool isAdmin;
@@ -106,18 +105,6 @@ namespace MPAi.Modules
             set
             {
                 speaker = value;
-            }
-        }
-        /// <summary>
-        /// Wrapper property for the user's username, allowing access from outside the class.
-        /// </summary>
-        [DisplayName("SpeakScoreBoard")]
-        public MPAiSpeakScoreBoard SpeakScoreboard
-        {
-            get
-            {
-                loadScoreBoards();
-                return speakScoreboard;
             }
         }
 
@@ -219,18 +206,6 @@ namespace MPAi.Modules
 
         private void loadScoreBoards()
         {
-            if (speakScoreboard == null)
-            {
-                if (File.Exists(MPAiSpeakScoreboardLoader.SpeakScoreboardFileAddress(this)))
-                {
-                    speakScoreboard = MPAiSpeakScoreboardLoader.LoadScoreboard(this);
-                }
-                else
-                {
-                    speakScoreboard = new MPAiSpeakScoreBoard(this);
-                }
-            }
-            
             if(soundScoreboard == null)
             {
                 if (File.Exists(MPAiSoundScoreboardLoader.SoundScoreboardFileAddress(this)))
