@@ -89,7 +89,7 @@ namespace MPAi.Cores
             {
                 if (htkFolder == null)
                 {
-                    htkFolder = Path.Combine(AppDataPath.Path, "HTK");
+                    htkFolder = Path.Combine(AppDataPath.Path, "bin", "HTK");
                     Directory.CreateDirectory(htkFolder); // This method does nothing if the directory already exists.
                 }
                 return htkFolder;
@@ -106,7 +106,7 @@ namespace MPAi.Cores
             {
                 if (formantFolder == null)
                 {
-                    formantFolder = Path.Combine(AppDataPath.Path, "Formant");
+                    formantFolder = Path.Combine(AppDataPath.Path, "bin", "Formant");
                     Directory.CreateDirectory(formantFolder); // This method does nothing if the directory already exists.
                 }
                 return formantFolder;
