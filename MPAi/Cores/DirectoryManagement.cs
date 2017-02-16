@@ -115,6 +115,37 @@ namespace MPAi.Cores
             }
         }
 
-        
+
+        /// <summary>
+        /// Writes all values to the settings file, and creates it if it does not already exist.
+        /// </summary>
+        public static void WritePaths()
+        {
+            string settingsFile = Path.Combine(AppDataPath.Path, "SystemPaths.dat");
+
+            try
+            {
+                using (FileStream fs = new FileStream(settingsFile, FileMode.Create))
+                {
+                    using (BinaryWriter writer = new BinaryWriter(fs))
+                    {
+                        // This will write default values if they haven't already been set.
+                        writer.Write(ScoreboardReportFolder);
+                        writer.Write(VideoFolder);
+                        writer.Write(AudioFolder);
+                        writer.Write(RecordingFolder);
+                        writer.Write(HTKFolder);
+                        writer.Write(FormantFolder);
+
+                        // Set file to hidden once it has been written to.
+                        File.SetAttributes(settingsFile, File.GetAttributes(settingsFile) | FileAttributes.Hidden);
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp);
+            }
+        }
     }
 }
