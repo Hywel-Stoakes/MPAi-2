@@ -7,6 +7,10 @@ namespace MPAi.Cores.Scoreboard
 {
     static class MPAiSpeakScoreboardLoader
     {
+        /// <summary>
+        /// Private method that checks whether the user directory exists, and if it does not, creates it.
+        /// </summary>
+        /// <param name="user"></param>
         private static void ensureUserDirectoryExists(MPAiUser user)
         {
             if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName())))
@@ -15,6 +19,11 @@ namespace MPAi.Cores.Scoreboard
             }
         }
 
+        /// <summary>
+        /// Retruns the appropriate filepath string for the specified user's scoreboard file.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static string SpeakScoreboardFileAddress(MPAiUser user)
         {
             ensureUserDirectoryExists(user);
@@ -22,6 +31,12 @@ namespace MPAi.Cores.Scoreboard
 
         }
 
+        /// <summary>
+        /// This method saved the specified scoreboard to the appropriate user's scoreboard file. it writes the data of the scoreboard
+        /// using a similar notation to html, where the different tags refer to different fields of the scoreboard hierarchy. Items
+        /// are nested inside sessions, which are in turn nested inside a scoreboard.
+        /// </summary>
+        /// <param name="scoreboard"></param>
         public static void SaveScoreboard(MPAiSpeakScoreBoard scoreboard)
         {
             if (scoreboard.IsEmpty())
@@ -73,6 +88,12 @@ namespace MPAi.Cores.Scoreboard
             File.SetAttributes(SpeakScoreboardFileAddress(scoreboard.User), File.GetAttributes(SpeakScoreboardFileAddress(scoreboard.User)) | FileAttributes.Hidden);
         }
 
+        /// <summary>
+        /// This method loads the scoreboard for the specified user. It does this by reading the html-style file created by SaveScoreboard.
+        /// The nested nature of the file is why this method is also deeply nested.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static MPAiSpeakScoreBoard LoadScoreboard(MPAiUser user)
         {
             MPAiSpeakScoreBoard scoreboard = new MPAiSpeakScoreBoard(user);

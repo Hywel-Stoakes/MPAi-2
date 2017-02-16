@@ -233,7 +233,7 @@ namespace MPAi.Modules
             
             if(soundScoreboard == null)
             {
-                if (File.Exists(MPAiSoundScoreboardLoader.SpeakScoreboardFileAddress(this)))
+                if (File.Exists(MPAiSoundScoreboardLoader.SoundScoreboardFileAddress(this)))
                 {
                     soundScoreboard = MPAiSoundScoreboardLoader.LoadScoreboard(this);
                 }
