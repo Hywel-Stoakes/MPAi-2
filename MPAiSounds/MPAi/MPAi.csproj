@@ -3173,12 +3173,6 @@
     <Compile Include="Forms\Popups\AnalysisScreen.Designer.cs">
       <DependentUpon>AnalysisScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AudioPlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AudioPlayer.Designer.cs">
-      <DependentUpon>AudioPlayer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3204,23 +3198,11 @@
     <Compile Include="Forms\MPAiSoundMainMenu.Designer.cs">
       <DependentUpon>MPAiSoundMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MPAiSpeakMainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MPAiSpeakMainMenu.Designer.cs">
-      <DependentUpon>MPAiSpeakMainMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Popups\UserCreationScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Popups\UserCreationScreen.Designer.cs">
       <DependentUpon>UserCreationScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SpeechRecognitionTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SpeechRecognitionTest.Designer.cs">
-      <DependentUpon>SpeechRecognitionTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\VideoPlayer.cs">
       <SubType>Form</SubType>
@@ -3264,9 +3246,6 @@
     <EmbeddedResource Include="Forms\Popups\AnalysisScreen.resx">
       <DependentUpon>AnalysisScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AudioPlayer.resx">
-      <DependentUpon>AudioPlayer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -3278,12 +3257,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MPAiSoundMainMenu.resx">
       <DependentUpon>MPAiSoundMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MPAiSpeakMainMenu.resx">
-      <DependentUpon>MPAiSpeakMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SpeechRecognitionTest.resx">
-      <DependentUpon>SpeechRecognitionTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\UserCreationScreen.resx">
       <DependentUpon>UserCreationScreen.cs</DependentUpon>

@@ -64,7 +64,7 @@ namespace MPAi.Forms
             InitializeComponent();
 
             // Change this property to set what is pressed when the user presses enter. Currently it's set to Speak.
-            AcceptButton = speakLaunchButton;
+            AcceptButton = soundLaunchButton;
 
             // Checks the "Remember Me"checkbox value
             bool autoLog = rememberCheckBox.Checked = Properties.Settings.Default.autoLoginSetting;
@@ -265,17 +265,6 @@ namespace MPAi.Forms
         {
             Properties.Settings.Default.autoLoginSetting = rememberCheckBox.Checked;
         }
-
-        private void speakLaunchButton_Click(object sender, EventArgs e)
-        {
-            if (login())
-            {
-                //new MPAi.Forms.Popups.AdministratorConsole().Show();
-                new MPAiSpeakMainMenu().Show();
-                Hide(); // As this is the first form that gets loaded, it becomes the main form for the program. If it is closed, the program terminates.
-            }
-        }
-
 
         private void soundLaunchButton_Click(object sender, EventArgs e)
         {

@@ -38,7 +38,6 @@ namespace MPAi.Forms
             this.rememberCheckBox = new System.Windows.Forms.CheckBox();
             this.soundLaunchButton = new MPAi.Components.MPAiButton(this.components);
             this.signupButton = new MPAi.Components.MPAiButton(this.components);
-            this.speakLaunchButton = new MPAi.Components.MPAiButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +48,10 @@ namespace MPAi.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logoBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoBox.BackgroundImage")));
             this.logoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.logoBox.Location = new System.Drawing.Point(3, 3);
+            this.logoBox.Location = new System.Drawing.Point(6, 6);
+            this.logoBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.logoBox.Name = "logoBox";
-            this.logoBox.Size = new System.Drawing.Size(280, 118);
+            this.logoBox.Size = new System.Drawing.Size(560, 227);
             this.logoBox.TabIndex = 15;
             this.logoBox.TabStop = false;
             // 
@@ -61,10 +61,11 @@ namespace MPAi.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.usernameTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.usernameTextBox.Location = new System.Drawing.Point(12, 127);
+            this.usernameTextBox.Location = new System.Drawing.Point(24, 244);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.usernameTextBox.MaxLength = 25;
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(260, 20);
+            this.usernameTextBox.Size = new System.Drawing.Size(516, 31);
             this.usernameTextBox.TabIndex = 16;
             this.usernameTextBox.Text = "Username...";
             this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -78,9 +79,10 @@ namespace MPAi.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.passwordTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.passwordTextBox.Location = new System.Drawing.Point(12, 162);
+            this.passwordTextBox.Location = new System.Drawing.Point(24, 312);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(260, 20);
+            this.passwordTextBox.Size = new System.Drawing.Size(516, 31);
             this.passwordTextBox.TabIndex = 17;
             this.passwordTextBox.Text = "Password...";
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -92,9 +94,10 @@ namespace MPAi.Forms
             // 
             this.rememberCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.rememberCheckBox.AutoSize = true;
-            this.rememberCheckBox.Location = new System.Drawing.Point(100, 199);
+            this.rememberCheckBox.Location = new System.Drawing.Point(200, 387);
+            this.rememberCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.rememberCheckBox.Name = "rememberCheckBox";
-            this.rememberCheckBox.Size = new System.Drawing.Size(95, 17);
+            this.rememberCheckBox.Size = new System.Drawing.Size(184, 29);
             this.rememberCheckBox.TabIndex = 20;
             this.rememberCheckBox.Text = "Remember Me";
             this.rememberCheckBox.UseVisualStyleBackColor = true;
@@ -106,11 +109,12 @@ namespace MPAi.Forms
             this.soundLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.soundLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.soundLaunchButton.ForeColor = System.Drawing.Color.White;
-            this.soundLaunchButton.Location = new System.Drawing.Point(101, 227);
+            this.soundLaunchButton.Location = new System.Drawing.Point(24, 437);
+            this.soundLaunchButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.soundLaunchButton.Name = "soundLaunchButton";
-            this.soundLaunchButton.Size = new System.Drawing.Size(87, 23);
+            this.soundLaunchButton.Size = new System.Drawing.Size(150, 44);
             this.soundLaunchButton.TabIndex = 21;
-            this.soundLaunchButton.Text = "MPAi Vowels";
+            this.soundLaunchButton.Text = "Log In";
             this.soundLaunchButton.UseVisualStyleBackColor = true;
             this.soundLaunchButton.Click += new System.EventHandler(this.soundLaunchButton_Click);
             // 
@@ -120,43 +124,30 @@ namespace MPAi.Forms
             this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signupButton.ForeColor = System.Drawing.Color.White;
-            this.signupButton.Location = new System.Drawing.Point(197, 227);
+            this.signupButton.Location = new System.Drawing.Point(394, 437);
+            this.signupButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.signupButton.Name = "signupButton";
-            this.signupButton.Size = new System.Drawing.Size(75, 23);
+            this.signupButton.Size = new System.Drawing.Size(150, 44);
             this.signupButton.TabIndex = 19;
             this.signupButton.Text = "Sign Up";
             this.signupButton.UseVisualStyleBackColor = true;
             this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
-            // speakLaunchButton
-            // 
-            this.speakLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.speakLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.speakLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.speakLaunchButton.ForeColor = System.Drawing.Color.White;
-            this.speakLaunchButton.Location = new System.Drawing.Point(12, 227);
-            this.speakLaunchButton.Name = "speakLaunchButton";
-            this.speakLaunchButton.Size = new System.Drawing.Size(80, 23);
-            this.speakLaunchButton.TabIndex = 18;
-            this.speakLaunchButton.Text = "MPAi Words";
-            this.speakLaunchButton.UseVisualStyleBackColor = true;
-            this.speakLaunchButton.Click += new System.EventHandler(this.speakLaunchButton_Click);
-            // 
             // LoginScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(568, 504);
             this.Controls.Add(this.soundLaunchButton);
             this.Controls.Add(this.rememberCheckBox);
             this.Controls.Add(this.signupButton);
-            this.Controls.Add(this.speakLaunchButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.logoBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(300, 300);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MinimumSize = new System.Drawing.Size(574, 511);
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login to MPAi";
@@ -172,7 +163,6 @@ namespace MPAi.Forms
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private MPAiButton speakLaunchButton;
         private MPAiButton signupButton;
         private System.Windows.Forms.CheckBox rememberCheckBox;
         private MPAiButton soundLaunchButton;
