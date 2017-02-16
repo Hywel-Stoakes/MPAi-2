@@ -222,7 +222,7 @@ namespace MPAi.Modules
                 }             
                 
                 PlotExe.StartInfo.UseShellExecute = true;
-                PlotExe.StartInfo.WorkingDirectory = Path.Combine(DirectoryManagement.FormantFolder, "Dist");
+                PlotExe.StartInfo.WorkingDirectory = Path.Combine(DirectoryManagement.FormantFolder, "dist");
 
                 // Run with the python console in the background, Hidden = no, Normal = yes
                 PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
