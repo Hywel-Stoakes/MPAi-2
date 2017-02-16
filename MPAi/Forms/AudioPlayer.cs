@@ -532,13 +532,10 @@ namespace MPAi.Forms
         private void OnVlcControlNeedLibDirectory(object sender, VlcLibDirectoryNeededEventArgs e)
         {
             var currentAssembly = Assembly.GetEntryAssembly();  // Get the currently running project
-            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;    // Get the directory of the currently running project
-            if (currentDirectory == null)   // If there isn't one, return.
-                return;
             if (AssemblyName.GetAssemblyName(currentAssembly.Location).ProcessorArchitecture == ProcessorArchitecture.X86)  // If the computer is running an x86 architecture, use the x86 folder.
-                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, @"VlcLibs\vlcx86\"));
+                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(AppDataPath.Path, @"VlcLibs\vlcx86\"));
             else        // otherwise use the x64 folder.
-                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, @"VlcLibs\vlcx64\"));
+                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(AppDataPath.Path, @"VlcLibs\vlcx64\"));
 
             if (!e.VlcLibDirectory.Exists)      // If a folder is missing
             {
