@@ -210,6 +210,11 @@ namespace MPAi.Modules
                             {
                                 currentUser = allUsers[index];
                             }
+                        }
+                        else
+                        {
+                            // Set file to hidden, in case this just created the file.
+                            File.SetAttributes(GetSettingFilePath(), File.GetAttributes(GetSettingFilePath()) | FileAttributes.Hidden);
                         }                         
                     }
                 }
