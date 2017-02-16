@@ -93,6 +93,7 @@ namespace MPAi.Forms.Popups
                     resetButton.Size = new System.Drawing.Size(100, 23);
                     resetButton.Anchor = AnchorStyles.None;
                     resetButton.Click += resetButtonClick;
+                    resetButton.TabStop = false;
                     userTable.Controls.Add(resetButton, 1, i);
 
                     MPAiButton deleteButton = new MPAiButton();
@@ -100,6 +101,7 @@ namespace MPAi.Forms.Popups
                     deleteButton.Size = new System.Drawing.Size(100, 23);
                     deleteButton.Anchor = AnchorStyles.None;
                     deleteButton.Click += deleteButtonClick;
+                    deleteButton.TabStop = false;
                     userTable.Controls.Add(deleteButton, 2, i);
 
                     CheckBox checkBox = new CheckBox();
@@ -109,6 +111,7 @@ namespace MPAi.Forms.Popups
                     checkBox.CheckedChanged += checkBoxChanged;
                     checkBox.Size = new System.Drawing.Size(15, 15);
                     checkBox.Text = "";
+                    checkBox.TabStop = false;
                     userTable.Controls.Add(checkBox, 3, i);
 
                     userButtonMap.Add(deleteButton, users[i]);
@@ -155,11 +158,11 @@ namespace MPAi.Forms.Popups
             this.generatedUserTable = generateUserTable();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mpAiButton1 = new MPAi.Components.MPAiButton(this.components);
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -202,7 +205,7 @@ namespace MPAi.Forms.Popups
             this.splitContainer1.Panel2.Controls.Add(this.mpAiButton1);
             this.splitContainer1.Size = new System.Drawing.Size(484, 362);
             this.splitContainer1.SplitterDistance = 309;
-            this.splitContainer1.TabIndex = 1;
+            this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
             // panel1
@@ -242,7 +245,14 @@ namespace MPAi.Forms.Popups
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(434, 225);
             this.panel2.TabIndex = 0;
-            
+            // 
+            // generatedUserTable
+            // 
+            this.generatedUserTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.generatedUserTable.Location = new System.Drawing.Point(0, 0);
+            this.generatedUserTable.Name = "generatedUserTable";
+            this.generatedUserTable.Size = new System.Drawing.Size(200, 100);
+            this.generatedUserTable.TabIndex = 0;
             // 
             // panel3
             // 
@@ -262,7 +272,7 @@ namespace MPAi.Forms.Popups
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
@@ -276,6 +286,19 @@ namespace MPAi.Forms.Popups
             this.tableLayoutPanel3.Size = new System.Drawing.Size(434, 54);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(105, 1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 52);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Reset Password";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -285,7 +308,7 @@ namespace MPAi.Forms.Popups
             this.label4.Location = new System.Drawing.Point(231, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 52);
-            this.label4.TabIndex = 2;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Delete User";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -298,7 +321,7 @@ namespace MPAi.Forms.Popups
             this.label2.Location = new System.Drawing.Point(4, 1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 52);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Username";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -310,7 +333,7 @@ namespace MPAi.Forms.Popups
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(357, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 52);
+            this.label3.Size = new System.Drawing.Size(82, 52);
             this.label3.TabIndex = 1;
             this.label3.Text = "Is Admin";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -320,26 +343,13 @@ namespace MPAi.Forms.Popups
             this.mpAiButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.mpAiButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mpAiButton1.ForeColor = System.Drawing.Color.White;
-            this.mpAiButton1.Location = new System.Drawing.Point(297, 14);
+            this.mpAiButton1.Location = new System.Drawing.Point(384, 14);
             this.mpAiButton1.Name = "mpAiButton1";
             this.mpAiButton1.Size = new System.Drawing.Size(75, 23);
             this.mpAiButton1.TabIndex = 0;
             this.mpAiButton1.Text = "Close";
             this.mpAiButton1.UseVisualStyleBackColor = false;
             this.mpAiButton1.Click += new System.EventHandler(this.close_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(105, 1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 52);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Reset Password";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdministratorConsole
             // 
