@@ -789,7 +789,7 @@ namespace MPAi.Forms
                     if (!(repeatsRemaining == 0)) {
                     Console.Write("DataBase -> ");
 
-                    repeatsRemaining -= 1;
+                    repeatsRemaining--;
                     playRecording = true;
                     asyncPlay();
                     }
@@ -808,10 +808,10 @@ namespace MPAi.Forms
                 {
                     if (currentRecordingIndex < wordsList.Count - 1)
                     {
-                        currentRecordingIndex += 1;
+                        currentRecordingIndex++;
                         // Run this command on the GUI thread
                         Invoke((MethodInvoker)delegate {
-                            WordComboBox.SelectedIndex += 1;
+                            WordComboBox.SelectedIndex++;
                         });
                     }
                     else    // Move back to beginning if the user reaches the end of the list.
@@ -841,8 +841,8 @@ namespace MPAi.Forms
         {
             if (currentRecordingIndex < wordsList.Count - 1)
             {
-                currentRecordingIndex += 1;
-                WordComboBox.SelectedIndex += 1;
+                currentRecordingIndex++;
+                WordComboBox.SelectedIndex++;
             }
             else    // Move back to beginning if the user reaches the end of the list.
             {
@@ -871,8 +871,8 @@ namespace MPAi.Forms
         {
             if (currentRecordingIndex > 0)
             {
-                currentRecordingIndex -= 1;
-                WordComboBox.SelectedIndex -= 1;
+                currentRecordingIndex--;
+                WordComboBox.SelectedIndex--;
             }
             else    // Move to the end if the user reaches the beginning of the list.
             {
