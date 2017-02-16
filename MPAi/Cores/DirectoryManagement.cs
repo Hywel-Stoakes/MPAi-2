@@ -1,4 +1,5 @@
 ﻿using MPAi.Modules;
+using System;
 using System.IO;
 
 namespace MPAi.Cores
@@ -18,14 +19,10 @@ namespace MPAi.Cores
             {
                 if (scoreboardReportFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "ScoreboardReports");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    scoreboardReportFolder = Path.Combine(AppDataPath.Path, "ScoreboardReports");
+                    Directory.CreateDirectory(scoreboardReportFolder);  // This method does nothing if the directory already exists
                 }
-                else
-                {
-                    return scoreboardReportFolder;
-                }
+                return scoreboardReportFolder;
             }
             set
             {
@@ -39,14 +36,10 @@ namespace MPAi.Cores
             {
                 if (videoFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Video");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    videoFolder = Path.Combine(AppDataPath.Path, "Video");
+                    Directory.CreateDirectory(videoFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return videoFolder;
-                }
+                return videoFolder;
             }
             set
             {
@@ -60,14 +53,10 @@ namespace MPAi.Cores
             {
                 if (audioFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Audio");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    audioFolder = Path.Combine(AppDataPath.Path, "Audio");
+                    Directory.CreateDirectory(audioFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return audioFolder;
-                }
+                return audioFolder;
             }
             set
             {
@@ -81,14 +70,10 @@ namespace MPAi.Cores
             {
                 if (recordingFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Recording");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    recordingFolder = Path.Combine(AppDataPath.Path, "Recording");
+                    Directory.CreateDirectory(recordingFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return recordingFolder;
-                }
+                return recordingFolder;
             }
             set
             {
@@ -102,14 +87,10 @@ namespace MPAi.Cores
             {
                 if (htkFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "HTK");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    htkFolder = Path.Combine(AppDataPath.Path, "HTK");
+                    Directory.CreateDirectory(htkFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return htkFolder;
-                }
+                return htkFolder;
             }
             set
             {
@@ -123,14 +104,10 @@ namespace MPAi.Cores
             {
                 if (formantFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Formant");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    formantFolder = Path.Combine(AppDataPath.Path, "Formant");
+                    Directory.CreateDirectory(formantFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return formantFolder;
-                }
+                return formantFolder;
             }
             set
             {
@@ -138,12 +115,6 @@ namespace MPAi.Cores
             }
         }
 
-        private static void ensureDirectoryExists(string path)
-        {
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-        }
+        
     }
 }
