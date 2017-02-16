@@ -83,7 +83,11 @@ namespace MPAi.Forms
             set
             {
                 repeatTimes = value;
-                repeatsRemaining = Math.Min(repeatsRemaining, value);
+                // If the control is not playing, update repeats remaining. Implicitly, if the control is playing, let it finish it's current repeat cycle.
+                if (!(vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Opening) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Buffering)))
+                {
+                    repeatsRemaining = value;
+                }
             }
         }
 
@@ -751,7 +755,7 @@ namespace MPAi.Forms
                 else
                 {
                     asyncPlay();
-                    repeatsRemaining -= 1;
+                    repeatsRemaining--;
                 }
                 
             }
@@ -768,10 +772,10 @@ namespace MPAi.Forms
                 {
                     if (currentRecordingIndex < wordsList.Count - 1)
                     {
-                        currentRecordingIndex += 1;
+                        currentRecordingIndex++;
                         // Run this command on the GUI thread
                         Invoke((MethodInvoker)delegate {
-                            VowelComboBox.SelectedIndex += 1;
+                            VowelComboBox.SelectedIndex++;
                         });
                     }
                     else    // Move back to beginning if the user reaches the end of the list.
@@ -799,8 +803,8 @@ namespace MPAi.Forms
         {
             if (currentRecordingIndex < wordsList.Count - 1)
             {
-                currentRecordingIndex += 1;
-                VowelComboBox.SelectedIndex += 1;
+                currentRecordingIndex++;
+                VowelComboBox.SelectedIndex++;
             }
             else    // Move back to beginning if the user reaches the end of the list.
             {
@@ -829,8 +833,8 @@ namespace MPAi.Forms
         {
             if (currentRecordingIndex > 0)
             {
-                currentRecordingIndex -= 1;
-                VowelComboBox.SelectedIndex -= 1;
+                currentRecordingIndex--;
+                VowelComboBox.SelectedIndex--;
             }
             else    // Move to the end if the user reaches the beginning of the list.
             {

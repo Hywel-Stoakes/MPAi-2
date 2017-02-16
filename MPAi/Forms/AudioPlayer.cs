@@ -79,7 +79,11 @@ namespace MPAi.Forms
             set
             {
                 repeatTimes = value;
-                repeatsRemaining = Math.Min(repeatsRemaining, value);
+                // If the control is not playing, update repeats remaining. Implicitly, if the control is playing, let it finish it's current repeat cycle.
+                if (!(vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Opening) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Buffering)))
+                {
+                    repeatsRemaining = value;
+                }
             }
         }
 
