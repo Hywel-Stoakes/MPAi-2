@@ -13,6 +13,8 @@ namespace MPAi.Cores
         private static string htkFolder;
         private static string formantFolder;
 
+        private static readonly string settingsFile = Path.Combine(AppDataPath.Path, "SystemPaths.dat");
+
         public static string ScoreboardReportFolder
         {
             get
@@ -115,14 +117,45 @@ namespace MPAi.Cores
             }
         }
 
+        /// <summary>
+        /// Opens the settings file and populates the fields with the values saved during the last session.
+        /// </summary>
+        public static void ReadPaths()
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(settingsFile, FileMode.OpenOrCreate, FileAccess.Read))
+                {
+                    using (BinaryReader reader = new BinaryReader(fs))
+                    {
+                        if (new FileInfo(settingsFile).Length != 0) // If the file wasn't just created
+                        {
+                            ScoreboardReportFolder = reader.ReadString();
+                            VideoFolder = reader.ReadString();
+                            AudioFolder = reader.ReadString();
+                            RecordingFolder = reader.ReadString();
+                            HTKFolder = reader.ReadString();
+                            FormantFolder = reader.ReadString();
+                        }
+                        else
+                        {
+                            // Set file to hidden, in case this just created the file.
+                            File.SetAttributes(settingsFile, File.GetAttributes(settingsFile) | FileAttributes.Hidden);
+                        }
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp);
+            }
+        }
 
         /// <summary>
         /// Writes all values to the settings file, and creates it if it does not already exist.
         /// </summary>
         public static void WritePaths()
         {
-            string settingsFile = Path.Combine(AppDataPath.Path, "SystemPaths.dat");
-
             try
             {
                 using (FileStream fs = new FileStream(settingsFile, FileMode.Create))
