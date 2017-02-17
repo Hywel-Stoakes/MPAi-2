@@ -10,12 +10,12 @@ namespace MPAi.Modules
         /// <summary>
         /// Returns the location of a temporary folder in the temp space on the user's machine.
         /// </summary>
-        private readonly static string temp = System.IO.Path.Combine(System.Environment.GetEnvironmentVariable("TEMP"), "MPAiTemp");
+        private readonly static string temp = System.IO.Path.Combine(System.Environment.GetEnvironmentVariable("TEMP"), "MPAiTemp", "MPAiWords");
 
         /// <summary>
         /// Combination of the standard MPAi directory, and a folder which will always be called App_Data.
         /// </summary>
-        private readonly static string path = System.IO.Path.Combine(System.Environment.GetEnvironmentVariable("appdata"), "MPAi");
+        private readonly static string path = System.IO.Path.Combine(System.Environment.GetEnvironmentVariable("appdata"), "MPAi", "MPAiWords");
 
         /// <summary>
         /// Lazily instantiates the temp directory if it doesn't already exist.
