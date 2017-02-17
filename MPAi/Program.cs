@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MPAi.Forms;
+using System;
 using System.Windows.Forms;
-
+using MPAi.Modules; 
 namespace MPAi
 {
     static class Program
@@ -13,18 +12,10 @@ namespace MPAi
         [STAThread]
         static void Main(string[] args)
         {
-            //MPAi.NewForms.MPAiMessageBoxFactory.Show("blah", NewForms.MPAiMessageBoxButtons.YesNoCancel);
-            if (args.Length > 0)
-            {
-                if (args[0] == "initDB")
-                {
-                    Application.Run(new NewForms.LoginScreen("initDB"));
-                    return;
-                }
-            }
-            Console.WriteLine("Running Normally.");
+            Console.WriteLine(VoiceType.getStringFromVoiceType(new VoiceType(GenderType.MASCULINE, LanguageType.MODERN)));
+            
+            Application.Run(new LoginScreen());
 
-            Application.Run(new NewForms.LoginScreen());
             Application.Exit();
         }
     } 

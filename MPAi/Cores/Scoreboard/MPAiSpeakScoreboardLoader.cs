@@ -1,10 +1,7 @@
-﻿using System;
+﻿using MPAi.Modules;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Windows.Forms;
 
 namespace MPAi.Cores.Scoreboard
 {
@@ -88,10 +85,10 @@ namespace MPAi.Cores.Scoreboard
                     {
                         string line;
                         line = sr.ReadLine();
-                        //MessageBox.Show(line + ": <Scoreboard> expected");
+                        //MPAiMessageBoxFactory.Show(line + ": <Scoreboard> expected");
                         if (line.Equals("<Scoreboard>"))
                         {
-                            //MessageBox.Show("Success, entered <Scoreboard>");
+                            //MPAiMessageBoxFactory.Show("Success, entered <Scoreboard>");
                             while (!line.Equals("</Scoreboard>"))
                             {
                                 line = sr.ReadLine();

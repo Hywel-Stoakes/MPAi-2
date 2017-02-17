@@ -127,10 +127,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archived Classes\Prior to 2.0\Components\TDButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Cores\CollectionExtensions.cs" />
     <Compile Include="Components\MPAiMessageBoxFactory.cs" />
     <Compile Include="Components\MPAiMessageBoxTemplate.cs">
       <SubType>Form</SubType>
@@ -143,7 +139,6 @@
     <Compile Include="Cores\MailSender.cs" />
     <Compile Include="Cores\Scoreboard\MPAiSoundScoreBoard.cs" />
     <Compile Include="Cores\NAudioPlayer.cs" />
-    <Compile Include="Archived Classes\Prior to 2.0\Cores\ProcessExtension.cs" />
     <Compile Include="Cores\PronunciationAdvisor.cs" />
     <Compile Include="Cores\Scoreboard\MPAiSoundScoreboardLoader.cs" />
     <Compile Include="Cores\Scoreboard\MPAiSpeakScoreboardLoader.cs" />
@@ -155,11 +150,11 @@
     <Compile Include="Components\MPAiButton.Designer.cs">
       <DependentUpon>MPAiButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Popups\AdminConsole.cs">
+    <Compile Include="Forms\Popups\AdministratorConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Popups\AdminConsole.Designer.cs">
-      <DependentUpon>AdminConsole.cs</DependentUpon>
+    <Compile Include="Forms\Popups\AdministratorConsole.Designer.cs">
+      <DependentUpon>AdministratorConsole.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Popups\ChangePasswordWindow.cs">
       <SubType>Form</SubType>
@@ -167,47 +162,17 @@
     <Compile Include="Forms\Popups\ChangePasswordWindow.Designer.cs">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\Config\RecordingRenameConfig.cs">
+    <Compile Include="Forms\Popups\ConfirmRandomisedPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\Config\RecordingRenameConfig.Designer.cs">
-      <DependentUpon>RecordingRenameConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 1.6\HMMsConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 1.6\HMMsConfig.Designer.cs">
-      <DependentUpon>HMMsConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\LoginWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\LoginWindow.Designer.cs">
-      <DependentUpon>LoginWindow.cs</DependentUpon>
+    <Compile Include="Forms\Popups\ConfirmRandomisedPassword.Designer.cs">
+      <DependentUpon>ConfirmRandomisedPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Popups\FeedbackScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Popups\FeedbackScreen.Designer.cs">
       <DependentUpon>FeedbackScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\MSGBox\RecognitionResultMSGBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\MSGBox\RecognitionResultMSGBox.Designer.cs">
-      <DependentUpon>RecognitionResultMSGBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\NewUserWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\NewUserWindow.Designer.cs">
-      <DependentUpon>NewUserWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <None Include="bin\Debug\Formant\build\bdist.win32\winexe\collect-2.7\abc.pyc" />
     <None Include="bin\Debug\Formant\build\bdist.win32\winexe\collect-2.7\atexit.pyc" />
@@ -3190,22 +3155,16 @@
     <Compile Include="DatabaseModel\Category.cs" />
     <Compile Include="DatabaseModel\Word.cs" />
     <Compile Include="Cores\EnumerationPicker.cs" />
-    <Compile Include="Archived Classes\Prior to 2.0\Cores\Serializer.cs" />
     <Compile Include="Modules\IoController.cs" />
     <Compile Include="Modules\MPAiUser.cs" />
-    <Compile Include="Archived Classes\Prior to 1.6\Examiner.cs" />
-    <Compile Include="Archived Classes\Prior to 1.6\HMMsController.cs" />
-    <Compile Include="Archived Classes\Prior to 1.6\HtmlConfig.cs" />
-    <Compile Include="Archived Classes\Prior to 1.6\HtmlGenerator.cs" />
     <Compile Include="Cores\NameParser.cs" />
-    <Compile Include="Archived Classes\Prior to 2.0\Cores\SysCfg.cs" />
     <Compile Include="Modules\PlotController.cs" />
     <Compile Include="Modules\UserManagement.cs" />
     <Compile Include="Cores\VowelComparer.cs" />
-    <Compile Include="Forms\AnalysisScreen.cs">
+    <Compile Include="Forms\Popups\AnalysisScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AnalysisScreen.Designer.cs">
+    <Compile Include="Forms\Popups\AnalysisScreen.Designer.cs">
       <DependentUpon>AnalysisScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AudioPlayer.cs">
@@ -3277,15 +3236,6 @@
     <Compile Include="Forms\Popups\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Archived Classes\Prior to 1.6\VerticalProgressBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\Config\RecordingUploadConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\Forms\Config\RecordingUploadConfig.Designer.cs">
-      <DependentUpon>RecordingUploadConfig.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Popups\PathConfigScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3293,67 +3243,25 @@
       <DependentUpon>PathConfigScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.cs" />
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\NAudioRecorder.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\NAudioRecorder.Designer.cs">
-      <DependentUpon>NAudioRecorder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\OperationPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\OperationPanel.Designer.cs">
-      <DependentUpon>OperationPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\RecordingPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\RecordingPanel.Designer.cs">
-      <DependentUpon>RecordingPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\VLCPlayer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Archived Classes\Prior to 2.0\UserControls\VLCPlayer.Designer.cs">
-      <DependentUpon>VLCPlayer.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Components\TDButton.resx">
-      <DependentUpon>TDButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Components\MPAiButton.resx">
       <DependentUpon>MPAiButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MPAiMessageBoxTemplate.resx">
       <DependentUpon>MPAiMessageBoxTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Popups\AdminConsole.resx">
-      <DependentUpon>AdminConsole.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Popups\AdministratorConsole.resx">
+      <DependentUpon>AdministratorConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\Config\RecordingRenameConfig.resx">
-      <DependentUpon>RecordingRenameConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 1.6\HMMsConfig.resx">
-      <DependentUpon>HMMsConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\LoginWindow.resx">
-      <DependentUpon>LoginWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Popups\ConfirmRandomisedPassword.resx">
+      <DependentUpon>ConfirmRandomisedPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\FeedbackScreen.resx">
       <DependentUpon>FeedbackScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\MSGBox\RecognitionResultMSGBox.resx">
-      <DependentUpon>RecognitionResultMSGBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\NewUserWindow.resx">
-      <DependentUpon>NewUserWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnalysisScreen.resx">
+    <EmbeddedResource Include="Forms\Popups\AnalysisScreen.resx">
       <DependentUpon>AnalysisScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AudioPlayer.resx">
@@ -3394,23 +3302,8 @@
     <EmbeddedResource Include="Forms\Popups\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\Forms\Config\RecordingUploadConfig.resx">
-      <DependentUpon>RecordingUploadConfig.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\PathConfigScreen.resx">
       <DependentUpon>PathConfigScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\UserControls\NAudioRecorder.resx">
-      <DependentUpon>NAudioRecorder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\UserControls\OperationPanel.resx">
-      <DependentUpon>OperationPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\UserControls\RecordingPanel.resx">
-      <DependentUpon>RecordingPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Archived Classes\Prior to 2.0\UserControls\VLCPlayer.resx">
-      <DependentUpon>VLCPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HTK\Batches\DataPreparer.bat" />
     <None Include="HTK\Batches\Experiment.bat" />
@@ -5731,31 +5624,9 @@
     <Content Include="HTK\Tools\LNorm.exe" />
     <Content Include="HTK\Tools\LPlex.exe" />
     <Content Include="HTK\Tools\LSubset.exe" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\MPAid.jpg" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\pronunaid.JPG" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\recognitionresult.jpg" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\recognizer.JPG" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\recordinglist.JPG" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\rename.jpg" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\system.jpg" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\upload.jpg" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Instruction\videoplayer.JPG" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\configure_icon.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\recording_icon.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\rename_icon.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\system_icon.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\tutorials_icon.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Menu\upload_icon.png" />
     <Content Include="MPAi.ico" />
     <Content Include="Resources\CSSFiles\Scoreboard.css" />
     <Content Include="Resources\MPAi.ico" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_1.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\player\pause_64_2.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\player\play_64_1.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\player\play_64_2.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\player\stop_64_1.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\player\stop_64_2.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\refresh_16.png" />
     <Content Include="Resources\VLCIcons\Forward.png" />
     <Content Include="Resources\VLCIcons\Pause.png" />
     <Content Include="Resources\VLCIcons\Play.png" />
@@ -5766,10 +5637,27 @@
     <Content Include="Video\oldmale-vocaltract-o-Peter.mp4" />
     <Content Include="Video\oldmale-vocaltract-u-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-a-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ae-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ai-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ao-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-au-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-e-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-i-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-o-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-ou-Peter.mp4" />
+    <Content Include="Video\oldmale-vowel-r-Peter.mp4" />
     <Content Include="Video\oldmale-vowel-u-Peter.mp4" />
+    <Content Include="Video\youngfemale-vowel-a-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ae-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ai-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ao-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-au-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-e-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-i-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-o-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-ou-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-r-Rose.mp4" />
+    <Content Include="Video\youngfemale-vowel-u-Rose.mp4" />
     <Content Include="VlcLibs\header-files\deprecated.h" />
     <Content Include="VlcLibs\header-files\libvlc.h" />
     <Content Include="VlcLibs\header-files\libvlc_events.h" />
@@ -6385,32 +6273,11 @@
     <Content Include="VlcLibs\vlcx86\plugins\visualization\libgoom_plugin.dll" />
     <Content Include="VlcLibs\vlcx86\plugins\visualization\libprojectm_plugin.dll" />
     <Content Include="VlcLibs\vlcx86\plugins\visualization\libvisual_plugin.dll" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\About.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\admin.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonGreen-0.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonGreen-1.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonGreen-2.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonRed-0.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonRed-1.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonRed-2.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonYellow-0.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonYellow-1.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\ButtonYellow-2.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\correct.pngfile" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\changePswd.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Feedback.png" />
     <Content Include="Resources\header.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\help.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\HMMs.png" />
     <Content Include="Resources\newUser.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\openFolder.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\PictureNotFound.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\Settings.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\signOut.png" />
     <Content Include="Resources\SplashScreen.png" />
     <Content Include="Resources\userLogo.png" />
     <Content Include="Resources\LoginLogo.png" />
-    <Content Include="Archived Classes\Prior to 2.0\Resources\wrong.pngfile" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -1,4 +1,6 @@
-﻿namespace MPAi.NewForms
+﻿using MPAi.Components;
+
+namespace MPAi.Forms.Popups
 {
     partial class RecordingUploadScreen
     {
@@ -29,16 +31,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.toLocalButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.toDBButton = new MPAi.NewForms.MPAiButton(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingUploadScreen));
+            this.toLocalButton = new MPAi.Components.MPAiButton(this.components);
+            this.toDBButton = new MPAi.Components.MPAiButton(this.components);
             this.onDBListBox = new System.Windows.Forms.ListBox();
-            this.allLocalItemsButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.allLocalItemsButton = new MPAi.Components.MPAiButton(this.components);
             this.mediaLocalListBox = new System.Windows.Forms.ListBox();
             this.databaseLabel = new System.Windows.Forms.Label();
             this.currentFolderTextBox = new System.Windows.Forms.TextBox();
-            this.selectFolderButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.allDatabaseItemsButton = new MPAi.NewForms.MPAiButton(this.components);
-            this.backButton = new MPAi.NewForms.MPAiButton(this.components);
+            this.selectFolderButton = new MPAi.Components.MPAiButton(this.components);
+            this.allDatabaseItemsButton = new MPAi.Components.MPAiButton(this.components);
+            this.backButton = new MPAi.Components.MPAiButton(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
@@ -123,7 +126,7 @@
             this.currentFolderTextBox.MinimumSize = new System.Drawing.Size(175, 23);
             this.currentFolderTextBox.Name = "currentFolderTextBox";
             this.currentFolderTextBox.ReadOnly = true;
-            this.currentFolderTextBox.Size = new System.Drawing.Size(175, 23);
+            this.currentFolderTextBox.Size = new System.Drawing.Size(175, 20);
             this.currentFolderTextBox.TabIndex = 17;
             this.currentFolderTextBox.Text = "No Folder Selected";
             // 
@@ -184,8 +187,10 @@
             this.Controls.Add(this.onDBListBox);
             this.Controls.Add(this.allLocalItemsButton);
             this.Controls.Add(this.mediaLocalListBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RecordingUploadScreen";
-            this.Text = "RecordingUploadScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Upload Recordings";
             this.ResumeLayout(false);
             this.PerformLayout();
 
