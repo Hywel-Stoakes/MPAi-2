@@ -127,12 +127,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MPAiComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\MPAiComboBox.Designer.cs">
+      <DependentUpon>MPAiComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MPAiMessageBoxFactory.cs" />
-    <Compile Include="Components\MPAiMessageBoxTemplate.cs">
+    <Compile Include="Components\MPAiMessageBoxSkeleton.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Components\MPAiMessageBoxTemplate.Designer.cs">
-      <DependentUpon>MPAiMessageBoxTemplate.cs</DependentUpon>
+    <Compile Include="Components\MPAiMessageBoxSkeleton.Designer.cs">
+      <DependentUpon>MPAiMessageBoxSkeleton.cs</DependentUpon>
     </Compile>
     <Compile Include="Cores\DirectoryManagement.cs" />
     <Compile Include="Cores\HTKEngine.cs" />
@@ -3246,8 +3252,8 @@
     <EmbeddedResource Include="Components\MPAiButton.resx">
       <DependentUpon>MPAiButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\MPAiMessageBoxTemplate.resx">
-      <DependentUpon>MPAiMessageBoxTemplate.cs</DependentUpon>
+    <EmbeddedResource Include="Components\MPAiMessageBoxSkeleton.resx">
+      <DependentUpon>MPAiMessageBoxSkeleton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\AdministratorConsole.resx">
       <DependentUpon>AdministratorConsole.cs</DependentUpon>

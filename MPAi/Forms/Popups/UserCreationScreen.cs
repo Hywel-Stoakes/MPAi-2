@@ -17,6 +17,8 @@ namespace MPAi.Forms.Popups
         public UserCreationScreen()
         {
             InitializeComponent();
+
+            AcceptButton = this.okayButton;
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 using MPAi.Components;
+using MPAi.Cores;
 using MPAi.Cores.Scoreboard;
 using MPAi.Forms;
 using NAudio.CoreAudioApi;
@@ -178,7 +179,6 @@ namespace MPAi.Modules
             try
             {
                 // Before starting a new process, tidy up any old ones in the background.
-                //  ClosePlot();
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
                     pythonPipe = new PythonPipe();
@@ -190,7 +190,6 @@ namespace MPAi.Modules
                     Console.WriteLine("after Thread");
                 }
                 PlotExe = new Process();
-                //PlotExe.StartInfo.FileName = Path.Combine(Properties.Settings.Default.FormantFolder, @"dist",@"VowelRunner.exe");
 
                 if (plotType == PlotType.VOWEL_PLOT)
                 {
@@ -223,7 +222,7 @@ namespace MPAi.Modules
                 }             
                 
                 PlotExe.StartInfo.UseShellExecute = true;
-                PlotExe.StartInfo.WorkingDirectory = Path.Combine(Properties.Settings.Default.FormantFolder, "Dist");
+                PlotExe.StartInfo.WorkingDirectory = Path.Combine(DirectoryManagement.FormantFolder, "dist");
 
                 // Run with the python console in the background, Hidden = no, Normal = yes
                 PlotExe.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;

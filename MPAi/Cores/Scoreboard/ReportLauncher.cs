@@ -11,9 +11,9 @@ namespace MPAi.Cores.Scoreboard
     {
         private static void ensureUserDirectoryExists()
         {
-            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName())))
+            if (!Directory.Exists(Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName())))
             {
-                Directory.CreateDirectory(Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName()));
+                Directory.CreateDirectory(Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName()));
             }
         }
         /// <summary>
@@ -24,7 +24,7 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 ensureUserDirectoryExists();
-                return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "MPAiSpeakReport.html");
+                return Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName(), "MPAiSpeakReport.html");
             }
         }
 
@@ -36,7 +36,7 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 ensureUserDirectoryExists();
-                return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "MPAiSoundReport.html");
+                return Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName(), "MPAiSoundReport.html");
             }
         }
         /// <summary>
@@ -58,10 +58,13 @@ namespace MPAi.Cores.Scoreboard
             get
             {
                 ensureUserDirectoryExists();
-                return Path.Combine(Properties.Settings.Default.ReportFolder, UserManagement.CurrentUser.getName(), "Scoreboard.css");
+                return Path.Combine(DirectoryManagement.ScoreboardReportFolder, UserManagement.CurrentUser.getName(), "Scoreboard.css");
             }
         }
 
+        /// <summary>
+        /// Shows the MPAiSpeakScoreBoard, if it exists.
+        /// </summary>
         public static void ShowMPAiSpeakScoreReport()
         {
             if (File.Exists(MPAiSpeakScoreReportHTMLAddress))
@@ -70,6 +73,9 @@ namespace MPAi.Cores.Scoreboard
             }
         }
 
+        /// <summary>
+        /// Shows the MPAiSoundScoreBoard, if it exists.
+        /// </summary
         public static void ShowMPAiSoundScoreReport()
         {
             if (File.Exists(MPAiSoundScoreReportHTMLAddress))
@@ -84,12 +90,11 @@ namespace MPAi.Cores.Scoreboard
         /// </summary>
         private static void generateScoreboardCSS()
         {
-            //System.Windows.Forms.MPAiMessageBoxFactory.Show(OriginalScoreboardReportCSSAddress);
-            //System.Windows.Forms.MPAiMessageBoxFactory.Show(ScoreboardReportCSSAddress);
             File.Copy(OriginalScoreboardReportCSSAddress, ScoreboardReportCSSAddress);
         }
+
         /// <summary>
-        /// Generates an HTML score report based on an input scoreboard.
+        /// Generates an HTML score report based on an input MPAiSpeak scoreboard.
         /// </summary>
         /// <param name="scoreboard">The scoreboard to generate an HTML report of.</param>
         public static void GenerateMPAiSpeakScoreHTML(MPAiSpeakScoreBoard scoreboard)
@@ -210,6 +215,10 @@ namespace MPAi.Cores.Scoreboard
             }
         }
 
+        /// <summary>
+        /// Generates an HTML score report based on an input MPAiSound scoreboard.
+        /// </summary>
+        /// <param name="scoreboard">The scoreboard to generate an HTML report of.</param>
         public static void GenerateMPAiSoundScoreHTML(MPAiSoundScoreBoard scoreboard)
         {
             if (scoreboard.IsEmpty())

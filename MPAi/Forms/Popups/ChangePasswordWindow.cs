@@ -69,7 +69,7 @@ namespace MPAi.Forms.Popups
             }
             else
             {
-                UserManagement.ChangeUserCode(currentUser.getName(), codeBox.Text);
+                UserManagement.ChangeCurrentUserCode(codeBox.Text);
                 UserManagement.WriteSettings();
                 MPAiMessageBoxFactory.Show("Password changed! ",
                       "Done", MPAiMessageBoxButtons.OK);

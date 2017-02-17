@@ -10,6 +10,7 @@ namespace MPAi.Forms.Popups
     {
 
         private System.Collections.Generic.Dictionary<MPAiButton, MPAiUser> userButtonMap;
+        private System.Collections.Generic.Dictionary<CheckBox, MPAiUser> userCheckBoxMap;
 
         public AdministratorConsole()
         {
@@ -33,6 +34,28 @@ namespace MPAi.Forms.Popups
             MPAiUser user = userButtonMap[(MPAiButton)sender];
             ConfirmRandomisedPassword dialog = new ConfirmRandomisedPassword();
             user.UserPswd = dialog.ConfirmPassword(user.GetCorrectlyCapitalisedName(), user.UserPswd);
+            UserManagement.WriteSettings();
+        }
+
+        private void deleteButtonClick(object sender, EventArgs e)
+        {
+            MPAiUser user = userButtonMap[(MPAiButton)sender];
+            if(MPAiMessageBoxFactory.Show("Are you sure you want to delete " + user.GetCorrectlyCapitalisedName() + "'s account?", MPAiMessageBoxButtons.YesNoCancel).Equals(DialogResult.Yes))
+            {
+                UserManagement.RemoveUser(user);
+                generatedUserTable = generateUserTable();
+                this.Close();
+                new AdministratorConsole().ShowDialog();
+                Console.WriteLine("delete " + user.GetCorrectlyCapitalisedName());
+            }
+            UserManagement.WriteSettings();
+        }
+
+        private void checkBoxChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.CheckBox checkBox = (System.Windows.Forms.CheckBox)sender;
+            MPAiUser user = userCheckBoxMap[checkBox];
+            user.IsAdmin = checkBox.Checked;
             UserManagement.WriteSettings();
         }
 

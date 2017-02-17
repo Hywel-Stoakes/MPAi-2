@@ -35,7 +35,7 @@ namespace MPAi.Forms
             this.VideoPlayerPanel = new System.Windows.Forms.SplitContainer();
             this.backButton = new MPAiButton(this.components);
             this.optionsButton = new MPAiButton(this.components);
-            this.VowelComboBox = new System.Windows.Forms.ComboBox();
+            this.VowelComboBox = new MPAiComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.vlcControl = new Vlc.DotNet.Forms.VlcControl();
             this.backwardButton = new MPAiButton(this.components);
@@ -172,7 +172,6 @@ namespace MPAi.Forms
             this.VowelComboBox.Name = "VowelComboBox";
             this.VowelComboBox.Size = new System.Drawing.Size(353, 19);
             this.VowelComboBox.TabIndex = 1;
-            this.VowelComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.VowelComboBox_DrawItem);
             this.VowelComboBox.SelectedIndexChanged += new System.EventHandler(this.VowelComboBox_SelectedIndexChanged);
             this.VowelComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VowelComboBox_KeyPress);
             this.VowelComboBox.Leave += new System.EventHandler(this.VowelComboBox_Leave);
@@ -657,7 +656,7 @@ namespace MPAi.Forms
         #endregion
 
         private System.Windows.Forms.SplitContainer VideoPlayerPanel;
-        private System.Windows.Forms.ComboBox VowelComboBox;
+        private MPAiComboBox VowelComboBox;
         private MPAiButton backButton;
         private MPAiButton optionsButton;
         private System.Windows.Forms.DomainUpDown repeatSpinner;

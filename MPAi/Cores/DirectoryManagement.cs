@@ -1,4 +1,5 @@
 ﻿using MPAi.Modules;
+using System;
 using System.IO;
 
 namespace MPAi.Cores
@@ -9,6 +10,10 @@ namespace MPAi.Cores
         private static string videoFolder;
         private static string audioFolder;
         private static string recordingFolder;
+        private static string htkFolder;
+        private static string formantFolder;
+
+        private static readonly string settingsFile = Path.Combine(AppDataPath.Path, "SystemPaths.dat");
 
         public static string ScoreboardReportFolder
         {
@@ -16,14 +21,10 @@ namespace MPAi.Cores
             {
                 if (scoreboardReportFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "ScoreboardReports");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    scoreboardReportFolder = Path.Combine(AppDataPath.Path, "ScoreboardReports");
+                    Directory.CreateDirectory(scoreboardReportFolder);  // This method does nothing if the directory already exists
                 }
-                else
-                {
-                    return scoreboardReportFolder;
-                }
+                return scoreboardReportFolder;
             }
             set
             {
@@ -37,14 +38,10 @@ namespace MPAi.Cores
             {
                 if (videoFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Video");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    videoFolder = Path.Combine(AppDataPath.Path, "Video");
+                    Directory.CreateDirectory(videoFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return videoFolder;
-                }
+                return videoFolder;
             }
             set
             {
@@ -58,14 +55,10 @@ namespace MPAi.Cores
             {
                 if (audioFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Audio");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    audioFolder = Path.Combine(AppDataPath.Path, "Audio");
+                    Directory.CreateDirectory(audioFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return audioFolder;
-                }
+                return audioFolder;
             }
             set
             {
@@ -79,14 +72,10 @@ namespace MPAi.Cores
             {
                 if (recordingFolder == null)
                 {
-                    string path = Path.Combine(AppDataPath.Path, "Recording");
-                    ensureDirectoryExists(path);
-                    return Path.Combine(path);
+                    recordingFolder = Path.Combine(AppDataPath.Path, "Recording");
+                    Directory.CreateDirectory(recordingFolder); // This method does nothing if the directory already exists.
                 }
-                else
-                {
-                    return recordingFolder;
-                }
+                return recordingFolder;
             }
             set
             {
@@ -94,11 +83,110 @@ namespace MPAi.Cores
             }
         }
 
-        private static void ensureDirectoryExists(string path)
+        public static string HTKFolder
         {
-            if (!Directory.Exists(path))
+            get
             {
-                Directory.CreateDirectory(path);
+                if (htkFolder == null)
+                {
+                    htkFolder = Path.Combine(AppDataPath.Path, "HTK");
+                    Directory.CreateDirectory(htkFolder); // This method does nothing if the directory already exists.
+                }
+                return htkFolder;
+            }
+            set
+            {
+                htkFolder = value;
+            }
+        }
+
+        public static string FormantFolder
+        {
+            get
+            {
+                if (formantFolder == null)
+                {
+                    formantFolder = Path.Combine(AppDataPath.Path, "Formant");
+                    Directory.CreateDirectory(formantFolder); // This method does nothing if the directory already exists.
+                }
+                return formantFolder;
+            }
+            set
+            {
+                formantFolder = value;
+            }
+        }
+
+        /// <summary>
+        /// Called to set up file paths, or read from the user's settings if they have been configured prior.
+        /// </summary>
+        public static void Initialise()
+        {
+            if (File.Exists(settingsFile))
+            {
+                // Read out of the file
+                ReadPaths();
+            }
+            else
+            {
+                // Write defaults to file
+                WritePaths();
+            }
+        }
+
+        /// <summary>
+        /// Opens the settings file and populates the fields with the values saved during the last session.
+        /// </summary>
+        public static void ReadPaths()
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(settingsFile, FileMode.OpenOrCreate, FileAccess.Read))
+                {
+                    using (BinaryReader reader = new BinaryReader(fs))
+                    {
+                        if (new FileInfo(settingsFile).Length != 0) // If the file wasn't just created
+                        {
+                            ScoreboardReportFolder = reader.ReadString();
+                            VideoFolder = reader.ReadString();
+                            AudioFolder = reader.ReadString();
+                            RecordingFolder = reader.ReadString();
+                            HTKFolder = reader.ReadString();
+                            FormantFolder = reader.ReadString();
+                        }
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp);
+            }
+        }
+
+        /// <summary>
+        /// Writes all values to the settings file, and creates it if it does not already exist.
+        /// </summary>
+        public static void WritePaths()
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(settingsFile, FileMode.Create, FileAccess.Write))
+                {
+                    using (BinaryWriter writer = new BinaryWriter(fs))
+                    {
+                        // This will write default values if they haven't already been set.
+                        writer.Write(ScoreboardReportFolder);
+                        writer.Write(VideoFolder);
+                        writer.Write(AudioFolder);
+                        writer.Write(RecordingFolder);
+                        writer.Write(HTKFolder);
+                        writer.Write(FormantFolder);
+                    }
+                }
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp);
             }
         }
     }

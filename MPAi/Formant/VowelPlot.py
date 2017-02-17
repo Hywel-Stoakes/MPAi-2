@@ -102,7 +102,6 @@ class VowelPlot:
         font = ('Arial','20')
         vowel = ['a:','e:','i:','o:','u:']
 
-
         aButton = Button(self.parent, text = vowel[0], font = font, command = lambda vow=vowel[0]: self.changeVowel(vow))
         aButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         aButtonWindow = self.vowelPlotCanvas.create_window(self.width/2 - 160, 50, window = aButton, tags="firstButtons")
@@ -122,6 +121,19 @@ class VowelPlot:
         uButton = Button(self.parent, text = vowel[4], font = font, command = lambda vow=vowel[4]: self.changeVowel(vow))
         uButton.configure( activebackground = "#FA4A4A", relief  = GROOVE)
         uButtonWindow = self.vowelPlotCanvas.create_window(self.width/2 + 160, 50, window = uButton, tags="firstButtons")
+
+
+
+        if self.vowel == 'a:':
+            aButton.config(bg='#FA4A4A', relief = "sunken")
+        elif self.vowel == 'e:':
+            eButton.config(bg='#FA4A4A', relief = "sunken")
+        elif self.vowel == 'i:':
+            iButton.config(bg='#FA4A4A', relief = "sunken")
+        elif self.vowel == 'o:':
+            oButton.config(bg='#FA4A4A', relief = "sunken")
+        elif self.vowel == 'u:':
+            uButton.config(bg='#FA4A4A', relief = "sunken")
 
         analysisButton = Button(self.parent, text="    Analysis    \nand\ngo back",command=self.requestQuit, font = ('Arial','15') )
         analysisButton.configure(activebackground='#FA4A4A', anchor=W, relief = GROOVE)

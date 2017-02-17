@@ -1,4 +1,5 @@
 ﻿using MPAi.Components;
+using MPAi.Cores;
 using MPAi.DatabaseModel;
 using MPAi.Forms.Popups;
 using MPAi.Modules;
@@ -34,23 +35,8 @@ namespace MPAi.Forms
 
             InitializeDB();
 
-            /*
-            Set the default folders to where the application is currently running. 
-            The program depends on having a full path, but the dynamic settings can't be added by default.
-            Also create the directories if they don't already exist.
-            */
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Audio"));
-            Properties.Settings.Default.AudioFolder = MPAi.Cores.DirectoryManagement.AudioFolder;
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Video"));
-            Properties.Settings.Default.VideoFolder = MPAi.Cores.DirectoryManagement.VideoFolder;
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Recording"));
-            Properties.Settings.Default.RecordingFolder = MPAi.Cores.DirectoryManagement.RecordingFolder;
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Report"));
-            Properties.Settings.Default.ReportFolder = MPAi.Cores.DirectoryManagement.ScoreboardReportFolder;
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK"));
-            Properties.Settings.Default.HTKFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HTK");
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Formant"));
-            Properties.Settings.Default.FormantFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Formant");
+            //Set the default folders to where the application is currently running. 
+            DirectoryManagement.Initialise();
 
             // Kill any erroneous processes that may be running.
             int currentPID = Process.GetCurrentProcess().Id;
@@ -324,20 +310,25 @@ namespace MPAi.Forms
 
             foreach (var process in Process.GetProcessesByName("MPAiVowelRunner"))
             {
-                process.Kill();
-                process.WaitForExit();
-                process.Dispose();
+                if (process == null)
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
+                }
             }
             foreach (var process in Process.GetProcessesByName("MPAiPlotRunner"))
             {
-
-                process.Kill();
-                process.WaitForExit();
-                process.Dispose();
+                if (process == null)
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                    process.Dispose();
+                }
             }
 
             UserManagement.WriteSettings();
-            Properties.Settings.Default.Save();
+            DirectoryManagement.WritePaths();
         }
     }                                                    
 }                                                        

@@ -7,32 +7,47 @@ namespace MPAi.Cores.Scoreboard
 {
     static class MPAiSoundScoreboardLoader
     {
+        /// <summary>
+        /// Private method that checks whether the user directory exists, and if it does not, creates it.
+        /// </summary>
+        /// <param name="user"></param>
         private static void ensureUserDirectoryExists(MPAiUser user)
         {
-            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName())))
+            if (!Directory.Exists(Path.Combine(DirectoryManagement.ScoreboardReportFolder, user.getName())))
             {
-                Directory.CreateDirectory(Path.Combine(Properties.Settings.Default.ReportFolder, user.getName()));
+                Directory.CreateDirectory(Path.Combine(DirectoryManagement.ScoreboardReportFolder, user.getName()));
             }
         }
 
-        public static string SpeakScoreboardFileAddress(MPAiUser user)
+        /// <summary>
+        /// Retruns the appropriate filepath string for the specified user's scoreboard file.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static string SoundScoreboardFileAddress(MPAiUser user)
         {
             ensureUserDirectoryExists(user);
-            return Path.Combine(Properties.Settings.Default.ReportFolder, user.getName(), "MPAiSoundScoreboard.txt");
+            return Path.Combine(DirectoryManagement.ScoreboardReportFolder, user.getName(), "MPAiSoundScoreboard.txt");
 
         }
-
+        
+        /// <summary>
+        /// This method saved the specified scoreboard to the appropriate user's scoreboard file. it writes the data of the scoreboard
+        /// using a similar notation to html, where the different tags refer to different fields of the scoreboard hierarchy. Items
+        /// are nested inside sessions, which are in turn nested inside a scoreboard.
+        /// </summary>
+        /// <param name="scoreboard"></param>
         public static void SaveScoreboard(MPAiSoundScoreBoard scoreboard)
         {
             if (scoreboard.IsEmpty())
             {
                 return;
             }
-            if (File.Exists(SpeakScoreboardFileAddress(scoreboard.User)))
+            if (File.Exists(SoundScoreboardFileAddress(scoreboard.User)))
             {
-                File.Delete(SpeakScoreboardFileAddress(scoreboard.User));
+                File.Delete(SoundScoreboardFileAddress(scoreboard.User));
             }
-            using (FileStream fs = new FileStream(SpeakScoreboardFileAddress(scoreboard.User), FileMode.Create))
+            using (FileStream fs = new FileStream(SoundScoreboardFileAddress(scoreboard.User), FileMode.Create))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
                 {
@@ -66,16 +81,22 @@ namespace MPAi.Cores.Scoreboard
                     sw.WriteLine("</Scoreboard>");
                 }
             }
-            File.SetAttributes(SpeakScoreboardFileAddress(scoreboard.User), File.GetAttributes(SpeakScoreboardFileAddress(scoreboard.User)) | FileAttributes.Hidden);
+            File.SetAttributes(SoundScoreboardFileAddress(scoreboard.User), File.GetAttributes(SoundScoreboardFileAddress(scoreboard.User)) | FileAttributes.Hidden);
         }
 
+        /// <summary>
+        /// This method loads the scoreboard for the specified user. It does this by reading the html-style file created by SaveScoreboard.
+        /// The nested nature of the file is why this method is also deeply nested.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static MPAiSoundScoreBoard LoadScoreboard(MPAiUser user)
         {
             MPAiSoundScoreBoard scoreboard = new MPAiSoundScoreBoard(user);
 
-            if (File.Exists(SpeakScoreboardFileAddress(scoreboard.User)))
+            if (File.Exists(SoundScoreboardFileAddress(scoreboard.User)))
             {
-                using (FileStream fs = new FileStream(SpeakScoreboardFileAddress(scoreboard.User), FileMode.Open))
+                using (FileStream fs = new FileStream(SoundScoreboardFileAddress(scoreboard.User), FileMode.Open))
                 {
                     using (StreamReader sr = new StreamReader(fs))
                     {

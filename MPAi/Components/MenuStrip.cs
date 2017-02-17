@@ -61,10 +61,8 @@ namespace MPAi.Components
         /// </summary>
         private void authoriseAdmin()
         {
-            configToolStripMenuItem.Visible = UserManagement.currentUserIsAdmin();
-
-            changePasswordToolStripMenuItem.Visible = !UserManagement.currentUserIsAdmin();
-            consoleToolStripMenuItem.Visible = UserManagement.currentUserIsAdmin();
+            configToolStripMenuItem.Visible = UserManagement.IsCurrentUserAdmin();
+            consoleToolStripMenuItem.Visible = UserManagement.IsCurrentUserAdmin();
         }
 
         /// <summary>
@@ -106,7 +104,7 @@ namespace MPAi.Components
             nativeMāoriToolStripMenuItem.Checked = true;
             modernMāoriToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToNative();                                     // Change the current user variable...
-            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
+            UserManagement.GetUser(UserManagement.CurrentUser.getName()).changeVoiceToNative();   // and the current user in the list of users.
             ((MainFormInterface)Parent).userChanged();
         }
 
@@ -120,7 +118,7 @@ namespace MPAi.Components
             nativeMāoriToolStripMenuItem.Checked = false;
             modernMāoriToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToModern();                                     // Change the current user variable...
-            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToModern();   // and the current user in the list of users.
+            UserManagement.GetUser(UserManagement.CurrentUser.getName()).changeVoiceToModern();   // and the current user in the list of users.
             ((MainFormInterface)Parent).userChanged();
         }
 
@@ -134,7 +132,7 @@ namespace MPAi.Components
             feminineToolStripMenuItem.Checked = true;
             masculineToolStripMenuItem.Checked = false;
             UserManagement.CurrentUser.changeVoiceToFeminine();                                     // Change the current user variable...
-            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
+            UserManagement.GetUser(UserManagement.CurrentUser.getName()).changeVoiceToFeminine();   // and the current user in the list of users.
             checkAndSetNativeDisplayVoice();
             ((MainFormInterface)Parent).userChanged();
         }
@@ -150,7 +148,7 @@ namespace MPAi.Components
             feminineToolStripMenuItem.Checked = false;
             masculineToolStripMenuItem.Checked = true;
             UserManagement.CurrentUser.changeVoiceToMasculine();                                     // Change the current user variable...
-            UserManagement.getUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();
+            UserManagement.GetUser(UserManagement.CurrentUser.getName()).changeVoiceToMasculine();
             checkAndSetNativeDisplayVoice(); // and the current user in the list of users.
             ((MainFormInterface)Parent).userChanged();
         }

@@ -45,7 +45,6 @@ namespace MPAi.Forms
         private string audioFilePath = Path.Combine(AppDataPath.Temp, "VideoPlayerRecordedAudio.wav");
         private WaveFileWriter writer;
         private WasapiCapture waveIn;
-        private NAudioPlayer audioPlayer = new NAudioPlayer();
 
         // Used to keep track of the currently playing file.
         private string filePath;
@@ -84,7 +83,11 @@ namespace MPAi.Forms
             set
             {
                 repeatTimes = value;
-                repeatsRemaining = Math.Min(repeatsRemaining, value);
+                // If the control is not playing, update repeats remaining. Implicitly, if the control is playing, let it finish it's current repeat cycle.
+                if (!(vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Opening) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused) || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Buffering)))
+                {
+                    repeatsRemaining = value;
+                }
             }
         }
 
@@ -507,13 +510,10 @@ namespace MPAi.Forms
         private void OnVlcControlNeedLibDirectory(object sender, VlcLibDirectoryNeededEventArgs e)
         {
             var currentAssembly = Assembly.GetEntryAssembly();  // Get the currently running project
-            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;    // Get the directory of the currently running project
-            if (currentDirectory == null)   // If there isn't one, return.
-                return;
             if (AssemblyName.GetAssemblyName(currentAssembly.Location).ProcessorArchitecture == ProcessorArchitecture.X86)  // If the computer is running an x86 architecture, use the x86 folder.
-                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, @"VlcLibs\vlcx86\"));
+                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(AppDataPath.Path, @"VlcLibs\vlcx86\"));
             else        // otherwise use the x64 folder.
-                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, @"VlcLibs\vlcx64\"));
+                e.VlcLibDirectory = new DirectoryInfo(Path.Combine(AppDataPath.Path, @"VlcLibs\vlcx64\"));
 
             if (!e.VlcLibDirectory.Exists)      // If a folder is missing
             {
@@ -549,14 +549,12 @@ namespace MPAi.Forms
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing:   // If playing, pause and update the button.
                         {
                             vlcControl.Pause();
-                            audioPlayer.Pause();
                             playButton.ImageIndex = 1;
                         }
                         break;
                     case Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused:    // If paused, play and update the button.
                         {
                             vlcControl.Play();  // asyncPlay is not used here, as it starts playback from the beginning.
-                            audioPlayer.Unpause();
                             playButton.ImageIndex = 3;
                         }
                         break;
@@ -655,11 +653,6 @@ namespace MPAi.Forms
             delegateStopper VLCDelegate = new delegateStopper(vlcControl.Stop);
             // Call stop asynchronously.
             VLCDelegate.BeginInvoke(null, null);
-            if (!recordingProgressBarLabel.Text.Equals(noFileText))
-            {
-                // Stop audio when video is stopped.
-                audioPlayer.Stop();
-            }
         }
 
         /// <summary>
@@ -762,7 +755,7 @@ namespace MPAi.Forms
                 else
                 {
                     asyncPlay();
-                    repeatsRemaining -= 1;
+                    repeatsRemaining--;
                 }
                 
             }
@@ -779,10 +772,10 @@ namespace MPAi.Forms
                 {
                     if (currentRecordingIndex < wordsList.Count - 1)
                     {
-                        currentRecordingIndex += 1;
+                        currentRecordingIndex++;
                         // Run this command on the GUI thread
                         Invoke((MethodInvoker)delegate {
-                            VowelComboBox.SelectedIndex += 1;
+                            VowelComboBox.SelectedIndex++;
                         });
                     }
                     else    // Move back to beginning if the user reaches the end of the list.
@@ -810,8 +803,8 @@ namespace MPAi.Forms
         {
             if (currentRecordingIndex < wordsList.Count - 1)
             {
-                currentRecordingIndex += 1;
-                VowelComboBox.SelectedIndex += 1;
+                currentRecordingIndex++;
+                VowelComboBox.SelectedIndex++;
             }
             else    // Move back to beginning if the user reaches the end of the list.
             {
@@ -840,8 +833,8 @@ namespace MPAi.Forms
         {
             if (currentRecordingIndex > 0)
             {
-                currentRecordingIndex -= 1;
-                VowelComboBox.SelectedIndex -= 1;
+                currentRecordingIndex--;
+                VowelComboBox.SelectedIndex--;
             }
             else    // Move to the end if the user reaches the beginning of the list.
             {
@@ -982,35 +975,9 @@ namespace MPAi.Forms
             if (appClosing)
             {
                 UserManagement.WriteSettings();
-                Properties.Settings.Default.Save();
+                DirectoryManagement.WritePaths();
                 Application.Exit();
             }
-        }
-
-        /// <summary>
-        /// Override for default draw method, allowing for greater customisation of combo boxes.
-        /// </summary>
-        /// <param name="sender">Automatically generated by Visual Studio.</param>
-        /// <param name="e">Automatically generated by Visual Studio.</param>
-        private void VowelComboBox_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            e.DrawBackground();
-            Color colour, highlightColour;
-            // Set the colour based on the category here.
-            colour = Color.LavenderBlush;
-            highlightColour = Color.AliceBlue;
-
-            // If the item is not selected, paint over it with the correct colour
-            if (!((e.State & DrawItemState.Selected) == DrawItemState.Selected))
-            {
-                e.Graphics.FillRectangle(new SolidBrush(colour), e.Bounds);
-            }
-            else
-            {
-                e.Graphics.FillRectangle(new SolidBrush(highlightColour), e.Bounds);
-            }
-            e.Graphics.DrawString(VowelComboBox.GetItemText(VowelComboBox.Items[e.Index]), SystemFonts.DefaultFont, new SolidBrush(Color.Black), e.Bounds);
-            e.DrawFocusRectangle();
         }
     }
 }
