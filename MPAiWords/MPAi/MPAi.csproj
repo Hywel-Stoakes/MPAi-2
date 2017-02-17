@@ -2209,7 +2209,6 @@
     <Compile Include="Modules\IoController.cs" />
     <Compile Include="Modules\MPAiUser.cs" />
     <Compile Include="Cores\NameParser.cs" />
-    <Compile Include="Modules\PlotController.cs" />
     <Compile Include="Modules\UserManagement.cs" />
     <Compile Include="Cores\VowelComparer.cs" />
     <Compile Include="Forms\Popups\AnalysisScreen.cs">
@@ -2249,12 +2248,6 @@
     <Compile Include="Forms\Popups\RenameFileDialog.Designer.cs">
       <DependentUpon>RenameFileDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MPAiSoundMainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MPAiSoundMainMenu.Designer.cs">
-      <DependentUpon>MPAiSoundMainMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MPAiSpeakMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2272,12 +2265,6 @@
     </Compile>
     <Compile Include="Forms\SpeechRecognitionTest.Designer.cs">
       <DependentUpon>SpeechRecognitionTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\VideoPlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\VideoPlayer.Designer.cs">
-      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2330,9 +2317,6 @@
     <EmbeddedResource Include="Forms\Popups\RenameFileDialog.resx">
       <DependentUpon>RenameFileDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MPAiSoundMainMenu.resx">
-      <DependentUpon>MPAiSoundMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MPAiSpeakMainMenu.resx">
       <DependentUpon>MPAiSpeakMainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -2341,9 +2325,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Popups\UserCreationScreen.resx">
       <DependentUpon>UserCreationScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\VideoPlayer.resx">
-      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

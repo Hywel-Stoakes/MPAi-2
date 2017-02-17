@@ -238,17 +238,6 @@ namespace MPAi.DatabaseModel
                     }
                 }
             }
-            if (Directory.Exists(DirectoryManagement.VideoFolder))
-            {
-                DirectoryInfo dirInfo = new DirectoryInfo(DirectoryManagement.VideoFolder);
-                foreach (FileInfo fInfo in dirInfo.GetFiles("*.mp4", SearchOption.AllDirectories))   // Also searches subdirectories.
-                {
-                    if (fInfo.Extension.Contains("mp4"))
-                    {
-                        context.AddOrUpdateRecordingFile(Path.Combine(fInfo.DirectoryName, fInfo.FullName));
-                    }
-                }
-            }
             base.Seed(context); // Does nothing. There is no Audio folder, so nothing to add or update.
         }
     }
