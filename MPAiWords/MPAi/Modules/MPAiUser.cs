@@ -18,7 +18,6 @@ namespace MPAi.Modules
         private string passWord;
         private VoiceType voiceType;
         private MPAiSpeakScoreBoard speakScoreboard;
-        private MPAiSoundScoreBoard soundScoreboard;
         private Speaker speaker;
         private bool isAdmin;
         private bool originalAdmin;
@@ -121,18 +120,6 @@ namespace MPAi.Modules
             }
         }
 
-        /// <summary>
-        /// Wrapper property for the user's username, allowing access from outside the class.
-        /// </summary>
-        [DisplayName("SoundScoreBoard")]
-        public MPAiSoundScoreBoard SoundScoreboard
-        {
-            get
-            {
-                loadScoreBoards();
-                return soundScoreboard;
-            }
-        }
         private MPAiModel InitializeDBModel(MPAiModel DBModel)
         {
             DBModel.Database.Initialize(false);
@@ -228,18 +215,6 @@ namespace MPAi.Modules
                 else
                 {
                     speakScoreboard = new MPAiSpeakScoreBoard(this);
-                }
-            }
-            
-            if(soundScoreboard == null)
-            {
-                if (File.Exists(MPAiSoundScoreboardLoader.SoundScoreboardFileAddress(this)))
-                {
-                    soundScoreboard = MPAiSoundScoreboardLoader.LoadScoreboard(this);
-                }
-                else
-                {
-                    soundScoreboard = new MPAiSoundScoreBoard(this);
                 }
             }
         }
