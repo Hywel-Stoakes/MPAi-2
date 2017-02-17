@@ -200,25 +200,27 @@ namespace MPAi.Modules
                     PlotExe.StartInfo.FileName = @"MPAiPlotRunner.exe";
                 }
 
+                string formantFileLocation = DirectoryManagement.FormantFolder;
+                Console.WriteLine(formantFileLocation);
                 if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.NATIVE))
                 {
-                    PlotExe.StartInfo.Arguments = @"masculine native";
+                    PlotExe.StartInfo.Arguments = @"masculine native " + formantFileLocation;
                 }
                 else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.NATIVE))
                 {
-                    PlotExe.StartInfo.Arguments = @"masculine modern";
+                    PlotExe.StartInfo.Arguments = @"masculine modern " + formantFileLocation;
                 }
                 else if (voiceType.Gender.Equals(GenderType.MASCULINE) && voiceType.Language.Equals(LanguageType.MODERN))
                 {
-                    PlotExe.StartInfo.Arguments = @"feminine native";
+                    PlotExe.StartInfo.Arguments = @"feminine native " + formantFileLocation;
                 }
                 else if (voiceType.Gender.Equals(GenderType.FEMININE) && voiceType.Language.Equals(LanguageType.MODERN))
                 {
-                    PlotExe.StartInfo.Arguments = @"feminine modern";
+                    PlotExe.StartInfo.Arguments = @"feminine modern " + formantFileLocation;
                 }
                 else
                 {
-                    PlotExe.StartInfo.Arguments = @"masculine native";
+                    PlotExe.StartInfo.Arguments = @"masculine native " + formantFileLocation;
                 }             
                 
                 PlotExe.StartInfo.UseShellExecute = true;
