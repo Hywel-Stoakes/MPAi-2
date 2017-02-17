@@ -8,9 +8,6 @@ namespace MPAi.Cores
     {
         private static string scoreboardReportFolder;
         private static string videoFolder;
-        private static string audioFolder;
-        private static string recordingFolder;
-        private static string htkFolder;
         private static string formantFolder;
 
         private static readonly string settingsFile = Path.Combine(AppDataPath.Path, "SystemPaths.dat");
@@ -46,57 +43,6 @@ namespace MPAi.Cores
             set
             {
                 videoFolder = value;
-            }
-        }
-
-        public static string AudioFolder
-        {
-            get
-            {
-                if (audioFolder == null)
-                {
-                    audioFolder = Path.Combine(AppDataPath.Path, "Audio");
-                    Directory.CreateDirectory(audioFolder); // This method does nothing if the directory already exists.
-                }
-                return audioFolder;
-            }
-            set
-            {
-                audioFolder = value;
-            }
-        }
-
-        public static string RecordingFolder
-        {
-            get
-            {
-                if (recordingFolder == null)
-                {
-                    recordingFolder = Path.Combine(AppDataPath.Path, "Recording");
-                    Directory.CreateDirectory(recordingFolder); // This method does nothing if the directory already exists.
-                }
-                return recordingFolder;
-            }
-            set
-            {
-                recordingFolder = value;
-            }
-        }
-
-        public static string HTKFolder
-        {
-            get
-            {
-                if (htkFolder == null)
-                {
-                    htkFolder = Path.Combine(AppDataPath.Path, "HTK");
-                    Directory.CreateDirectory(htkFolder); // This method does nothing if the directory already exists.
-                }
-                return htkFolder;
-            }
-            set
-            {
-                htkFolder = value;
             }
         }
 
@@ -149,9 +95,6 @@ namespace MPAi.Cores
                         {
                             ScoreboardReportFolder = reader.ReadString();
                             VideoFolder = reader.ReadString();
-                            AudioFolder = reader.ReadString();
-                            RecordingFolder = reader.ReadString();
-                            HTKFolder = reader.ReadString();
                             FormantFolder = reader.ReadString();
                         }
                     }
@@ -177,9 +120,6 @@ namespace MPAi.Cores
                         // This will write default values if they haven't already been set.
                         writer.Write(ScoreboardReportFolder);
                         writer.Write(VideoFolder);
-                        writer.Write(AudioFolder);
-                        writer.Write(RecordingFolder);
-                        writer.Write(HTKFolder);
                         writer.Write(FormantFolder);
                     }
                 }
