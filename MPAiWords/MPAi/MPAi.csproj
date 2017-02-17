@@ -154,6 +154,7 @@
     <Compile Include="Components\MPAiButton.Designer.cs">
       <DependentUpon>MPAiButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cores\VowelComparer.cs" />
     <Compile Include="Forms\Popups\AdministratorConsole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2210,7 +2211,6 @@
     <Compile Include="Modules\MPAiUser.cs" />
     <Compile Include="Cores\NameParser.cs" />
     <Compile Include="Modules\UserManagement.cs" />
-    <Compile Include="Cores\VowelComparer.cs" />
     <Compile Include="Forms\Popups\AnalysisScreen.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,30 +28,5 @@ namespace MPAi.Modules
                 MPAiMessageBoxFactory.Show(fileNotFoundText);
             }
         }
-
-        /// <summary>
-        /// Loads Notepad to view the specified text file.
-        /// </summary>
-        /// <param name="FilePath">The file path of the text file to be viewed, as a string.</param>
-        public static void ShowInNotepad(string FilePath)
-        {
-            Process notepad = new Process();
-            notepad.StartInfo.FileName = "notepad";
-            notepad.StartInfo.Arguments = FilePath;
-            notepad.Start();
-        }
-
-        /// <summary>
-        /// Loads File Explorer to view the specified directory.
-        /// </summary>
-        /// <param name="FilePath">The file path of the directory to be viewed, as a string.</param>
-        public static void ShowInExplorer(string FilePath)
-        {
-            Process explorer = new Process();
-            explorer.StartInfo.FileName = "explorer";
-            explorer.StartInfo.Arguments = FilePath;
-            explorer.Start();
-        }
-
     }
 }
