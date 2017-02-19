@@ -17,7 +17,7 @@ namespace MPAi.Components
 
         public static DialogResult Show(string message, string caption, MPAiMessageBoxButtons buttons)
         {
-            MPAiMessageBoxTemplate messageBox = new MPAiMessageBoxTemplate();
+            MPAiMessageBoxSkeleton messageBox = new MPAiMessageBoxSkeleton();
             messageBox.SetMessageText(message);
             messageBox.SetCaptionText(caption);
             switch (buttons)
@@ -44,7 +44,7 @@ namespace MPAi.Components
 
         public static DialogResult Show(string message, MPAiMessageBoxButtons buttons)
         {
-            MPAiMessageBoxTemplate messageBox = new MPAiMessageBoxTemplate();
+            MPAiMessageBoxSkeleton messageBox = new MPAiMessageBoxSkeleton();
             messageBox.SetMessageText(message);
             messageBox.SetCaptionText("Message:");
             switch (buttons)

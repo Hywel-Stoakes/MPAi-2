@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace MPAi.Components
 {
-    public partial class MPAiMessageBoxTemplate : Form
+    public partial class MPAiMessageBoxSkeleton : Form
     {
         private DialogResult result = DialogResult.None;
 
         private MPAiButton button1 = null, button2 = null, button3 = null;
 
-        public MPAiMessageBoxTemplate()
+        public MPAiMessageBoxSkeleton()
         {
             InitializeComponent();
         }
