@@ -1,6 +1,6 @@
 ﻿namespace MPAi.Components
 {
-    partial class MPAiMessageBoxTemplate
+    partial class MPAiMessageBoxSkeleton
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MPAiMessageBoxTemplate));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MPAiMessageBoxSkeleton));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.captionLabel = new System.Windows.Forms.Label();
