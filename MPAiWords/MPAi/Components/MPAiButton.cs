@@ -15,11 +15,11 @@ namespace MPAi.Components
         {
             if (this.Enabled)
             {
-                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
+                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x73);
             }
             else
             {
-                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x60, 0x60);
+                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x33, 0xFC, 0xA3);
             }
         }
 
@@ -31,7 +31,7 @@ namespace MPAi.Components
 
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForeColor = System.Drawing.Color.White;
-            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
+            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x73);
             this.EnabledChanged += MPAiButton_EnabledChanged;
         }
     }

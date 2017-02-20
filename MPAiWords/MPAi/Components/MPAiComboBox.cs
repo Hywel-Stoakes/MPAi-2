@@ -32,7 +32,7 @@ namespace MPAi.Components
             Color colour, highlightColour;
             // Set the colour here.
             colour = Color.White;
-            highlightColour = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
+            highlightColour = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x73);
 
             // If the item is not selected, paint over it with the correct colour
             if (!((e.State & DrawItemState.Selected) == DrawItemState.Selected))

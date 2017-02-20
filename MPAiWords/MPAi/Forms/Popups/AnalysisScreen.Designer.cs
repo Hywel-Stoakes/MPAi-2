@@ -88,7 +88,7 @@ namespace MPAi.Forms.Popups
             // 
             // splitContainer4
             // 
-            this.splitContainer4.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
+            this.splitContainer4.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x73);
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer4.Location = new System.Drawing.Point(0, 0);
             this.splitContainer4.Name = "splitContainer4";

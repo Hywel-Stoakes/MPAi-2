@@ -1157,6 +1157,7 @@
     <Content Include="MPAi.ico" />
     <Content Include="Resources\CSSFiles\Scoreboard.css" />
     <Content Include="Resources\MPAi.ico" />
+    <Content Include="Resources\SplashScreen.png" />
     <Content Include="Resources\VLCIcons\Forward.png" />
     <Content Include="Resources\VLCIcons\Pause.png" />
     <Content Include="Resources\VLCIcons\Play.png" />
@@ -1778,7 +1779,6 @@
     <Content Include="VlcLibs\vlcx86\plugins\visualization\libvisual_plugin.dll" />
     <Content Include="Resources\header.png" />
     <Content Include="Resources\newUser.png" />
-    <Content Include="Resources\SplashScreen.png" />
     <Content Include="Resources\LoginLogo.png" />
   </ItemGroup>
   <ItemGroup>
