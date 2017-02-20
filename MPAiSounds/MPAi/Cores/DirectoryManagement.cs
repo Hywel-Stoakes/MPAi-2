@@ -9,6 +9,7 @@ namespace MPAi.Cores
         private static string scoreboardReportFolder;
         private static string videoFolder;
         private static string formantFolder;
+        private static string recordingFolder;
 
         private static readonly string settingsFile = Path.Combine(AppDataPath.Path, "SystemPaths.dat");
 
@@ -63,6 +64,23 @@ namespace MPAi.Cores
             }
         }
 
+        public static string RecordingFolder
+        {
+            get
+            {
+                if (recordingFolder == null)
+                {
+                    recordingFolder = Path.Combine(AppDataPath.Path, "Recording");
+                    Directory.CreateDirectory(recordingFolder); // This method does nothing if the directory already exists.
+                }
+                return recordingFolder;
+            }
+            set
+            {
+                recordingFolder = value;
+            }
+        }
+
         /// <summary>
         /// Called to set up file paths, or read from the user's settings if they have been configured prior.
         /// </summary>
@@ -96,6 +114,7 @@ namespace MPAi.Cores
                             ScoreboardReportFolder = reader.ReadString();
                             VideoFolder = reader.ReadString();
                             FormantFolder = reader.ReadString();
+                            RecordingFolder = reader.ReadString();
                         }
                     }
                 }
@@ -121,6 +140,7 @@ namespace MPAi.Cores
                         writer.Write(ScoreboardReportFolder);
                         writer.Write(VideoFolder);
                         writer.Write(FormantFolder);
+                        writer.Write(RecordingFolder);
                     }
                 }
             }
