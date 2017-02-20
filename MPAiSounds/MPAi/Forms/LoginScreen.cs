@@ -133,6 +133,11 @@ namespace MPAi.Forms
             {
                 watermarkUsername(true);
             }
+            else
+            {
+                // If there is user text in the box, highlight it when the user focuses said box.
+                usernameTextBox.SelectAll();
+            }
         }
 
         /// <summary>
@@ -168,6 +173,11 @@ namespace MPAi.Forms
             if (passwordTextBox.Text.Equals(defaultPasswordText) && passwordTextBox.ForeColor.Equals(SystemColors.InactiveCaption))
             {
                 watermarkPassword(true);
+            }
+            else
+            {
+                // If there is user text in the box, highlight it when the user focuses said box.
+                passwordTextBox.SelectAll();
             }
         }
 
