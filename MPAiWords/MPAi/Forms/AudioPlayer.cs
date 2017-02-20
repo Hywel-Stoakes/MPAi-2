@@ -222,6 +222,13 @@ namespace MPAi.Forms
         private void WordComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentRecordingIndex = WordComboBox.SelectedIndex;
+            // If the video is partway through playing, stop it.
+            if (vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing)
+                || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Opening)
+                || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Buffering)
+                || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused))
+                asyncStop();
+            playAudio();
         }
 
         /// <summary>
@@ -782,22 +789,30 @@ namespace MPAi.Forms
                 // Autoplay functionality
                 if (playNextCheckBox.Checked)
                 {
-                    if (currentRecordingIndex < wordsList.Count - 1)
+                    try
                     {
-                        currentRecordingIndex++;
-                        // Run this command on the GUI thread
-                        Invoke((MethodInvoker)delegate {
-                            WordComboBox.SelectedIndex++;
-                        });
+                        if (currentRecordingIndex < wordsList.Count - 1)
+                        {
+                            currentRecordingIndex++;
+                            // Run this command on the GUI thread
+                            Invoke((MethodInvoker)delegate {
+                                WordComboBox.SelectedIndex++;
+                            });
+                        }
+                        else    // Move back to beginning if the user reaches the end of the list.
+                        {
+                            currentRecordingIndex = 0;
+                            Invoke((MethodInvoker)delegate {
+                                WordComboBox.SelectedIndex = 0;
+                            });
+                        }
+                        playAudio();
                     }
-                    else    // Move back to beginning if the user reaches the end of the list.
+                    catch (IndexOutOfRangeException exp)
                     {
-                        currentRecordingIndex = 0;
-                        Invoke((MethodInvoker)delegate {
-                            WordComboBox.SelectedIndex = 0;
-                        });
+                        // This can be reached in some cases where the Invoke takes too long.
+                        WordComboBox.SelectedIndex = currentRecordingIndex;
                     }
-                    playAudio();
                 }
                 else
                 {

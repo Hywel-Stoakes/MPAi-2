@@ -190,6 +190,13 @@ namespace MPAi.Forms
         private void VowelComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentRecordingIndex = VowelComboBox.SelectedIndex;
+            // If the video is partway through playing, stop it.
+            if (vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Playing) 
+                || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Opening) 
+                || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Buffering) 
+                || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused))
+            asyncStop();
+            playVideo();
         }
 
         /// <summary>
@@ -748,22 +755,29 @@ namespace MPAi.Forms
                 // Autoplay functionality
                 if (playNextCheckBox.Checked)
                 {
-                    if (currentRecordingIndex < wordsList.Count - 1)
-                    {
-                        currentRecordingIndex++;
-                        // Run this command on the GUI thread
-                        Invoke((MethodInvoker)delegate {
-                            VowelComboBox.SelectedIndex++;
-                        });
+                    try {
+                        if (currentRecordingIndex < wordsList.Count - 1)
+                        {
+                            currentRecordingIndex++;
+                            // Run this command on the GUI thread
+                            Invoke((MethodInvoker)delegate {
+                                VowelComboBox.SelectedIndex++;
+                            });
+                        }
+                        else    // Move back to beginning if the user reaches the end of the list.
+                        {
+                            currentRecordingIndex = 0;
+                            Invoke((MethodInvoker)delegate {
+                                VowelComboBox.SelectedIndex = 0;
+                            });
+                        }
+                        playVideo();
                     }
-                    else    // Move back to beginning if the user reaches the end of the list.
+                    catch (IndexOutOfRangeException exp)
                     {
-                        currentRecordingIndex = 0;
-                        Invoke((MethodInvoker)delegate {
-                            VowelComboBox.SelectedIndex = 0;
-                        });
+                        // This can be reached in some cases where the Invoke takes too long.
+                        VowelComboBox.SelectedIndex = currentRecordingIndex;
                     }
-                    playVideo();
                 }
                 else
                 {
