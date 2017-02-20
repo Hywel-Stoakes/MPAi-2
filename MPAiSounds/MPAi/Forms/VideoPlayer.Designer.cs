@@ -162,19 +162,15 @@ namespace MPAi.Forms
             // 
             this.VowelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VowelComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.VowelComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.VowelComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.VowelComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.VowelComboBox.FormattingEnabled = true;
+            this.VowelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VowelComboBox.ItemHeight = 13;
             this.VowelComboBox.Location = new System.Drawing.Point(115, 33);
             this.VowelComboBox.Name = "VowelComboBox";
             this.VowelComboBox.Size = new System.Drawing.Size(353, 19);
             this.VowelComboBox.TabIndex = 1;
             this.VowelComboBox.SelectedIndexChanged += new System.EventHandler(this.VowelComboBox_SelectedIndexChanged);
-            this.VowelComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VowelComboBox_KeyPress);
-            this.VowelComboBox.Leave += new System.EventHandler(this.VowelComboBox_Leave);
             // 
             // tableLayoutPanel1
             // 

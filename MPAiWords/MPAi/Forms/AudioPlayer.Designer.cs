@@ -292,19 +292,15 @@ namespace MPAi.Forms
             // 
             this.WordComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.WordComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.WordComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.WordComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.WordComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.WordComboBox.FormattingEnabled = true;
+            this.WordComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.WordComboBox.ItemHeight = 13;
             this.WordComboBox.Location = new System.Drawing.Point(111, 45);
             this.WordComboBox.Name = "WordComboBox";
             this.WordComboBox.Size = new System.Drawing.Size(353, 19);
             this.WordComboBox.TabIndex = 1;
             this.WordComboBox.SelectedIndexChanged += new System.EventHandler(this.WordComboBox_SelectedIndexChanged);
-            this.WordComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WordComboBox_KeyPress);
-            this.WordComboBox.Leave += new System.EventHandler(this.WordComboBox_Leave);
             // 
             // optionsButton
             // 
