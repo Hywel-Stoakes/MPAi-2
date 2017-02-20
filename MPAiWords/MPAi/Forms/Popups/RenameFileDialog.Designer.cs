@@ -115,6 +115,7 @@ namespace MPAi.Forms.Popups
             // filePickerButton
             // 
             this.filePickerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.filePickerButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.filePickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filePickerButton.ForeColor = System.Drawing.Color.White;
             this.filePickerButton.Location = new System.Drawing.Point(377, 44);
@@ -225,9 +226,11 @@ namespace MPAi.Forms.Popups
             // 
             // RenameFileDialog
             // 
+            this.AcceptButton = this.renameButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(434, 212);
             this.Controls.Add(this.speakerComboBox);
             this.Controls.Add(this.categoryComboBox);

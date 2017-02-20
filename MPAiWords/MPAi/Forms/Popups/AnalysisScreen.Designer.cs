@@ -243,6 +243,7 @@ namespace MPAi.Forms.Popups
             // 
             this.backButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.backButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(410, 10);
@@ -258,6 +259,7 @@ namespace MPAi.Forms.Popups
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.backButton;
             this.ClientSize = new System.Drawing.Size(498, 315);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

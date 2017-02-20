@@ -214,9 +214,11 @@ namespace MPAi.Forms.Popups
             // 
             // SystemConfig
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(511, 251);
             this.Controls.Add(this.recordingFolderSelectButton);
             this.Controls.Add(this.label2);

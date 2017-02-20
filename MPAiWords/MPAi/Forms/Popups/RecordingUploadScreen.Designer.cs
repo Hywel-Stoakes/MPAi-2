@@ -85,6 +85,7 @@ namespace MPAi.Forms.Popups
             // allLocalItemsButton
             // 
             this.allLocalItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.allLocalItemsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.allLocalItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allLocalItemsButton.ForeColor = System.Drawing.Color.White;
             this.allLocalItemsButton.Location = new System.Drawing.Point(218, 100);
@@ -146,6 +147,7 @@ namespace MPAi.Forms.Popups
             // allDatabaseItemsButton
             // 
             this.allDatabaseItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.allDatabaseItemsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.allDatabaseItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allDatabaseItemsButton.ForeColor = System.Drawing.Color.White;
             this.allDatabaseItemsButton.Location = new System.Drawing.Point(218, 129);
@@ -160,6 +162,7 @@ namespace MPAi.Forms.Popups
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.backButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(218, 158);
@@ -176,6 +179,7 @@ namespace MPAi.Forms.Popups
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.backButton;
             this.ClientSize = new System.Drawing.Size(584, 193);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.allDatabaseItemsButton);
