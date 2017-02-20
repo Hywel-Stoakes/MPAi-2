@@ -173,6 +173,7 @@ namespace MPAi.Forms
             // Stop playback and clear the boxes, to prevent errors.
             asyncStop();
             WordComboBox.Items.Clear();
+            soundListCurrentListBox.Items.Clear();
             try
             {
                 // Create new database context.
