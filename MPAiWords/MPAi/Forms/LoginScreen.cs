@@ -264,6 +264,7 @@ namespace MPAi.Forms
         private void rememberCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.autoLoginSetting = rememberCheckBox.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private void speakLaunchButton_Click(object sender, EventArgs e)
