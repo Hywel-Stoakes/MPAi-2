@@ -171,9 +171,6 @@ namespace MPAi.Forms
             // reportButton
             // 
             this.reportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.reportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportButton.ForeColor = System.Drawing.Color.White;
             this.reportButton.Location = new System.Drawing.Point(194, 6);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(150, 23);
@@ -207,9 +204,6 @@ namespace MPAi.Forms
             // 
             // testButton
             // 
-            this.testButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testButton.ForeColor = System.Drawing.Color.White;
             this.testButton.Location = new System.Drawing.Point(194, 8);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(150, 23);
@@ -243,9 +237,6 @@ namespace MPAi.Forms
             // 
             // learnButton
             // 
-            this.learnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.learnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.learnButton.ForeColor = System.Drawing.Color.White;
             this.learnButton.Location = new System.Drawing.Point(194, 10);
             this.learnButton.Name = "learnButton";
             this.learnButton.Size = new System.Drawing.Size(150, 23);

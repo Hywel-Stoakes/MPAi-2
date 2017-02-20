@@ -437,9 +437,6 @@ namespace MPAi.Forms.Popups
             // okayButton
             // 
             this.okayButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.okayButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.okayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.okayButton.ForeColor = System.Drawing.Color.White;
             this.okayButton.Location = new System.Drawing.Point(36, 3);
             this.okayButton.Name = "okayButton";
             this.okayButton.Size = new System.Drawing.Size(75, 23);
@@ -460,9 +457,6 @@ namespace MPAi.Forms.Popups
             // cancelButton
             // 
             this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(37, 5);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);

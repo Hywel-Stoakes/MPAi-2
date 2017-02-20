@@ -72,9 +72,6 @@ namespace MPAi.Forms.Popups
             // 
             // audioFolderSelectButton
             // 
-            this.audioFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.audioFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.audioFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.audioFolderSelectButton.Location = new System.Drawing.Point(928, 138);
             this.audioFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.audioFolderSelectButton.Name = "audioFolderSelectButton";
@@ -86,9 +83,6 @@ namespace MPAi.Forms.Popups
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(773, 432);
             this.saveButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.saveButton.Name = "saveButton";
@@ -100,9 +94,6 @@ namespace MPAi.Forms.Popups
             // 
             // cancelButton
             // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(887, 432);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
@@ -115,9 +106,6 @@ namespace MPAi.Forms.Popups
             // 
             // reportFolderSelectButton
             // 
-            this.reportFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.reportFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.reportFolderSelectButton.Location = new System.Drawing.Point(928, 263);
             this.reportFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.reportFolderSelectButton.Name = "reportFolderSelectButton";
@@ -149,9 +137,6 @@ namespace MPAi.Forms.Popups
             // 
             // recordingFolderSelectButton
             // 
-            this.recordingFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.recordingFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recordingFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.recordingFolderSelectButton.Location = new System.Drawing.Point(928, 199);
             this.recordingFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.recordingFolderSelectButton.Name = "recordingFolderSelectButton";
@@ -183,9 +168,6 @@ namespace MPAi.Forms.Popups
             // 
             // HTKFolderSelectButton
             // 
-            this.HTKFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.HTKFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HTKFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.HTKFolderSelectButton.Location = new System.Drawing.Point(928, 326);
             this.HTKFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.HTKFolderSelectButton.Name = "HTKFolderSelectButton";

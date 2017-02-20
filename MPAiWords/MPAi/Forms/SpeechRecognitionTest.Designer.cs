@@ -110,9 +110,6 @@ namespace MPAi.Forms
             // backButton
             // 
             this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(474, 227);
             this.backButton.Margin = new System.Windows.Forms.Padding(10);
             this.backButton.Name = "backButton";
@@ -125,9 +122,6 @@ namespace MPAi.Forms
             // optionsButton
             // 
             this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.optionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.optionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.optionsButton.ForeColor = System.Drawing.Color.White;
             this.optionsButton.Location = new System.Drawing.Point(368, 227);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(10);
             this.optionsButton.Name = "optionsButton";
@@ -156,10 +150,7 @@ namespace MPAi.Forms
             // analyzeButton
             // 
             this.analyzeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.analyzeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.analyzeButton.Enabled = false;
-            this.analyzeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.analyzeButton.ForeColor = System.Drawing.Color.White;
             this.analyzeButton.Location = new System.Drawing.Point(150, 155);
             this.analyzeButton.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.analyzeButton.Name = "analyzeButton";
@@ -185,9 +176,6 @@ namespace MPAi.Forms
             // recordButton
             // 
             this.recordButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.recordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recordButton.ForeColor = System.Drawing.Color.White;
             this.recordButton.Location = new System.Drawing.Point(10, 102);
             this.recordButton.Margin = new System.Windows.Forms.Padding(0);
             this.recordButton.Name = "recordButton";
@@ -200,10 +188,7 @@ namespace MPAi.Forms
             // playButton
             // 
             this.playButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.playButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.playButton.Enabled = false;
-            this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.playButton.ForeColor = System.Drawing.Color.White;
             this.playButton.Location = new System.Drawing.Point(474, 102);
             this.playButton.Margin = new System.Windows.Forms.Padding(0);
             this.playButton.Name = "playButton";
@@ -225,9 +210,6 @@ namespace MPAi.Forms
             // AudioInputDeviceButton
             // 
             this.AudioInputDeviceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AudioInputDeviceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.AudioInputDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AudioInputDeviceButton.ForeColor = System.Drawing.Color.White;
             this.AudioInputDeviceButton.Location = new System.Drawing.Point(474, 10);
             this.AudioInputDeviceButton.Margin = new System.Windows.Forms.Padding(10);
             this.AudioInputDeviceButton.Name = "AudioInputDeviceButton";
@@ -240,10 +222,7 @@ namespace MPAi.Forms
             // RenameButton
             // 
             this.RenameButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RenameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.RenameButton.Enabled = false;
-            this.RenameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RenameButton.ForeColor = System.Drawing.Color.White;
             this.RenameButton.Location = new System.Drawing.Point(474, 196);
             this.RenameButton.Margin = new System.Windows.Forms.Padding(10);
             this.RenameButton.Name = "RenameButton";
@@ -267,10 +246,7 @@ namespace MPAi.Forms
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.DeleteButton.Enabled = false;
-            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.ForeColor = System.Drawing.Color.White;
             this.DeleteButton.Location = new System.Drawing.Point(474, 151);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(10);
             this.DeleteButton.Name = "DeleteButton";
@@ -292,9 +268,6 @@ namespace MPAi.Forms
             // AddButton
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Location = new System.Drawing.Point(474, 106);
             this.AddButton.Margin = new System.Windows.Forms.Padding(10);
             this.AddButton.Name = "AddButton";
@@ -308,9 +281,6 @@ namespace MPAi.Forms
             // 
             this.ScoreReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScoreReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.ScoreReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ScoreReportButton.ForeColor = System.Drawing.Color.White;
             this.ScoreReportButton.Location = new System.Drawing.Point(150, 241);
             this.ScoreReportButton.Margin = new System.Windows.Forms.Padding(0);
             this.ScoreReportButton.Name = "ScoreReportButton";
@@ -323,10 +293,7 @@ namespace MPAi.Forms
             // SelectButton
             // 
             this.SelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.SelectButton.Enabled = false;
-            this.SelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SelectButton.ForeColor = System.Drawing.Color.White;
             this.SelectButton.Location = new System.Drawing.Point(474, 61);
             this.SelectButton.Margin = new System.Windows.Forms.Padding(10);
             this.SelectButton.Name = "SelectButton";

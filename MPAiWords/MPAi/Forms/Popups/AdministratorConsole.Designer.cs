@@ -256,7 +256,7 @@ namespace MPAi.Forms.Popups
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -317,9 +317,6 @@ namespace MPAi.Forms.Popups
             // 
             // mpAiButton1
             // 
-            this.mpAiButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.mpAiButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mpAiButton1.ForeColor = System.Drawing.Color.White;
             this.mpAiButton1.Location = new System.Drawing.Point(297, 14);
             this.mpAiButton1.Name = "mpAiButton1";
             this.mpAiButton1.Size = new System.Drawing.Size(75, 23);

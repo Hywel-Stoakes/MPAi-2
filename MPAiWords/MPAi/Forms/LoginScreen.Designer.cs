@@ -102,9 +102,6 @@ namespace MPAi.Forms
             // signupButton
             // 
             this.signupButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signupButton.ForeColor = System.Drawing.Color.White;
             this.signupButton.Location = new System.Drawing.Point(197, 227);
             this.signupButton.Name = "signupButton";
             this.signupButton.Size = new System.Drawing.Size(75, 23);
@@ -116,9 +113,6 @@ namespace MPAi.Forms
             // speakLaunchButton
             // 
             this.speakLaunchButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.speakLaunchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.speakLaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.speakLaunchButton.ForeColor = System.Drawing.Color.White;
             this.speakLaunchButton.Location = new System.Drawing.Point(12, 227);
             this.speakLaunchButton.Name = "speakLaunchButton";
             this.speakLaunchButton.Size = new System.Drawing.Size(75, 23);

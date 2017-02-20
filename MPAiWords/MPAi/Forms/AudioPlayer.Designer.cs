@@ -309,9 +309,6 @@ namespace MPAi.Forms
             // optionsButton
             // 
             this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.optionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.optionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.optionsButton.ForeColor = System.Drawing.Color.White;
             this.optionsButton.Location = new System.Drawing.Point(364, 219);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(10);
             this.optionsButton.Name = "optionsButton";
@@ -324,9 +321,6 @@ namespace MPAi.Forms
             // backButton
             // 
             this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(470, 219);
             this.backButton.Margin = new System.Windows.Forms.Padding(10);
             this.backButton.Name = "backButton";
@@ -339,9 +333,6 @@ namespace MPAi.Forms
             // resetButton
             // 
             this.resetButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.resetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetButton.ForeColor = System.Drawing.Color.White;
             this.resetButton.Location = new System.Drawing.Point(187, 236);
             this.resetButton.Margin = new System.Windows.Forms.Padding(10);
             this.resetButton.Name = "resetButton";
@@ -375,10 +366,7 @@ namespace MPAi.Forms
             // removeButton
             // 
             this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.removeButton.Enabled = false;
-            this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removeButton.ForeColor = System.Drawing.Color.White;
             this.removeButton.Location = new System.Drawing.Point(471, 41);
             this.removeButton.Margin = new System.Windows.Forms.Padding(0);
             this.removeButton.Name = "removeButton";
@@ -431,9 +419,6 @@ namespace MPAi.Forms
             // soundListAddAllButton
             // 
             this.soundListAddAllButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundListAddAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.soundListAddAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.soundListAddAllButton.ForeColor = System.Drawing.Color.White;
             this.soundListAddAllButton.Location = new System.Drawing.Point(265, 198);
             this.soundListAddAllButton.Margin = new System.Windows.Forms.Padding(10);
             this.soundListAddAllButton.Name = "soundListAddAllButton";
@@ -446,9 +431,6 @@ namespace MPAi.Forms
             // soundListRemoveButton
             // 
             this.soundListRemoveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundListRemoveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.soundListRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.soundListRemoveButton.ForeColor = System.Drawing.Color.White;
             this.soundListRemoveButton.Location = new System.Drawing.Point(265, 170);
             this.soundListRemoveButton.Margin = new System.Windows.Forms.Padding(10);
             this.soundListRemoveButton.Name = "soundListRemoveButton";
@@ -461,9 +443,6 @@ namespace MPAi.Forms
             // soundListAddButton
             // 
             this.soundListAddButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.soundListAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.soundListAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.soundListAddButton.ForeColor = System.Drawing.Color.White;
             this.soundListAddButton.Location = new System.Drawing.Point(265, 141);
             this.soundListAddButton.Margin = new System.Windows.Forms.Padding(10);
             this.soundListAddButton.Name = "soundListAddButton";
@@ -518,9 +497,6 @@ namespace MPAi.Forms
             // addFromFileButton
             // 
             this.addFromFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addFromFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.addFromFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addFromFileButton.ForeColor = System.Drawing.Color.White;
             this.addFromFileButton.Location = new System.Drawing.Point(471, 71);
             this.addFromFileButton.Margin = new System.Windows.Forms.Padding(0);
             this.addFromFileButton.Name = "addFromFileButton";
@@ -533,9 +509,6 @@ namespace MPAi.Forms
             // recordButton
             // 
             this.recordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.recordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recordButton.ForeColor = System.Drawing.Color.White;
             this.recordButton.Location = new System.Drawing.Point(365, 71);
             this.recordButton.Margin = new System.Windows.Forms.Padding(0);
             this.recordButton.Name = "recordButton";
@@ -548,9 +521,6 @@ namespace MPAi.Forms
             // AudioInputDeviceButton
             // 
             this.AudioInputDeviceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AudioInputDeviceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.AudioInputDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AudioInputDeviceButton.ForeColor = System.Drawing.Color.White;
             this.AudioInputDeviceButton.Location = new System.Drawing.Point(305, 71);
             this.AudioInputDeviceButton.Margin = new System.Windows.Forms.Padding(10);
             this.AudioInputDeviceButton.Name = "AudioInputDeviceButton";
@@ -629,7 +599,7 @@ namespace MPAi.Forms
             // 
             this.recordingProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.recordingProgressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.recordingProgressBar.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
             this.recordingProgressBar.Location = new System.Drawing.Point(104, 38);
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(361, 25);
