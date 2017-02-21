@@ -225,7 +225,7 @@ namespace MPAi.Components
         private void instructionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Open the browser to view the github wiki, at least until we get a proper system for this.
-            IoController.ShowInBrowser("https://github.com/JSCooke/MPAi/wiki");
+            IoController.ShowInBrowser("https://github.com/JSCooke/MPAi/wiki/Instruction-Manual");
         }
 
         /// <summary>

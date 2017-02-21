@@ -56,8 +56,6 @@ class FormantApp:
                 raise Exception(exceptString)
             except Exception as e:
                 print e
-                # self.quitPlot()
-                #TODO remove the testing code below...
                 print 'for Testing, setting you to masculine and modern'
                 voiceType = 'masculine'
                 langType = 'native'
@@ -69,31 +67,15 @@ class FormantApp:
 
         self.initialiseRoot()
 
-        self.setIcon()
-
-        #self.setUpButtons()
-
-        #Grid.rowconfigure(self.root, 0, weight=1)
-        #Grid.columnconfigure(self.root, 0, weight=1)
         self.frame = Frame(self.root)
         self.root.minsize(680,400)
-        #self.frame.grid(row=0, column=0, sticky=N+S+E+W)
-
-        #self.initiatePron()
         self.setUpMenus()
 
         #Intial Background value
         self.currentBGindex = 2
-
-        #Grid.rowconfigure(self.root, 0, weight=1)
-        #Grid.columnconfigure(self.root, 0, weight=1)
         self.frame = Frame(self.root, bg='white')
-
         self.frame.pack(fill=BOTH, expand=YES)
-
-
         self.loadFormantPlot(self.id)
-
 
     """
     Gets the id of the formantPlot from the langType and voiceType.
@@ -119,32 +101,6 @@ class FormantApp:
         import time
         import struct
 
-
-        #TODO This code below is the code needed to connect to the pipping server created in C#
-        # and used to read and write messages. Currently just just test code. needs writing properly
-        # f = open(r'\\.\pipe\NPtest', 'r+b', 0)
-        # i = 1
-        #
-        # s = 'Message[{0}]'.format(i)
-        # i += 1
-        #
-        # f.write(struct.pack('I', len(s)) + s)   # Write str length and str
-        # f.seek(0)                               # EDIT: This is also necessary
-        # print 'Wrote:', s
-        #
-        # n = struct.unpack('I', f.read(4))[0]    # Read str length
-        # s = f.read(n)                           # Read str
-        # f.seek(0)                               # Important!!!
-        # print 'Read:', s
-
-    """
-    gets the icon of the application.
-    """
-    def setIcon(self):
-        #TODO need an Icon.
-        #self.root.iconbitmap(default='fPIcon.ico')
-        pass
-
     """
     Creates the default geometry of the application frame.
     Centres the frame, and sets it to the default size.
@@ -157,30 +113,6 @@ class FormantApp:
         y = (heightScreen/2) - (widgetHeight/2)
 
         widget.geometry('%dx%d+%d+%d' % (widgetWidth, widgetHeight, x, y)) #Sizes and Centres the application on the screen.
-
-
-    # """
-    # sets up the buttons which are used to acces the formant plot for the various genders/ages.
-    # buttons currently replace the tabs
-    # """
-    # def setUpButtons(self):
-    #     Grid.rowconfigure(self.root, 0, weight=1)
-    #     Grid.columnconfigure(self.root, 0, weight=1)
-    #     self.frame = Frame(self.root)
-    #
-    #     self.frame.grid(row=0, column=0, sticky=N+S+E+W)
-    #     font = ('Arial','30')
-    #
-    #     buttonLabels = ("Senior Male", "Young Male", "Senior Female", "Young Female")
-    #     count=0
-    #
-    #     for colIndex in range(0,2):
-    #         Grid.columnconfigure(self.frame, colIndex, weight=1)
-    #         for rowIndex in range(0,2):
-    #             Grid.rowconfigure(self.frame, rowIndex, weight=1)
-    #             btn = Button(self.frame, text=buttonLabels[count], font=font, relief='groove', bd=5, command= lambda i=count: self.loadFormantPlot(i))
-    #             btn.grid(row=rowIndex, column=colIndex, sticky=N+S+E+W)
-    #             count += 1
 
     """
     Set up the menubar and its elements.
@@ -199,9 +131,9 @@ class FormantApp:
         #menubar.add_command(label="Back", command=self.goBack)
 
         menubar.add_cascade(label="Options", menu=optionsMenu)
-        optionsMenu.add_command(label='toggleLines', command= self.toggleLines)
-        optionsMenu.add_command(label='toggleLoadedPlots', command = self.toggleLoadedPlots)
-        optionsMenu.add_command(label='BackGroundNoise: Normal', command = self.toggleBackgroundNoise)
+        optionsMenu.add_command(label='toggle Lines', command= self.toggleLines)
+        optionsMenu.add_command(label='toggle Loaded Plots', command = self.toggleLoadedPlots)
+        optionsMenu.add_command(label='BackGround Noise: Normal', command = self.toggleBackgroundNoise)
         self.optionsMenu = optionsMenu
         self.vowelType = 'long'
 
@@ -299,7 +231,7 @@ class FormantApp:
         #TODO This needs to be a lot more simple. Maybe select a default value and only let it be changed though settings.
         self.currentBGindex += 1
 
-        bgIntensities = [ "BackGroundNoise: None", "BackGroundNoise: Little",  "BackGroundNoise: Normal", "BackGroundNoise: Moderate", "BackGroundNoise: Extreme"]
+        bgIntensities = [ "BackGround Noise: None", "BackGround Noise: Little",  "BackGround Noise: Normal", "BackGround Noise: Moderate", "BackGround Noise: Extreme"]
 
         if self.currentBGindex >= len(bgIntensities):
             self.currentBGindex = 0
@@ -308,135 +240,6 @@ class FormantApp:
         self.optionsMenu.entryconfigure(3, label=labelName)
 
         self.formantPlot.toggleBackgroundNoise(self.currentBGindex)
-
-
-#*************************************************************************************************************
-    # """
-    # Displays the canvas which holds the buttons for the gif Player.
-    # """
-    # def displayPronButtons(self):
-    #     #TODO This function will potentially become obsolete with Jaydens idea for the media player.
-    #     self.pronButtonFrame = Frame(self.root)
-    #     self.pronButtonFrame.config(width= 150, bg = 'purple')
-    #     self.btnHeight = self.pronButtonFrame.winfo_height()
-    #     self.pronButtonFrame.grid(row = 0, column=3, rowspan=1, columnspan = 1, sticky=N+S+E+W)
-    #     fileEnd = "Vowel.gif"
-    #     count = 0
-    #     for file in os.listdir("gifs"):
-    #         if file.endswith(fileEnd):
-    #             count+=1
-    #     rowIndex = 0
-    #     for file in os.listdir("gifs"):
-    #         if file.endswith(fileEnd):
-    #             label = file[0:(len(file)-len(fileEnd))]
-    #             Grid.rowconfigure(self.pronButtonFrame, rowIndex)
-    #             btn = Button(self.pronButtonFrame, text=label, relief='groove', bd=5, command= lambda lab=label: self.pronButtonHandler(lab))
-    #             btn.grid(row=rowIndex, column=0, sticky=N+S+E+W)
-    #             rowIndex += 1
-    #     Grid.rowconfigure(self.pronButtonFrame, rowIndex)
-    #     btn = Button(self.pronButtonFrame, text="<-", relief='groove', bd=5, command= lambda lab=label: self.pronButtonHandler("hide"))
-    #     btn.grid(row=rowIndex, column=0, sticky=E+W)
-    #     btn.config(height=self.btnHeight/count)
-    #     rowIndex += 1
-    #
-    #
-    #
-    # def togglePronHelp(self):
-    #     self.pronHelp("menu")
-    #
-    # """
-    # creates the basic off state of the gif player.
-    # """
-    # def initiatePron(self):
-    #     self.animating = False
-    #     self.pronActive = False
-    #     self.previousVowel = "menu"
-    #
-    # def pronButtonHandler(self, vowel):
-    #     if(vowel == "hide"):
-    #         for widget in self.pronButtonFrame.winfo_children():
-    #             widget.destroy()
-    #         self.pronButtonFrame.grid_forget()
-    #     else:
-    #         self.pronHelp(vowel)
-    #         self.displayPronButtons
-    #
-    # def hidePronHelp(self):
-    #     self.animating = False;
-    #
-    #     self.sequence = []
-    #     self.pronCanvas.config(height=0, width = 0, bg = 'white')
-    #     self.positionWindowInCentre(self.root, FRAMEWIDTH, FRAMEHEIGHT)
-    #     self.positionWindowInCentre(self.root, FRAMEWIDTH, FRAMEHEIGHT)
-    #     Grid.columnconfigure(self.frame, 2, weight=0)
-    #
-    # def pronHelp(self, vowel):
-    #
-    #     if self.animating == True:
-    #         self.animating = False
-    #     if(vowel == "menu"):
-    #         if(self.pronActive == True):
-    #             self.hidePronHelp()
-    #             self.pronActive = False
-    #         else:
-    #             self.displayPronButtons()
-    #     else:
-    #         if(vowel == self.previousVowel):
-    #             if(self.pronActive):
-    #                 self.hidePronHelp()
-    #                 self.pronActive = False
-    #             else:
-    #                 self.displayPronHelp(vowel)
-    #         else:
-    #             if(self.pronActive == True):
-    #                 self.hidePronHelp()
-    #                 self.pronActive = False
-    #                 self.displayPronHelp(vowel)
-    #                 self.pronActive = True
-    #             else:
-    #                 self.displayPronHelp(vowel)
-    #                 self.pronActive = True
-    #     self.previousVowel = vowel
-    #
-    # def displayPronHelp(self, vowel):
-    #
-    #     self.pronActive = True
-    #
-    #     self.pronCanvas = Canvas(self.root)
-    #     self.pronCanvas.config(width= 600, bg = 'black')
-    #     self.pronCanvas.grid(row = 0, column=2, rowspan=2, columnspan = 1, sticky=N+S+E+W)
-    #
-    #     self.pronCanvas.bind("<Button-1>", self.toggleAnimate)
-    #
-    #     self.positionWindowInCentre(self.root, FRAMEWIDTH+600, FRAMEHEIGHT)
-    #
-    #     fileName = 'gifs/' + vowel + 'Vowel.gif'
-    #     self.sequence = [ImageTk.PhotoImage(img.resize(((500),(500))))
-    #                         for img in ImageSequence.Iterator(
-    #                             Image.open(
-    #                                 fileName
-    #                                 )
-    #                                 )]
-    #     self.image = self.pronCanvas.create_image(300,300, image=self.sequence[0])
-    #     font = ('Arial','17')
-    #     self.vowelBox = self.pronCanvas.create_rectangle(0,0,40,40, tag='vowelBox', fill='red')
-    #     self.vowelBox = self.pronCanvas.create_text(20,20, text=(vowel.lower()),font=font, tag='vowelBox', fill='black')
-    #     self.toggleAnimate()
-    #     self.animate(0)
-    #
-    # def animate(self, counter):
-    #     if not self.animating:
-    #         # destroy the current sequence
-    #         self.sequence = []
-    #         return
-    #     else:
-    #         self.pronCanvas.itemconfig(self.image, image=self.sequence[counter])
-    #
-    #         try:
-    #             self.pronActive = True
-    #             self.root.after(100, lambda: self.animate(  ((counter+1) % (len(self.sequence)-4))))
-    #         except IndexError:
-    #             pass
 
     def goBack(self):
 
@@ -530,7 +333,8 @@ class FormantApp:
 
 
     def save(self):
-        self.dirName = "userAudio"
+        os.chdir("../..")
+        self.dirName = "Recordings"
         self.fileName = self.e.get()
         dirName = self.dirName
         fileName = self.fileName
@@ -554,8 +358,7 @@ class FormantApp:
             self.top.destroy()
             self.popup()
 
-
-
+        os.chdir("Formant/dist")
         self.top.destroy()
 
 

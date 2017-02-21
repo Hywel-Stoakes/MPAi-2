@@ -70,8 +70,7 @@ namespace MPAi.Forms.Popups
             // 
             // audioFolderSelectButton
             // 
-            this.audioFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.audioFolderSelectButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.audioFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.audioFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.audioFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.audioFolderSelectButton.Location = new System.Drawing.Point(464, 72);
@@ -84,7 +83,7 @@ namespace MPAi.Forms.Popups
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(386, 225);
@@ -97,8 +96,7 @@ namespace MPAi.Forms.Popups
             // 
             // cancelButton
             // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(444, 225);
@@ -111,7 +109,7 @@ namespace MPAi.Forms.Popups
             // 
             // reportFolderSelectButton
             // 
-            this.reportFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.reportFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.reportFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.reportFolderSelectButton.Location = new System.Drawing.Point(464, 137);
@@ -142,8 +140,7 @@ namespace MPAi.Forms.Popups
             // 
             // recordingFolderSelectButton
             // 
-            this.recordingFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.recordingFolderSelectButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.recordingFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.recordingFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.recordingFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.recordingFolderSelectButton.Location = new System.Drawing.Point(464, 103);
@@ -174,8 +171,7 @@ namespace MPAi.Forms.Popups
             // 
             // HTKFolderSelectButton
             // 
-            this.HTKFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.HTKFolderSelectButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.HTKFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.HTKFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HTKFolderSelectButton.ForeColor = System.Drawing.Color.White;
             this.HTKFolderSelectButton.Location = new System.Drawing.Point(464, 170);
@@ -217,11 +213,9 @@ namespace MPAi.Forms.Popups
             // 
             // SystemConfig
             // 
-            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(510, 258);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.HTKFolderSelectButton);

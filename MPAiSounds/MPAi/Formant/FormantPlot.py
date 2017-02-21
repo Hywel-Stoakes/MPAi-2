@@ -91,36 +91,13 @@ class FormantPlot:
         self.loudnessMeter = LoudnessMeter(self.formantPlotCanvas,YSHIFT)
         self.createBoxs()
 
-
-
-
-        # #Control frame
-        # self.formantPlotControlFrame = Frame(self.formantPlotFrame)
-        # self.formantPlotControlFrame.grid(row=1,column=0,sticky='w'+'e',columnspan=2)
-        #
-        # self.formantPlotControlFrame.columnconfigure(0, minsize=round(PLOTWIDTH/3.1))
-        # self.formantPlotControlFrame.columnconfigure(1, minsize=round(PLOTWIDTH/3.1))
-        # self.formantPlotControlFrame.columnconfigure(2, minsize=round(PLOTWIDTH/3.1))
-        # #Buttons
-        # self.recButton = Button(self.formantPlotControlFrame, text='Record', command=self.record)
-        # self.recButton.grid(row=1,column=0,sticky='w'+'e'+'n'+'s',padx=10)
-        #
-        # self.stopButton = Button(self.formantPlotControlFrame, text='Stop', command=self.stop, state='disabled')
-        # self.stopButton.grid(row=1,column=1,sticky='w'+'e'+'n'+'s',padx=10)
-        #
-        # self.clearScreenButton = Button(self.formantPlotControlFrame, text='Clear Plot', command=self.clear, state='normal')
-        # self.clearScreenButton.grid(row=1,column=2,sticky='w'+'e'+'n'+'s')
-
-
     def createButtons(self):
         self.buttonCounter += 1
         self.formantPlotCanvas.delete('buttons')
         height = (int)((float)(2)*(self.plotHeight/PLOTHEIGHT))
         font = ('Arial','12')
 
-
         self.formantPlotCanvas.create_rectangle(0,self.plotHeight-height*30-8,self.plotWidth+10,self.plotHeight+10, tags='buttons', fill='#d3d3d3')
-
 
         text = "  Back to Menu  "
         helpButton = Button(self.parent, text=text,command=self.goBackToMenu, font=font )
@@ -164,9 +141,6 @@ class FormantPlot:
         self.formantPlotCanvas.delete('boxes')
         boxWidth= 150
         font = ('Arial','15')
-
-
-
 
         x1 = (PLOTWIDTH/2)*(self.plotWidth/PLOTWIDTH) - (boxWidth)
         y1 = 2
@@ -243,8 +217,6 @@ class FormantPlot:
         self.formantPlotCanvas.create_text(XSHIFT*xFrameScale/2, self.plotHeight-YSHIFT*yFrameScale-15,text = "Open",font = ('Arial','13'), tags="formantAxes")
         self.formantPlotCanvas.create_text(XSHIFT*xFrameScale/2, 20,text = "Closed",font = ('Arial','13'), tags="formantAxes")
 
-
-
     def drawGoldStandardMonophthongs(self, toFill):
         self.formantPlotCanvas.delete("ellipses")
         vowelType = self.vowelType
@@ -267,8 +239,6 @@ class FormantPlot:
                 currentOval = self.formantPlotCanvas.create_oval(x1,y1,x2,y2, outline='black', tag='ellipses',activefill='#e3c5d6')
 
             ovalText= self.formantPlotCanvas.create_text((f2mean*xScale-xShift)*xFrameScale,(f1mean*yScale-yShift)*yFrameScale,fill='red',font=font,tag='ellipses', text=vowel)
-            # self.formantPlotCanvas.tag_bind(currentOval, "<Button-1>", lambda event, v = vowel: self.ovalPressed(event,v))
-            # self.formantPlotCanvas.tag_bind(ovalText, "<Button-1>", lambda event, v = vowel: self.ovalPressed(event,v))
 
         #creating the overlap
         for f1mean, f1sd, f2mean, f2sd, vowel in data:
@@ -278,17 +248,12 @@ class FormantPlot:
             y2 = ((f1mean+std*f1sd)*yScale-yShift) * yFrameScale
             currentOval = self.formantPlotCanvas.create_oval(x1,y1,x2,y2, outline='black', tag='ellipses')
 
-
     def redrawPlotInfo(self):
         self.drawGoldStandardMonophthongs(False)
         self.createAxis()
         self.createKey()
         self.replotFormants()
         self.replotloadedPlots()
-
-
-
-
 
     def getPlotScaleInfo(self, vowelType):
         plotID = self.id
@@ -399,7 +364,6 @@ class FormantPlot:
         self.soundCopy = Sound()
         self.loadedAudio = Sound()
 
-
     def replotFormants(self):
         if(self.hasFormants == True):
             self.formantPlotCanvas.delete("userformants")
@@ -437,7 +401,6 @@ class FormantPlot:
 
                 prevX = x
                 prevY = y
-
 
     """
     Plot Fomrants takes a sound file and plots the last formant in the file.
@@ -477,9 +440,6 @@ class FormantPlot:
                     self.prevX = x
                     self.prevY = y
 
-
-
-
                 if not self.isRecording:
                     if formant != None:
                         pass
@@ -501,46 +461,32 @@ class FormantPlot:
     """
     def record(self):
         self.isLoading = True
-        print "here"
         text=15*" "+"Stop"+15*" "
         self.recordButton.config(text=text, bg='orange', state='disabled')
-        print "here2"
         self.vowelButton.config(state='disabled')
-        print "here 3"
         self.hasFormants = True
         self.xPlotList = []
         self.yPlotList = []
-        print "here 4"
-
         self.root.resizable(False, False) #DISALLOWS the window to be resized both verically and horizonally.
 
         self.notStopped = True
         self.recordedAudio.record()
         self.isRecording = True
-        print "here 5"
 
         #self.stopButton.config(state='normal')
         #self.clearScreenButton.config(state='disabled')
         self.formantPlotCanvas.itemconfig('Recording', state='normal', fill='orange')
         self.formantPlotCanvas.itemconfig('recordingText', state ='normal', text='Loading...')
-        print "here6"
         thread.start_new_thread(self.multiThreadUpdateCanvas, ("Thread-1", self.notStopped))
 
         self.count2 = 0
-        print "here7"
-
 
     def multiThreadUpdateCanvas(self, threadName, notStopped):
-        print "here8"
         self.clear()
         sleep(1.2)
-        print "here9"
         self.isLoading = False
-        print "here10"
         text=15*" "+"Stop"+15*" "
         self.recordButton.config(text=text, bg='#CE2029', state='normal')
-
-        print "here11"
 
         self.formantPlotCanvas.itemconfig('Recording', fill='red')
         self.formantPlotCanvas.itemconfig('recordingText', text = 'Recording')
@@ -568,22 +514,17 @@ class FormantPlot:
 
         self.loudnessMeter.clearMeter
         self.recordedAudio.stop()
-        #self.recButton.config(state='normal')
-        #self.stopButton.config(state='disabled')
-        #self.clearScreenButton.config(state='normal')
 
         self.root.after(200 ,self.removeLoudness)
         self.count = 0
         self.root.resizable(True, True) #Allows the window to be resized both verically and horizonally.
         self.vowelButton.config(state='normal')
 
-
     def removeLoudness(self):
         self.loudnessMeter.clearMeter()
         self.formantPlotCanvas.itemconfig('toLoud', state = 'hidden')
         self.formantPlotCanvas.itemconfig('toQuiet', state = 'hidden')
         self.formantPlotCanvas.itemconfig('Loudness', state='hidden')
-
 
     """
     Clears the screen of all plots, lines and loaded plots.
@@ -610,7 +551,6 @@ class FormantPlot:
         if self.isRecording:
 
             self.updateAllCanvases()
-
 
     def updateLoudnessMeter(self, sound):
         try:
@@ -653,14 +593,8 @@ class FormantPlot:
 
         thread.start_new_thread(self.multiThreadLoader, ("Thread-2", sleeptime, probabilityOfVoicingList, loadedPlots ))
 
-
-        #thread.start_new_thread(self.multiThreadPlayer, ("Thread-1", self.loadedAudio))
-
-
-
     def multiThreadPlayer(self, threadName, sound):
         sound.play()
-
 
     '''
     multiThreadLoader plots the formant plots onto the formant plot using an additional thread to allow the application not to freeze
@@ -705,11 +639,6 @@ class FormantPlot:
                         x = latestF2*xScale - xShift
                         y = latestF1*yScale - yShift
 
-
-
-                        #sleep(delay)
-
-
                         if ( (((x-self.prevX) ** 2 + (y-self.prevY) ** 2) ** (0.5)) < self.backgroundNoiseDistance):
                             self.xLoadedPlotList.append(x)
                             self.yLoadedPlotList.append(y)
@@ -718,7 +647,6 @@ class FormantPlot:
                             y1 = y * (self.plotHeight/PLOTHEIGHT) - radius
                             x2 = x * (self.plotWidth/PLOTWIDTH) + radius
                             y2 = y * (self.plotHeight/PLOTHEIGHT) + radius
-
 
                             if(self.prevplotted == True):
                                 self.formantPlotCanvas.create_line(self.prevX * (self.plotWidth/PLOTWIDTH), self.prevY * (self.plotHeight/PLOTHEIGHT), x * (self.plotWidth/PLOTWIDTH), y * (self.plotHeight/PLOTHEIGHT), fill='black', tags='loadedLines')

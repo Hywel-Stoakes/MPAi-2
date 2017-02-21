@@ -47,8 +47,7 @@ namespace MPAi.Forms.Popups
             // 
             // mpAiButton1
             // 
-            this.mpAiButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.mpAiButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.mpAiButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.mpAiButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mpAiButton1.ForeColor = System.Drawing.Color.White;
             this.mpAiButton1.Location = new System.Drawing.Point(42, 77);
@@ -61,8 +60,7 @@ namespace MPAi.Forms.Popups
             // 
             // mpAiButton2
             // 
-            this.mpAiButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.mpAiButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.mpAiButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.mpAiButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mpAiButton2.ForeColor = System.Drawing.Color.White;
             this.mpAiButton2.Location = new System.Drawing.Point(167, 77);
@@ -84,11 +82,9 @@ namespace MPAi.Forms.Popups
             // 
             // ConfirmRandomisedPassword
             // 
-            this.AcceptButton = this.mpAiButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.mpAiButton2;
             this.ClientSize = new System.Drawing.Size(284, 112);
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.mpAiButton2);

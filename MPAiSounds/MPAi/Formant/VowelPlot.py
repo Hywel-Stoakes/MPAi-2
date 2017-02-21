@@ -1,7 +1,7 @@
 from Tkinter import *
 from tkSnack import *
 import tkSnack
-import ttk #unsure of purpose currently
+import ttk
 from LoudnessMeter import *
 import tkFileDialog
 
@@ -11,25 +11,31 @@ from time import sleep
 
 import thread
 
+import VowelFileHandler
+
 DEFAULTHEIGHT = 680
 DEFAULTWIDTH = 680
 
 XSHIFT = 75
 YSHIFT = 55
 
-XOFFSET =100
-YOFFSET=500
+XOFFSET = 100
+YOFFSET= 500
 
 
 #THESE VALUES COORESPOND TO THE SIZES OF THE OVALS RELATIVE TO THE STANDARD DEVIATIONS FROM THE MEAN
-CENTREOVAL = 0.45 #SD from the mean
-MIDDLEOVAL = 1.5 #SD from the mean
-OUTEROVAL = 3 #SD from the mean
+ #SD from the mean
 
 SCALEDOWN = 3
 class VowelPlot:
 
     def __init__(self, parent, path, root, id, formApp, vowelScorer, vowel, width, height):
+        configValues = VowelFileHandler.getDataFromFile()
+        self.centreOval = configValues[0]
+        self.middleOval = configValues[1]
+        self.outerOval = configValues[2]
+        self.targetSizeRatio = configValues[3]
+
         self.axisButtonClicked = False
         self.vowelScorer = vowelScorer
         self.width = width
@@ -51,13 +57,61 @@ class VowelPlot:
 
         self.prevX = 0
         self.prevY = 0
-
         # sound Setup:
         self.initialiseSounds()
         self.Recording = False
         self.Waiting = False
 
         self.drawTarget(vowel)
+
+    '''
+    switchCoorSystems is a function which converts coordinates in the vowel space
+    into the target space. Its purpose is to remove the need for individual functions
+    to handle there own shifting and scaling.
+
+    This is done via first reflecting in the x Axis, then shifting so the
+    new top left corner is at the origin of the target space.
+
+    Then scales to the width and height of the target space.
+    '''
+    def switchCoorSystems(self, x, y):
+        #Reflex in Y Axis
+        x = (-1) * x
+
+        #calculate vowel space size
+        xSize, ySize = self.vowelSpaceSize()
+
+        #calculate shifts
+        xShift, yShift = self.calculateShift(xSize, ySize)
+
+        #shift coords onto the target space origin.
+        x = x + xShift + xSize # + as we reflected in x, which means to get to the 1st Quadrant(in the target coord system) we need to add its width
+        y = y - yShift # - as we do not need to reflect in y, do to the nature of the python canvas already have small at the top and large at the bottom as required.
+
+        #As the target space coord system is our normal x,y coord system just reflected in x.
+        #scale
+        xScale, yScale = self.calculateScale(xSize, ySize)
+        x = x * xScale
+        y = y * yScale
+
+        return x, y
+
+    def vowelSpaceSize(self):
+        return self.outerOval*2*self.f2sd*(1/self.targetSizeRatio), self.outerOval*2*self.f1sd*(1/self.targetSizeRatio)
+
+    def calculateShift(self, xSize, ySize):
+        #XSHIFT
+        topLeftXCoord = self.f2mean - xSize/2
+        #YSHIFT
+        topLeftYCoord = self.f1mean - ySize/2
+        return topLeftXCoord, topLeftYCoord
+
+    def calculateScale(self, xSize, ySize):
+        #xScale
+        xScale = self.width/xSize
+        #yScale
+        yScale = self.height/ySize
+        return xScale, yScale
 
     def setupPlot(self):
         #Plot
@@ -81,7 +135,6 @@ class VowelPlot:
         self.recordingBoxText = self.vowelPlotCanvas.create_text((x1+x2)/2,(y1+y2)/2, tag='recordingText', text='Recording.',font=font, fill='black')
         self.vowelPlotCanvas.itemconfig('recording', state='hidden')
         self.vowelPlotCanvas.itemconfig('recordingText', state='hidden')
-
 
         x1 = (self.height/2)
         y1 = 2
@@ -179,7 +232,6 @@ class VowelPlot:
         self.scoreCounter = 0
 
     def redrawScore(self):
-        print self.score
         font = ('Arial','18')
         self.vowelPlotCanvas.delete('score')
         if self.score == 0:
@@ -204,23 +256,23 @@ class VowelPlot:
         self.vowelPlotCanvas.itemconfig('Loudness', state='hidden')
         self.vowelPlotCanvas.itemconfig('toLoud', state='hidden')
         self.vowelPlotCanvas.itemconfig('toQuiet', state='hidden')
-
-    def distanceToScore(self, distance):
+    '''
+    Converts a distance on the vowel space to score.
+    '''
+    def distanceToScore(self, xCoord, yCoord):
         self.plottedInfo[0] += 1
-        ovalSize = self.xIdeal*OUTEROVAL
-        centreOvalSize = self.xIdeal*CENTREOVAL
-        scoringZoneSize = ovalSize - centreOvalSize
-        modifiedDistance = distance - centreOvalSize
-        distanceFromOutsideOval = scoringZoneSize - modifiedDistance
-
-        if distance < ovalSize - scoringZoneSize:
+        x,y = self.switchCoorSystems(xCoord, yCoord)
+        distance = ((x-self.width/2)**2 + (y-self.height/2)**2)**0.5
+        scoringZoneDistance = distance - self.width * self.targetSizeRatio * 0.5 * self.centreOval/self.outerOval
+        scoringZone = self.width * self.targetSizeRatio * 0.5 - self.width * self.targetSizeRatio * 0.5 * self.centreOval/self.outerOval
+        if distance < self.width * self.targetSizeRatio * 0.5 * self.centreOval/self.outerOval:
             score = 100
-        else:
+        elif distance < self.width * self.targetSizeRatio * 0.5:
             self.plottedInfo[1] += 1
-            score = (distanceFromOutsideOval/scoringZoneSize)*100
-            if score < 0:
-                self.plottedInfo[1] -= 1
-                return 0
+            score = (1 - (scoringZoneDistance/scoringZone))*100
+        else:
+            self.plottedInfo[1] -= 1
+            return 0
 
         self.updateScore((int)(score))
 
@@ -233,29 +285,27 @@ class VowelPlot:
         for f1mean, f1sd, f2mean, f2sd, vowel in data:
             if vowel == letter:
                 vowel = letter
+
                 self.f1sd = f1sd
                 self.f2sd = f2sd
+                self.f1mean = f1mean
+                self.f2mean = f2mean
+                xSd, ySd = self.switchCoorSystems(f2sd, f1sd)
 
-                self.xShift = ( ((float)(self.width) )/2) - f2mean
-                self.yShift = ( ((float)(self.height) )/2) - f1mean
+                #DistanceTo OuterOval
+                self.xIdeal = self.outerOval*xSd
+                self.yIdeal = self.outerOval*ySd
 
-                self.xIdeal = ( ((float)(self.width)/ (OUTEROVAL *3)))
-                self.yIdeal = ( ((float)(self.height)/ (OUTEROVAL *3)))
-
-
-                self.x = f2mean + self.xShift
-                self.y = f1mean + self.yShift
+                #MEAN
+                self.x = self.width/2
+                self.y = self.height/2
                 colour = ['#ADD8E6', '#ff4c4c', '#ffff66']
                 activeColour = ['#DFFFFF','#ff7f7f','#ffff99']
                 i = 0
-                for scale in [OUTEROVAL, MIDDLEOVAL, CENTREOVAL]:
+                for scale in [self.outerOval, self.middleOval, self.centreOval]:
 
-
-
-                    x1 = self.x + f2sd*scale*(self.xIdeal/f2sd)
-                    y1 = self.y + f1sd*scale*(self.yIdeal/f1sd)
-                    x2 = self.x - f2sd*scale*(self.xIdeal/f2sd)
-                    y2 = self.y - f1sd*scale*(self.yIdeal/f1sd)
+                    x1, y1 = self.switchCoorSystems(f2mean - scale*f2sd, f1mean - scale*f1sd)
+                    x2, y2 = self.switchCoorSystems(f2mean + scale*f2sd, f1mean + scale*f1sd)
                     self.vowelPlotCanvas.create_oval(x1,y1,x2,y2, outline='black', tag='vowelOval', fill=colour[i], activefill=activeColour[i])
                     i+=1
                 self.vowelPlotCanvas.create_text(self.width/2, self.height/2,  fill='#00007f', font = font, tag = 'vowelOval', text=vowel)
@@ -297,42 +347,45 @@ class VowelPlot:
         self.vowelPlotCanvas.itemconfig('axis', state='hidden')
 
     def drawAxis(self):
+        xSd, ySd = self.switchCoorSystems(self.f2sd, self.f1sd)
         self.vowelPlotCanvas.delete('axis')
         axisFont = ('Arial','13')
 
         #Draw y Axis
         xAxis = self.width/2
-        yAxis1 = (self.height/2) - self.yIdeal*OUTEROVAL
-        yAxis2 = (self.height/2) - self.yIdeal*CENTREOVAL
-        yAxis3 = (self.height/2) + self.yIdeal*CENTREOVAL
-        yAxis4 = (self.height/2) + self.yIdeal*OUTEROVAL + 25
+        yAxis1 = (self.height/2) - self.targetSizeRatio*self.height/2 - 25
+        yAxis2 = (self.height/2) - self.targetSizeRatio*self.height*self.centreOval/(self.outerOval*2)
+        yAxis3 = (self.height/2) + self.targetSizeRatio*self.height*self.centreOval/(self.outerOval*2)
+        yAxis4 = (self.height/2) + self.targetSizeRatio*self.height/2 + 25
+
         self.vowelPlotCanvas.create_line(xAxis, yAxis1, xAxis, yAxis2, tags='axis', width = 2)
         self.vowelPlotCanvas.create_line(xAxis, yAxis3, xAxis, yAxis4, tags='axis', width = 2)
 
-        for index in range(2,10):
-            yCoor = index * ((self.yIdeal*OUTEROVAL)/10)
-            self.vowelPlotCanvas.create_line( xAxis, self.height/2 + yCoor, xAxis-6, self.height/2 + yCoor, tags = 'axis', width = 2)
-            self.vowelPlotCanvas.create_line( xAxis, self.height/2 - yCoor, xAxis-6, self.height/2 - yCoor, tags = 'axis', width = 2)
+        # for index in range(2,10):
+        #     yCoor = index * ((self.yIdeal*self.outerOval)/10)
+        #     self.vowelPlotCanvas.create_line( xAxis, self.height/2 + yCoor, xAxis-6, self.height/2 + yCoor, tags = 'axis', width = 2)
+        #     self.vowelPlotCanvas.create_line( xAxis, self.height/2 - yCoor, xAxis-6, self.height/2 - yCoor, tags = 'axis', width = 2)
 
         self.vowelPlotCanvas.create_text(xAxis+10, yAxis1 - 15, text="Mouth Less Open",  tags='axis',font=axisFont, anchor=CENTER)
         self.vowelPlotCanvas.create_text(xAxis+10, yAxis4 + 10, text="Mouth More Open", tags='axis', font=axisFont, anchor=CENTER)
 
         #ArrowHead y
         self.vowelPlotCanvas.create_polygon(( self.width/2, yAxis4+3, self.width/2-10, yAxis4-17, self.width/2+10, yAxis4-17), tags='axis' , fill='#000000')
+        self.vowelPlotCanvas.create_polygon(( self.width/2, yAxis1-3, self.width/2-10, yAxis1+17, self.width/2+10, yAxis1+17), tags='axis' , fill='#000000')
 
         #Draw x Axis
         yAxis = self.height/2
-        xAxis1 = (self.width/2) - self.xIdeal*OUTEROVAL - 25
-        xAxis2 = (self.width/2) - self.xIdeal*CENTREOVAL
-        xAxis3 = (self.width/2) + self.xIdeal*CENTREOVAL
-        xAxis4 = (self.width/2) + self.xIdeal*OUTEROVAL
+        xAxis1 = (self.width/2) - self.targetSizeRatio*self.width/2 - 25
+        xAxis2 = (self.width/2) - self.targetSizeRatio*self.width*self.centreOval/(self.outerOval*2)
+        xAxis3 = (self.width/2) + self.targetSizeRatio*self.width*self.centreOval/(self.outerOval*2)
+        xAxis4 = (self.width/2) + self.targetSizeRatio*self.width/2 + 25
         self.vowelPlotCanvas.create_line(xAxis1, yAxis, xAxis2, yAxis, tags='axis', width = 2)
         self.vowelPlotCanvas.create_line(xAxis3, yAxis, xAxis4, yAxis, tags='axis', width = 2)
 
-        for index in range(2,10):
-            xCoor = index * ((self.xIdeal*OUTEROVAL)/10)
-            self.vowelPlotCanvas.create_line(self.width/2 + xCoor, yAxis, self.width/2 + xCoor, yAxis+6,tags = 'axis', width = 2)
-            self.vowelPlotCanvas.create_line(self.width/2 - xCoor, yAxis, self.width/2 - xCoor, yAxis+6,tags = 'axis', width = 2)
+        # for index in range(2,10):
+        #     xCoor = index * ((self.xIdeal*self.outerOval)/10)
+        #     self.vowelPlotCanvas.create_line(self.width/2 + xCoor, yAxis, self.width/2 + xCoor, yAxis+6,tags = 'axis', width = 2)
+        #     self.vowelPlotCanvas.create_line(self.width/2 - xCoor, yAxis, self.width/2 - xCoor, yAxis+6,tags = 'axis', width = 2)
 
         self.vowelPlotCanvas.create_text(xAxis4+40, yAxis-20, text="Tongue", tags='axis', font=axisFont, anchor=CENTER)
         self.vowelPlotCanvas.create_text(xAxis4+40, yAxis, text="Less", tags='axis', font=axisFont, anchor=CENTER)
@@ -344,6 +397,7 @@ class VowelPlot:
 
         #ArrowHead x
         self.vowelPlotCanvas.create_polygon((xAxis1-3, self.height/2, xAxis1+17, self.height/2-10, xAxis1+17, self.height/2+10), tags='axis', fill='#000000')
+        self.vowelPlotCanvas.create_polygon((xAxis4+3, self.height/2, xAxis4-17, self.height/2-10, xAxis4-17, self.height/2+10), tags='axis', fill='#000000')
 
         if self.axisButtonClicked:
             self.vowelPlotCanvas.itemconfig('axis', state='normal')
@@ -407,6 +461,7 @@ class VowelPlot:
     Plot Fomrants takes a sound file and plots the last formant in the file.
     """
     def plotFormants(self, sound):
+        #SCALEREFIXTHIS
         self.hasPlots = True
 
         self.vowelPlotCanvas.delete('arrow')
@@ -424,8 +479,7 @@ class VowelPlot:
                 yFormant = formant[0]
                 xFormant = formant[1]
 
-                x = self.x + (xFormant + self.xShift-self.x)*self.xIdeal/self.f2sd
-                y = self.y + (yFormant + self.yShift-self.y)*self.yIdeal/self.f1sd
+                (x,y) = self.switchCoorSystems(xFormant, yFormant)
 
                 #Remove some background noise.
                 if ((self.prevX-x)**2 + (self.prevY-y)**2)**0.5 < 28:
@@ -435,15 +489,13 @@ class VowelPlot:
                     self.xFormantList.append(xFormant)
                     self.yFormantList.append(yFormant)
 
-                    distance = (((x-self.x)**2+(y-self.y)**2)**0.5)
-                    if distance < self.xIdeal*OUTEROVAL:
-                        self.plotCount += 1
+                    self.plotCount += 1
 
                     if self.plotCount > 250:
                         self.stop()
                         #self.root.after(100 , self.displayFinalScore)
 
-                    self.distanceToScore(distance)
+                    self.distanceToScore(xFormant, yFormant)
 
                     if(abs(y-self.y) > self.height ):
                         pass
@@ -452,14 +504,14 @@ class VowelPlot:
                 self.prevY = y
 
     def replotFormants(self):
+        #SCALEREFIXTHIS
         self.vowelPlotCanvas.delete("userformants")
         color = 'black'
         radius = 3
         for index in range(len(self.xFormantList)):
             xFormant = self.xFormantList[index]
             yFormant = self.yFormantList[index]
-            x = self.x + (xFormant + self.xShift-self.x)*self.xIdeal/self.f2sd
-            y = self.y + (yFormant + self.yShift-self.y)*self.yIdeal/self.f1sd
+            (x, y) = self.switchCoorSystems(xFormant, yFormant)
             self.vowelPlotCanvas.create_oval(x-radius,y-radius,x+radius,y+radius, fill=color, tags="userformants")
 
 

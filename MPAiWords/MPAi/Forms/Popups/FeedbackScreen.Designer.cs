@@ -38,8 +38,8 @@ namespace MPAi.Forms.Popups
             this.mailContentTextBox = new System.Windows.Forms.TextBox();
             this.customerEmailTextBox = new System.Windows.Forms.TextBox();
             this.mailSubjectTextBox = new System.Windows.Forms.TextBox();
-            this.mailSendButton = new MPAiButton(this.components);
-            this.mailCancelButton = new MPAiButton(this.components);
+            this.mailSendButton = new MPAi.Components.MPAiButton(this.components);
+            this.mailCancelButton = new MPAi.Components.MPAiButton(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +96,7 @@ namespace MPAi.Forms.Popups
             // 
             // mailSendButton
             // 
-            this.mailSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.mailSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.mailSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mailSendButton.ForeColor = System.Drawing.Color.White;
             this.mailSendButton.Location = new System.Drawing.Point(543, 358);
@@ -109,7 +109,7 @@ namespace MPAi.Forms.Popups
             // 
             // mailCancelButton
             // 
-            this.mailCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.mailCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.mailCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.mailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mailCancelButton.ForeColor = System.Drawing.Color.White;
