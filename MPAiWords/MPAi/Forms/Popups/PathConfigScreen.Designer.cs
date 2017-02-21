@@ -54,28 +54,28 @@ namespace MPAi.Forms.Popups
             // 
             this.audioFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.audioFolderTextBox.Enabled = false;
-            this.audioFolderTextBox.Location = new System.Drawing.Point(252, 138);
-            this.audioFolderTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.audioFolderTextBox.Location = new System.Drawing.Point(126, 72);
             this.audioFolderTextBox.Name = "audioFolderTextBox";
-            this.audioFolderTextBox.Size = new System.Drawing.Size(660, 31);
+            this.audioFolderTextBox.Size = new System.Drawing.Size(332, 20);
             this.audioFolderTextBox.TabIndex = 0;
             // 
             // audioFolderLabel
             // 
             this.audioFolderLabel.AutoSize = true;
-            this.audioFolderLabel.Location = new System.Drawing.Point(38, 144);
-            this.audioFolderLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.audioFolderLabel.Location = new System.Drawing.Point(19, 75);
             this.audioFolderLabel.Name = "audioFolderLabel";
-            this.audioFolderLabel.Size = new System.Drawing.Size(134, 25);
+            this.audioFolderLabel.Size = new System.Drawing.Size(66, 13);
             this.audioFolderLabel.TabIndex = 1;
             this.audioFolderLabel.Text = "Audio Folder";
             // 
             // audioFolderSelectButton
             // 
-            this.audioFolderSelectButton.Location = new System.Drawing.Point(928, 138);
-            this.audioFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.audioFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.audioFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.audioFolderSelectButton.ForeColor = System.Drawing.Color.White;
+            this.audioFolderSelectButton.Location = new System.Drawing.Point(464, 72);
             this.audioFolderSelectButton.Name = "audioFolderSelectButton";
-            this.audioFolderSelectButton.Size = new System.Drawing.Size(66, 48);
+            this.audioFolderSelectButton.Size = new System.Drawing.Size(33, 25);
             this.audioFolderSelectButton.TabIndex = 2;
             this.audioFolderSelectButton.Text = "...";
             this.audioFolderSelectButton.UseVisualStyleBackColor = true;
@@ -83,10 +83,12 @@ namespace MPAi.Forms.Popups
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(773, 432);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(386, 225);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(102, 48);
+            this.saveButton.Size = new System.Drawing.Size(51, 25);
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -94,11 +96,12 @@ namespace MPAi.Forms.Popups
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(887, 432);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cancelButton.Location = new System.Drawing.Point(444, 225);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(106, 48);
+            this.cancelButton.Size = new System.Drawing.Size(53, 25);
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -106,10 +109,12 @@ namespace MPAi.Forms.Popups
             // 
             // reportFolderSelectButton
             // 
-            this.reportFolderSelectButton.Location = new System.Drawing.Point(928, 263);
-            this.reportFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.reportFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.reportFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportFolderSelectButton.ForeColor = System.Drawing.Color.White;
+            this.reportFolderSelectButton.Location = new System.Drawing.Point(464, 137);
             this.reportFolderSelectButton.Name = "reportFolderSelectButton";
-            this.reportFolderSelectButton.Size = new System.Drawing.Size(66, 48);
+            this.reportFolderSelectButton.Size = new System.Drawing.Size(33, 25);
             this.reportFolderSelectButton.TabIndex = 13;
             this.reportFolderSelectButton.Text = "...";
             this.reportFolderSelectButton.UseVisualStyleBackColor = true;
@@ -118,10 +123,9 @@ namespace MPAi.Forms.Popups
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 269);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(19, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 25);
+            this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Report Folder";
             // 
@@ -129,18 +133,19 @@ namespace MPAi.Forms.Popups
             // 
             this.reportFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.reportFolderTextBox.Enabled = false;
-            this.reportFolderTextBox.Location = new System.Drawing.Point(252, 263);
-            this.reportFolderTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.reportFolderTextBox.Location = new System.Drawing.Point(126, 137);
             this.reportFolderTextBox.Name = "reportFolderTextBox";
-            this.reportFolderTextBox.Size = new System.Drawing.Size(660, 31);
+            this.reportFolderTextBox.Size = new System.Drawing.Size(332, 20);
             this.reportFolderTextBox.TabIndex = 11;
             // 
             // recordingFolderSelectButton
             // 
-            this.recordingFolderSelectButton.Location = new System.Drawing.Point(928, 199);
-            this.recordingFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.recordingFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.recordingFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recordingFolderSelectButton.ForeColor = System.Drawing.Color.White;
+            this.recordingFolderSelectButton.Location = new System.Drawing.Point(464, 103);
             this.recordingFolderSelectButton.Name = "recordingFolderSelectButton";
-            this.recordingFolderSelectButton.Size = new System.Drawing.Size(66, 48);
+            this.recordingFolderSelectButton.Size = new System.Drawing.Size(33, 25);
             this.recordingFolderSelectButton.TabIndex = 10;
             this.recordingFolderSelectButton.Text = "...";
             this.recordingFolderSelectButton.UseVisualStyleBackColor = true;
@@ -149,10 +154,9 @@ namespace MPAi.Forms.Popups
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 205);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(19, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 25);
+            this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Recording Folder";
             // 
@@ -160,18 +164,19 @@ namespace MPAi.Forms.Popups
             // 
             this.recordingFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.recordingFolderTextBox.Enabled = false;
-            this.recordingFolderTextBox.Location = new System.Drawing.Point(252, 199);
-            this.recordingFolderTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.recordingFolderTextBox.Location = new System.Drawing.Point(126, 103);
             this.recordingFolderTextBox.Name = "recordingFolderTextBox";
-            this.recordingFolderTextBox.Size = new System.Drawing.Size(660, 31);
+            this.recordingFolderTextBox.Size = new System.Drawing.Size(332, 20);
             this.recordingFolderTextBox.TabIndex = 8;
             // 
             // HTKFolderSelectButton
             // 
-            this.HTKFolderSelectButton.Location = new System.Drawing.Point(928, 326);
-            this.HTKFolderSelectButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.HTKFolderSelectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.HTKFolderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HTKFolderSelectButton.ForeColor = System.Drawing.Color.White;
+            this.HTKFolderSelectButton.Location = new System.Drawing.Point(464, 170);
             this.HTKFolderSelectButton.Name = "HTKFolderSelectButton";
-            this.HTKFolderSelectButton.Size = new System.Drawing.Size(66, 48);
+            this.HTKFolderSelectButton.Size = new System.Drawing.Size(33, 25);
             this.HTKFolderSelectButton.TabIndex = 16;
             this.HTKFolderSelectButton.Text = "...";
             this.HTKFolderSelectButton.UseVisualStyleBackColor = true;
@@ -180,10 +185,9 @@ namespace MPAi.Forms.Popups
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 331);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(19, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 25);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "HTK Folder";
             // 
@@ -191,30 +195,28 @@ namespace MPAi.Forms.Popups
             // 
             this.HTKFolderTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.HTKFolderTextBox.Enabled = false;
-            this.HTKFolderTextBox.Location = new System.Drawing.Point(252, 326);
-            this.HTKFolderTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.HTKFolderTextBox.Location = new System.Drawing.Point(126, 170);
             this.HTKFolderTextBox.Name = "HTKFolderTextBox";
-            this.HTKFolderTextBox.Size = new System.Drawing.Size(660, 31);
+            this.HTKFolderTextBox.Size = new System.Drawing.Size(332, 20);
             this.HTKFolderTextBox.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(150, 48);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.MaximumSize = new System.Drawing.Size(800, 0);
+            this.label5.Location = new System.Drawing.Point(75, 25);
+            this.label5.MaximumSize = new System.Drawing.Size(400, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(741, 50);
+            this.label5.Size = new System.Drawing.Size(364, 26);
             this.label5.TabIndex = 20;
             this.label5.Text = "This allows you to set the file locations used by the system. Note that MPAi depe" +
     "nds on files it finds in these locations; it is advised not to change these.";
             // 
             // SystemConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1020, 497);
+            this.ClientSize = new System.Drawing.Size(510, 258);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.HTKFolderSelectButton);
             this.Controls.Add(this.label3);
@@ -232,7 +234,6 @@ namespace MPAi.Forms.Popups
             this.Controls.Add(this.audioFolderTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SystemConfig";

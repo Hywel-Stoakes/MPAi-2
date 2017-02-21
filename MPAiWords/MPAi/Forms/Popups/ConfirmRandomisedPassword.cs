@@ -47,6 +47,9 @@ namespace MPAi.Forms.Popups
             // 
             // mpAiButton1
             // 
+            this.mpAiButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.mpAiButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mpAiButton1.ForeColor = System.Drawing.Color.White;
             this.mpAiButton1.Location = new System.Drawing.Point(42, 77);
             this.mpAiButton1.Name = "mpAiButton1";
             this.mpAiButton1.Size = new System.Drawing.Size(75, 23);
@@ -57,6 +60,9 @@ namespace MPAi.Forms.Popups
             // 
             // mpAiButton2
             // 
+            this.mpAiButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.mpAiButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mpAiButton2.ForeColor = System.Drawing.Color.White;
             this.mpAiButton2.Location = new System.Drawing.Point(167, 77);
             this.mpAiButton2.Name = "mpAiButton2";
             this.mpAiButton2.Size = new System.Drawing.Size(75, 23);

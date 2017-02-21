@@ -114,6 +114,9 @@ namespace MPAi.Forms.Popups
             // 
             // filePickerButton
             // 
+            this.filePickerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.filePickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filePickerButton.ForeColor = System.Drawing.Color.White;
             this.filePickerButton.Location = new System.Drawing.Point(377, 44);
             this.filePickerButton.Margin = new System.Windows.Forms.Padding(10);
             this.filePickerButton.Name = "filePickerButton";
@@ -125,6 +128,9 @@ namespace MPAi.Forms.Popups
             // 
             // renameButton
             // 
+            this.renameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
+            this.renameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.renameButton.ForeColor = System.Drawing.Color.White;
             this.renameButton.Location = new System.Drawing.Point(247, 178);
             this.renameButton.Name = "renameButton";
             this.renameButton.Size = new System.Drawing.Size(75, 23);
@@ -135,7 +141,10 @@ namespace MPAi.Forms.Popups
             // 
             // cancelButton
             // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(328, 178);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
