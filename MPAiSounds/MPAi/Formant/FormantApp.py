@@ -333,7 +333,8 @@ class FormantApp:
 
 
     def save(self):
-        self.dirName = "userAudio"
+        os.chdir("../..")
+        self.dirName = "Recordings"
         self.fileName = self.e.get()
         dirName = self.dirName
         fileName = self.fileName
@@ -357,8 +358,7 @@ class FormantApp:
             self.top.destroy()
             self.popup()
 
-
-
+        os.chdir("Formant/dist")
         self.top.destroy()
 
 
