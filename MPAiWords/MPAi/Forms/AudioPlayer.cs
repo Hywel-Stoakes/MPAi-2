@@ -30,7 +30,6 @@ namespace MPAi.Forms
 
         private string invalidStateString = "Invalid State!";
         private string invalidRecordingString = "Invalid recording!";
-        private string vowelNotFoundText = "That sound is not valid. Try another, or select from the list.";
         private string formatErrorText = "A problem was encountered during recording {0}";
         private string warningText = "Warning";
         private string noAudioDeviceText = "No audio device plugged in.";
@@ -227,8 +226,13 @@ namespace MPAi.Forms
                 || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Opening)
                 || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Buffering)
                 || vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Paused))
+            {
                 asyncStop();
-            playAudio();
+            }
+            if (!vlcControl.State.Equals(Vlc.DotNet.Core.Interops.Signatures.MediaStates.Stopped))   // Unless the form has just loaded, play audio.
+            {
+                playAudio();
+            }
         }
 
         /// <summary>
