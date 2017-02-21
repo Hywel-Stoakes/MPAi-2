@@ -404,7 +404,6 @@ namespace MPAi.Forms
                 var device = (MMDevice)AudioInputDeviceComboBox.SelectedItem;
                 if (!(device == null))
                 {
-                    Console.WriteLine("RECORDING...1");
                     recordButton.Text = stopText;
                     recordingProgressBar.Value = 0;
 
@@ -414,11 +413,9 @@ namespace MPAi.Forms
                     waveIn.DataAvailable += OnDataAvailable;
                     onDataAvailableSubscribed = true;
                     waveIn.RecordingStopped += OnRecordingStopped;
-                    Console.Write(audioFilePath);
                     writer = new WaveFileWriter(audioFilePath, waveIn.WaveFormat);
                     waveIn.StartRecording();
                     SetControlStates(true);
-                    Console.WriteLine("RECORDING...2");
                 }
                 else
                 {
@@ -456,7 +453,6 @@ namespace MPAi.Forms
                 recordingProgressBar.Value = secondsRecorded * 10;  // Increase the progress bar
                 if (secondsRecorded >= 10)
                 {
-                    Console.WriteLine("Longer than 10 seconds.");
                     StopRecording(); // If we have recorded more than 10s of audio then stop recording
                 }
             }
@@ -475,12 +471,17 @@ namespace MPAi.Forms
             }
             else
             {
-                if (e.Exception != null)
-                {
-                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
-                }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = myRecordingText;
+                if (e.Exception != null)
+                {
+                    MPAiMessageBoxFactory.Show(string.Format(formatErrorText, e.Exception.Message));
+                    // Remove the file if it's not valid
+                    writer.Close();
+                    recordingProgressBarLabel.Text = noFileText;
+                    File.Delete(audioFilePath);
+                    removeButton.Enabled = false;
+                }
             }
         }
 

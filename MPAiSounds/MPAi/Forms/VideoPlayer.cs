@@ -451,12 +451,17 @@ namespace MPAi.Forms
             }
             else
             {
-                if (e.Exception != null)
-                {
-                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
-                }
                 SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = myRecordingText;
+                if (e.Exception != null)
+                {
+                    MPAiMessageBoxFactory.Show(string.Format(formatErrorText, e.Exception.Message));
+                    // Remove the file if it's not valid
+                    writer.Close();
+                    recordingProgressBarLabel.Text = noFileText;
+                    File.Delete(audioFilePath);
+                    removeButton.Enabled = false;
+                }
             }
         }
 
