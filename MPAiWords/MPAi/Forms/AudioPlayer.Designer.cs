@@ -282,7 +282,7 @@ namespace MPAi.Forms
             this.progressBar1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel1.SetColumnSpan(this.progressBar1, 5);
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x71);
             this.progressBar1.Location = new System.Drawing.Point(127, 39);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(304, 23);
@@ -595,7 +595,8 @@ namespace MPAi.Forms
             // 
             this.recordingProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.recordingProgressBar.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
+            this.recordingProgressBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.recordingProgressBar.ForeColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x71);
             this.recordingProgressBar.Location = new System.Drawing.Point(104, 38);
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(361, 25);

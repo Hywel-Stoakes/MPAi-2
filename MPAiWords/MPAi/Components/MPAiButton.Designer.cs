@@ -32,7 +32,7 @@
             // 
             // MPAiButton
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
+            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x71);
             this.ForeColor = System.Drawing.Color.White;
             this.EnabledChanged += MPAiButton_EnabledChanged;
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -198,7 +198,8 @@ namespace MPAi.Forms
             // recordingProgressBar
             // 
             this.recordingProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.recordingProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.recordingProgressBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.recordingProgressBar.ForeColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x71);
             this.recordingProgressBar.Location = new System.Drawing.Point(117, 90);
             this.recordingProgressBar.Name = "recordingProgressBar";
             this.recordingProgressBar.Size = new System.Drawing.Size(350, 50);
