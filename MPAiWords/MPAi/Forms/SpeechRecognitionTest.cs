@@ -246,6 +246,20 @@ namespace MPAi.Forms
                 }
                 File.Delete(Path.Combine(tempFolder, tempFilename));    // Delete the temporary file.
             }
+            catch(IOException exp)
+            {
+                // If there is an error recording, finalise everything, but don't update the recording.
+                if (dataEvent)
+                {
+                    waveIn.DataAvailable -= OnDataAvailable;
+                    dataEvent = false;
+                }
+                if (waveIn != null)
+                {
+                    waveIn.StopRecording();
+                }
+                FinalizeWaveFile(writer);
+            }
             catch (Exception exp)
             {
                 Console.WriteLine(exp);
@@ -266,14 +280,15 @@ namespace MPAi.Forms
             else
             {
                 Resample();
-                if (e.Exception != null)
-                {
-                    MPAiMessageBoxFactory.Show(String.Format(formatErrorText, e.Exception.Message));
-                }
-                SetControlStates(false);    // Toggle the record and stop buttons
                 recordingProgressBarLabel.Text = outputFileName;
                 int newItemIndex = RecordingListBox.Items.Add(outputFileName);    // Add the new audio file to the list box
                 RecordingListBox.SelectedIndex = newItemIndex;    // And select it
+                SetControlStates(false);    // Toggle the record and stop buttons
+                if (e.Exception != null)
+                {
+                    DeleteFile();   // Remove the now erroneous file.
+                    MPAiMessageBoxFactory.Show(string.Format(formatErrorText, e.Exception.Message));
+                }
             }
         }
 
