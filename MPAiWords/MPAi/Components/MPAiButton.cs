@@ -19,7 +19,7 @@ namespace MPAi.Components
             }
             else
             {
-                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x60, 0x60);
+                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x30, 0x30);
             }
         }
 

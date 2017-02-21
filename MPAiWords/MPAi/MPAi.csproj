@@ -1779,6 +1779,7 @@
     <Content Include="Resources\header.png" />
     <Content Include="Resources\newUser.png" />
     <Content Include="Resources\SplashScreen.png" />
+    <Content Include="Resources\userLogo.png" />
     <Content Include="Resources\LoginLogo.png" />
   </ItemGroup>
   <ItemGroup>

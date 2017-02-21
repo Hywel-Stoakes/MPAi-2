@@ -228,6 +228,9 @@ namespace MPAi.Forms.Popups
             // scoreReportButton
             // 
             this.scoreReportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scoreReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.scoreReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.scoreReportButton.ForeColor = System.Drawing.Color.White;
             this.scoreReportButton.Location = new System.Drawing.Point(12, 10);
             this.scoreReportButton.Name = "scoreReportButton";
             this.scoreReportButton.Size = new System.Drawing.Size(100, 23);
