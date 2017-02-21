@@ -1,10 +1,10 @@
 
 #Default Values these values will be used during first run, or if the file is deleted.
-CENTREOVAL = 0.45 #SD from the mean
+CENTREOVAL = 0.5 #SD from the mean
 MIDDLEOVAL = 1.5 #SD from the mean
 OUTEROVAL = 3 #SD from the mean
 
-TARGETSIZERATIO = 0.75 #Ratio of target diameter to application width
+TARGETSIZERATIO = 0.67 #Ratio of target diameter to application width
 
 def getDataFromFile():
 
@@ -53,7 +53,7 @@ def getDataFromFile():
         configFile.write("To change the values simply replace the numbers above.\n")
         configFile.write("NOTE: This effects all users on this computer.\n")
         configFile.write("\n")
-        configFile.write("Please note the defaults are C=0.45, M=1.5, O=3\n")
+        configFile.write("Please note the defaults are C=0.45, M=1.5, O=3, T:0.67\n")
         configFile.write("These are constant and will be returned upon a fresh install.")
         configFile.close()
 
