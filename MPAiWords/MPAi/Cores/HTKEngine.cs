@@ -33,12 +33,6 @@ namespace MPAi.Cores
                 Process process = Process.Start(processInfo);
                 process.StandardInput.WriteLine(arguments);
                 process.WaitForExit();
-
-                // Optional: Output debug information to standard output after a timeout.
-                //if(process.WaitForExit(10000))
-                //{
-                //    string output = process.StandardOutput.ReadToEnd();
-                //}
             }
             catch (Exception exp)
             {
@@ -50,12 +44,10 @@ namespace MPAi.Cores
         /// </summary>
         /// <param name="RecordingPath">The path to the recording to analyse.</param>
         /// <returns>The IDictionary object output by the analyse method.</returns>
-        public IDictionary<string, string> Recognize(String RecordingPath)
+        public IDictionary<string, string> Recognize(string RecordingPath)
         {
             string BatchesFolder = Path.Combine(DirectoryManagement.HTKFolder, @"Batches");
             string MLFsFolder = Path.Combine(DirectoryManagement.HTKFolder, @"MLFs");
-            // Deprecated: This batch file is not used.
-            //RunBatchFile(Path.Combine(BatchesFolder, "Recordings2MFCs.bat"), RecordingPath);
             RunBatchFile(Path.Combine(BatchesFolder, "ModelEvaluater.bat"), RecordingPath);
             return Analyze(Path.Combine(MLFsFolder, "RecMLF.mlf"));
         }
@@ -64,9 +56,9 @@ namespace MPAi.Cores
         /// </summary>
         /// <param name="ResultPath">The MLF file to analyse.</param>
         /// <returns>An IDictionary mapping the recording name as a a string to the word detected in the recording.</returns>
-        public IDictionary<string, string> Analyze(String ResultPath)
+        public IDictionary<string, string> Analyze(string ResultPath)
         {
-            Dictionary<String, String> RecResult = new Dictionary<string, string>();
+            Dictionary<string, string> RecResult = new Dictionary<string, string>();
             if (File.Exists(ResultPath))
             {
                 try

@@ -43,7 +43,6 @@ namespace MPAi.Forms
             this.playButton = new MPAiButton(this.components);
             this.recordingProgressBar = new System.Windows.Forms.ProgressBar();
             this.AudioInputDeviceButton = new MPAiButton(this.components);
-            this.RenameButton = new MPAiButton(this.components);
             this.AudioInputDeviceComboBox = new System.Windows.Forms.ComboBox();
             this.DeleteButton = new MPAiButton(this.components);
             this.AudioInputDeviceLabel = new System.Windows.Forms.Label();
@@ -92,7 +91,6 @@ namespace MPAi.Forms
             // SpeechRecognitionTestPanel.Panel2
             // 
             this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.AudioInputDeviceButton);
-            this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.RenameButton);
             this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.AudioInputDeviceComboBox);
             this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.DeleteButton);
             this.SpeechRecognitionTestPanel.Panel2.Controls.Add(this.AudioInputDeviceLabel);
@@ -233,22 +231,6 @@ namespace MPAi.Forms
             this.AudioInputDeviceButton.Text = "Refresh";
             this.AudioInputDeviceButton.UseVisualStyleBackColor = true;
             this.AudioInputDeviceButton.Click += new System.EventHandler(this.AudioInputDeviceButton_Click);
-            // 
-            // RenameButton
-            // 
-            this.RenameButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RenameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.RenameButton.Enabled = false;
-            this.RenameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RenameButton.ForeColor = System.Drawing.Color.White;
-            this.RenameButton.Location = new System.Drawing.Point(474, 196);
-            this.RenameButton.Margin = new System.Windows.Forms.Padding(10);
-            this.RenameButton.Name = "RenameButton";
-            this.RenameButton.Size = new System.Drawing.Size(100, 25);
-            this.RenameButton.TabIndex = 12;
-            this.RenameButton.Text = "Rename";
-            this.RenameButton.UseVisualStyleBackColor = true;
-            this.RenameButton.Click += new System.EventHandler(this.RenameButton_Click);
             // 
             // AudioInputDeviceComboBox
             // 
@@ -402,7 +384,6 @@ namespace MPAi.Forms
         private MPAiButton playButton;
         private System.Windows.Forms.ProgressBar recordingProgressBar;
         private MPAiButton AudioInputDeviceButton;
-        private MPAiButton RenameButton;
         private System.Windows.Forms.ComboBox AudioInputDeviceComboBox;
         private MPAiButton DeleteButton;
         private System.Windows.Forms.Label AudioInputDeviceLabel;
