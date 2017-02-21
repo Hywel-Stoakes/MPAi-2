@@ -63,9 +63,6 @@ namespace MPAi.Forms
             // Initialise the LoginScreen.
             InitializeComponent();
 
-            // Change this property to set what is pressed when the user presses enter. Currently it's set to Speak.
-            AcceptButton = soundLaunchButton;
-
             // Checks the "Remember Me"checkbox value
             bool autoLog = rememberCheckBox.Checked = Properties.Settings.Default.autoLoginSetting;
             // If the user has been remembered, populate the username and password fields with their username and password.
@@ -133,6 +130,11 @@ namespace MPAi.Forms
             {
                 watermarkUsername(true);
             }
+            else
+            {
+                // If there is user text in the box, highlight it when the user focuses said box.
+                usernameTextBox.SelectAll();
+            }
         }
 
         /// <summary>
@@ -168,6 +170,11 @@ namespace MPAi.Forms
             if (passwordTextBox.Text.Equals(defaultPasswordText) && passwordTextBox.ForeColor.Equals(SystemColors.InactiveCaption))
             {
                 watermarkPassword(true);
+            }
+            else
+            {
+                // If there is user text in the box, highlight it when the user focuses said box.
+                passwordTextBox.SelectAll();
             }
         }
 
@@ -264,6 +271,7 @@ namespace MPAi.Forms
         private void rememberCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.autoLoginSetting = rememberCheckBox.Checked;
+            Properties.Settings.Default.Save();
         }
 
         private void soundLaunchButton_Click(object sender, EventArgs e)

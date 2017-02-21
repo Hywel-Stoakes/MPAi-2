@@ -28,6 +28,10 @@ namespace MPAi.Components
 
         private void this_DrawItem(object sender, DrawItemEventArgs e)
         {
+            if (e.Index == -1)
+            {
+                return;
+            }
             e.DrawBackground();
             Color colour, highlightColour;
             // Set the colour here.
