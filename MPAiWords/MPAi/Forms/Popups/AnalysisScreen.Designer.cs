@@ -88,7 +88,7 @@ namespace MPAi.Forms.Popups
             // 
             // splitContainer4
             // 
-            this.splitContainer4.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x73);
+            this.splitContainer4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(115)))));
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer4.Location = new System.Drawing.Point(0, 0);
             this.splitContainer4.Name = "splitContainer4";
@@ -228,6 +228,9 @@ namespace MPAi.Forms.Popups
             // scoreReportButton
             // 
             this.scoreReportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scoreReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(115)))));
+            this.scoreReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.scoreReportButton.ForeColor = System.Drawing.Color.White;
             this.scoreReportButton.Location = new System.Drawing.Point(12, 10);
             this.scoreReportButton.Name = "scoreReportButton";
             this.scoreReportButton.Size = new System.Drawing.Size(100, 23);
@@ -239,6 +242,9 @@ namespace MPAi.Forms.Popups
             // backButton
             // 
             this.backButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(115)))));
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(410, 10);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);

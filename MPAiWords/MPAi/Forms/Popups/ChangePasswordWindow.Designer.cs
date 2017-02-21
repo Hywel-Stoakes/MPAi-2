@@ -43,10 +43,7 @@ namespace MPAi.Forms.Popups
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.ForeColor = System.Drawing.Color.White;
             this.buttonCancel.Location = new System.Drawing.Point(197, 124);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 25);
@@ -58,9 +55,6 @@ namespace MPAi.Forms.Popups
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xA0, 0x00, 0x00);
-            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOK.ForeColor = System.Drawing.Color.White;
             this.buttonOK.Location = new System.Drawing.Point(116, 124);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 25);
