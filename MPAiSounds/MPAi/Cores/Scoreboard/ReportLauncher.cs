@@ -46,8 +46,7 @@ namespace MPAi.Cores.Scoreboard
         {
             get
             {
-                return Path.Combine(System.Environment.GetEnvironmentVariable("appdata"), "MPAi", "Resources", "CSSFiles", "Scoreboard.css");
-                
+                return Path.Combine(AppDataPath.Path, "Resources", "CSSFiles", "Scoreboard.css");
             }
         }
         /// <summary>
