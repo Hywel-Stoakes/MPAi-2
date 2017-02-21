@@ -33,35 +33,35 @@ namespace MPAi.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
             this.VideoPlayerPanel = new System.Windows.Forms.SplitContainer();
-            this.backButton = new MPAiButton(this.components);
-            this.optionsButton = new MPAiButton(this.components);
-            this.VowelComboBox = new MPAiComboBox();
+            this.backButton = new MPAi.Components.MPAiButton(this.components);
+            this.optionsButton = new MPAi.Components.MPAiButton(this.components);
+            this.VowelComboBox = new MPAi.Components.MPAiComboBox(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.vlcControl = new Vlc.DotNet.Forms.VlcControl();
-            this.backwardButton = new MPAiButton(this.components);
+            this.backwardButton = new MPAi.Components.MPAiButton(this.components);
             this.backImageList = new System.Windows.Forms.ImageList(this.components);
-            this.playButton = new MPAiButton(this.components);
+            this.playButton = new MPAi.Components.MPAiButton(this.components);
             this.playImageList = new System.Windows.Forms.ImageList(this.components);
-            this.forwardButton = new MPAiButton(this.components);
+            this.forwardButton = new MPAi.Components.MPAiButton(this.components);
             this.forwardImageList = new System.Windows.Forms.ImageList(this.components);
-            this.resetButton = new MPAiButton(this.components);
+            this.resetButton = new MPAi.Components.MPAiButton(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.playNextCheckBox = new System.Windows.Forms.CheckBox();
-            this.removeButton = new MPAiButton(this.components);
+            this.removeButton = new MPAi.Components.MPAiButton(this.components);
             this.divider4 = new System.Windows.Forms.Label();
             this.divider3 = new System.Windows.Forms.Label();
             this.divider2 = new System.Windows.Forms.Label();
             this.divider1 = new System.Windows.Forms.Label();
-            this.soundListAddAllButton = new MPAiButton(this.components);
-            this.soundListRemoveButton = new MPAiButton(this.components);
-            this.soundListAddButton = new MPAiButton(this.components);
+            this.soundListAddAllButton = new MPAi.Components.MPAiButton(this.components);
+            this.soundListRemoveButton = new MPAi.Components.MPAiButton(this.components);
+            this.soundListAddButton = new MPAi.Components.MPAiButton(this.components);
             this.soundListAllListBox = new System.Windows.Forms.ListBox();
             this.soundListCurrentListBox = new System.Windows.Forms.ListBox();
             this.soundListAllLabel = new System.Windows.Forms.Label();
             this.soundListCurrentLabel = new System.Windows.Forms.Label();
-            this.addFromFileButton = new MPAiButton(this.components);
-            this.recordButton = new MPAiButton(this.components);
-            this.AudioInputDeviceButton = new MPAiButton(this.components);
+            this.addFromFileButton = new MPAi.Components.MPAiButton(this.components);
+            this.recordButton = new MPAi.Components.MPAiButton(this.components);
+            this.AudioInputDeviceButton = new MPAi.Components.MPAiButton(this.components);
             this.AudioInputDeviceComboBox = new System.Windows.Forms.ComboBox();
             this.AudioInputDeviceLabel = new System.Windows.Forms.Label();
             this.repeatSpinner = new System.Windows.Forms.DomainUpDown();
@@ -70,7 +70,7 @@ namespace MPAi.Forms
             this.repeatTrackBar = new System.Windows.Forms.TrackBar();
             this.recordingProgressBar = new System.Windows.Forms.ProgressBar();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.menuStrip2 = new MenuStrip(this.components);
+            this.menuStrip2 = new MPAi.Components.MenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayerPanel)).BeginInit();
             this.VideoPlayerPanel.Panel1.SuspendLayout();
             this.VideoPlayerPanel.Panel2.SuspendLayout();
@@ -124,7 +124,7 @@ namespace MPAi.Forms
             this.VideoPlayerPanel.Panel2.Controls.Add(this.repeatTrackBar);
             this.VideoPlayerPanel.Panel2.Controls.Add(this.recordingProgressBar);
             this.VideoPlayerPanel.Size = new System.Drawing.Size(584, 612);
-            this.VideoPlayerPanel.SplitterDistance = 337;
+            this.VideoPlayerPanel.SplitterDistance = 340;
             this.VideoPlayerPanel.SplitterWidth = 1;
             this.VideoPlayerPanel.TabIndex = 0;
             // 
@@ -134,7 +134,7 @@ namespace MPAi.Forms
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(474, 302);
+            this.backButton.Location = new System.Drawing.Point(474, 305);
             this.backButton.Margin = new System.Windows.Forms.Padding(10);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(100, 25);
@@ -149,7 +149,7 @@ namespace MPAi.Forms
             this.optionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.optionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optionsButton.ForeColor = System.Drawing.Color.White;
-            this.optionsButton.Location = new System.Drawing.Point(370, 302);
+            this.optionsButton.Location = new System.Drawing.Point(370, 305);
             this.optionsButton.Margin = new System.Windows.Forms.Padding(10);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(100, 25);
@@ -162,19 +162,15 @@ namespace MPAi.Forms
             // 
             this.VowelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VowelComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.VowelComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.VowelComboBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.VowelComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.VowelComboBox.FormattingEnabled = true;
+            this.VowelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VowelComboBox.ItemHeight = 13;
             this.VowelComboBox.Location = new System.Drawing.Point(115, 33);
             this.VowelComboBox.Name = "VowelComboBox";
             this.VowelComboBox.Size = new System.Drawing.Size(353, 19);
             this.VowelComboBox.TabIndex = 1;
             this.VowelComboBox.SelectedIndexChanged += new System.EventHandler(this.VowelComboBox_SelectedIndexChanged);
-            this.VowelComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VowelComboBox_KeyPress);
-            this.VowelComboBox.Leave += new System.EventHandler(this.VowelComboBox_Leave);
             // 
             // tableLayoutPanel1
             // 
@@ -201,7 +197,7 @@ namespace MPAi.Forms
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(566, 257);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(566, 260);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // vlcControl
@@ -211,7 +207,7 @@ namespace MPAi.Forms
             this.vlcControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vlcControl.Location = new System.Drawing.Point(3, 3);
             this.vlcControl.Name = "vlcControl";
-            this.vlcControl.Size = new System.Drawing.Size(560, 186);
+            this.vlcControl.Size = new System.Drawing.Size(560, 189);
             this.vlcControl.Spu = -1;
             this.vlcControl.TabIndex = 3;
             this.vlcControl.Text = "vlcControl1";
@@ -234,7 +230,7 @@ namespace MPAi.Forms
             this.backwardButton.ForeColor = System.Drawing.Color.White;
             this.backwardButton.ImageIndex = 1;
             this.backwardButton.ImageList = this.backImageList;
-            this.backwardButton.Location = new System.Drawing.Point(189, 195);
+            this.backwardButton.Location = new System.Drawing.Point(189, 198);
             this.backwardButton.Name = "backwardButton";
             this.backwardButton.Size = new System.Drawing.Size(56, 59);
             this.backwardButton.TabIndex = 5;
@@ -263,7 +259,7 @@ namespace MPAi.Forms
             this.playButton.ForeColor = System.Drawing.Color.White;
             this.playButton.ImageIndex = 1;
             this.playButton.ImageList = this.playImageList;
-            this.playButton.Location = new System.Drawing.Point(251, 195);
+            this.playButton.Location = new System.Drawing.Point(251, 198);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(56, 59);
             this.playButton.TabIndex = 6;
@@ -294,7 +290,7 @@ namespace MPAi.Forms
             this.forwardButton.ForeColor = System.Drawing.Color.White;
             this.forwardButton.ImageIndex = 1;
             this.forwardButton.ImageList = this.forwardImageList;
-            this.forwardButton.Location = new System.Drawing.Point(313, 195);
+            this.forwardButton.Location = new System.Drawing.Point(313, 198);
             this.forwardButton.Name = "forwardButton";
             this.forwardButton.Size = new System.Drawing.Size(56, 59);
             this.forwardButton.TabIndex = 8;
@@ -638,7 +634,7 @@ namespace MPAi.Forms
             this.MinimumSize = new System.Drawing.Size(375, 630);
             this.Name = "VideoPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MPAi Vowels";
+            this.Text = "MPAi Sounds";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VideoPlayer_FormClosing);
             this.VideoPlayerPanel.Panel1.ResumeLayout(false);
             this.VideoPlayerPanel.Panel2.ResumeLayout(false);

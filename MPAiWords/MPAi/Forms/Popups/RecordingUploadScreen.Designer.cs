@@ -47,7 +47,7 @@ namespace MPAi.Forms.Popups
             // 
             // toLocalButton
             // 
-            this.toLocalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.toLocalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.toLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toLocalButton.ForeColor = System.Drawing.Color.White;
             this.toLocalButton.Location = new System.Drawing.Point(218, 69);
@@ -60,7 +60,7 @@ namespace MPAi.Forms.Popups
             // 
             // toDBButton
             // 
-            this.toDBButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.toDBButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.toDBButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toDBButton.ForeColor = System.Drawing.Color.White;
             this.toDBButton.Location = new System.Drawing.Point(218, 38);
@@ -84,7 +84,7 @@ namespace MPAi.Forms.Popups
             // 
             // allLocalItemsButton
             // 
-            this.allLocalItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.allLocalItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.allLocalItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allLocalItemsButton.ForeColor = System.Drawing.Color.White;
             this.allLocalItemsButton.Location = new System.Drawing.Point(218, 100);
@@ -132,7 +132,7 @@ namespace MPAi.Forms.Popups
             // 
             // selectFolderButton
             // 
-            this.selectFolderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.selectFolderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.selectFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.selectFolderButton.ForeColor = System.Drawing.Color.White;
             this.selectFolderButton.Location = new System.Drawing.Point(193, 5);
@@ -145,7 +145,7 @@ namespace MPAi.Forms.Popups
             // 
             // allDatabaseItemsButton
             // 
-            this.allDatabaseItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.allDatabaseItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.allDatabaseItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allDatabaseItemsButton.ForeColor = System.Drawing.Color.White;
             this.allDatabaseItemsButton.Location = new System.Drawing.Point(218, 129);
@@ -159,7 +159,7 @@ namespace MPAi.Forms.Popups
             // 
             // backButton
             // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(220)))), ((int)(((byte)(113)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(218, 158);

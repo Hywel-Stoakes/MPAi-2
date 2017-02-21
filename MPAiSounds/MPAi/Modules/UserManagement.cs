@@ -206,7 +206,7 @@ namespace MPAi.Modules
                             // restore the last used user, if there was one.
 
                             int index = reader.ReadInt32();
-                            if (index > 0 && index < allUsers.Count)
+                            if (index >= 0 && index < allUsers.Count)
                             {
                                 currentUser = allUsers[index];
                             }
