@@ -34,7 +34,6 @@
             // 
             this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x71);
             this.ForeColor = System.Drawing.Color.White;
-            this.EnabledChanged += MPAiButton_EnabledChanged;
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UseVisualStyleBackColor = false;
             this.ResumeLayout(false);
