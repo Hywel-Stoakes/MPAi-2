@@ -125,14 +125,14 @@ class FormantApp:
         self.filemenu = filemenu
         menubar.add_cascade(label="File", menu=filemenu)
         self.saveCom = filemenu.add_command(label="Save Current Audio", command=self.popup)
-        self.loadCom = filemenu.add_command(label="load a Audio File", command=lambda: self.loadAudioFile())
+        self.loadCom = filemenu.add_command(label="Load Audio File", command=lambda: self.loadAudioFile())
 
         #menubar.add_command(label="Toggle: Maori Vowel Pronociation Help", command=self.togglePronHelp)
         #menubar.add_command(label="Back", command=self.goBack)
 
         menubar.add_cascade(label="Options", menu=optionsMenu)
-        optionsMenu.add_command(label='toggle Lines', command= self.toggleLines)
-        optionsMenu.add_command(label='toggle Loaded Plots', command = self.toggleLoadedPlots)
+        optionsMenu.add_command(label='Toggle Lines', command= self.toggleLines)
+        optionsMenu.add_command(label='Toggle Loaded Plots', command = self.toggleLoadedPlots)
         optionsMenu.add_command(label='BackGround Noise: Normal', command = self.toggleBackgroundNoise)
         self.optionsMenu = optionsMenu
         self.vowelType = 'long'
@@ -145,13 +145,7 @@ class FormantApp:
 
     def sto(self):
         self.formantPlot.stop()
-
-    """
-    Requests the current formant plot to save its current recording.
-    """
-    def save(self):
-        self.formantPlot.save()
-
+        
     """
     gets the current working directory.
     """

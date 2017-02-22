@@ -565,17 +565,18 @@ class FormantPlot:
     def loadAudioFile(self):
         self.formantPlotCanvas.delete("loadedLines")
 
-
+        os.chdir("../..")
         self.xLoadedPlotList = []
         self.yLoadedPlotList = []
 
         self.loadedPlots = True
-        filename = tkFileDialog.askopenfilename(initialdir="userAudio")
+        print os.getcwd()
+        filename = tkFileDialog.askopenfilename(initialdir="Recordings")
         radius = self.formantRadius
         self.formantPlotCanvas.delete('loadedPlots')
 
         self.loadedAudio.config(load=filename)
-
+        os.chdir("Formant/dist")
         import wave
         import contextlib
         fname = filename
