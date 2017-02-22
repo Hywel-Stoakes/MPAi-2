@@ -17,5 +17,17 @@ namespace MPAi.Components
 
             InitializeComponent();
         }
+
+        public void MPAiButton_EnabledChanged(object sender, EventArgs e)
+        {
+            if(this.Enabled)
+            {
+                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x03, 0xDC, 0x71);
+            }
+            else
+            {
+                this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0x43, 0xEC, 0x91);
+            }
+        }
     }
 }
