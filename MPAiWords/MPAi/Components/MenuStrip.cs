@@ -20,11 +20,11 @@ namespace MPAi.Components
         {
             InitializeComponent();
 
-            //checkAndSetNativeDisplayVoice();
-            //checkAppropriateComponents();
-            //authoriseAdmin();
+            checkAndSetNativeDisplayVoice();
+            checkAppropriateComponents();
+            authoriseAdmin();
 
-            //userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
+            userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
         }
 
         /// <summary>
@@ -36,11 +36,11 @@ namespace MPAi.Components
             container.Add(this);
 
             InitializeComponent();
-            //checkAndSetNativeDisplayVoice();
-            //checkAppropriateComponents();
-            //authoriseAdmin();
+            checkAndSetNativeDisplayVoice();
+            checkAppropriateComponents();
+            authoriseAdmin();
 
-            //userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
+            userToolStripMenuItem.Text = UserManagement.CurrentUser.GetCorrectlyCapitalisedName();
         }
 
         private void checkAndSetNativeDisplayVoice()
