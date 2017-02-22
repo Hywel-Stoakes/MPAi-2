@@ -81,7 +81,7 @@ namespace MPAi.Forms
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(544, 361);
-            this.splitContainer1.SplitterDistance = 95;
+            this.splitContainer1.SplitterDistance = 103;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
             // 
