@@ -144,7 +144,7 @@ namespace MPAi.Forms
             this.MinimumSize = new System.Drawing.Size(295, 284);
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login to MPAi Sounds";
+            this.Text = "Login to MPAi Words";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginScreen_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).EndInit();
             this.ResumeLayout(false);
