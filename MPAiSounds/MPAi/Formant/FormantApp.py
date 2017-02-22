@@ -145,7 +145,7 @@ class FormantApp:
 
     def sto(self):
         self.formantPlot.stop()
-        
+
     """
     gets the current working directory.
     """
@@ -328,7 +328,7 @@ class FormantApp:
 
     def save(self):
         os.chdir("../..")
-        self.dirName = "Recordings"
+        self.dirName = "Recording"
         self.fileName = self.e.get()
         dirName = self.dirName
         fileName = self.fileName

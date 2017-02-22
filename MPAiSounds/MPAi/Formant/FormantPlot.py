@@ -571,7 +571,7 @@ class FormantPlot:
 
         self.loadedPlots = True
         print os.getcwd()
-        filename = tkFileDialog.askopenfilename(initialdir="Recordings")
+        filename = tkFileDialog.askopenfilename(initialdir="Recording")
         radius = self.formantRadius
         self.formantPlotCanvas.delete('loadedPlots')
 
