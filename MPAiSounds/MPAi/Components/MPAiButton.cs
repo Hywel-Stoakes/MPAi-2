@@ -9,11 +9,6 @@ namespace MPAi.Components
         public MPAiButton()
         {
             InitializeComponent();
-
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ForeColor = System.Drawing.Color.White;
-            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xFA, 0x4A, 0x4A);
-            this.EnabledChanged += MPAiButton_EnabledChanged;
         }
 
         private void MPAiButton_EnabledChanged(object sender, EventArgs e)
@@ -35,11 +30,6 @@ namespace MPAi.Components
             container.Add(this);
 
             InitializeComponent();
-
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ForeColor = System.Drawing.Color.White;
-            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xFA, 0x4A, 0x4A);
-            this.EnabledChanged += MPAiButton_EnabledChanged;
         }
     }
 }

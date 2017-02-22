@@ -31,6 +31,11 @@
             this.SuspendLayout();
             this.ResumeLayout(false);
 
+
+            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ForeColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(0xFF, 0xFA, 0x4A, 0x4A);
+            this.EnabledChanged += MPAiButton_EnabledChanged;
         }
 
         #endregion
