@@ -194,7 +194,7 @@ namespace MPAi.Forms
             this.formantButton.Name = "formantButton";
             this.formantButton.Size = new System.Drawing.Size(70, 23);
             this.formantButton.TabIndex = 3;
-            this.formantButton.Text = "Test";
+            this.formantButton.Text = "Formant";
             this.formantButton.UseVisualStyleBackColor = false;
             this.formantButton.Click += new System.EventHandler(this.formantButton_Click);
             this.formantButton.MouseEnter += new System.EventHandler(this.formantButton_MouseEnter);
